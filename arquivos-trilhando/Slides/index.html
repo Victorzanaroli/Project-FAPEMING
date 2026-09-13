@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Apresentações - Trilhando o Caminho do Código</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #09090b;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --accent-purple: #818cf8;
+            --accent-blue: #38bdf8;
+            --accent-green: #34d399;
+            --accent-orange: #fb923c;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 100px;
+            background: rgba(129, 140, 248, 0.1);
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            color: var(--accent-purple);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+        }
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            border-color: rgba(129, 140, 248, 0.4);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent-purple);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 14px;
+        }
+        .card-footer span.arrow {
+            transition: transform 0.2s ease;
+        }
+        .card:hover .card-footer span.arrow {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="badge">⚡ FAPEMING • PROJETO EXTENSIONISTA</div>
+        <h1>Trilhando o Caminho do Código</h1>
+        <p class="subtitle">Portal de Apresentações Interativas (Slides em HTML/CSS/JS) das 9 Aulas do Curso</p>
+    </div>
+
+    <div class="grid">
+        <a href="aula-01-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 01</div>
+                <div class="card-title">Abertura, T0 & Prompting</div>
+                <div class="card-desc">Apresentação da extensão, aplicação da linha de base T0, contrato pedagógico e frameworks P.R.R.E / P.R.O.M.P.T com Gemini CLI.</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (6 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+
+        <a href="aula-02-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 02</div>
+                <div class="card-title">Variáveis, Tipos & Input</div>
+                <div class="card-desc">Conceito de memória, atribuição, tipos primitivos (str, int, float, bool), captura via input() e f-strings.</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (6 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+
+        <a href="aula-03-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 03</div>
+                <div class="card-title">Tomada de Decisão (if / else)</div>
+                <div class="card-desc">Estruturas condicionais em Python (if, elif, else), operadores relacionais e operadores lógicos (and, or, not).</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (5 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+
+        <a href="aula-04-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 04</div>
+                <div class="card-title">Laços de Repetição (while / for)</div>
+                <div class="card-desc">Automação de repetições com while e for, sequência range(), contadores e acumuladores.</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (5 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+
+        <a href="aula-05-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 05</div>
+                <div class="card-title">Listas & Coleções de Dados</div>
+                <div class="card-desc">Armazenamento sequencial em listas, índices, métodos append(), remove(), pop() e iteração.</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (5 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+
+        <a href="aula-06-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 06</div>
+                <div class="card-title">Funções & Modularização</div>
+                <div class="card-desc">Reutilização de código com def, parâmetros, retorno de valores com return e boas práticas DRY.</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (5 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+
+        <a href="aula-07-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 07</div>
+                <div class="card-title">Interfaces Gráficas com Flet</div>
+                <div class="card-desc">Desenvolvimento de GUI multiplataforma em Python com Flet, widgets Text/TextField/ElevatedButton e eventos.</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (5 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+
+        <a href="aula-08-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 08</div>
+                <div class="card-title">Arquitetura Flet + Gemini + GEMINI.md</div>
+                <div class="card-desc">Integração da interface Flet com a API do Google Gemini e injeção de contexto RAG via arquivo GEMINI.md.</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (5 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+
+        <a href="aula-09-slides.html" class="card">
+            <div>
+                <div class="card-tag">AULA 09</div>
+                <div class="card-title">Feira de Soluções & Certificação</div>
+                <div class="card-desc">Apresentação dos aplicativos autorais, Auditoria Viva de código, questionário pós-teste T1 e entrega dos certificados FAPEMING.</div>
+            </div>
+            <div class="card-footer">
+                <span>Abrir Apresentação (5 slides)</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

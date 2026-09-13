@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 07 - Interfaces Gráficas Multiplataforma com Flet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slides-style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="bg-glow">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+    <header class="top-bar">
+        <div class="brand-badge">
+            <span>⚡ TRILHANDO O CAMINHO DO CÓDIGO</span>
+            <span style="opacity:0.4">|</span>
+            <span>AULA 07</span>
+        </div>
+        <div class="top-controls">
+            <a href="index.html" class="control-btn">🏠 Menu</a>
+            <button class="control-btn" id="notesToggle">📝 Notas (N)</button>
+            <button class="control-btn" id="fullscreenToggle">⛶ Tela Cheia (F)</button>
+        </div>
+    </header>
+
+    <main class="presentation-stage">
+        <!-- Slide 1: Capa -->
+        <section class="slide active" data-notes="<strong>Abertura Aula 07:</strong> Transição do terminal para telas visuais interativas (GUI) usando Flet (baseado em Flutter).">
+            <div class="slide-header">
+                <span class="slide-step">MÓDULO 07 • INTERFACES VISUAIS (GUI)</span>
+                <h1 class="slide-title">Interfaces Gráficas com Flet</h1>
+                <p class="slide-subtitle">Construindo aplicativos visuais modernos para Web, Desktop e Mobile usando apenas Python</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box accent-box">
+                        <div class="big-icon">📱</div>
+                        <h4>O Framework Flet</h4>
+                        <p>Permite criar apps com o poder gráfico do Flutter usando sintaxe 100% Python simples.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🧩</div>
+                        <h4>Widgets Básicos</h4>
+                        <p>Textos (<code>ft.Text</code>), campos de entrada (<code>ft.TextField</code>) e botões (<code>ft.ElevatedButton</code>).</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">⚡</div>
+                        <h4>Eventos e Reatividade</h4>
+                        <p>Respondendo ao clique do usuário através de funções de evento (<code>on_click</code>) e atualizando a tela com <code>page.update()</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Estrutura Base de um App Flet -->
+        <section class="slide" data-notes="<strong>Estrutura Flet:</strong> Explicar 'import flet as ft', a função main(page: ft.Page) e 'ft.app(target=main)'.">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 1 • ESTRUTURA BASE</span>
+                <h2 class="slide-title">A Estrutura de um App Flet</h2>
+                <p class="slide-subtitle">O ponto de entrada e o objeto <code>page</code></p>
+            </div>
+            <div class="slide-body">
+                <div class="content-box accent-box">
+                    <div class="prompt-code"><span class="kw">import</span> flet <span class="kw">as</span> ft
+
+<span class="kw">def</span> <span class="fn">main</span>(page: ft.Page):
+    page.title = <span class="str">"Meu Primeiro App ODS"</span>
+    page.padding = <span class="num">20</span>
+    
+    <span class="cm"># Adicionando um componente visual à página</span>
+    page.<span class="fn">add</span>(ft.<span class="fn">Text</span>(<span class="str">"Olá, Mundo Flet!"</span>, size=<span class="num">24</span>, weight=<span class="str">"bold"</span>))
+
+<span class="cm"># Inicia o aplicativo</span>
+ft.<span class="fn">app</span>(target=main)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Layouts (Columns e Rows) -->
+        <section class="slide" data-notes="<strong>Layouts:</strong> ft.Column organiza elementos na vertical (de cima pra baixo). ft.Row organiza na horizontal (lado a lado).">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 2 • LAYOUT & ORGANIZAÇÃO</span>
+                <h2 class="slide-title">Organizando Elementos: <code>Column</code> e <code>Row</code></h2>
+                <p class="slide-subtitle">Dispondo componentes na vertical e na horizontal</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-purple)"><code>ft.Column</code> (Vertical)</h4>
+                        <p>Empilha elementos de cima para baixo.</p>
+                        <div class="prompt-code">ft.<span class="fn">Column</span>([
+    ft.<span class="fn">Text</span>(<span class="str">"Título"</span>),
+    ft.<span class="fn">TextField</span>(label=<span class="str">"Nome"</span>),
+    ft.<span class="fn">ElevatedButton</span>(<span class="str">"Salvar"</span>)
+])</div>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-blue)"><code>ft.Row</code> (Horizontal)</h4>
+                        <p>Alinha elementos lado a lado na mesma linha.</p>
+                        <div class="prompt-code">ft.<span class="fn">Row</span>([
+    ft.<span class="fn">ElevatedButton</span>(<span class="str">"Sim"</span>),
+    ft.<span class="fn">ElevatedButton</span>(<span class="str">"Não"</span>)
+])</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Eventos e page.update() -->
+        <section class="slide" data-notes="<strong>page.update():</strong> Lembrar aos alunos que em Flet, após alterar o valor de um widget em código, é OBRIGATÓRIO chamar page.update() para que a alteração apareça na tela!">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 3 • INTERATIVIDADE</span>
+                <h2 class="slide-title">Eventos de Clique e <code>page.update()</code></h2>
+                <p class="slide-subtitle">Fazendo a interface responder às ações do usuário</p>
+            </div>
+            <div class="slide-body">
+                <div class="content-box accent-box">
+                    <div class="prompt-code"><span class="kw">def</span> <span class="fn">main</span>(page: ft.Page):
+    campo_nome = ft.<span class="fn">TextField</span>(label=<span class="str">"Digite seu nome"</span>)
+    texto_saida = ft.<span class="fn">Text</span>(<span class="str">""</span>, color=<span class="str">"green"</span>)
+
+    <span class="kw">def</span> <span class="fn">ao_clicar</span>(e):
+        texto_saida.value = <span class="str">f"Bem-vindo(a), <span class="kw">{campo_nome.value}</span>!"</span>
+        page.<span class="fn">update</span>() <span class="cm"># Re-renderiza a tela com o novo valor</span>
+
+    botao = ft.<span class="fn">ElevatedButton</span>(<span class="str">"Entrar"</span>, on_click=ao_clicar)
+    page.<span class="fn">add</span>(campo_nome, botao, texto_saida)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Desafio Prático da Aula 07 -->
+        <section class="slide" data-notes="<strong>Prática:</strong> Transformar o script terminal da Aula 05/06 em um app visual com Flet.">
+            <div class="slide-header">
+                <span class="slide-step">PRÁTICA • DESAFIO 07</span>
+                <h2 class="slide-title">Desafio: Primeira Versão Visual do App ODS</h2>
+                <p class="slide-subtitle">Construindo a tela inicial do seu projeto final</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box tip-box">
+                        <h4>🎯 Requisitos:</h4>
+                        <ul>
+                            <li>Criar uma interface com Título, Subtítulo e Logo/Ícone.</li>
+                            <li>Adicionar 2 campos de entrada (ex: <code>TextField</code>).</li>
+                            <li>Adicionar um botão <code>ElevatedButton</code> que processa os dados.</li>
+                            <li>Exibir a resposta formatada na tela usando <code>Text</code>.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>🤖 Prompt para Gemini CLI:</h4>
+                        <div class="prompt-code"><span class="str">"Como criar um layout em Flet usando ft.Card e ft.Container com bordas arredondadas e cor de fundo personalizada?"</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="speaker-notes-panel" id="notesPanel">
+        <div class="notes-header"><span>📝 NOTAS DO INSTRUTOR</span><span style="opacity:0.6">Pressione N para fechar</span></div>
+        <div class="notes-content" id="notesContent">Use as setas do teclado para navegar.</div>
+    </div>
+
+    <footer class="bottom-nav">
+        <div class="slide-counter" id="slideCounter">1 / 5</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn">← Anterior <span class="key-hint">←</span></button>
+            <button class="nav-btn primary" id="nextBtn">Próximo → <span class="key-hint">→</span></button>
+        </div>
+    </footer>
+
+    <script src="slides-engine.js"></script>
+</body>
+</html>

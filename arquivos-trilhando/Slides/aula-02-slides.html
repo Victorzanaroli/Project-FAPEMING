@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 - Variáveis, Tipos e Entrada de Dados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slides-style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="bg-glow">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+    <header class="top-bar">
+        <div class="brand-badge">
+            <span>⚡ TRILHANDO O CAMINHO DO CÓDIGO</span>
+            <span style="opacity:0.4">|</span>
+            <span>AULA 02</span>
+        </div>
+        <div class="top-controls">
+            <a href="index.html" class="control-btn">🏠 Menu</a>
+            <button class="control-btn" id="notesToggle">📝 Notas (N)</button>
+            <button class="control-btn" id="fullscreenToggle">⛶ Tela Cheia (F)</button>
+        </div>
+    </header>
+
+    <main class="presentation-stage">
+        <!-- Slide 1: Capa -->
+        <section class="slide active" data-notes="<strong>Abertura Aula 02:</strong> Revisão rápida do Gemini CLI e introdução ao conceito de variáveis e memória.">
+            <div class="slide-header">
+                <span class="slide-step">MÓDULO 02 • FUNDAMENTOS PYTHON</span>
+                <h1 class="slide-title">Variáveis, Tipos e Entrada de Dados</h1>
+                <p class="slide-subtitle">Como os computadores armazenam e manipulam informações na memória</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box accent-box">
+                        <div class="big-icon">📦</div>
+                        <h4>O que é uma Variável?</h4>
+                        <p>Uma caixa etiquetada na memória do computador onde guardamos valores para usar depois.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🏷️</div>
+                        <h4>Tipos Fundamentais</h4>
+                        <p>Textos (strings), números inteiros (int), decimais (float) e valores lógicos (bool).</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">💬</div>
+                        <h4>Interatividade</h4>
+                        <p>Recebendo dados do usuário com <code>input()</code> e exibindo com <code>print()</code> e f-strings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Variáveis e Analogia da Caixinha -->
+        <section class="slide" data-notes="<strong>Analogia da Caixinha:</strong> Nome da variável = Etiqueta da caixa. Conteúdo = Valor armazenado. O sinal de = significa 'recebe'.">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 1 • VARIÁVEIS</span>
+                <h2 class="slide-title">Variáveis e Atribuição</h2>
+                <p class="slide-subtitle">O operador de atribuição <code>=</code> armazena o valor da direita no nome da esquerda</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box">
+                        <h4>📌 Regras de Nomenclatura</h4>
+                        <ul>
+                            <li>Use nomes descritivos em minúsculo com underline (<code>nome_usuario</code>).</li>
+                            <li>Não pode começar com números nem usar caracteres especiais/acentos.</li>
+                            <li>Sensível a maiúsculas (<code>idade</code> ≠ <code>Idade</code>).</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>💻 Exemplo em Python</h4>
+                        <div class="prompt-code"><span class="cm"># Criando variáveis (atribuição)</span>
+<span class="kw">nome</span> = <span class="str">"Ana Clara"</span>
+<span class="kw">idade</span> = <span class="num">16</span>
+<span class="kw">altura</span> = <span class="num">1.65</span>
+<span class="kw">estudante</span> = <span class="num">True</span>
+
+<span class="fn">print</span>(nome, idade)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Tipos de Dados Primitivos -->
+        <section class="slide" data-notes="<strong>Tipos de Dados:</strong> Explicar str (texto em aspas), int (inteiro), float (ponto flutuante com ponto .) e bool (True/False).">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 2 • TIPOS DE DADOS</span>
+                <h2 class="slide-title">Os 4 Tipos Primitivos do Python</h2>
+                <p class="slide-subtitle">Como o Python categoriza os dados</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-4">
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-purple)">str (String)</h4>
+                        <p>Texto delimitado por aspas simples ou duplas.</p>
+                        <div class="prompt-code"><span class="str">"Maria"</span></div>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-blue)">int (Integer)</h4>
+                        <p>Números inteiros, positivos ou negativos.</p>
+                        <div class="prompt-code"><span class="num">42</span></div>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-green)">float (Float)</h4>
+                        <p>Números reais com ponto decimal.</p>
+                        <div class="prompt-code"><span class="num">7.5</span></div>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-yellow)">bool (Boolean)</h4>
+                        <p>Valores lógicos: <code>True</code> ou <code>False</code>.</p>
+                        <div class="prompt-code"><span class="kw">True</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Entrada com input() e Conversão de Tipos -->
+        <section class="slide" data-notes="<strong>Cuidado com input():</strong> O input() SEMPRE retorna uma string! Para somar números, é necessário converter com int() ou float().">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 3 • ENTRADA DE DADOS</span>
+                <h2 class="slide-title">Entrada de Dados com <code>input()</code></h2>
+                <p class="slide-subtitle">Capturando a digitação do usuário no terminal</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box bad-box">
+                        <h4>⚠️ O Erro Comum de Concatenação</h4>
+                        <div class="prompt-code">n1 = <span class="fn">input</span>(<span class="str">"Digite um número: "</span>) <span class="cm"># ex: "5"</span>
+n2 = <span class="fn">input</span>(<span class="str">"Digite outro: "</span>)    <span class="cm"># ex: "3"</span>
+<span class="fn">print</span>(n1 + n2) <span class="cm"># Resultado: "53" (juntou textos!)</span></div>
+                    </div>
+                    <div class="content-box good-box">
+                        <h4>✅ A Solução: Conversão de Tipo (Casting)</h4>
+                        <div class="prompt-code">n1 = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Digite um número: "</span>)) <span class="cm"># 5</span>
+n2 = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Digite outro: "</span>))    <span class="cm"># 3</span>
+<span class="fn">print</span>(n1 + n2) <span class="cm"># Resultado: 8 (soma numérica!)</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: f-Strings e Format de Texto -->
+        <section class="slide" data-notes="<strong>f-strings:</strong> Mostrar o poder das f-strings colocando variáveis diretamente dentro de chaves {}.">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 4 • SAÍDA FORMATADA</span>
+                <h2 class="slide-title">Interpolação com f-Strings</h2>
+                <p class="slide-subtitle">Formatando mensagens elegantes e dinâmicas com o prefixo <code>f""</code></p>
+            </div>
+            <div class="slide-body">
+                <div class="content-box accent-box">
+                    <h4>💻 Sintaxe das f-strings em Python</h4>
+                    <div class="prompt-code">nome = <span class="str">"Lucas"</span>
+pontos = <span class="num">150</span>
+nivel = <span class="num">3</span>
+
+<span class="cm"># Usando f-string para mesclar texto e variáveis</span>
+mensagem = <span class="str">f"Olá <span class="kw">{nome}</span>! Você tem <span class="kw">{pontos}</span> pontos no nível <span class="kw">{nivel}</span>."</span>
+<span class="fn">print</span>(mensagem)
+<span class="cm"># Saída: Olá Lucas! Você tem 150 pontos no nível 3.</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Mão na Massa - Desafio da Aula -->
+        <section class="slide" data-notes="<strong>Prática da Aula 02:</strong> Orientar a resolução do desafio prático em duplas usando o Gemini CLI para sanar dúvidas sintáticas.">
+            <div class="slide-header">
+                <span class="slide-step">PRÁTICA • DESAFIO 02</span>
+                <h2 class="slide-title">Desafio: Calculadora de Média Escolar</h2>
+                <p class="slide-subtitle">Construa seu primeiro programa interativo completo</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box tip-box">
+                        <h4>🎯 Requisitos do Programa:</h4>
+                        <ul>
+                            <li>Pedir o nome do aluno via <code>input()</code>.</li>
+                            <li>Pedir a nota da Prova 1 e da Prova 2 (usar <code>float()</code>).</li>
+                            <li>Calcular a média: <code>(nota1 + nota2) / 2</code>.</li>
+                            <li>Exibir uma f-string com o nome e a média final.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>🤖 Prompt para pedir ajuda no Gemini CLI:</h4>
+                        <div class="prompt-code"><span class="str">"Atue como mentor de Python. Estou tentando criar um script que recebe duas notas float e calcula a média. O meu código deu erro de TypeError. Explique o motivo sem me dar a resposta direta."</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="speaker-notes-panel" id="notesPanel">
+        <div class="notes-header"><span>📝 NOTAS DO INSTRUTOR</span><span style="opacity:0.6">Pressione N para fechar</span></div>
+        <div class="notes-content" id="notesContent">Use as setas do teclado para navegar entre os slides.</div>
+    </div>
+
+    <footer class="bottom-nav">
+        <div class="slide-counter" id="slideCounter">1 / 6</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn">← Anterior <span class="key-hint">←</span></button>
+            <button class="nav-btn primary" id="nextBtn">Próximo → <span class="key-hint">→</span></button>
+        </div>
+    </footer>
+
+    <script src="slides-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03 - Tomada de Decisão com if, elif e else</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slides-style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="bg-glow">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+    <header class="top-bar">
+        <div class="brand-badge">
+            <span>⚡ TRILHANDO O CAMINHO DO CÓDIGO</span>
+            <span style="opacity:0.4">|</span>
+            <span>AULA 03</span>
+        </div>
+        <div class="top-controls">
+            <a href="index.html" class="control-btn">🏠 Menu</a>
+            <button class="control-btn" id="notesToggle">📝 Notas (N)</button>
+            <button class="control-btn" id="fullscreenToggle">⛶ Tela Cheia (F)</button>
+        </div>
+    </header>
+
+    <main class="presentation-stage">
+        <!-- Slide 1: Capa -->
+        <section class="slide active" data-notes="<strong>Abertura Aula 03:</strong> Apresentar como os programas tomam decisões baseadas em condições lógicas.">
+            <div class="slide-header">
+                <span class="slide-step">MÓDULO 03 • CONTROLE DE FLUXO</span>
+                <h1 class="slide-title">Estruturas Condicionais</h1>
+                <p class="slide-subtitle">Ensinando o seu programa a tomar decisões inteligentes com <code>if</code>, <code>elif</code> e <code>else</code></p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🔀</div>
+                        <h4>Tomada de Decisão</h4>
+                        <p>Executar blocos de código diferentes dependendo do resultado de uma condição verdadeira ou falsa.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">⚖️</div>
+                        <h4>Operadores de Comparação</h4>
+                        <p>Comparando valores com <code>==</code>, <code>!=</code>, <code>></code>, <code><</code>, <code>>=</code> e <code><=</code>.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🔗</div>
+                        <h4>Lógica Composta</h4>
+                        <p>Combinando múltiplas condições usando operadores lógicos <code>and</code>, <code>or</code> e <code>not</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Operadores Relacionais e Comparação -->
+        <section class="slide" data-notes="<strong>Operadores Relacionais:</strong> Explicar a diferença vital entre = (atribuição) e == (comparação de igualdade).">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 1 • OPERADORES</span>
+                <h2 class="slide-title">Operadores de Comparação</h2>
+                <p class="slide-subtitle">Toda comparação retorna um valor Booleano (<code>True</code> ou <code>False</code>)</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box">
+                        <h4>📋 Tabela de Operadores</h4>
+                        <ul>
+                            <li><code>==</code> Igual a (Atenção: não confunda com <code>=</code>!)</li>
+                            <li><code>!=</code> Diferente de</li>
+                            <li><code>></code> Maior que / <code><</code> Menor que</li>
+                            <li><code>>=</code> Maior ou igual / <code><=</code> Menor ou igual</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>💻 Exemplos Práticos</h4>
+                        <div class="prompt-code">idade = <span class="num">18</span>
+
+<span class="fn">print</span>(idade >= <span class="num">18</span>)  <span class="cm"># True</span>
+<span class="fn">print</span>(idade == <span class="num">20</span>)  <span class="cm"># False</span>
+<span class="fn">print</span>(idade != <span class="num">15</span>)  <span class="cm"># True</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Estrutura if / elif / else -->
+        <section class="slide" data-notes="<strong>Indentação:</strong> Em Python, o bloco de código dentro do if DEVE ter indentação (4 espaços ou 1 Tab). Se não tiver, o código dá IndentationError.">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 2 • SINTAXE CONDICIONAL</span>
+                <h2 class="slide-title">A Estrutura <code>if</code>, <code>elif</code>, <code>else</code></h2>
+                <p class="slide-subtitle">A importância fundamental da <strong>indentação</strong> em Python</p>
+            </div>
+            <div class="slide-body">
+                <div class="content-box accent-box">
+                    <div class="prompt-code">nota = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">"Digite a nota: "</span>))
+
+<span class="kw">if</span> nota >= <span class="num">7.0</span>:
+    <span class="fn">print</span>(<span class="str">"🎉 Aprovado(a)!"</span>)
+<span class="kw">elif</span> nota >= <span class="num">5.0</span>:
+    <span class="fn">print</span>(<span class="str">"⚠️ Recuperação!"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"❌ Reprovado(a)."</span>)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Operadores Lógicos and, or, not -->
+        <section class="slide" data-notes="<strong>Operadores Lógicos:</strong> AND exige que ambas sejam verdadeiras. OR exige ao menos uma verdadeira. NOT inverte o valor.">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 3 • LÓGICA BOOLEANA</span>
+                <h2 class="slide-title">Operadores Lógicos: <code>and</code>, <code>or</code>, <code>not</code></h2>
+                <p class="slide-subtitle">Construindo regras de negócio complexas no seu sistema</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-blue)"><code>and</code> (E)</h4>
+                        <p>Verdadeiro apenas se <strong>todas</strong> as condições forem verdadeiras.</p>
+                        <div class="prompt-code"><span class="kw">if</span> idade >= <span class="num">18</span> <span class="kw">and</span> cnh:
+    <span class="fn">print</span>(<span class="str">"Pode dirigir"</span>)</div>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-purple)"><code>or</code> (OU)</h4>
+                        <p>Verdadeiro se <strong>pelo menos uma</strong> condição for verdadeira.</p>
+                        <div class="prompt-code"><span class="kw">if</span> estudante <span class="kw">or</span> idoso:
+    <span class="fn">print</span>(<span class="str">"Meia entrada"</span>)</div>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-yellow)"><code>not</code> (NÃO)</h4>
+                        <p>Inverte o valor lógico (Verdadeiro vira Falso e vice-versa).</p>
+                        <div class="prompt-code"><span class="kw">if not</span> chovendo:
+    <span class="fn">print</span>(<span class="str">"Vamos ao parque"</span>)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Desafio Prático da Aula 03 -->
+        <section class="slide" data-notes="<strong>Prática:</strong> Sistema de triagem para projeto ODS (ex: triagem de lixo ou triagem de risco de saúde).">
+            <div class="slide-header">
+                <span class="slide-step">PRÁTICA • DESAFIO 03</span>
+                <h2 class="slide-title">Desafio: Validador de Empréstimo Escolar</h2>
+                <p class="slide-subtitle">Construindo um algoritmo de triagem condicional</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box tip-box">
+                        <h4>🎯 Requisitos:</h4>
+                        <ul>
+                            <li>Solicitar a idade e a quantidade de livros lidos no ano.</li>
+                            <li>Se a idade for >= 12 E os livros >= 5: Conceder "Selo Leitor Prata".</li>
+                            <li>Se os livros forem >= 10: Conceder "Selo Leitor Ouro".</li>
+                            <li>Caso contrário: Exibir mensagem incentivando a leitura.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>🤖 Exemplo de Prompt com Gemini CLI:</h4>
+                        <div class="prompt-code"><span class="str">"Como posso refatorar meu bloco de if/elif/else em Python para que as condições mais específicas (Ouro) fiquem no topo e não sejam atropeladas pelas genéricas (Prata)?"</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="speaker-notes-panel" id="notesPanel">
+        <div class="notes-header"><span>📝 NOTAS DO INSTRUTOR</span><span style="opacity:0.6">Pressione N para fechar</span></div>
+        <div class="notes-content" id="notesContent">Navegue com as setas do teclado.</div>
+    </div>
+
+    <footer class="bottom-nav">
+        <div class="slide-counter" id="slideCounter">1 / 5</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn">← Anterior <span class="key-hint">←</span></button>
+            <button class="nav-btn primary" id="nextBtn">Próximo → <span class="key-hint">→</span></button>
+        </div>
+    </footer>
+
+    <script src="slides-engine.js"></script>
+</body>
+</html>

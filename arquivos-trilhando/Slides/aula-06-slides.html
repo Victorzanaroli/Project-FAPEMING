@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 06 - Funções e Modularização em Python</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slides-style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="bg-glow">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+    <header class="top-bar">
+        <div class="brand-badge">
+            <span>⚡ TRILHANDO O CAMINHO DO CÓDIGO</span>
+            <span style="opacity:0.4">|</span>
+            <span>AULA 06</span>
+        </div>
+        <div class="top-controls">
+            <a href="index.html" class="control-btn">🏠 Menu</a>
+            <button class="control-btn" id="notesToggle">📝 Notas (N)</button>
+            <button class="control-btn" id="fullscreenToggle">⛶ Tela Cheia (F)</button>
+        </div>
+    </header>
+
+    <main class="presentation-stage">
+        <!-- Slide 1: Capa -->
+        <section class="slide active" data-notes="<strong>Abertura Aula 06:</strong> Apresentar a necessidade de organizar o código em blocos reutilizáveis. DRY (Don't Repeat Yourself).">
+            <div class="slide-header">
+                <span class="slide-step">MÓDULO 06 • MODULARIZAÇÃO</span>
+                <h1 class="slide-title">Funções e Reutilização de Código</h1>
+                <p class="slide-subtitle">Empacotando lógica com <code>def</code>, parâmetros e valores de retorno <code>return</code></p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🧩</div>
+                        <h4>O que é uma Função?</h4>
+                        <p>Um bloco de código nomeado que realiza uma tarefa específica e pode ser executado várias vezes.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">📥</div>
+                        <h4>Parâmetros (Entradas)</h4>
+                        <p>Variáveis recebidas pela função para personalizar seu comportamento dinamicamente.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">📤</div>
+                        <h4>Retorno (<code>return</code>)</h4>
+                        <p>O resultado final calculado pela função enviado de volta para quem a chamou.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Sintaxe Básica def -->
+        <section class="slide" data-notes="<strong>Sintaxe de def:</strong> Mostrar a criação com a palavra reservada 'def' e a chamada posterior pelo nome seguidos de ().">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 1 • DEFINIÇÃO DE FUNÇÃO</span>
+                <h2 class="slide-title">Definindo uma Função com <code>def</code></h2>
+                <p class="slide-subtitle">Sintaxe limpa e legível</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box">
+                        <h4>📌 Regra DRY (Don't Repeat Yourself)</h4>
+                        <p>Se você escreveu o mesmo bloco de código mais de duas vezes, transforme-o em uma função!</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>💻 Exemplo Simples</h4>
+                        <div class="prompt-code"><span class="cm"># Definição da função</span>
+<span class="kw">def</span> <span class="fn">exibir_saudacao</span>(nome):
+    <span class="fn">print</span>(<span class="str">f"👋 Olá <span class="kw">{nome}</span>, bem-vindo(a) ao laboratório!"</span>)
+
+<span class="cm"># Chamadas da função</span>
+<span class="fn">exibir_saudacao</span>(<span class="str">"Gabriel"</span>)
+<span class="fn">exibir_saudacao</span>(<span class="str">"Larissa"</span>)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Retornando Valores com return -->
+        <section class="slide" data-notes="<strong>Entendendo return:</strong> print() só mostra na tela; return DEVOLVE o valor para ser guardado em outra variável.">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 2 • RETORNO DE VALORES</span>
+                <h2 class="slide-title">Diferença entre <code>print()</code> e <code>return</code></h2>
+                <p class="slide-subtitle">Como reaproveitar o resultado de um cálculo em outras partes do sistema</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box bad-box">
+                        <h4>⚠️ Apenas Imprime (Sem Retorno)</h4>
+                        <div class="prompt-code"><span class="kw">def</span> <span class="fn">somar_bad</span>(a, b):
+    <span class="fn">print</span>(a + b)
+
+res = <span class="fn">somar_bad</span>(<span class="num">4</span>, <span class="num">5</span>)
+<span class="cm"># res é None! Não dá pra usar em cálculos.</span></div>
+                    </div>
+                    <div class="content-box good-box">
+                        <h4>✅ Retorna o Valor (Com return)</h4>
+                        <div class="prompt-code"><span class="kw">def</span> <span class="fn">somar_good</span>(a, b):
+    <span class="kw">return</span> a + b
+
+res = <span class="fn">somar_good</span>(<span class="num">4</span>, <span class="num">5</span>)
+total = res * <span class="num">2</span> <span class="cm"># total = 18! Funciona perfeitamente.</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Organizando o Código em Módulos -->
+        <section class="slide" data-notes="<strong>Modularização:</strong> Preparação para a criação de GUIs com Flet na Aula 07 onde o código é dividido em funções de eventos.">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 3 • ARQUITETURA</span>
+                <h2 class="slide-title">Organizando o Código do Projeto Final</h2>
+                <p class="slide-subtitle">Separando a lógica de negócios da interface do usuário</p>
+            </div>
+            <div class="slide-body">
+                <div class="content-box accent-box">
+                    <div class="prompt-code"><span class="cm"># Módulo de Regras de Negócio (funções de cálculo/validação)</span>
+<span class="kw">def</span> <span class="fn">calcular_pegada_carbono</span>(km_percorridos, meio_transporte):
+    <span class="kw">if</span> meio_transporte == <span class="str">"carro"</span>:
+        <span class="kw">return</span> km_percorridos * <span class="num">0.19</span>
+    <span class="kw">elif</span> meio_transporte == <span class="str">"onibus"</span>:
+        <span class="kw">return</span> km_percorridos * <span class="num">0.05</span>
+    <span class="kw">return</span> <span class="num">0.0</span> <span class="cm"># bicicleta / a pe</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Desafio Prático da Aula 06 -->
+        <section class="slide" data-notes="<strong>Prática:</strong> Criar uma biblioteca de funções auxiliares que serão usadas no app Flet da Aula 07.">
+            <div class="slide-header">
+                <span class="slide-step">PRÁTICA • DESAFIO 06</span>
+                <h2 class="slide-title">Desafio: Pacote de Funções do App Final</h2>
+                <p class="slide-subtitle">Construindo o "motor" funcional do seu aplicativo ODS</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box tip-box">
+                        <h4>🎯 Requisitos:</h4>
+                        <ul>
+                            <li>Criar pelo menos 2 funções com parâmetros e <code>return</code>.</li>
+                            <li>Exemplo 1: Função para validar se um campo não está vazio.</li>
+                            <li>Exemplo 2: Função para calcular o indicador principal do app (ex: média, total, status).</li>
+                            <li>Testar as funções no terminal.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>🤖 Prompt para Gemini CLI:</h4>
+                        <div class="prompt-code"><span class="str">"Atue como revisor de código. Analise minha função Python abaixo e sugira melhorias na nomenclatura de parâmetros e tratamento de erros."</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="speaker-notes-panel" id="notesPanel">
+        <div class="notes-header"><span>📝 NOTAS DO INSTRUTOR</span><span style="opacity:0.6">Pressione N para fechar</span></div>
+        <div class="notes-content" id="notesContent">Use as setas do teclado para navegar.</div>
+    </div>
+
+    <footer class="bottom-nav">
+        <div class="slide-counter" id="slideCounter">1 / 5</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn">← Anterior <span class="key-hint">←</span></button>
+            <button class="nav-btn primary" id="nextBtn">Próximo → <span class="key-hint">→</span></button>
+        </div>
+    </footer>
+
+    <script src="slides-engine.js"></script>
+</body>
+</html>

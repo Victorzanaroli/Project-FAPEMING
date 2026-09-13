@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 04 - Laços de Repetição com while e for</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slides-style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="bg-glow">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+    <header class="top-bar">
+        <div class="brand-badge">
+            <span>⚡ TRILHANDO O CAMINHO DO CÓDIGO</span>
+            <span style="opacity:0.4">|</span>
+            <span>AULA 04</span>
+        </div>
+        <div class="top-controls">
+            <a href="index.html" class="control-btn">🏠 Menu</a>
+            <button class="control-btn" id="notesToggle">📝 Notas (N)</button>
+            <button class="control-btn" id="fullscreenToggle">⛶ Tela Cheia (F)</button>
+        </div>
+    </header>
+
+    <main class="presentation-stage">
+        <!-- Slide 1: Capa -->
+        <section class="slide active" data-notes="<strong>Abertura Aula 04:</strong> Introdução à automação de tarefas repetitivas com laços de repetição (loops).">
+            <div class="slide-header">
+                <span class="slide-step">MÓDULO 04 • AUTOMAÇÃO & LOOPS</span>
+                <h1 class="slide-title">Laços de Repetição</h1>
+                <p class="slide-subtitle">Automatizando tarefas repetitivas com <code>while</code>, <code>for</code> e <code>range()</code></p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🔄</div>
+                        <h4>Loop <code>while</code></h4>
+                        <p>Repete enquanto uma condição for verdadeira. Ideal quando não sabemos o número exato de repetições.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🔢</div>
+                        <h4>Loop <code>for</code></h4>
+                        <p>Itera sobre uma sequência ou intervalo definido de vezes com o auxílio de <code>range()</code>.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">📊</div>
+                        <h4>Contadores e Acumuladores</h4>
+                        <p>Técnicas de contagem e somatório incremental dentro de laços de repetição.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: O Loop while -->
+        <section class="slide" data-notes="<strong>Loop while:</strong> Alertas sobre o 'Infinite Loop' (Loop Infinito) se a condição nunca mudar para False!">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 1 • LOOP WHILE</span>
+                <h2 class="slide-title">O Laço <code>while</code> (Enquanto)</h2>
+                <p class="slide-subtitle">Repetição baseada em uma condição lógica dinâmica</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box warn-box">
+                        <h4>⚠️ Perigo do Loop Infinito!</h4>
+                        <p>Se a variável de controle não for atualizada dentro do bloco, o programa travará rodando para sempre.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>💻 Exemplo com Contador</h4>
+                        <div class="prompt-code">contador = <span class="num">1</span>
+
+<span class="kw">while</span> contador <= <span class="num">5</span>:
+    <span class="fn">print</span>(<span class="str">f"Tentativa número <span class="kw">{contador}</span>"</span>)
+    contador += <span class="num">1</span> <span class="cm"># Incremento essencial!</span>
+
+<span class="fn">print</span>(<span class="str">"Fim do laço!"</span>)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: O Loop for e range() -->
+        <section class="slide" data-notes="<strong>Loop for e range:</strong> Explicar a função range(inicio, fim, passo). Lembrar que o limite superior é EXCLUSIVO (range(1, 6) vai de 1 até 5).">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 2 • LOOP FOR E RANGE</span>
+                <h2 class="slide-title">O Laço <code>for</code> e a Função <code>range()</code></h2>
+                <p class="slide-subtitle">Iterando sobre sequências numéricas de forma simples e segura</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box">
+                        <h4>📌 Entendendo o <code>range()</code></h4>
+                        <ul>
+                            <li><code>range(5)</code> ➔ 0, 1, 2, 3, 4</li>
+                            <li><code>range(1, 6)</code> ➔ 1, 2, 3, 4, 5</li>
+                            <li><code>range(0, 10, 2)</code> ➔ 0, 2, 4, 6, 8 (passo 2)</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>💻 Exemplo Prático</h4>
+                        <div class="prompt-code"><span class="cm"># Imprimindo a tabuada do 5</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">11</span>):
+    resultado = <span class="num">5</span> * i
+    <span class="fn">print</span>(<span class="str">f"5 x <span class="kw">{i}</span> = <span class="kw">{resultado}</span>"</span>)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Contadores e Acumuladores -->
+        <section class="slide" data-notes="<strong>Acumuladores:</strong> Mostrar como guardar somas acumuladas dentro de uma variável antes do loop.">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 3 • PADRÕES DE CÓDIGO</span>
+                <h2 class="slide-title">Acumuladores e Somatórios</h2>
+                <p class="slide-subtitle">Somando múltiplos dados inseridos pelo usuário</p>
+            </div>
+            <div class="slide-body">
+                <div class="content-box accent-box">
+                    <div class="prompt-code">soma_total = <span class="num">0.0</span>
+
+<span class="kw">for</span> item <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">4</span>):
+    preco = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">f"Digite o preço do produto <span class="kw">{item}</span>: R$ "</span>))
+    soma_total += preco <span class="cm"># Equivalente a: soma_total = soma_total + preco</span>
+
+<span class="fn">print</span>(<span class="str">f"🛒 Total da compra: R$ <span class="kw">{soma_total:.2f}</span>"</span>)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Desafio Prático da Aula 04 -->
+        <section class="slide" data-notes="<strong>Prática:</strong> Criar um protótipo de caixeiro ou medidor de pegada de carbono/consumo de energia (ODS 12/13).">
+            <div class="slide-header">
+                <span class="slide-step">PRÁTICA • DESAFIO 04</span>
+                <h2 class="slide-title">Desafio: Calculadora de Consumo de Energia</h2>
+                <p class="slide-subtitle">Construindo um utilitário para o projeto de sustentabilidade (ODS 7)</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box tip-box">
+                        <h4>🎯 Requisitos:</h4>
+                        <ul>
+                            <li>Perguntar quantos eletrodomésticos a escola possui.</li>
+                            <li>Usar um loop <code>for</code> para ler o consumo em kWh de cada um.</li>
+                            <li>Acumular o consumo total e calcular o custo estimado em reais.</li>
+                            <li>Exibir relatório final formatado.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>🤖 Prompt para Gemini CLI:</h4>
+                        <div class="prompt-code"><span class="str">"Como criar um loop while em Python que continue pedindo a entrada do usuário até que ele digite 'sair'?"</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="speaker-notes-panel" id="notesPanel">
+        <div class="notes-header"><span>📝 NOTAS DO INSTRUTOR</span><span style="opacity:0.6">Pressione N para fechar</span></div>
+        <div class="notes-content" id="notesContent">Use as setas do teclado para navegar.</div>
+    </div>
+
+    <footer class="bottom-nav">
+        <div class="slide-counter" id="slideCounter">1 / 5</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn">← Anterior <span class="key-hint">←</span></button>
+            <button class="nav-btn primary" id="nextBtn">Próximo → <span class="key-hint">→</span></button>
+        </div>
+    </footer>
+
+    <script src="slides-engine.js"></script>
+</body>
+</html>

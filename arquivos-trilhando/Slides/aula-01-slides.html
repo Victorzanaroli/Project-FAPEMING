@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01 - Trilhando o Caminho do Código</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slides-style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="bg-glow">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <header class="top-bar">
+        <div class="brand-badge">
+            <span>⚡ TRILHANDO O CAMINHO DO CÓDIGO</span>
+            <span style="opacity:0.4">|</span>
+            <span>AULA 01</span>
+        </div>
+        <div class="top-controls">
+            <a href="index.html" class="control-btn">🏠 Menu</a>
+            <button class="control-btn" id="notesToggle">📝 Notas (N)</button>
+            <button class="control-btn" id="fullscreenToggle">⛶ Tela Cheia (F)</button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Stage -->
+    <main class="presentation-stage">
+
+        <!-- Slide 1: Capa -->
+        <section class="slide active" data-notes="<strong>Abertura (15 min):</strong> Dar boas-vindas aos alunos e mentores. Apresentar a visão do projeto FAPEMING, o impacto da tecnologia e o roteiro do curso.">
+            <div class="slide-header">
+                <span class="slide-step">MÓDULO 01 • INTRODUÇÃO</span>
+                <h1 class="slide-title">Trilhando o Caminho do Código</h1>
+                <p class="slide-subtitle">Bem-vindos à Jornada de Programação com Python, Flet e IA Generativa</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🚀</div>
+                        <h4 style="color:var(--accent-purple)">A Grande Missão</h4>
+                        <p>Desenvolver aplicativos reais com IA para resolver problemas reais da sua escola e comunidade.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🧠</div>
+                        <h4 style="color:var(--accent-blue)">Copiloto de IA</h4>
+                        <p>Aprenda a usar o Google Gemini como seu mentor técnico de programação 24/7.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🏆</div>
+                        <h4 style="color:var(--accent-green)">Hackathon Final</h4>
+                        <p>Apresente sua solução na Feira de Soluções (Aula 09) e concorra a certificação FAPEMING.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Coleta de Linha de Base (T0) -->
+        <section class="slide" data-notes="<strong>Bloco 2 (45 min):</strong> Orientar os estudantes no preenchimento do T0. Garantir silêncio e autonomia total (sem ajuda dos mentores neste formulário para diagnóstico puro).">
+            <div class="slide-header">
+                <span class="slide-step">BLOCO 2 • DIAGNÓSTICO</span>
+                <h2 class="slide-title">Coleta da Linha de Base (T0)</h2>
+                <p class="slide-subtitle">Avaliação Diagnóstica Inicial de Conhecimentos em Tecnologia e Lógica</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box warn-box">
+                        <h4>⚠️ Regras Importantes do T0</h4>
+                        <ul>
+                            <li>Responda com total honestidade. Não há problema em não saber!</li>
+                            <li>Sem ajuda externa, Google ou colegas.</li>
+                            <li>É o nosso ponto de partida para medir a sua evolução ao longo do projeto.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>📋 O que vamos preencher?</h4>
+                        <ul>
+                            <li>Cadastro Geral (Dados para Certificado FAPEMING).</li>
+                            <li>Avaliação Diagnóstica T0 (Questões de lógica e programação).</li>
+                            <li>Termos de consentimento e participação.</li>
+                        </ul>
+                        <div class="prompt-code" style="margin-top:14px">Acesse o link enviado pelo seu mentor no grupo do WhatsApp!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Contrato Pedagógico -->
+        <section class="slide" data-notes="<strong>Bloco 3 (30 min):</strong> Apresentar a dinâmica das aulas, papéis dos mentores e conduta esperada no laboratório.">
+            <div class="slide-header">
+                <span class="slide-step">BLOCO 3 • CONTRATO PEDAGÓGICO</span>
+                <h2 class="slide-title">Regras de Convivência & Metodologia</h2>
+                <p class="slide-subtitle">Como nossas oficinas vão funcionar ao longo das 9 semanas</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-4">
+                    <div class="content-box">
+                        <div class="big-icon">🤝</div>
+                        <h4>Colaboração</h4>
+                        <p>Trabalho em duplas e trios. Todo código é construído em equipe.</p>
+                    </div>
+                    <div class="content-box">
+                        <div class="big-icon">💡</div>
+                        <h4>Cultura do Erro</h4>
+                        <p>Erros de sintaxe são oportunidades de aprendizado, não falhas.</p>
+                    </div>
+                    <div class="content-box">
+                        <div class="big-icon">🤖</div>
+                        <h4>Uso Ético da IA</h4>
+                        <p>Usar IA para entender e aprender, nunca para copiar sem compreender.</p>
+                    </div>
+                    <div class="content-box">
+                        <div class="big-icon">🎯</div>
+                        <h4>Pontualidade</h4>
+                        <p>Entregas semanais e acompanhamento contínuo no diário de bordo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: ODS da ONU e Projetos -->
+        <section class="slide" data-notes="<strong>Bloco 4 (45 min):</strong> Apresentar os Objetivos de Desenvolvimento Sustentável (ODS) que guiarão a escolha dos temas dos apps.">
+            <div class="slide-header">
+                <span class="slide-step">BLOCO 4 • PROJETOS E ODS</span>
+                <h2 class="slide-title">Objetivos de Desenvolvimento Sustentável (ODS)</h2>
+                <p class="slide-subtitle">Conectando linhas de código a soluções reais para a sociedade</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-blue)">ODS 4: Educação de Qualidade</h4>
+                        <p>Apps de mapas mentais, cronogramas de estudo, simulados e apoio à aprendizagem escolar.</p>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-green)">ODS 11: Cidades Sustentáveis</h4>
+                        <p>Sistemas de gestão de lixo reciclável, mapas de hortas comunitárias e caronas escolares.</p>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-yellow)">ODS 3: Saúde e Bem-Estar</h4>
+                        <p>Rastreamento de hábitos saudáveis, consumo de água, saúde mental juvenil e esportes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Engenharia de Prompts (P.R.R.E / P.R.O.M.P.T) -->
+        <section class="slide" data-notes="<strong>Bloco 5 (45 min):</strong> Ensinar o framework de prompting para conversar com o Gemini CLI de forma estruturada.">
+            <div class="slide-header">
+                <span class="slide-step">BLOCO 5 • PROMPTING COM IA</span>
+                <h2 class="slide-title">Como Conversar com IAs Generativas</h2>
+                <p class="slide-subtitle">Engenharia de Prompts na Prática: Estruturas P.R.R.E e P.R.O.M.P.T</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box bad-box">
+                        <h4>❌ Prompt Fraco (Sem Estrutura)</h4>
+                        <p style="margin-bottom:8px">"Me dá um código de Python pra um app de tarefas."</p>
+                        <div class="prompt-code">Resultado: Código genérico, sem explicação pedagógica, inadequado para seu nível.</div>
+                    </div>
+                    <div class="content-box good-box">
+                        <h4>✅ Prompt Estruturado (Framework P.R.O.M.P.T)</h4>
+                        <p style="margin-bottom:8px"><strong>Papel:</strong> Atue como professor de Python.<br><strong>Contexto:</strong> Sou iniciante.<br><strong>Tarefa:</strong> Explique variáveis com analogias cotidianas e 1 exemplo prático.</p>
+                        <div class="prompt-code">Resultado: Resposta didática, com passo a passo e explicações claras.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Encerramento e Tarefa de Casa -->
+        <section class="slide" data-notes="<strong>Encerramento (15 min):</strong> Resumo da aula, verificação de pendências no cadastro T0 e preparação para a Aula 02 (Variáveis e Tipos).">
+            <div class="slide-header">
+                <span class="slide-step">ENCERRAMENTO • PRÓXIMOS PASSOS</span>
+                <h2 class="slide-title">O que aprendemos hoje?</h2>
+                <p class="slide-subtitle">Revisão e Próxima Aula (Módulo 02)</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box tip-box">
+                        <h4>✅ Checklist de Hoje</h4>
+                        <ul>
+                            <li>Preenchimento completo do formulário T0.</li>
+                            <li>Apresentação da metodologia e mentores.</li>
+                            <li>Compreensão do uso do Gemini CLI como copiloto.</li>
+                            <li>Primeiros conceitos de Engenharia de Prompt.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>🔮 Próxima Aula: Variáveis e Dados</h4>
+                        <p style="margin-bottom:10px">Na próxima oficina daremos os primeiros passos no código Python:</p>
+                        <ul>
+                            <li>Variáveis e tipos de dados (str, int, float, bool)</li>
+                            <li>Entrada de dados com <code>input()</code></li>
+                            <li>Manipulação de texto e f-strings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Speaker Notes Panel -->
+    <div class="speaker-notes-panel" id="notesPanel">
+        <div class="notes-header">
+            <span>📝 NOTAS DO INSTRUTOR / MENTOR</span>
+            <span style="opacity: 0.6">Pressione N para fechar</span>
+        </div>
+        <div class="notes-content" id="notesContent">
+            Boas-vindas à apresentação da Aula 01. Use as setas do teclado para navegar.
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Controls -->
+    <footer class="bottom-nav">
+        <div class="slide-counter" id="slideCounter">1 / 6</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn">← Anterior <span class="key-hint">←</span></button>
+            <button class="nav-btn primary" id="nextBtn">Próximo → <span class="key-hint">→</span></button>
+        </div>
+    </footer>
+
+    <script src="slides-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 09 - Feira de Soluções e Certificação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slides-style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="bg-glow">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+    <header class="top-bar">
+        <div class="brand-badge">
+            <span>⚡ TRILHANDO O CAMINHO DO CÓDIGO</span>
+            <span style="opacity:0.4">|</span>
+            <span>AULA 09 • GRANDE FINAL</span>
+        </div>
+        <div class="top-controls">
+            <a href="index.html" class="control-btn">🏠 Menu</a>
+            <button class="control-btn" id="notesToggle">📝 Notas (N)</button>
+            <button class="control-btn" id="fullscreenToggle">⛶ Tela Cheia (F)</button>
+        </div>
+    </header>
+
+    <main class="presentation-stage">
+        <!-- Slide 1: Capa -->
+        <section class="slide active" data-notes="<strong>Abertura Aula 09 (15 min):</strong> Boas-vindas à Feira de Soluções. Celebrar a jornada de 9 semanas dos estudantes e mentores FAPEMING.">
+            <div class="slide-header">
+                <span class="slide-step">MÓDULO 09 • FEIRA DE SOLUÇÕES & ENCERRAMENTO</span>
+                <h1 class="slide-title">Feira de Soluções & Certificação</h1>
+                <p class="slide-subtitle">Apresentação dos Aplicativos Autorais, Auditoria Viva de Código e Pós-teste T1</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🎤</div>
+                        <h4>Apresentações Pitch</h4>
+                        <p>Cada equipe terá 5 minutos para demonstrar seu aplicativo Flet + IA ao vivo para a banca e colegas.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">🔍</div>
+                        <h4>Auditoria Viva de Código</h4>
+                        <p>Sorteio de 1 trecho do código para os estudantes explicarem a lógica de forma autônoma.</p>
+                    </div>
+                    <div class="content-box accent-box">
+                        <div class="big-icon">📜</div>
+                        <h4>Pós-Teste T1 & Certificado</h4>
+                        <p>Coleta da linha final de aprendizado (T1) e entrega dos certificados FAPEMING.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Roteiro da Apresentação (Pitch) -->
+        <section class="slide" data-notes="<strong>Bloco 2 (60 min):</strong> Regras do Pitch: 5 min apresentação + 2 min perguntas da banca.">
+            <div class="slide-header">
+                <span class="slide-step">BLOCO 2 • APRESENTAÇÕES</span>
+                <h2 class="slide-title">Roteiro do Pitch de Apresentação (5 min)</h2>
+                <p class="slide-subtitle">Como estruturar a fala do seu grupo diante da comunidade</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-4">
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-purple)">1. O Problema (30s)</h4>
+                        <p>Qual problema da escola ou comunidade o app resolve? Qual ODS se conecta?</p>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-blue)">2. A Demo (2 min)</h4>
+                        <p>Rodar o aplicativo ao vivo. Mostrar as telas Flet e a interação inteligente com o Gemini.</p>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-green)">3. O GEMINI.md (1 min)</h4>
+                        <p>Explicar como o arquivo de contexto foi construído para dar a identidade do app.</p>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--accent-yellow)">4. Aprendizados (1 min)</h4>
+                        <p>Principais desafios superados e o que a equipe aprendeu ao longo das 9 semanas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: A Auditoria Viva de Código -->
+        <section class="slide" data-notes="<strong>Auditoria Viva:</strong> Validação do aprendizado real. Garantir que os alunos compreendem o código que escreveram com auxílio da IA.">
+            <div class="slide-header">
+                <span class="slide-step">BLOCO 2 • AUDITORIA VIVA DE CÓDIGO</span>
+                <h2 class="slide-title">Como Funciona a Auditoria Viva?</h2>
+                <p class="slide-subtitle">Demonstrando o domínio do código e a autonomia frente à IA</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box accent-box">
+                        <h4>🎲 Perguntas Típicas da Banca:</h4>
+                        <ul>
+                            <li>"O que acontece no seu programa se o usuário deixar este campo em branco?"</li>
+                            <li>"Mostre onde está a função <code>on_click</code> do botão principal."</li>
+                            <li>"Onde no código vocês lêem o arquivo <code>GEMINI.md</code>?"</li>
+                            <li>"Se quisermos mudar a cor da interface, qual linha alteramos?"</li>
+                        </ul>
+                    </div>
+                    <div class="content-box tip-box">
+                        <h4>💡 Dica de Ouro:</h4>
+                        <p style="margin-bottom:8px">Não se preocupe em ter decorado cada caractere!</p>
+                        <p>O importante é saber explicar a <strong>lógica</strong> do fluxo de dados e como a IA ajudou você a construir a solução.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Coleta do Pós-teste T1 -->
+        <section class="slide" data-notes="<strong>Bloco 3 (45 min):</strong> Aplicação do questionário pós-teste T1 para medição da evolução (Delta de Aprendizagem).">
+            <div class="slide-header">
+                <span class="slide-step">BLOCO 3 • MEDIÇÃO DE IMPACTO (T1)</span>
+                <h2 class="slide-title">Questionário Pós-Teste (T1)</h2>
+                <p class="slide-subtitle">Medindo sua evolução do primeiro dia até hoje para a pesquisa FAPEMING</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2">
+                    <div class="content-box warn-box">
+                        <h4>📋 Instruções do T1:</h4>
+                        <ul>
+                            <li>Responda com base em tudo que você aprendeu nas 9 oficinas.</li>
+                            <li>Sem ajuda externa, Google ou colegas (mesmo rigor do T0).</li>
+                            <li>Sua resposta medirá o impacto real da metodologia na Educação Básica.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box accent-box">
+                        <h4>🔗 Link do Formulário:</h4>
+                        <div class="prompt-code" style="margin-top:10px">Acesse o formulário T1 enviado pelo seu mentor no chat!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Celebração e Certificados -->
+        <section class="slide" data-notes="<strong>Encerramento (15 min):</strong> Entrega dos certificados de participação emitidos com apoio FAPEMING e encerramento oficial.">
+            <div class="slide-header">
+                <span class="slide-step">ENCERRAMENTO • CERIMÔNIA</span>
+                <h2 class="slide-title">Parabéns, Desenvolvedor(a)!</h2>
+                <p class="slide-subtitle">Você concluiu com sucesso o projeto Trilhando o Caminho do Código</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3">
+                    <div class="content-box accent-box" style="text-align:center">
+                        <div class="big-icon">🎓</div>
+                        <h4 style="color:var(--accent-purple)">Certificado FAPEMING</h4>
+                        <p>Reconhecimento oficial de participação e horas de extensão em programação e IA.</p>
+                    </div>
+                    <div class="content-box accent-box" style="text-align:center">
+                        <div class="big-icon">💻</div>
+                        <h4 style="color:var(--accent-blue)">Portfólio no GitHub</h4>
+                        <p>Seu aplicativo autoral está pronto para ser mostrado para o mundo!</p>
+                    </div>
+                    <div class="content-box accent-box" style="text-align:center">
+                        <div class="big-icon">🌟</div>
+                        <h4 style="color:var(--accent-green)">Futuro Aberto</h4>
+                        <p>Você agora domina lógica de programação, Python, Flet e Engenharia de Prompts com IA!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="speaker-notes-panel" id="notesPanel">
+        <div class="notes-header"><span>📝 NOTAS DO INSTRUTOR</span><span style="opacity:0.6">Pressione N para fechar</span></div>
+        <div class="notes-content" id="notesContent">Use as setas do teclado para navegar.</div>
+    </div>
+
+    <footer class="bottom-nav">
+        <div class="slide-counter" id="slideCounter">1 / 5</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn">← Anterior <span class="key-hint">←</span></button>
+            <button class="nav-btn primary" id="nextBtn">Próximo → <span class="key-hint">→</span></button>
+        </div>
+    </footer>
+
+    <script src="slides-engine.js"></script>
+</body>
+</html>
