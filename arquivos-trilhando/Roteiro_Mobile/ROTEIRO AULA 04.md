@@ -1,65 +1,55 @@
 # Roteiro de Aula — Aula 04 (Trilha Mobile)
 
-## Repetição e Automação: while, for & Apresentação dos Chatbots Mobile
+## Retorno do Intervalo: Feira dos Projetos + Listas no Celular
 
 **Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio
-**Pré-requisitos:** Variáveis, `input()`, `if/elif/else`, Mini-Projeto do Intervalo criado no Pydroid 3
-
+**Pré-requisitos da aula anterior:** Variáveis, `input()`, `if/elif/else`, `while/for`, Pydroid 3 (conceitos das Aulas 1–3)
 
 ---
 
-## Bloco 1: Retorno do Intervalo & Mini-Feira de Projetos Mobile (20 min)
+## Bloco 1: Boas-Vindas e Apresentação dos Projetos do Mês (45 min)
 
-**Objetivo:** Celebrar o retorno após o intervalo de 1 mês e apresentar os Mini-Projetos (Tamagotchi Escolar, A Jornada do Herói ou Quiz Buzzfeed) criados pelos alunos no Pydroid 3 do celular.
+**Objetivo:** Celebrar o retorno após o intervalo de 1 mês, apresentar os Mini-Projetos (Tamagotchi Escolar, A Jornada do Herói ou Quiz Buzzfeed) desenvolvidos no Pydroid 3 do celular e conectar com a necessidade de armazenar múltiplos dados em estruturas de listas.
 
 ### Ações do Tutor:
-- **Acolhimento (5 min):** Boas-vindas de volta após as 4 semanas!
-- **Mini-Feira dos Projetos Mobile (10 min):** Alunos abrem o projeto escolhido (Tamagotchi Escolar, A Jornada do Herói ou Quiz Buzzfeed) no Pydroid 3 do celular (ou PC) e executam para a turma.
-- **Conexão com Repetição (5 min):** 
-  > *"Para o seu jogo ou Tamagotchi não fechar sozinho depois de uma ação, precisamos que ele fique REPETINDO. Hoje vamos aprender o poder do while e do for no celular!"*
-
+- **Acolhimento e Reagrupamento (10 min):** Recepcionar os alunos na volta das 4 semanas de intervalo, resgatando a empolgação com o código no celular.
+- **Mini-Feira dos Projetos do Mês (30 min):**
+  - Cada aluno ou dupla projeta a tela do celular (ou executa no Pydroid 3) apresentando o seu projeto escolhido (Tamagotchi Escolar, A Jornada do Herói ou Quiz Buzzfeed) para a turma.
+  - O tutor faz elogios com destaque para a aplicação da lógica aprendida (Variáveis, Input, `if/else`, `while`).
+- **Conexão com Listas (5 min):**
+  > *"Vocês criaram apps e jogos incríveis! Mas se no Tamagotchi a gente quisesse guardar um histórico de tudo que o bichinho comeu? Ou se no RPG a gente quisesse guardar 10 itens no inventário? Criar 10 variáveis diferentes daria muito trabalho. Hoje vocês vão aprender a usar LISTAS — uma única caixinha que guarda milhares de coisas!"*
 
 ---
 
-## Bloco 2: Aula Expositiva — while, for e o Botão Stop no Celular (25 min)
+## Bloco 2: Aula Expositiva — Estrutura de Dados: Listas (30 min)
+
+**Objetivo:** Ensinar o conceito de listas (`list`), índices, adição de elementos (`append`), tamanho (`len`) e percurso com `for` no Pydroid 3.
 
 ### Conteúdo Teórico:
-- Laço `while` (enquanto a condição for verdadeira).
-- Laço `for` + `range(inicio, fim)`.
-- Contadores (`contador += 1`).
 
-### 📱 Dica Crucial para Smartphone:
-- **O Laço Infinito no Pydroid 3:** Se o aluno esquecer o `contador += 1`, a tela do celular vai piscar sem parar.
-- **Como resolver no celular:** Ensinar a apertar o **botão quadrado vermelho (STOP)** no canto da tela do Pydroid 3 para interromper a execução com segurança!
+#### 1. Criando e Acessando Listas
+```python
+# Uma lista guarda múltiplos valores em uma única variável
+mochila = ["Espada", "Escudo", "Poção de Vida"]
 
-### 🏠 Micro-Missão de Casa (Para o final desta aula)
+# Acessando itens pelo índice (começa no 0!)
+print(mochila[0])  # Espada
+print(mochila[1])  # Escudo
+```
 
-> **Escolha UMA das duas opções abaixo para realizar no Pydroid 3 / Caderno (10 a 15 min):**
+#### 2. Adicionando Itens com `append()`
+```python
+mochila.append("Chave Mágica")  # Adiciona ao final da lista
+print(f"Sua mochila agora tem: {len(mochila)} itens!")
+```
 
-#### 🤖 Opção A — "O Robô da Chamada Escolar no Celular"
-- **Tarefa:** Escreva no Pydroid 3 uma estrutura `for` que percorre uma lista de 4 colegas da sua turma e imprime o nome de cada um com a mensagem *"presente no app!"*.
-
-#### 🚀 Opção B — "Contador Regressivo de Lançamento"
-- **Tarefa:** Crie no Pydroid 3 do celular uma contagem regressiva de 10 até 1 usando o laço `while` ou `for` com `range(10, 0, -1)` e mostre no final `print("🚀 FOGUETE LANÇADO DO CELULAR COM SUCESSO!")`.
-
----
-
-## Bloco 3: Engenharia Reversa — Batalha Naval no Celular (20 min)
-
-Inspecionar o `while tentativas > 0:` no script da Batalha Naval rodando no Pydroid 3.
-
----
-
-## Bloco 4: Prática com IA — Jogo de Adivinhação no Celular (45 min)
-
-Criar o Jogo de Adivinhação de Números (1 a 100) com 7 tentativas usando `while` e `random` no Pydroid 3.
-
----
-
-## Bloco 5: Depuração com IA — Resolvendo o Loop Infinito (15 min)
-
-Projetar um código com loop infinito e usar o Gemini para depurar e corrigir.
+#### 3. Percorrendo a Lista com `for`
+```python
+print("🎒 ITENS NA SUA MOCHILA:")
+for item in mochila:
+    print(f"- {item}")
+```
 
 ---
 
@@ -67,45 +57,59 @@ Projetar um código com loop infinito e usar o Gemini para depurar e corrigir.
 
 | Bloco | Atividade | Duração | Horário |
 |-------|-----------|---------|---------|
-| 1 | Boas-Vindas, Feira dos Projetos & Aquecimento | 25 min | 15h00 – 15h25 |
-| 2 | Aula Expositiva: while, for e Botão Stop no Celular | 30 min | 15h25 – 15h55 |
-| 3 | Engenharia Reversa: Batalha Naval no Celular | 25 min | 15h55 – 16h20 |
-| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h20 – 16h35** |
-| 4 | Prática com IA: Jogo de Adivinhação no Celular | 55 min | 16h35 – 17h30 |
-| 5 | Depuração com IA: Resolvendo Loop Infinito | 15 min | 17h30 – 17h45 |
-| 6 | Encerramento e Backup | 15 min | 17h45 – 18h00 |
+| 1 | Boas-Vindas e Apresentação dos Projetos do Mês | 45 min | 15h00 – 15h45 |
+| 2 | Aula Expositiva: Listas no Pydroid 3 | 30 min | 15h45 – 16h15 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h15 – 16h30** |
+| 3 | Prática com IA: Inventário / Lista de Compras no Celular | 50 min | 16h30 – 17h20 |
+| 4 | Caça ao Tesouro e Desafio Prático no Pydroid 3 | 25 min | 17h20 – 17h45 |
+| 5 | Encerramento e Backup dos Scripts | 15 min | 17h45 – 18h00 |
 | **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
 ---
 
+## Bloco 3: Prática com IA — Inventário Inteligente no Celular (50 min)
 
-## Material Didático Complementar
+**Objetivo:** Usar a IA no navegador do celular para construir um gerenciador de listas interativo no Pydroid 3.
 
-### ⚡ Quiz de Aquecimento (Para o início da Aula 05)
-
-#### ❓ Pergunta 1: Verdadeiro ou Falso?
-Se você esquecer o `contador += 1` no `while`, o programa entra em loop infinito e no Pydroid 3 você deve apertar o botão vermelho de STOP para parar.
-* [ ] Verdadeiro
-* [ ] Falso
-
-#### ❓ Pergunta 2: Múltipla Escolha
-O que o `range(1, 4)` gera no laço `for`?
-* A) Os números 1, 2 e 3.
-* B) Os números 1, 2, 3 e 4.
-* C) Uma coxinha de frango.
-* D) O número 4.
-
-#### ❓ Pergunta 3: Encontre o Erro! 🔍
-```python
-numero = 1
-while numero <= 5:
-    print(numero)
+### Prompt Modelo:
 ```
-**O que está faltando para não travar o celular?**
+Crie um aplicativo em Python para rodar no Pydroid 3 que gerencie uma Lista de Tarefas / Inventário.
+Regras:
+1. Crie uma lista vazia chamada lista_itens = [].
+2. Use um laço while True com o menu: 1-Adicionar Item | 2-Ver Lista | 3-Remover Item | 4-Sair.
+3. Se escolher 1: peça o nome do item com input() e adicione com append().
+4. Se escolher 2: use um laço for para exibir todos os itens numerados.
+```
 
 ---
 
-#### 🔑 Gabarito Comentado (Para o Tutor)
-1. **VERDADEIRO!** ✅ O botão vermelho Interrompe o loop infinito no Pydroid 3.
-2. **Alternativa A!** 🎯 Gera 1, 2 e 3.
-3. **Faltou o incremento `numero += 1`!** 🛑
+## Bloco 4: Caça ao Tesouro e Desafio Prático no Pydroid 3 (25 min)
+
+Os alunos inspecionam o código no Pydroid 3, alteram mensagens e testam adicionar novos elementos.
+
+---
+
+## Bloco 5: Encerramento e Backup (15 min)
+
+Salvar os arquivos `.py` no armazenamento local do smartphone.
+
+---
+
+## Conceitos de Programação Absorvidos
+
+- [x] Conceito de coleção de dados e listas em Python no celular
+- [x] Indexação (base 0) e tamanho de listas (`len`)
+- [x] Método `append()` para adicionar elementos
+- [x] Percurso de listas com laço `for`
+
+---
+
+### 🏠 Micro-Missão de Casa (Para o final desta aula)
+
+> **Escolha UMA das duas opções abaixo para realizar no Pydroid 3 ou Caderno (10 a 15 min):**
+
+#### 🛒 Opção A — "A Lista de Compras do Futuro no Celular"
+- **Tarefa:** Crie no Pydroid 3 uma lista chamada `compras = []`. Faça um laço `while` que pede ao usuário para cadastrar 3 produtos e adiciona à lista. No final, exiba os produtos em ordem numerada usando `for`.
+
+#### 🎵 Opção B — "A Playlist dos Meus Sonhos"
+- **Tarefa:** Crie no Pydroid 3 uma lista com suas 4 músicas favoritas. Use o comando `input()` para perguntar ao usuário o nome de mais uma música e insira na lista com `append()`. Mostre a playlist atualizada na tela!

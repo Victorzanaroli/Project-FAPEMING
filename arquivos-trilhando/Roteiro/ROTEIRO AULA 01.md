@@ -185,17 +185,21 @@ Dividir a turma em dois blocos. Cada bloco recebe um prompt diferente para a mes
 #### Metodologia: Engenharia Reversa
 > *"Como vamos trabalhar: A IA gera a estrutura, nós analisamos a lógica. O ciclo é: Gerar → Desmontar → Entender. Deixando de ser 'copiadores' para nos tornarmos 'inspetores'."*
 
-#### Primeiro Conceito de Código: O Comando `print()`
-Antes de começar o hackathon, ensinar:
-> *"O `print()` é a voz do computador. Tudo que estiver entre aspas pode ser alterado por vocês sem quebrar o programa!"*
+#### Primeiros Conceitos de Código: print(), input() e Variáveis
+Antes de começar o hackathon, ensinar os 3 pilares iniciais:
+1. **`print()` — A voz do computador:** Mostra mensagens e textos na tela.
+2. **`input()` — Os ouvidos do computador:** Faz uma pergunta e espera o usuário digitar a resposta.
+3. **Variáveis — As caixas de memória:** Guardam as informações digitadas para usar mais tarde.
 
 ```python
-# Original
-print("💀 GAME OVER!")
+# Exemplo ao vivo no projetor:
+nome = input("Qual é o seu nome, jogador? ")
+print(f"🔥 Bem-vindo ao jogo, {nome}!")
 
-# Hackeado pelo aluno
-print("🔥 TENTE NOVAMENTE, GUERREIRO!")
+# Hackeando a mensagem de Game Over
+print("💀 GAME OVER!")
 ```
+> *"Reparem como a caixa `nome` guarda o que você digitou e o `print()` usa esse nome depois! No hackathon, vocês vão identificar e personalizar os `print()` e `input()` do jogo de vocês!"*
 
 #### O Desafio:
 A turma escolhe **um entre três jogos** para gerar via prompt e personalizar:

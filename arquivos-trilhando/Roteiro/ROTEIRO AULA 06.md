@@ -1,204 +1,64 @@
 # Roteiro de Aula — Aula 06
 
-## Modularização e Funções
+## Consolidação de Lógica + Estruturas Avançadas (Dicionários) e Refatoração pré-GUI
 
 **Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio sem conhecimento prévio em programação
-**Pré-requisitos da aula anterior:** Variáveis, tipos, `if/elif/else`, `while`, `for`, listas
-
+**Pré-requisitos da aula anterior:** Fundamentos completos das Aulas 1–5 (Variáveis, `if/else`, `while/for`, listas, funções)
 
 ---
 
-## Bloco 1: Aquecimento — A Receita de Bolo (10 min)
+## Bloco 1: Aquecimento — Integrando Todos os Fundamentos de Lógica (15 min)
 
-**Objetivo:** Mostrar que funções são "receitas" reutilizáveis.
+**Objetivo:** Mostrar como os 5 pilares (`print/input`, variáveis, `if/else`, `while/for`, `def`) se conectam para formar um programa completo.
 
 ### Ações do Tutor:
-- Analogia no quadro:
-  > *"Imaginem que vocês precisam fazer 3 bolos para uma festa. Vocês escrevem a receita 3 vezes? Não! Vocês escrevem a receita UMA VEZ e seguem ela 3 vezes. Em programação, isso se chama FUNÇÃO."*
-- Escrever no quadro:
-  ```python
-  # A "receita" (função)
-  def fazer_bolo(sabor):
-      print(f"Misturando ingredientes do bolo de {sabor}...")
-      print(f"Assando o bolo de {sabor} por 40 minutos...")
-      print(f"🎂 Bolo de {sabor} pronto!")
-  
-  # Usando a receita 3 vezes
-  fazer_bolo("chocolate")
-  fazer_bolo("morango")
-  fazer_bolo("cenoura")
+- Escrever no quadro o mapa da lógica Python:
   ```
-- Rodar ao vivo — mostrar que o mesmo bloco de código é executado 3 vezes com sabores diferentes.
+  ENTRADA (input) → MEMÓRIA (variáveis/listas/dicionários) → DECISÃO (if/else) → REPETIÇÃO (while/for) → MODULARIZAÇÃO (def) → SAÍDA (print)
+  ```
+- Mostrar como cada pilar se encaixa nos projetos anteriores.
 
 ---
 
-## Bloco 2: Aula Expositiva — def, Parâmetros e return (25 min)
+## Bloco 2: Aula Expositiva — Estruturas de Dados Avançadas: Dicionários (30 min)
 
-**Objetivo:** Formalizar a criação de funções, passagem de parâmetros e retorno de valores.
+**Objetivo:** Apresentar a estrutura de Dicionários em Python (`{"chave": "valor"}`), permitindo representar objetos reais (ex: alunos, produtos, personagens).
 
 ### Conteúdo Teórico:
 
-#### Criando uma Função
+#### 1. Criando e Acessando Dicionários
 ```python
-def saudacao(nome):
-    print(f"Olá, {nome}! Bem-vindo ao curso!")
+# Um dicionário guarda pares de chave e valor
+aluno = {
+    "nome": "Ana Silva",
+    "idade": 16,
+    "curso": "Python com IA",
+    "nota": 95
+}
 
-# Chamando a função
-saudacao("Ana")     # Olá, Ana! Bem-vindo ao curso!
-saudacao("Bruno")   # Olá, Bruno! Bem-vindo ao curso!
+# Acessando pela chave
+print(aluno["nome"])  # Ana Silva
+print(aluno["nota"])  # 95
 ```
 
-#### Parâmetros — Os "Ingredientes" da Receita
+#### 2. Dicionários em Listas (Banco de Dados simples)
 ```python
-# Função com 2 parâmetros
-def calcular_media(nota1, nota2):
-    media = (nota1 + nota2) / 2
-    return media  # Devolve o resultado
+turma = [
+    {"nome": "Ana", "nota": 95},
+    {"nome": "Bruno", "nota": 80},
+    {"nome": "Carla", "nota": 90}
+]
 
-# Usando a função
-resultado = calcular_media(85, 92)
-print(f"Sua média é: {resultado}")  # 88.5
+for aluno in turma:
+    print(f"Aluno: {aluno['nome']} | Nota: {aluno['nota']}")
 ```
-
-#### `return` — A Resposta da Função
-> *"`print()` mostra na tela. `return` devolve o valor para quem chamou."*
-
-```python
-# COM return: a função "devolve" o resultado
-def somar(a, b):
-    return a + b
-
-total = somar(10, 20)  # total = 30
-print(total)
-
-# SEM return: a função só executa, não devolve nada
-def mostrar_soma(a, b):
-    print(a + b)  # Mostra 30, mas não devolve
-
-total = mostrar_soma(10, 20)  # total = None (vazio!)
-```
-
-#### Escopo — O que acontece dentro, fica dentro
-```python
-def minha_funcao():
-    segredo = "sou local"  # Só existe DENTRO da função
-
-minha_funcao()
-# print(segredo)  # ERRO! A variável "segredo" não existe fora
-```
-
-#### Por que Modularizar?
-| Sem funções (repetitivo) | Com funções (organizado) |
-|---|---|
-| Código copiado e colado 5 vezes | Código escrito 1 vez e chamado 5 vezes |
-| Se achar um bug, precisa corrigir em 5 lugares | Se achar um bug, corrige em 1 lugar só |
-| Difícil de ler e entender | Cada função tem um nome que explica o que faz |
 
 ---
 
-## Bloco 3: Engenharia Reversa — EscapeRoom.py (20 min)
+## Bloco 3: Engenharia Reversa Guiada — Sistema de Cadastro de Clientes/Alunos (25 min)
 
-**Objetivo:** Identificar funções no código real e visualizar como modularizar.
-
-### Ações do Tutor:
-- Abrir `EscapeRoom.py` no projetor.
-- Focar nas funções existentes:
-
-| O que procurar | Onde está | Conceito |
-|---|---|---|
-| *"Quais funções existem neste código?"* | `limpar_tela()` (linha 4) e `jogar_escape_room()` (linha 8) | `def` + funções auxiliares |
-| *"O que a `limpar_tela()` faz?"* | Limpa o terminal a cada transição de sala | Função utilitária reutilizável |
-| *"Cada sala poderia ser uma função separada?"* | Sim! Ex: `def sala()`, `def cozinha()`, `def quarto()` | Modularização por responsabilidade |
-
-### Exercício coletivo no projetor:
-- Mostrar como a Sala (linhas 20–44) poderia virar uma função:
-  ```python
-  def jogar_sala():
-      achou = False
-      while not achou:
-          limpar_tela()
-          print("🛋️ VOCÊ ESTÁ NA SALA")
-          # ... (mesmo código de dentro)
-      return True  # Retorna que encontrou a pista
-  ```
-- Perguntar: *"Qual a vantagem disso?"* → Se quiser mudar a Sala, mexe só nessa função. Se quiser adicionar uma sala nova, é só criar outra função.
-
----
-
-## Bloco 4: Prática com IA — Multi-Calculadora Modular (45 min)
-
-**Objetivo:** Criar um programa que usa múltiplas funções para resolver problemas diferentes.
-
-### Prompt Modelo:
-```
-Crie uma Multi-Calculadora em Python para terminal com as seguintes funcionalidades,
-cada uma em uma FUNÇÃO SEPARADA:
-
-1. calcular_imc(peso, altura) → calcula o IMC e retorna a classificação
-   (Abaixo do peso, Normal, Sobrepeso, Obeso)
-2. converter_temperatura(valor, unidade) → converte Celsius para Fahrenheit
-   e vice-versa
-3. calcular_media_escolar(nota1, nota2, nota3) → calcula a média e retorna
-   se está Aprovado (>=70) ou Reprovado
-
-Regras:
-- Crie um MENU principal usando while True que pergunta qual calculadora usar.
-- Cada função deve ter parâmetros e usar return para devolver o resultado.
-- O menu principal chama a função escolhida e mostra o resultado.
-- Adicione comentários em português explicando cada função.
-- Use apenas print(), input() e operações matemáticas básicas.
-```
-
-### Ações do Tutor:
-- Após o código funcionar, pedir ao aluno que **adicione uma 4ª função manualmente** (ex: `calcular_desconto(preco, percentual)`) — sem pedir para a IA.
-- Verificar se o aluno sabe:
-  1. Onde criar a função (`def` antes do menu principal)
-  2. Como chamar no menu (adicionar uma opção 4)
-  3. O que colocar no `return`
-
----
-
-## Bloco 5: Prompt Arquitetural — Refatoração com IA (15 min)
-
-**Objetivo:** Usar a IA para transformar código monolítico em código modular.
-
-### Dinâmica:
-- O tutor projeta um código bagunçado (tudo num bloco só, sem funções):
-  ```python
-  # Código MONOLÍTICO (tudo junto e misturado)
-  print("=== CALCULADORA ===")
-  opcao = input("1-IMC 2-Temperatura: ")
-  if opcao == "1":
-      peso = float(input("Peso: "))
-      altura = float(input("Altura: "))
-      imc = peso / (altura ** 2)
-      if imc < 18.5:
-          print("Abaixo do peso")
-      elif imc < 25:
-          print("Normal")
-      else:
-          print("Sobrepeso")
-  elif opcao == "2":
-      # ... mais código misturado
-  ```
-- Pedir que os alunos usem o **Prompt Arquitetural**:
-  ```
-  Refatore este código Python dividindo-o em funções separadas.
-  Cada funcionalidade deve ter sua própria função com def, parâmetros e return.
-  Mantenha o menu principal chamando cada função.
-  ```
-- Comparar as duas versões lado a lado: *"Qual é mais fácil de ler? Qual é mais fácil de dar manutenção?"*
-
----
-
-## Bloco 6: Encerramento e Backup (10 min)
-
-### Ações do Tutor:
-- Verificar conclusão das atividades.
-- Exportar logs e salvar códigos.
-- Frase de fechamento:
-  > *"Vocês agora dominam os fundamentos completos do Python: variáveis, decisões, repetições, listas e funções. Na próxima aula, vamos SAIR DO TERMINAL PRETO e criar interfaces visuais bonitas com o Flet — botões, cores, layouts! E vamos definir os projetos finais que vocês vão apresentar na última aula."*
+**Objetivo:** Analisar um código que integra Dicionários, Listas e Funções com menu `while`.
 
 ---
 
@@ -206,89 +66,50 @@ Regras:
 
 | Bloco | Atividade | Duração | Horário |
 |-------|-----------|---------|---------|
-| 1 | Aquecimento: A receita de bolo | 15 min | 15h00 – 15h15 |
-| 2 | Aula Expositiva: def, parâmetros, return, escopo | 30 min | 15h15 – 15h45 |
-| 3 | Engenharia Reversa: EscapeRoom.py (funções) | 25 min | 15h45 – 16h10 |
+| 1 | Aquecimento: O mapa completo da lógica Python | 15 min | 15h00 – 15h15 |
+| 2 | Aula Expositiva: Dicionários (chave: valor e coleções) | 30 min | 15h15 – 15h45 |
+| 3 | Engenharia Reversa: Sistema de Cadastro Integrado | 25 min | 15h45 – 16h10 |
 | **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h10 – 16h25** |
-| 4 | Prática com IA: Multi-Calculadora Modular | 55 min | 16h25 – 17h20 |
-| 5 | Prompt Arquitetural: Refatoração | 25 min | 17h20 – 17h45 |
-| 6 | Encerramento e Backup | 15 min | 17h45 – 18h00 |
+| 4 | Prática com IA: Sistema Integrado de Gestão / Banco de Dados | 55 min | 16h25 – 17h20 |
+| 5 | Prompt Arquitetural: Refatoração para Interface Visível | 25 min | 17h20 – 17h45 |
+| 6 | Encerramento e Preparação para Flet (Aula 7) | 15 min | 17h45 – 18h00 |
 | **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
+---
+
+## Bloco 4: Prática com IA — Sistema Integrado de Gestão (55 min)
+
+**Objetivo:** Construir um sistema robusto que junta menu `while`, cadastro em dicionário e funções de consulta.
+
+---
+
+## Bloco 5: Prompt Arquitetural — Refatoração para Interface Visível (25 min)
+
+Preparação dos dados e funções para a transição do terminal para o Flet na Aula 7.
+
+---
+
+## Bloco 6: Encerramento e Backup (15 min)
+
+> **Marco Pedagógico:** Ao final da Aula 6, o aluno domina toda a lógica de programação essencial em terminal! Nas Aulas 7 a 9, vamos transformar essa lógica em aplicativos visuais de verdade.
 
 ---
 
 ## Conceitos de Programação Absorvidos
 
-- [x] Definição de funções: `def nome(parametros):`
-- [x] Parâmetros e argumentos
-- [x] `return` vs `print()` dentro de funções
-- [x] Escopo de variáveis (local vs global)
-- [x] Refatoração de código monolítico para modular
-- [x] Uso de IA para reorganizar código
-
-## Recursos Utilizados da Pasta do Projeto
-
-- `Jogos/EscapeRoom.py` — Material de Engenharia Reversa (foco em funções)
-- Formulário Google de coleta de chats
-
-## Marco Pedagógico
-
-> **Ao final da Aula 6, o aluno domina os fundamentos completos de Python necessários para construir o projeto final:**
-> `print` → `input` → variáveis → `if/elif/else` → `while/for` → listas → funções.
->
-> As Aulas 7 e 8 aplicam esses fundamentos em um contexto de interface gráfica (Flet) e integração com IA.
-
----
-
-## Material Didático Complementar
-
-### ⚡ Quiz de Aquecimento (Para o início da Aula 07)
-
-#### ❓ Pergunta 1: Verdadeiro ou Falso?
-A instrução `return` dentro de uma função serve para "devolver" um resultado para quem a chamou, permitindo guardar esse resultado em uma variável, enquanto o `print()` apenas exibe o texto no terminal.
-* [ ] Verdadeiro
-* [ ] Falso
-
-#### ❓ Pergunta 2: Múltipla Escolha
-Como declaramos uma função em Python chamada `calcular_desconto` que recebe o valor do `preco` como parâmetro?
-* A) `def calcular_desconto(preco):`
-* B) `funcao calcular_desconto = preco`
-* C) `def feitiço_do_desconto_supremo(preco, varinha="sabugueiro"):`
-* D) `return def preco()`
-
-#### ❓ Pergunta 3: Encontre o Erro! 🔍
-Um aluno tentou criar uma função para somar dois números, mas o Python acusou erro de sintaxe antes mesmo de executar:
-```python
-def somar(a, b)
-    resultado = a + b
-    return resultado
-```
-**Qual detalhe obrigatório está faltando na primeira linha (`def somar(a, b)`)?**
-
----
-
-#### 🔑 Gabarito Comentado (Para o Tutor)
-1. **VERDADEIRO!** ✅ `return` entrega a resposta para o programa usar depois. `print()` só "fala" na tela.
-2. **Alternativa A!** 🎯 Usa a palavra-chave `def`, o nome da função e os parâmetros entre parênteses seguidos de dois pontos. A opção C é hilária, mas bruxaria não compila em Python!
-3. **Faltou colocar os dois pontos `:` no final do cabeçalho!** 🛑 Toda definição de função precisa terminar com `:` (`def somar(a, b):`).
+- [x] Estruturas de dados avançadas: Dicionários (`dict`)
+- [x] Combinação de Listas de Dicionários
+- [x] Integração total: `input` → Variáveis → `if/else` → `while` → `list/dict` → `def`
+- [x] Arquitetura de código pré-GUI
 
 ---
 
 ### 🏠 Micro-Missão de Casa (Para o final desta aula)
 
-> **Escolha UMA das duas opções abaixo para realizar (10 a 15 min):**
+> **Escolha UMA das duas opções abaixo para realizar no caderno ou PC (10 a 15 min):**
 
-#### 🍔 Opção A — "A Receita do Lanche Modular"
-- **Tarefa:** Escreva no caderno (ou PC) a estrutura de uma função chamada `montar_hambúrguer(pao, carne, molho)`:
-  1. Identifique os **parâmetros** (os 3 ingredientes recebidos).
-  2. Escreva o corpo da função retornando a frase pronta com `return f"Hambúrguer de {carne} no pão {pao} com molho {molho}!"`.
-  3. Escreva a linha chamando a função com seus ingredientes favoritos!
+#### 📱 Opção A — "O Perfil de Usuário do Seu App"
+- **Tarefa:** Crie em Python um dicionário chamado `usuario` com as chaves `"nome"`, `"idade"`, `"bio"` e `"foto_perfil"`. Peça para o usuário preencher com `input()` e exiba o cartão de perfil no terminal.
 
-#### 🏷️ Opção B — "Calculadora de Desconto de Loja"
-- **Tarefa:** Crie no caderno (ou PC) uma função `calcular_desconto(preco_original)` em Python:
-  1. A função deve calcular 10% de desconto (`desconto = preco_original * 0.10`).
-  2. Retorne o valor final com `return preco_original - desconto`.
-  3. Teste chamando `print(calcular_desconto(100))` para ver se retorna 90.
-
-
+#### 🎮 Opção B — "O Inventário de RPG com Dicionário"
+- **Tarefa:** Crie um dicionário para um item de jogo contendo `"nome"`, `"tipo"` (espada/escudo/poção), `"poder"` e `"preco"`. Exiba uma mensagem formatada mostrando as estatísticas do item!
