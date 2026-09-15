@@ -2,9 +2,10 @@
 
 ## Integração: Flet + IA (Antigravity) + GEMINI.md
 
-**Duração total:** 150 minutos (2h30)
+**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio (com fundamentos de Python + Flet da Aula 7)
 **Pré-requisitos:** Todos os conceitos das Aulas 1–7, protótipo visual do Flet funcional
+
 
 ---
 
@@ -177,19 +178,19 @@ Grupo: _______________  Tema: _______________
 
 ---
 
-## Resumo da Duração
+## Resumo da Duração (15h00 às 18h00)
 
-| Bloco | Atividade | Duração |
-|-------|-----------|---------|
-| 1 | Revisão dos Protótipos (30s por grupo) | 10 min |
-| 2 | Aula Expositiva: GEMINI.md + Integração IA | 25 min |
-| 3 | Sprint de Desenvolvimento | 60 min |
-| 4 | Preparação da Apresentação | 20 min |
-| 5 | Teste Final Completo | 10 min |
-| 6 | Encerramento e Commit Final | 10 min |
-| **Total** | | **135 min** |
+| Bloco | Atividade | Duração | Horário |
+|-------|-----------|---------|---------|
+| 1 | Revisão dos Protótipos (30s por grupo) | 15 min | 15h00 – 15h15 |
+| 2 | Aula Expositiva: GEMINI.md + Integração IA | 30 min | 15h15 – 15h45 |
+| 3 | Sprint de Desenvolvimento do App | 70 min | 15h45 – 16h55 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h55 – 17h10** |
+| 4 | Preparação da Apresentação | 25 min | 17h10 – 17h35 |
+| 5 | Teste Final Completo | 15 min | 17h35 – 17h50 |
+| 6 | Encerramento e Commit Final | 10 min | 17h50 – 18h00 |
+| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
-> **Margem:** 15 minutos para suporte técnico emergencial.
 
 ---
 
@@ -212,3 +213,55 @@ Grupo: _______________  Tema: _______________
 
 - **Artigo 2 (DBR / Learning Analytics):** Esta aula é a principal fonte de artefatos de código para análise de maturidade (complexidade ciclomática, modularidade, acoplamento).
 - Os logs de prompts desta aula capturam a categoria P5 (Arquitetura & Contextualização via GEMINI.md).
+
+---
+
+## Material Didático Complementar
+
+### ⚡ Quiz de Aquecimento (Para o início da Aula 09 — Feira de Soluções)
+
+#### ❓ Pergunta 1: Verdadeiro ou Falso?
+O arquivo `GEMINI.md` funciona como um "manual de regras e contexto" para a IA: quando colocamos regras nele, a IA passa a entender o projeto e não gera códigos usando bibliotecas proibidas ou estilos estranhos.
+* [ ] Verdadeiro
+* [ ] Falso
+
+#### ❓ Pergunta 2: Múltipla Escolha
+Na Feira de Soluções (Aula 9), durante a "Auditoria Viva" com os monitores e convidados, o que a sua equipe precisa demonstrar sobre o código do seu projeto?
+* A) Saber explicar a lógica de pelo menos um trecho importante e como a IA ajudou a construir.
+* B) Dizer que o código caiu do céu direto de Marte por telepatia.
+* C) Apagar todas as linhas de código e mostrar só a tela preta.
+* D) Ler o código inteiro em voz alta em menos de 3 segundos sem respirar.
+
+#### ❓ Pergunta 3: Encontre o Erro! 🔍
+Um grupo criou o arquivo `GEMINI.md` para o seu projeto em Python + Flet, mas colocou as seguintes regras:
+```markdown
+# GEMINI.md
+Regra 1: Todo código deve ser escrito na linguagem C++ avançada.
+Regra 2: Responda apenas em latim arcaico.
+```
+**Qual é o erro grave desse `GEMINI.md` para um projeto escolar de Python com Flet?**
+
+---
+
+#### 🔑 Gabarito Comentado (Para o Tutor)
+1. **VERDADEIRO!** ✅ O `GEMINI.md` dá contexto persistente à IA, garantindo que ela respeite a arquitetura e as restrições pedagógicas do curso.
+2. **Alternativa A!** 🎯 O objetivo do curso é transformar alunos em CRIADORES. Saber explicar o código garante que o aluno compreendeu a lógica e não apenas copiou! (A opção B é hilária, mas incorreta).
+3. **Contradição de arquitetura e idioma!** 🛑 O projeto utiliza Python e Flet, e os alunos precisam entender as orientações em Português. Pedir C++ e latim inviabiliza o desenvolvimento do projeto.
+
+---
+
+### 🏠 Micro-Missão de Casa (Para o final desta aula)
+
+> **Escolha UMA das duas opções abaixo para realizar (10 a 15 min):**
+
+#### 🎤 Opção A — "Ensaio de Pitch de 30 Segundos"
+- **Tarefa:** Escreva no caderno o roteiro da sua fala de abertura para a Feira de Soluções da próxima aula:
+  1. *O Problema:* "O nosso aplicativo serve para..."
+  2. *A Solução:* "Ele funciona permitindo que..."
+  3. *O Aprendizado:* "A parte mais legal de programar em Python foi..."
+- **Treino:** Fale o texto em voz alta cronometrando 30 segundos no celular!
+
+#### 🔍 Opção B — "Checklist Anti-Bugs & Depuração"
+- **Tarefa:** Teste o app da sua equipe 3 vezes inserindo dados normais e dados estranhos (ex: digite texto em campo de número) e anote no caderno o que aconteceu e 1 melhoria ou regra que você adicionaria no `GEMINI.md` da equipe!
+
+

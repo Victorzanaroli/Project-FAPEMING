@@ -2,9 +2,10 @@
 
 ## Interfaces Visuais com Flet + Definição dos Projetos Finais
 
-**Duração total:** 150 minutos (2h30)
+**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio (com fundamentos de Python das Aulas 1–6)
 **Pré-requisitos:** `print`, `input`, variáveis, `if/elif/else`, `while/for`, listas, funções
+
 
 ---
 
@@ -206,19 +207,19 @@ O app deve ter:
 
 ---
 
-## Resumo da Duração
+## Resumo da Duração (15h00 às 18h00)
 
-| Bloco | Atividade | Duração |
-|-------|-----------|---------|
-| 1 | Impacto Visual: Terminal vs Flet | 10 min |
-| 2 | Aula Expositiva: Componentes Flet | 30 min |
-| 3 | Prática Guiada: IMC Terminal → Flet | 30 min |
-| 4 | Brainstorming de Projetos Finais (ODS) | 30 min |
-| 5 | Prototipagem Rápida com IA | 20 min |
-| 6 | Encerramento | 10 min |
-| **Total** | | **130 min** |
+| Bloco | Atividade | Duração | Horário |
+|-------|-----------|---------|---------|
+| 1 | Impacto Visual: Terminal vs Flet | 15 min | 15h00 – 15h15 |
+| 2 | Aula Expositiva: Componentes Flet | 35 min | 15h15 – 15h50 |
+| 3 | Prática Guiada: IMC Terminal → Flet | 30 min | 15h50 – 16h20 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h20 – 16h35** |
+| 4 | Brainstorming de Projetos Finais (ODS) | 35 min | 16h35 – 17h10 |
+| 5 | Prototipagem Rápida com IA | 35 min | 17h10 – 17h45 |
+| 6 | Encerramento | 15 min | 17h45 – 18h00 |
+| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
-> **Margem:** 20 minutos para instalação do Flet ou problemas de ambiente.
 
 ---
 
@@ -238,3 +239,56 @@ O app deve ter:
 > pip install flet
 > ```
 > Testar com o app mínimo em pelo menos 3 máquinas.
+
+---
+
+## Material Didático Complementar
+
+### ⚡ Quiz de Aquecimento (Para o início da Aula 08)
+
+#### ❓ Pergunta 1: Verdadeiro ou Falso?
+No Flet, depois de alterar o texto ou o valor de qualquer componente na tela (por exemplo, `resultado.value = "Sucesso!"`), é obrigatório chamar o comando `page.update()`, caso contrário a tela não atualiza visualmente.
+* [ ] Verdadeiro
+* [ ] Falso
+
+#### ❓ Pergunta 2: Múltipla Escolha
+Qual componente do Flet devemos utilizar quando queremos criar uma caixa onde o usuário possa digitar um texto ou um número?
+* A) `ft.TextField()`
+* B) `ft.ElevatedButton()`
+* C) `ft.CaixaDeTextoDoBatman()`
+* D) `ft.Text()`
+
+#### ❓ Pergunta 3: Encontre o Erro! 🔍
+Um aluno criou um botão no Flet para exibir uma mensagem de boas-vindas, mas quando ele clica no botão, nada acontece na tela:
+```python
+def botao_clicado(e):
+    texto_mensagem.value = "Bem-vindo ao nosso aplicativo!"
+    # O botão foi clicado e o valor mudou, mas a tela continua idêntica!
+```
+**Qual comando essencial do Flet está faltando no final da função `botao_clicado`?**
+
+---
+
+#### 🔑 Gabarito Comentado (Para o Tutor)
+1. **VERDADEIRO!** ✅ O Flet guarda as alterações em memória e só renderiza na tela quando executamos `page.update()`.
+2. **Alternativa A!** 🎯 `ft.TextField()` cria o campo digitável. `ft.Text()` só exibe texto fixo e a opção C não existe na biblioteca!
+3. **Faltou o `page.update()`!** 🛑 Sem chamar `page.update()`, o Flet não sabe que precisa redesenhar o componente na tela. 
+   * *Correção:* Adicionar `page.update()` na última linha da função.
+
+---
+
+### 🏠 Micro-Missão de Casa (Para o final desta aula)
+
+> **Escolha UMA das duas opções abaixo para realizar (10 a 15 min):**
+
+#### 🎨 Opção A — "UI Designer de Caderno" (Protótipo da Tela)
+- **Tarefa:** Desenhe à mão livre no caderno um esboço simples da tela do **Projeto Final** da sua equipe em Flet rotulando os componentes:
+  - Título (`ft.Text`)
+  - Caixas de entrada (`ft.TextField`)
+  - Botão principal (`ft.ElevatedButton`)
+  - Área de resultado (`ft.Text`)
+
+#### 🎤 Opção B — "Pesquisa de Usuário / Entrevista de Campo"
+- **Tarefa:** Converse com 2 colegas ou familiares e faça 2 perguntas simples sobre o problema que o app da sua equipe vai resolver. Anote no caderno as respostas para ajudar no ajuste da interface e funcionalidades na próxima aula!
+
+

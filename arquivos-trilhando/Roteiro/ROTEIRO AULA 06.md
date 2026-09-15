@@ -2,9 +2,10 @@
 
 ## Modularização e Funções
 
-**Duração total:** 150 minutos (2h30)
+**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio sem conhecimento prévio em programação
 **Pré-requisitos da aula anterior:** Variáveis, tipos, `if/elif/else`, `while`, `for`, listas
+
 
 ---
 
@@ -201,19 +202,19 @@ Regras:
 
 ---
 
-## Resumo da Duração
+## Resumo da Duração (15h00 às 18h00)
 
-| Bloco | Atividade | Duração |
-|-------|-----------|---------|
-| 1 | Aquecimento: A receita de bolo | 10 min |
-| 2 | Aula Expositiva: def, parâmetros, return, escopo | 25 min |
-| 3 | Engenharia Reversa: EscapeRoom.py (funções) | 20 min |
-| 4 | Prática com IA: Multi-Calculadora Modular | 45 min |
-| 5 | Prompt Arquitetural: Refatoração | 15 min |
-| 6 | Encerramento e Backup | 10 min |
-| **Total** | | **125 min** |
+| Bloco | Atividade | Duração | Horário |
+|-------|-----------|---------|---------|
+| 1 | Aquecimento: A receita de bolo | 15 min | 15h00 – 15h15 |
+| 2 | Aula Expositiva: def, parâmetros, return, escopo | 30 min | 15h15 – 15h45 |
+| 3 | Engenharia Reversa: EscapeRoom.py (funções) | 25 min | 15h45 – 16h10 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h10 – 16h25** |
+| 4 | Prática com IA: Multi-Calculadora Modular | 55 min | 16h25 – 17h20 |
+| 5 | Prompt Arquitetural: Refatoração | 25 min | 17h20 – 17h45 |
+| 6 | Encerramento e Backup | 15 min | 17h45 – 18h00 |
+| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
-> **Margem:** 25 minutos para imprevistos.
 
 ---
 
@@ -237,3 +238,57 @@ Regras:
 > `print` → `input` → variáveis → `if/elif/else` → `while/for` → listas → funções.
 >
 > As Aulas 7 e 8 aplicam esses fundamentos em um contexto de interface gráfica (Flet) e integração com IA.
+
+---
+
+## Material Didático Complementar
+
+### ⚡ Quiz de Aquecimento (Para o início da Aula 07)
+
+#### ❓ Pergunta 1: Verdadeiro ou Falso?
+A instrução `return` dentro de uma função serve para "devolver" um resultado para quem a chamou, permitindo guardar esse resultado em uma variável, enquanto o `print()` apenas exibe o texto no terminal.
+* [ ] Verdadeiro
+* [ ] Falso
+
+#### ❓ Pergunta 2: Múltipla Escolha
+Como declaramos uma função em Python chamada `calcular_desconto` que recebe o valor do `preco` como parâmetro?
+* A) `def calcular_desconto(preco):`
+* B) `funcao calcular_desconto = preco`
+* C) `def feitiço_do_desconto_supremo(preco, varinha="sabugueiro"):`
+* D) `return def preco()`
+
+#### ❓ Pergunta 3: Encontre o Erro! 🔍
+Um aluno tentou criar uma função para somar dois números, mas o Python acusou erro de sintaxe antes mesmo de executar:
+```python
+def somar(a, b)
+    resultado = a + b
+    return resultado
+```
+**Qual detalhe obrigatório está faltando na primeira linha (`def somar(a, b)`)?**
+
+---
+
+#### 🔑 Gabarito Comentado (Para o Tutor)
+1. **VERDADEIRO!** ✅ `return` entrega a resposta para o programa usar depois. `print()` só "fala" na tela.
+2. **Alternativa A!** 🎯 Usa a palavra-chave `def`, o nome da função e os parâmetros entre parênteses seguidos de dois pontos. A opção C é hilária, mas bruxaria não compila em Python!
+3. **Faltou colocar os dois pontos `:` no final do cabeçalho!** 🛑 Toda definição de função precisa terminar com `:` (`def somar(a, b):`).
+
+---
+
+### 🏠 Micro-Missão de Casa (Para o final desta aula)
+
+> **Escolha UMA das duas opções abaixo para realizar (10 a 15 min):**
+
+#### 🍔 Opção A — "A Receita do Lanche Modular"
+- **Tarefa:** Escreva no caderno (ou PC) a estrutura de uma função chamada `montar_hambúrguer(pao, carne, molho)`:
+  1. Identifique os **parâmetros** (os 3 ingredientes recebidos).
+  2. Escreva o corpo da função retornando a frase pronta com `return f"Hambúrguer de {carne} no pão {pao} com molho {molho}!"`.
+  3. Escreva a linha chamando a função com seus ingredientes favoritos!
+
+#### 🏷️ Opção B — "Calculadora de Desconto de Loja"
+- **Tarefa:** Crie no caderno (ou PC) uma função `calcular_desconto(preco_original)` em Python:
+  1. A função deve calcular 10% de desconto (`desconto = preco_original * 0.10`).
+  2. Retorne o valor final com `return preco_original - desconto`.
+  3. Teste chamando `print(calcular_desconto(100))` para ver se retorna 90.
+
+

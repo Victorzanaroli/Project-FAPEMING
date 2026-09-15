@@ -2,9 +2,10 @@
 
 ## Organização de Dados: Listas
 
-**Duração total:** 150 minutos (2h30)
+**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio sem conhecimento prévio em programação
 **Pré-requisitos da aula anterior:** Variáveis, `if/elif/else`, `while`, `for`, `range()`
+
 
 ---
 
@@ -188,19 +189,19 @@ Funcionalidades:
 
 ---
 
-## Resumo da Duração
+## Resumo da Duração (15h00 às 18h00)
 
-| Bloco | Atividade | Duração |
-|-------|-----------|---------|
-| 1 | Aquecimento: A lista de compras | 10 min |
-| 2 | Aula Expositiva: Listas e operações | 25 min |
-| 3 | Engenharia Reversa: BatalhaNaval.py (matriz) | 20 min |
-| 4 | Prática com IA: To-Do List ou Inventário RPG | 45 min |
-| 5 | Desafio Extra: Ordenação e prioridade | 15 min |
-| 6 | Encerramento e Backup | 10 min |
-| **Total** | | **125 min** |
+| Bloco | Atividade | Duração | Horário |
+|-------|-----------|---------|---------|
+| 1 | Aquecimento: A lista de compras | 15 min | 15h00 – 15h15 |
+| 2 | Aula Expositiva: Listas e operações | 30 min | 15h15 – 15h45 |
+| 3 | Engenharia Reversa: BatalhaNaval.py (matriz) | 25 min | 15h45 – 16h10 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h10 – 16h25** |
+| 4 | Prática com IA: To-Do List ou Inventário RPG | 55 min | 16h25 – 17h20 |
+| 5 | Desafio Extra: Ordenação e prioridade | 25 min | 17h20 – 17h45 |
+| 6 | Encerramento e Backup | 15 min | 17h45 – 18h00 |
+| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
-> **Margem:** 25 minutos para imprevistos.
 
 ---
 
@@ -222,3 +223,56 @@ Funcionalidades:
 
 - **Artigo 1 (Crossover):** A partir desta aula, os grupos **invertem** as condições (quem usava IA agora faz sem, e vice-versa). O tutor deve anotar qual grupo é A e qual é B.
 - **Artigo 2:** A complexidade dos artefatos (To-Do List / Inventário) será analisada via rubrica de maturidade de código.
+
+---
+
+## Material Didático Complementar
+
+### ⚡ Quiz de Aquecimento (Para o início da Aula 06)
+
+#### ❓ Pergunta 1: Verdadeiro ou Falso?
+Em Python, a contagem de índices em uma lista começa do número 1, então para acessar o primeiro elemento da lista `frutas` devemos escrever `frutas[1]`.
+* [ ] Verdadeiro
+* [ ] Falso
+
+#### ❓ Pergunta 2: Múltipla Escolha
+Você está criando um jogo de RPG e o jogador acabou de encontrar uma "Espada Mágica". Qual método adiciona esse item no final da lista `mochila`?
+* A) `mochila.append("Espada Mágica")`
+* B) `mochila.add_novo_item_por_favor("Espada Mágica")`
+* C) `mochila = "Espada Mágica"`
+* D) `len(mochila) + "Espada Mágica"`
+
+#### ❓ Pergunta 3: Encontre o Erro! 🔍
+Um aluno criou uma lista de frutas com 2 itens e tentou mostrar o terceiro item na tela, mas o código explodiu com o erro `IndexError: list index out of range`:
+```python
+frutas = ["maçã", "banana"]
+print(frutas[2])
+```
+**Por que o índice `[2]` deu erro se a lista tem 2 frutas? Como acessar o último item corretamente?**
+
+---
+
+#### 🔑 Gabarito Comentado (Para o Tutor)
+1. **FALSO!** ❌ Em programação (e Python), a contagem SEMPRE começa do **ZERO** (`[0]`). O primeiro item é `frutas[0]`.
+2. **Alternativa A!** 🎯 O método `.append()` serve exatamente para adicionar um item ao final da lista. A alternativa B é engraçada, mas o Python não aceita educação em excesso no lugar de sintaxe!
+3. **A contagem começa do zero!** 🛑 Como a lista tem 2 itens, os índices válidos são `0` (`"maçã"`) e `1` (`"banana"`). O índice `2` não existe! 
+   * *Correção:* Para ver a banana (último item), use `frutas[1]` ou `frutas[-1]`.
+
+---
+
+### 🏠 Micro-Missão de Casa (Para o final desta aula)
+
+> **Escolha UMA das duas opções abaixo para realizar (10 a 15 min):**
+
+#### 🎒 Opção A — "Mochila de Sobrevivência Escolar/RPG"
+- **Tarefa:** Crie no caderno (ou PC) uma lista chamada `mochila` com 4 itens essenciais da sua rotina escolar ou de jogo:
+  1. Desenhe as caixinhas e marque os índices em cima: `[0]`, `[1]`, `[2]`, `[3]`.
+  2. Escreva a linha em Python para adicionar um 5º item usando `.append("Item Novo")`.
+  3. Escreva a linha para exibir o total com `print(len(mochila))`.
+
+#### 🎵 Opção B — "Top 5 Músicas/Jogos Favoritos"
+- **Tarefa:** Crie no caderno (ou PC) uma lista chamada `favoritos` com 5 músicas, filmes ou jogos que você ama.
+  - Escreva o comando em Python para mostrar na tela o seu favorito nº 1 (`favoritos[0]`).
+  - Escreva o comando para mostrar na tela o último item da lista (`favoritos[-1]`).
+
+

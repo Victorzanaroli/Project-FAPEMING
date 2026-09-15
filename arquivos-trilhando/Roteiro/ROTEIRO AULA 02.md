@@ -2,9 +2,10 @@
 
 ## Desmontando o Código: Variáveis, Tipos de Dados e Input
 
-**Duração total:** 150 minutos (2h30)
+**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio sem conhecimento prévio em programação
 **Pré-requisitos da aula anterior:** Contato inicial com IA, conceito de prompt bom/ruim, `print()`
+
 
 ---
 
@@ -153,19 +154,19 @@ O tutor passa em cada mesa e faz **3 perguntas obrigatórias**:
 
 ---
 
-## Resumo da Duração
+## Resumo da Duração (15h00 às 18h00)
 
-| Bloco | Atividade | Duração |
-|-------|-----------|---------|
-| 1 | Abertura e Recapitulação | 10 min |
-| 2 | Aula Expositiva: Variáveis, Tipos, Input | 30 min |
-| 3 | Engenharia Reversa: Pac-Man.py | 20 min |
-| 4 | Prática com IA: Quiz Personalizado | 40 min |
-| 5 | Caça ao Tesouro no Código | 20 min |
-| 6 | Encerramento e Backup | 10 min |
-| **Total** | | **130 min** |
+| Bloco | Atividade | Duração | Horário |
+|-------|-----------|---------|---------|
+| 1 | Abertura e Recapitulação | 15 min | 15h00 – 15h15 |
+| 2 | Aula Expositiva: Variáveis, Tipos, Input | 35 min | 15h15 – 15h50 |
+| 3 | Engenharia Reversa: Pac-Man.py | 25 min | 15h50 – 16h15 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h15 – 16h30** |
+| 4 | Prática com IA: Quiz Personalizado | 50 min | 16h30 – 17h20 |
+| 5 | Caça ao Tesouro no Código | 25 min | 17h20 – 17h45 |
+| 6 | Encerramento e Backup | 15 min | 17h45 – 18h00 |
+| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
-> **Nota:** Restam 20 minutos de margem para imprevistos técnicos (queda de internet, login do Gemini, reinstalação de pacotes).
 
 ---
 
@@ -183,3 +184,59 @@ O tutor passa em cada mesa e faz **3 perguntas obrigatórias**:
 - `Jogos/Pac-Man.py` — Material de Engenharia Reversa
 - Formulário Google de coleta de chats
 - Script de captura de logs (.jsonl)
+
+---
+
+## Material Didático Complementar
+
+### ⚡ Quiz de Aquecimento (Para o início da Aula 03)
+
+#### ❓ Pergunta 1: Verdadeiro ou Falso?
+O comando `input()` sempre lê o que o usuário digita como se fosse um Texto (`str`), mesmo se ele digitar um número inteiro como `18`.
+* [ ] Verdadeiro
+* [ ] Falso
+
+#### ❓ Pergunta 2: Múltipla Escolha
+Você está criando a ficha de um personagem de jogo e precisa perguntar a idade do jogador e converter para número inteiro para poder fazer contas depois. Qual linha faz isso corretamente?
+* A) `idade = int(input("Qual sua idade? "))`
+* B) `idade = "18 anos de pura ousadia e alegria"`
+* C) `idade = input("idade") + 10`
+* D) `variavel_secreta_da_nasa = int("dezoito mega bytes")`
+
+#### ❓ Pergunta 3: Encontre o Erro! 🔍
+Um aluno tentou calcular quantos anos ele terá no ano que vem, mas o código travou:
+```python
+idade = input("Quantos anos você tem? ")
+proximo_ano = idade + 1
+print(proximo_ano)
+```
+**Por que o Python deu erro ao tentar somar `idade + 1` e como corrigir?**
+
+---
+
+#### 🔑 Gabarito Comentado (Para o Tutor)
+1. **VERDADEIRO!** ✅ O `input()` sempre devolve uma `str`. Se digitar `18`, o Python entende como a palavra `"18"`.
+2. **Alternativa A!** 🎯 A função `int()` envolve o `input()` para converter o texto em número inteiro. A opção D dá erro porque `"dezoito"` por extenso não vira número direto.
+3. **Faltou converter `idade` para inteiro com `int()`!** 🛑 O Python não consegue somar Texto (`str`) com Número (`int`). 
+   * *Correção:* `idade = int(input("Quantos anos você tem? "))`
+
+---
+
+### 🏠 Micro-Missão de Casa (Para o final desta aula)
+
+> **Escolha UMA das duas opções abaixo para realizar (10 a 15 min):**
+
+#### 🎮 Opção A — "Ficha de Status do Gamer/Social Media"
+- **Tarefa:** Imagine que você está criando a ficha de um personagem de jogo ou perfil de rede social. Crie no caderno (ou PC) 3 caixas de variáveis com seus tipos e valores:
+  1. Variável do tipo `str` (Texto) -> ex: `nick = "ShadowNinja"`
+  2. Variável do tipo `int` (Número inteiro) -> ex: `nivel = 25`
+  3. Variável do tipo `float` (Número decimal) -> ex: `velocidade = 8.5`
+- **Desafio:** Escreva a linha em Python perguntando a quantidade de moedas ou seguidores com `input()` e convertendo para inteiro.
+
+#### 🐶 Opção B — "Calculadora de Idade Canina/Felina"
+- **Tarefa:** Escreva no caderno (ou PC) um mini programa em Python que calcula a idade do seu pet em "anos humanos":
+  1. Peça a idade do pet com `input()` e converta para `int()`.
+  2. Multiplique a idade por `7` e guarde na variável `idade_humana`.
+  3. Mostre o resultado com `print("Seu pet teria " + str(idade_humana) + " anos humanos!")`.
+
+

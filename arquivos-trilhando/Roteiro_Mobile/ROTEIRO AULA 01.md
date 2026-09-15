@@ -2,10 +2,9 @@
 
 ## Abertura, Diagnóstico, Demonstração Tecnológica e Engenharia de Prompt
 
-**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
+**Duração total:** 150 minutos (2h30)
 **Público-alvo:** Estudantes do Ensino Médio sem conhecimento prévio em programação ou IA
 **Pré-requisitos:** Nenhum
-
 
 ---
 
@@ -283,19 +282,17 @@ Explique o que fiz de errado em 2 frases e me dê o código corrigido.
 
 ---
 
-## Resumo da Duração (15h00 às 18h00)
+## Resumo da Duração
 
-| Bloco | Atividade | Duração | Horário |
-|-------|-----------|---------|---------|
-| 1 | Abertura e Formalização (TCLE/TALE + Cadastro) | 15 min | 15h00 – 15h15 |
-| 2 | Linha de Base — T0 (Perfil + Bebras + CPSES + IA) | 45 min | 15h15 – 16h00 |
-| 3 | Showcase Tecnológico (Tetris, Flappy Bird, Cobrinha) | 25 min | 16h00 – 16h25 |
-| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h25 – 16h40** |
-| 4 | Engenharia de Prompt Inicial (Bom vs Ruim + Frameworks) | 20 min | 16h40 – 17h00 |
-| 5 | Dinâmica: Dois Grupos + Hackathon de Jogos | 50 min | 17h00 – 17h50 |
-| 6 | Encerramento e Backup (Salvar chats + logs) | 10 min | 17h50 – 18h00 |
-| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
-
+| Bloco | Atividade | Duração |
+|-------|-----------|---------|
+| 1 | Abertura e Formalização (TCLE/TALE + Cadastro) | 10 min |
+| 2 | Linha de Base — T0 (Perfil + Bebras + CPSES + IA) | 45 min |
+| 3 | Showcase Tecnológico (Tetris, Flappy Bird, Cobrinha) | 20 min |
+| 4 | Engenharia de Prompt Inicial (Bom vs Ruim + Frameworks) | 15 min |
+| 5 | Dinâmica: Dois Grupos + Hackathon de Jogos | 50 min |
+| 6 | Encerramento e Backup (Salvar chats + logs) | 10 min |
+| **Total** | | **150 min (2h30)** |
 
 ---
 
@@ -371,5 +368,3 @@ print("🔥 VOCÊ VENCEU, BRUNO! CHORA MAIS!
 1. **FALSO!** ❌ A IA é como um estagiário inteligente, mas que não lê mentes! Prompts vagos geram respostas sem sentido ou complexas demais.
 2. **Alternativa B!** 🎯 Possui Contexto (*narrador de e-sports*), Regras (*apenas print, sem palavrões*) e Formato (*uma linha*). A opção C é absurda para o terminal.
 3. **Faltou fechar as aspas no final do texto!** 🛑 No Python, a frase entre aspas dentro do `print()` precisa ser fechada (`print("texto")`), senão o computador não sabe onde a mensagem termina.
-
-

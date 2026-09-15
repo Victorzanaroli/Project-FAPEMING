@@ -2,9 +2,10 @@
 
 ## Tomada de Decisão: if, elif, else
 
-**Duração total:** 150 minutos (2h30)
+**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio sem conhecimento prévio em programação
 **Pré-requisitos da aula anterior:** Variáveis, tipos de dados (`str`, `int`, `float`), `print()`, `input()`
+
 
 ---
 
@@ -187,19 +188,19 @@ Use apenas print() e input(). Converta as entradas para int().
 
 ---
 
-## Resumo da Duração
+## Resumo da Duração (15h00 às 18h00)
 
-| Bloco | Atividade | Duração |
-|-------|-----------|---------|
-| 1 | Aquecimento: Decisões do cotidiano | 10 min |
-| 2 | Aula Expositiva: if, elif, else, operadores | 25 min |
-| 3 | Engenharia Reversa: EscapeRoom.py | 20 min |
-| 4 | Prática com IA: Decisor Escolar | 45 min |
-| 5 | Desafio Surpresa: Plot Twist (alteração manual) | 20 min |
-| 6 | Encerramento e Backup | 10 min |
-| **Total** | | **130 min** |
+| Bloco | Atividade | Duração | Horário |
+|-------|-----------|---------|---------|
+| 1 | Aquecimento: Decisões do cotidiano | 15 min | 15h00 – 15h15 |
+| 2 | Aula Expositiva: if, elif, else, operadores | 30 min | 15h15 – 15h45 |
+| 3 | Engenharia Reversa: EscapeRoom.py | 25 min | 15h45 – 16h10 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h10 – 16h25** |
+| 4 | Prática com IA: Decisor Escolar | 50 min | 16h25 – 17h15 |
+| 5 | Desafio Surpresa: Plot Twist (alteração manual) | 25 min | 17h15 – 17h40 |
+| 6 | Lançamento do Mini-Projeto de Intervalo + Encerramento | 20 min | 17h40 – 18h00 |
+| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
-> **Margem:** 20 minutos para imprevistos técnicos.
 
 ---
 
@@ -221,3 +222,90 @@ Use apenas print() e input(). Converta as entradas para int().
 
 - **Artigo 1 (Crossover):** O "Plot Twist" do Bloco 5 é um momento de medição qualitativa sobre dependência cognitiva da IA.
 - **Artigo 2 (Learning Analytics):** Os logs de prompt do Bloco 4 alimentam a taxonomia P1–P5.
+
+---
+
+## Material Didático Complementar
+
+### ⚡ Quiz de Aquecimento (Para o início da Aula 04)
+
+#### ❓ Pergunta 1: Verdadeiro ou Falso?
+Em Python, o sinal `=` serve para TESTAR se duas coisas são iguais, enquanto o sinal `==` serve para GUARDAR um valor dentro de uma variável.
+* [ ] Verdadeiro
+* [ ] Falso
+
+#### ❓ Pergunta 2: Múltipla Escolha
+Um segurança virtual de evento VIP precisa deixar entrar quem tem pelo menos 18 anos **E** está com o nome na lista VIP. Qual condição representa essa regra corretamente?
+* A) `if idade >= 18 and lista_vip == "sim":`
+* B) `if idade = 18 or lista_vip = "sim":`
+* C) `if idade > 18 or dancou_passinho == True:`
+* D) `if idade + lista_vip == 100:`
+
+#### ❓ Pergunta 3: Encontre o Erro! 🔍
+Um aluno tentou criar um teste de nota escolar, mas o computador reclamou de erro de sintaxe:
+```python
+nota = 80
+if nota = 70
+    print("Aprovado!")
+```
+**Quais são os DOIS erros na linha do `if`?**
+
+---
+
+#### 🔑 Gabarito Comentado (Para o Tutor)
+1. **FALSO!** ❌ É exatamente o contrário! `=` é atribuição (guarda na caixa) e `==` é comparação (verifica se é igual).
+2. **Alternativa A!** 🎯 Usa o operador `and` (ambas devem ser verdadeiras) e `>=` para idade maior ou igual a 18. A opção C é absurda.
+3. **Erros:** 1) Usou `=` (atribuição) em vez de `==` ou `>=` (comparação). 2) Faltou colocar os dois pontos `:` no final da linha do `if` (`if nota >= 70:`).
+
+---
+
+### 🏠 Micro-Missão do Intervalo de 1 Mês (Para a volta na Aula 04)
+
+#### 🚀 Mini-Projeto de Intervalo: Escolha 1 das 3 Opções de Jogos/Chatbots
+
+Como a turma terá 1 mês de intervalo antes da Aula 04, os alunos deverão escolher **UM** dos 3 projetos autorais abaixo para desenvolver no computador ou no celular (Pydroid 3). No início da Aula 04, faremos uma **Mini-Feira de Projetos (15-20 min)** para apresentação dos resultados!
+
+---
+
+#### 🎮 Opção 1: "Tamagotchi Escolar" (Foco em Máquina de Estados com `while` Infinito)
+- **A Ideia:** Um Bichinho Virtual (ou o próprio aluno como personagem) que precisa equilibrar Estudo, Sono e Diversão.
+- **Lógica Principal:**
+  - Variáveis inteiras iniciais: `energia = 100`, `conhecimento = 0`, `estresse = 0`.
+  - Laço `while` que roda enquanto `energia > 0 and estresse < 100 and conhecimento < 100`.
+- **Menu Básico:** Exibe opções: `1-Estudar`, `2-Dormir`, `3-Jogar celular`.
+  - *Se 1 (Estudar):* `conhecimento += 10`, `energia -= 20`, `estresse += 10`.
+  - *Se 2 (Dormir):* `energia += 50`, `estresse -= 10`.
+  - *Se 3 (Jogar):* `estresse -= 30`, `energia -= 10`.
+  - O laço repete mostrando o status atualizado do personagem.
+- **Missão Extra (Para o Mês):** 
+  - Vitória se `conhecimento >= 100` -> `print("🎉 Parabéns! Você passou de ano com sucesso!")`.
+  - Derrota se `energia <= 0` -> `print("💀 Você desmaiou de cansaço!")`.
+  - Derrota se `estresse >= 100` -> `print("🤯 Você surtou de estresse!")`.
+  - *Desafio IA:* Usar a IA para ajudar a ajustar os números no código (`+10`, `-20`) para que o jogo fique bem balanceado!
+
+---
+
+#### ⚔️ Opção 2: "A Jornada do Herói" (Mini RPG Textual em Salas Encadeadas)
+- **A Ideia:** Um jogo de aventura onde o jogador avança de sala em sala e precisa tomar decisões que gastam sua vida.
+- **Lógica Principal:**
+  - Variável inicial `vida = 100`. Estrutura linear de salas.
+  - Entra na Sala 1, lê um texto, faz uma escolha com `input()`. Se a escolha for ruim, `vida = vida - 40`.
+  - Usar `if vida > 0:` para permitir que o jogador avance para as salas seguintes.
+- **Missão Extra (Para o Mês):** 
+  - Criar o "Chefão Final" na última sala com `vida_chefe = 50`.
+  - Usar um laço `while vida_chefe > 0 and vida > 0:` onde o jogador ataca (`vida_chefe -= 15`) e toma dano (`vida -= 10`) a cada rodada de combate até um dos dois zerar a vida!
+
+---
+
+#### 🧩 Opção 3: "O Teste de Personalidade Buzzfeed" (Foco em Condicionais `if/elif/else`)
+- **A Ideia:** Um quiz interativo com 3 a 5 perguntas (*"Qual herói da Marvel você é?"* ou *"Qual profissão combina com você?"*).
+- **Lógica Principal:**
+  - Variáveis separadas de pontuação para cada perfil (ex: `pontos_aranha = 0`, `pontos_thor = 0`).
+  - Perguntas com `print()` e capturas de opção com `input()` (`A`, `B` ou `C`).
+  - Estruturas `if` somam pontos na variável correspondente.
+- **Missão Extra (Para o Mês):**
+  - Criar um grande bloco `if/elif/else` no final para analisar e declarar automaticamente o perfil campeão.
+  - Tratar erros de digitação: se o usuário digitar uma opção inválida (ex: `"X"`), usar um `else:` avisando *"Resposta inválida! Você perdeu os pontos desta rodada"*.
+
+
+

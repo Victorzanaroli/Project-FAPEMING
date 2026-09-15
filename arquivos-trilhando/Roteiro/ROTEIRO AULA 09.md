@@ -2,9 +2,10 @@
 
 ## Feira de Soluções + Pós-teste (T1) + Encerramento
 
-**Duração total:** 150 minutos (2h30)
+**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio + Convidados (coordenador, professores, pais)
 **Pré-requisitos:** Projetos finais desenvolvidos e testados nas Aulas 7–8
+
 
 ---
 
@@ -160,17 +161,19 @@ As questões devem ser **equivalentes em dificuldade** mas com cenários diferen
 
 ---
 
-## Resumo da Duração
+## Resumo da Duração (15h00 às 18h00)
 
-| Bloco | Atividade | Duração |
-|-------|-----------|---------|
-| 1 | Abertura Formal e Ajustes | 10 min |
-| 2 | Apresentações dos Projetos | 60 min |
-| 3 | Votação e Premiação | 10 min |
-| 4 | Pós-teste T1 (CTt + CPSES + NASA-TLX) | 45 min |
-| 5 | Grupo Focal Breve | 15 min |
-| 6 | Encerramento e Certificados | 10 min |
-| **Total** | | **150 min** |
+| Bloco | Atividade | Duração | Horário |
+|-------|-----------|---------|---------|
+| 1 | Abertura Formal e Ajustes | 15 min | 15h00 – 15h15 |
+| 2 | Apresentações dos Projetos & Auditoria Viva | 70 min | 15h15 – 16h25 |
+| **☕** | **Intervalo / Lanche com Convidados** | **15 min** | **16h25 – 16h40** |
+| 3 | Votação e Premiação | 15 min | 16h40 – 16h55 |
+| 4 | Pós-teste T1 (CTt + CPSES + NASA-TLX) | 45 min | 16h55 – 17h40 |
+| 5 | Grupo Focal Breve | 10 min | 17h40 – 17h50 |
+| 6 | Encerramento e Certificados | 10 min | 17h50 – 18h00 |
+| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
+
 
 ---
 

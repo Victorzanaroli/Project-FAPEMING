@@ -2,32 +2,34 @@
 
 ## Repetição e Automação: while, for
 
-**Duração total:** 150 minutos (2h30)
+**Duração total:** 180 minutos (3h00) — **Horário:** 15h00 às 18h00
 **Público-alvo:** Estudantes do Ensino Médio sem conhecimento prévio em programação
 **Pré-requisitos da aula anterior:** Variáveis, tipos, `input()`, `if/elif/else`, operadores
 
+
 ---
 
-## Bloco 1: Aquecimento — O Poder da Repetição (10 min)
+## Bloco 1: Boas-Vindas, Apresentação dos Mini-Projetos do Intervalo e Aquecimento (20 min)
 
-**Objetivo:** Mostrar que o grande poder dos computadores é fazer a mesma coisa milhões de vezes sem errar nem cansar.
+**Objetivo:** Celebrar o retorno após o intervalo de 1 mês, apresentar os Mini-Projetos (Tamagotchi Escolar, A Jornada do Herói ou Quiz Buzzfeed) desenvolvidos pelos alunos no hiato e conectar com a necessidade de automação e repetição.
 
 ### Ações do Tutor:
+- **Acolhimento e Reagrupamento (5 min):** Recepcionar os alunos na volta das 4 semanas de intervalo, resgatando a empolgação com o código.
+- **Mini-Feira dos Projetos do Mês (10 min):**
+  - Cada aluno ou dupla projeta seu código no computador (ou mostra na tela do celular) e executa o seu projeto escolhido (Tamagotchi Escolar, A Jornada do Herói ou Quiz Buzzfeed) para a turma ou para a dupla ao lado.
+  - O tutor faz elogios rápidos com destaque para o uso criativo de `input()`, variáveis e `if/elif/else`.
+- **Conexão com a Repetição (5 min):**
+  > *"Vocês criaram jogos e testes incríveis! Mas repararam que para jogar de novo a gente precisa dar 'play' de novo? E se a gente quisesse que o Tamagotchi ou a batalha ficasse rodando sozinha até o jogador perder ou passar de fase? Hoje vocês vão aprender o maior superpoder dos computadores: fazer a mesma coisa repetidas vezes sem errar!"*
+
 - Analogia no quadro:
-  > *"Imaginem que o professor precisa chamar a chamada de 40 alunos. Ele pega a lista e, PARA CADA nome, pergunta: 'Presente?'. Isso é um laço de repetição — o computador faz isso em milissegundos."*
-- Escrever no quadro o pseudocódigo:
-  ```
-  PARA CADA aluno na lista_de_chamada:
-      Perguntar: "Aluno X, presente?"
-      Anotar a resposta
-  ```
+  > *"Imaginem que o professor precisa fazer a chamada de 40 alunos. Ele pega a lista e, PARA CADA nome, pergunta: 'Presente?'. Isso é um laço de repetição — o computador faz isso em milissegundos."*
 - Traduzir para Python:
   ```python
   alunos = ["Ana", "Bruno", "Carla"]
   for aluno in alunos:
       print(f"{aluno}, presente?")
   ```
-- Rodar ao vivo e mostrar as 3 linhas impressas automaticamente.
+
 
 ---
 
@@ -186,19 +188,19 @@ Regras:
 
 ---
 
-## Resumo da Duração
+## Resumo da Duração (15h00 às 18h00)
 
-| Bloco | Atividade | Duração |
-|-------|-----------|---------|
-| 1 | Aquecimento: O poder da repetição | 10 min |
-| 2 | Aula Expositiva: while, for, range, break | 25 min |
-| 3 | Engenharia Reversa: BatalhaNaval.py | 20 min |
-| 4 | Prática com IA: Jogo de Adivinhação | 45 min |
-| 5 | Depuração com IA: Laço Infinito | 15 min |
-| 6 | Encerramento e Backup | 10 min |
-| **Total** | | **125 min** |
+| Bloco | Atividade | Duração | Horário |
+|-------|-----------|---------|---------|
+| 1 | Boas-Vindas, Apresentação dos Projetos & Aquecimento | 25 min | 15h00 – 15h25 |
+| 2 | Aula Expositiva: while, for, range, break | 30 min | 15h25 – 15h55 |
+| 3 | Engenharia Reversa: BatalhaNaval.py | 25 min | 15h55 – 16h20 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h20 – 16h35** |
+| 4 | Prática com IA: Jogo de Adivinhação | 55 min | 16h35 – 17h30 |
+| 5 | Depuração com IA: Laço Infinito | 15 min | 17h30 – 17h45 |
+| 6 | Encerramento e Backup | 15 min | 17h45 – 18h00 |
+| **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
-> **Margem:** 25 minutos para imprevistos técnicos.
 
 ---
 
@@ -221,3 +223,54 @@ Regras:
 
 - **Artigo 1:** Nesta aula marca-se o fim da **Fase 1 do Crossover**. Considerar aplicar uma mini-avaliação intermediária (5 questões rápidas de raciocínio algorítmico + NASA-TLX) nos últimos 20 minutos como pós-teste T1.
 - **Artigo 2:** Os logs de depuração do Bloco 5 alimentam o Índice de Iteração de Depuração (DII).
+
+---
+
+## Material Didático Complementar
+
+### ⚡ Quiz de Aquecimento (Para o início da Aula 05)
+
+#### ❓ Pergunta 1: Verdadeiro ou Falso?
+Se você esquecer de atualizar o contador dentro de um laço `while` (por exemplo, esquecer de colocar `contador += 1`), o programa entra em um "laço infinito" e trava a tela repetindo para sempre.
+* [ ] Verdadeiro
+* [ ] Falso
+
+#### ❓ Pergunta 2: Múltipla Escolha
+O que a instrução `range(1, 4)` gera quando usada dentro de um laço `for` em Python?
+* A) Os números `1`, `2` e `3` (para antes do 4).
+* B) Os números `1`, `2`, `3` e `4`.
+* C) Uma pizza de 4 queijos com borda recheada.
+* D) Apenas o número `4`.
+
+#### ❓ Pergunta 3: Encontre o Erro! 🔍
+Um aluno tentou fazer uma contagem regressiva de 1 até 5 no terminal, mas a tela travou mostrando o número 1 sem parar:
+```python
+numero = 1
+while numero <= 5:
+    print(f"Número: {numero}")
+    # Ops! Esqueceu algo aqui!
+```
+**O que está faltando dentro do laço `while` para o programa funcionar corretamente?**
+
+---
+
+#### 🔑 Gabarito Comentado (Para o Tutor)
+1. **VERDADEIRO!** ✅ Sem alterar a variável testada, a condição do `while` permanece verdadeira eternamente, criando o famoso laço infinito.
+2. **Alternativa A!** 🎯 O `range(inicio, fim)` vai do número inicial até o número anterior ao limite final (`1, 2, 3`). A opção C é absurdamente saborosa, mas incorreta!
+3. **Faltou incrementar o contador com `numero += 1`!** 🛑 Sem essa linha, o valor da variável `numero` nunca muda, travando o programa. 
+   * *Correção:* Adicionar `numero += 1` no final do bloco do `while`.
+
+---
+
+### 🏠 Micro-Missão de Casa (Para o final desta aula)
+
+> **Escolha UMA das duas opções abaixo para realizar (10 a 15 min):**
+
+#### 🤖 Opção A — "O Robô da Chamada Escolar / Treino"
+- **Tarefa:** Escreva no caderno (ou PC) uma estrutura de repetição com `for` ou `while` que simula um robô chamando a lista de 4 colegas da sua fileira na sala ou contando 5 repetições de um exercício físico.
+- **Exemplo:** `for aluno in ["Ana", "Bruno", "Carla", "Diego"]:` mostrar `print(aluno + ", presente?")`.
+
+#### 🚀 Opção B — "Contador Regressivo de Lançamento"
+- **Tarefa:** Escreva no caderno (ou PC) um programa em Python usando o laço `while` ou `for` com `range(10, 0, -1)` que faz a contagem regressiva de 10 até 1 e no final exibe `print("🚀 LANÇAMENTO DO FOGUETE REALIZADO COM SUCESSO!")`.
+
+
