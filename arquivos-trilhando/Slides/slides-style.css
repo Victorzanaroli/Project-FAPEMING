@@ -559,15 +559,55 @@ body {
     user-select: none;
 }
 .qrcode-container:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.5) !important;
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.6) !important;
 }
 .qrcode-container img {
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 .qrcode-container:hover img {
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
+
+/* Styled Link Buttons for Forms (T0, Cadastro, etc.) */
+.form-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 16px;
+    margin-top: 10px;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1.5px solid var(--cefet-cyan);
+    border-radius: 12px;
+    color: var(--cefet-cyan);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15);
+    word-break: break-word;
+}
+.form-link-btn:hover {
+    background: var(--cefet-cyan);
+    color: #0b1329;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+    transform: translateY(-2px);
+}
+.form-link-btn.gold-btn {
+    background: rgba(255, 184, 0, 0.1);
+    border-color: var(--cefet-gold);
+    color: var(--cefet-gold);
+    box-shadow: 0 4px 15px rgba(255, 184, 0, 0.15);
+}
+.form-link-btn.gold-btn:hover {
+    background: var(--cefet-gold);
+    color: #0b1329;
+    box-shadow: 0 0 20px rgba(255, 184, 0, 0.5);
+}
+
 
 
 

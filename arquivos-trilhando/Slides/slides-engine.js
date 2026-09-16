@@ -271,12 +271,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mediaModalViewStage) {
             mediaModalViewStage.innerHTML = '';
             const cloneNode = mediaNode.cloneNode(true);
+            cloneNode.style.width = '320px';
+            cloneNode.style.height = 'auto';
+            cloneNode.style.minWidth = '260px';
             cloneNode.style.maxHeight = '72vh';
-            cloneNode.style.maxWidth = '85vw';
+            cloneNode.style.maxWidth = '88vw';
             cloneNode.style.objectFit = 'contain';
+            cloneNode.style.background = '#ffffff';
+            cloneNode.style.padding = '12px';
+            cloneNode.style.borderRadius = '16px';
+            cloneNode.style.boxShadow = '0 0 50px rgba(0, 229, 255, 0.4)';
+
             if (cloneNode.tagName === 'VIDEO') {
                 cloneNode.controls = true;
                 cloneNode.autoplay = true;
+                cloneNode.style.background = 'transparent';
+                cloneNode.style.padding = '0';
+                cloneNode.style.width = '100%';
             }
             mediaModalViewStage.appendChild(cloneNode);
         }
