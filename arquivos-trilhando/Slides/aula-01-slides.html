@@ -1,21 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 01 - Trilhando o Caminho do Código | CEFET-MG & FAPEMING</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="slides-style.css">
     <style>
-        .media-compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
-        .media-card { background: rgba(0,0,0,0.4); border-radius: 12px; padding: 12px; border: 1px solid rgba(255,255,255,0.08); text-align: center; }
-        .media-card video, .media-card img { width: 100%; max-height: 220px; object-fit: contain; border-radius: 8px; margin-top: 6px; }
-        .media-title-bad { color: var(--cefet-red); font-weight: 700; font-size: 0.85rem; }
-        .media-title-good { color: var(--cefet-green); font-weight: 700; font-size: 0.85rem; }
+        .media-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .media-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .media-card video,
+        .media-card img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-top: 6px;
+        }
+
+        .media-title-bad {
+            color: var(--cefet-red);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .media-title-good {
+            color: var(--cefet-green);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
+
 <body>
     <div class="progress-bar" id="progressBar"></div>
     <div class="bg-glow">
@@ -38,7 +72,7 @@
             <span style="color:var(--cefet-cyan)">AULA 01</span>
         </div>
         <div class="top-controls">
-            <a href="index.html" class="control-btn">🏠 Menu</a>
+            <a href="../index.html" class="control-btn">🏠 Menu</a>
             <button class="control-btn" id="notesToggle">📝 Notas (N)</button>
             <button class="control-btn" id="fullscreenToggle">⛶ Tela Cheia (F)</button>
         </div>
@@ -48,106 +82,154 @@
     <main class="presentation-stage">
 
         <!-- Slide 1: Capa & Apresentação -->
-        <section class="slide active" data-notes="<strong>Abertura (10 min):</strong> Dar boas-vindas aos alunos e mentores do CEFET/FAPEMING. Apresentar a equipe de extensão, a visão do curso e o impacto de aprender a construir tecnologia.">
+        <section class="slide active"
+            data-notes="<strong>Abertura (10 min):</strong> Dar boas-vindas aos alunos e mentores do CEFET/FAPEMING. Apresentar a equipe de extensão, a visão do curso e o impacto de aprender a construir tecnologia.">
             <div class="slide-header">
                 <span class="slide-step">AULA 01 • INTRODUÇÃO & PROMPTS</span>
                 <h1 class="slide-title">Trilhando o Caminho do Código</h1>
-                <p class="slide-subtitle">Construindo tecnologia, jogos e automações com Python & Inteligência Artificial</p>
+                <p class="slide-subtitle">Construindo tecnologia, jogos e automações com Python & Inteligência
+                    Artificial</p>
             </div>
             <div class="slide-body">
                 <div class="grid-3">
                     <div class="content-box accent-box">
                         <div class="big-icon">👥</div>
                         <h4 style="color:var(--cefet-cyan)">Quem Somos</h4>
-                        <p>Equipe de extensão universitária apaixonada por tecnologia, computação e transformação educacional.</p>
+                        <p>Equipe de extensão universitária apaixonada por tecnologia, computação e transformação
+                            educacional.</p>
                     </div>
                     <div class="content-box accent-box">
                         <div class="big-icon">🎯</div>
                         <h4 style="color:var(--cefet-blue)">Nosso Propósito</h4>
-                        <p>Capacitar você a criar seus próprios softwares e dominar a ferramenta mais poderosa do mundo: a IA.</p>
+                        <p>Capacitar você a criar seus próprios softwares e dominar a ferramenta mais poderosa do mundo:
+                            a IA.</p>
                     </div>
                     <div class="content-box accent-box">
                         <div class="big-icon">⚡</div>
                         <h4 style="color:var(--cefet-gold)">Metodologia Prática</h4>
-                        <p>Sem enrolação teórica: aprendizado mão na massa vendo o código rodar, jogando e construindo na prática!</p>
+                        <p>Sem enrolação teórica: aprendizado mão na massa vendo o código rodar, jogando e construindo
+                            na prática!</p>
                     </div>
                 </div>
 
                 <!-- Banner Institucional CEFET & FAPEMIG -->
                 <div class="capa-institution-banner">
                     <img src="../Imagens/logo-cefet.jpg" alt="Logo CEFET-MG" class="capa-inst-img" title="CEFET-MG">
-                    <div style="font-size:0.82rem; color:var(--text-secondary); font-weight:600; text-align:center; line-height:1.4;">
+                    <div
+                        style="font-size:0.82rem; color:var(--text-secondary); font-weight:600; text-align:center; line-height:1.4;">
                         Projeto de Extensão & Pesquisa Aplicada<br>
-                        <span style="color:var(--cefet-cyan); font-weight:700;">CEFET-MG • Varginha | FAPEMIG (Projetos 2026-2027)</span>
+                        <span style="color:var(--cefet-cyan); font-weight:700;">CEFET-MG • Varginha | FAPEMIG (Projetos
+                            2026-2027)</span>
                     </div>
-                    <img src="../Imagens/logo-fapemig.jpg" alt="Selo FAPEMIG" class="capa-inst-img fapemig-circle" title="FAPEMIG 2026-2027">
+                    <img src="../Imagens/logo-fapemig.jpg" alt="Selo FAPEMIG" class="capa-inst-img fapemig-circle"
+                        title="FAPEMIG 2026-2027">
                 </div>
             </div>
         </section>
 
         <!-- Slide 2: Presença & Certificação -->
-        <section class="slide" data-notes="<strong>Presença & T0 (45 min):</strong> Orientar os estudantes no preenchimento do formulário T0. Garantir silêncio e autonomia individual sem consultas externas.">
+        <section class="slide"
+            data-notes="<strong>Presença & T0 (45 min):</strong> Orientar os estudantes no preenchimento do cadastro e formulário T0. Garantir silêncio e autonomia individual sem consultas externas.">
             <div class="slide-header">
                 <span class="slide-step">BLOCO 2 • CREDENCIAMENTO & T0</span>
                 <h2 class="slide-title">Presença & Certificação Oficial</h2>
-                <p class="slide-subtitle">Seu passaporte para validação no projeto e emissão do certificado FAPEMING / CEFET</p>
+                <p class="slide-subtitle">Seu passaporte para validação no projeto e emissão do certificado FAPEMING /
+                    CEFET</p>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
-                    <div class="content-box warn-box">
-                        <h4>📝 Dados Obrigatórios no Cadastro</h4>
-                        <ul>
-                            <li><strong>Nome Completo:</strong> Digite sem abreviações para constar no certificado oficial.</li>
-                            <li><strong>CPF:</strong> Necessário para a validação do registro acadêmico extensionista.</li>
-                            <li><strong>E-mail Ativo:</strong> Onde você receberá os materiais, diários de bordo e seu certificado.</li>
+                    <!-- QR Code no Cadastro do Aluno -->
+                    <div class="content-box warn-box"
+                        style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+                        <h4 style="width:100%; justify-content:center;">📝 Dados Obrigatórios no Cadastro</h4>
+                        <ul style="text-align:left; font-size:0.82rem; margin-bottom:8px; width:100%;">
+                            <li><strong>Nome Completo:</strong> Sem abreviações para o certificado.</li>
+                            <li><strong>CPF:</strong> Para validação do registro acadêmico.</li>
+                            <li><strong>E-mail Ativo:</strong> Onde receberá os materiais.</li>
                         </ul>
+                        <div class="qrcode-container"
+                            style="background:#ffffff; padding:10px; border-radius:14px; border:2px solid var(--cefet-gold); box-shadow:0 0 20px rgba(255,184,0,0.4); margin:6px 0;">
+                            <img src="../Imagens/qrcode-cadastro.jpeg" alt="QR Code Cadastro de Alunos"
+                                style="width:145px; height:145px; display:block;">
+                        </div>
+                        <p style="font-size:0.78rem; color:var(--cefet-gold); font-weight:700; margin-top:4px;">📲
+                            Aponte a câmera para realizar seu cadastro</p>
                     </div>
-                    <div class="content-box accent-box">
-                        <h4>📋 Formulário de Linha de Base (T0)</h4>
-                        <p style="margin-bottom:10px">O questionário avalia conhecimentos prévios e perfil sociodemográfico para nossa pesquisa acadêmica.</p>
-                        <div class="prompt-code" style="margin-top:10px; border-color: rgba(0,229,255,0.3);">🔗 Link Oficial: https://docs.google.com/forms/d/1cti5P6zpnqMxsRky83t9_mzwyhQPSM-l3XNMAq9LNyU/edit</div>
+
+                    <!-- Formulário T0 com Link Oficial -->
+                    <div class="content-box accent-box"
+                        style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+                        <h4 style="width:100%; justify-content:center;">📋 Formulário de Linha de Base (T0)</h4>
+                        <ul style="text-align:left; font-size:0.82rem; margin-bottom:8px; width:100%;">
+                            <li><strong>Responda com honestidade:</strong> Avaliação diagnóstica inicial.</li>
+                            <li><strong>Teste individual:</strong> Sem consultas externas.</li>
+                            <li><strong>Ponto de partida:</strong> Medição base para certificado.</li>
+                        </ul>
+                        <div class="qrcode-container"
+                            style="background:#ffffff; padding:10px; border-radius:14px; border:2px solid var(--cefet-cyan); box-shadow:0 0 20px rgba(0,229,255,0.4); margin:6px 0;">
+                            <img src="../Imagens/qrcode-t0.png" alt="QR Code Formulário T0"
+                                style="width:145px; height:145px; display:block;">
+                        </div>
+                        <p style="font-size:0.78rem; color:var(--cefet-cyan); font-weight:700; margin-top:4px;">📲
+                            Aponte a câmera para responder ao Teste T0</p>
+                        <div class="prompt-code"
+                            style="margin-top:6px; font-size:0.75rem; border-color:rgba(0,229,255,0.4); text-align:center; width:100%;">
+                            🔗 <a
+                                href="https://docs.google.com/forms/d/1cti5P6zpnqMxsRky83t9_mzwyhQPSM-l3XNMAq9LNyU/edit"
+                                target="_blank" style="color:var(--cefet-cyan); font-weight:700;">Link direto do
+                                Formulário T0</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Slide 3: Showcase Tecnológico (Onde Podemos Chegar?) -->
-        <section class="slide" data-notes="<strong>Showcase Tecnológico (20 min):</strong> Rodar ou mostrar demonstrações rápidas do que é possível criar combinando Python e IA.">
+        <section class="slide"
+            data-notes="<strong>Showcase Tecnológico (20 min):</strong> Rodar ou mostrar demonstrações rápidas do que é possível criar combinando Python e IA.">
             <div class="slide-header">
                 <span class="slide-step">SHOWCASE TECNOLÓGICO</span>
                 <h2 class="slide-title">Onde Podemos Chegar?</h2>
-                <p class="slide-subtitle">Exemplos reais de softwares, jogos e automações que seremos capazes de construir juntos</p>
+                <p class="slide-subtitle">Exemplos reais de softwares, jogos e automações que seremos capazes de
+                    construir juntos</p>
             </div>
             <div class="slide-body">
                 <div class="grid-3">
                     <div class="content-box">
                         <div class="big-icon">🐍</div>
                         <h4 style="color:var(--cefet-green)">Jogo da Cobrinha (Snake)</h4>
-                        <p>Grade 2D fluida, lógica de crescimento, detecção de colisões e placar de recordes salvo no sistema.</p>
+                        <p>Grade 2D fluida, lógica de crescimento, detecção de colisões e placar de recordes salvo no
+                            sistema.</p>
                     </div>
                     <div class="content-box">
                         <div class="big-icon">🐦</div>
                         <h4 style="color:var(--cefet-cyan)">Flappy Bird</h4>
-                        <p>Física de gravidade simulada, impulsos de pulo e geração procedural contínua de obstáculos.</p>
+                        <p>Física de gravidade simulada, impulsos de pulo e geração procedural contínua de obstáculos.
+                        </p>
                     </div>
                     <div class="content-box">
                         <div class="big-icon">🧱</div>
                         <h4 style="color:var(--cefet-gold)">Tetris & Automação Web</h4>
-                        <p>Matrizes de peças e robôs RPA que abrem navegadores e executam tarefas repetitivas automaticamente.</p>
+                        <p>Matrizes de peças e robôs RPA que abrem navegadores e executam tarefas repetitivas
+                            automaticamente.</p>
                     </div>
                 </div>
                 <div class="content-box tip-box" style="margin-top:8px;">
-                    <p style="text-align:center; font-weight:600; color:#fff;">💡 <strong>Mudança de Chave:</strong> Deixar de ser apenas usuário que consome redes e jogos para ser o desenvolvedor que cria as próprias regras!</p>
+                    <p style="text-align:center; font-weight:600; color:#fff;">💡 <strong>Mudança de Chave:</strong>
+                        Deixar de ser apenas usuário que consome redes e jogos para ser o desenvolvedor que cria as
+                        próprias regras!</p>
                 </div>
             </div>
         </section>
 
         <!-- Slide 4: A Inteligência Artificial como Parceira -->
-        <section class="slide" data-notes="<strong>Copiloto de IA:</strong> Explicar como a IA atua como um mentor técnico de código e a importância da precisão nos comandos.">
+        <section class="slide"
+            data-notes="<strong>Copiloto de IA:</strong> Explicar como a IA atua como um mentor técnico de código e a importância da precisão nos comandos.">
             <div class="slide-header">
                 <span class="slide-step">FUNDAMENTOS DE IA</span>
                 <h2 class="slide-title">A Inteligência Artificial como Parceira de Código</h2>
-                <p class="slide-subtitle">Como usar o Gemini CLI para acelerar seu aprendizado e gerar código funcional</p>
+                <p class="slide-subtitle">Como usar o Gemini CLI para acelerar seu aprendizado e gerar código funcional
+                </p>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
@@ -172,39 +254,46 @@
         </section>
 
         <!-- Slide 5: O Que é um Prompt? -->
-        <section class="slide" data-notes="<strong>Anatomia de Prompts:</strong> Explicar os 3 pilares fundamentais: Contexto, Regras e Formato.">
+        <section class="slide"
+            data-notes="<strong>Anatomia de Prompts:</strong> Explicar os 3 pilares fundamentais: Contexto, Regras e Formato.">
             <div class="slide-header">
                 <span class="slide-step">ENGENHARIA DE PROMPTS</span>
                 <h2 class="slide-title">O Que é um "Prompt"?</h2>
-                <p class="slide-subtitle">A ponte de comunicação e comandos entre a intenção humana e a inteligência da máquina</p>
+                <p class="slide-subtitle">A ponte de comunicação e comandos entre a intenção humana e a inteligência da
+                    máquina</p>
             </div>
             <div class="slide-body">
                 <div class="grid-3">
                     <div class="content-box accent-box">
                         <div class="big-icon">🗺️</div>
                         <h4>1. Contexto</h4>
-                        <p>Explique o cenário e quem a IA deve incorporar. Diga qual é a finalidade do projeto e para quem ele se destina.</p>
+                        <p>Explique o cenário e quem a IA deve incorporar. Diga qual é a finalidade do projeto e para
+                            quem ele se destina.</p>
                     </div>
                     <div class="content-box accent-box">
                         <div class="big-icon">🛡️</div>
                         <h4>2. Regras</h4>
-                        <p>Dite as restrições inegociáveis. Ex: "não use bibliotecas externas", "deve rodar na tela preta do terminal".</p>
+                        <p>Dite as restrições inegociáveis. Ex: "não use bibliotecas externas", "deve rodar na tela
+                            preta do terminal".</p>
                     </div>
                     <div class="content-box accent-box">
                         <div class="big-icon">📐</div>
                         <h4>3. Formato</h4>
-                        <p>Especifique exatamente a saída: código Python limpo comentado, explicação passo a passo ou tabela.</p>
+                        <p>Especifique exatamente a saída: código Python limpo comentado, explicação passo a passo ou
+                            tabela.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Slide 6: Prompt BOM vs RUIM (Com Carrossel de Mídias e Prompts Íntegros) -->
-        <section class="slide" data-notes="<strong>Prompt BOM x RUIM:</strong> Usar o carrossel interativo com as setinhas para navegar entre os vídeos e imagens comparativos com os prompts completos fornecidos.">
+        <section class="slide"
+            data-notes="<strong>Prompt BOM x RUIM:</strong> Usar o carrossel interativo com as setinhas para navegar entre os vídeos e imagens comparativos com os prompts completos fornecidos.">
             <div class="slide-header">
                 <span class="slide-step">PROMPT BOM VS. PROMPT RUIM</span>
                 <h2 class="slide-title">Comparativo Prático: Como os Detalhes Mudam Tudo</h2>
-                <p class="slide-subtitle">Navegue pelas mídias abaixo (use as setinhas ← →) para ver a diferença de comandos vagos vs. precisos</p>
+                <p class="slide-subtitle">Navegue pelas mídias abaixo (use as setinhas ← →) para ver a diferença de
+                    comandos vagos vs. precisos</p>
             </div>
             <div class="slide-body">
                 <div class="media-carousel-container">
@@ -216,7 +305,8 @@
                         <!-- Item 1: Vídeos Comparativos (Copa) -->
                         <div class="media-carousel-slide active">
                             <div style="text-align:center; margin-bottom:4px;">
-                                <h4 style="color:var(--cefet-cyan); font-size:1.05rem;">🎬 Exemplo 1: Vídeo de Jogador da Copa</h4>
+                                <h4 style="color:var(--cefet-cyan); font-size:1.05rem;">🎬 Exemplo 1: Vídeo de Jogador
+                                    da Copa</h4>
                             </div>
                             <div class="media-compare-grid">
                                 <div class="media-card">
@@ -224,7 +314,8 @@
                                         <span class="media-title-bad">💀 PROMPT RUIM</span>
                                         <button class="media-expand-btn">🔍 Expandir Mídia</button>
                                     </div>
-                                    <div class="prompt-box-text bad">"Faça um video deste jogador levantando a taça da copa pelo Brasil"</div>
+                                    <div class="prompt-box-text bad">"Faça um video deste jogador levantando a taça da
+                                        copa pelo Brasil"</div>
                                     <video controls poster="../Vídeos/Imagem Exemplo.jpg" style="max-height:165px;">
                                         <source src="../Vídeos/Video RUIM.mp4" type="video/mp4">
                                     </video>
@@ -234,7 +325,12 @@
                                         <span class="media-title-good">✨ PROMPT BOM</span>
                                         <button class="media-expand-btn">🔍 Expandir Mídia</button>
                                     </div>
-                                    <div class="prompt-box-text good">"Plano médio cinematográfico, câmera lenta em movimento circular (orbit shot). Esse jogador vestindo a camisa amarela da seleção brasileira, suado e chorando de emoção, erguendo a taça de ouro da Copa do Mundo. Cenário de estádio lotado à noite, luzes de holofote brilhantes vazando na lente (lens flare), papel picado brilhante caindo ao fundo. Estilo fotorrealista, textura de pele hiperdetalhada"</div>
+                                    <div class="prompt-box-text good">"Plano médio cinematográfico, câmera lenta em
+                                        movimento circular (orbit shot). Esse jogador vestindo a camisa amarela da
+                                        seleção brasileira, suado e chorando de emoção, erguendo a taça de ouro da Copa
+                                        do Mundo. Cenário de estádio lotado à noite, luzes de holofote brilhantes
+                                        vazando na lente (lens flare), papel picado brilhante caindo ao fundo. Estilo
+                                        fotorrealista, textura de pele hiperdetalhada"</div>
                                     <video controls poster="../Vídeos/Imagem Exemplo.jpg" style="max-height:165px;">
                                         <source src="../Vídeos/Video BOM.mp4" type="video/mp4">
                                     </video>
@@ -245,7 +341,8 @@
                         <!-- Item 2: Imagens Lanche -->
                         <div class="media-carousel-slide">
                             <div style="text-align:center; margin-bottom:4px;">
-                                <h4 style="color:var(--cefet-cyan); font-size:1.05rem;">🥪 Exemplo 2: Geração de Imagem (Lanche & Programador)</h4>
+                                <h4 style="color:var(--cefet-cyan); font-size:1.05rem;">🥪 Exemplo 2: Geração de Imagem
+                                    (Lanche & Programador)</h4>
                             </div>
                             <div class="media-compare-grid">
                                 <div class="media-card">
@@ -253,16 +350,24 @@
                                         <span class="media-title-bad">💀 PROMPT RUIM</span>
                                         <button class="media-expand-btn">🔍 Expandir Mídia</button>
                                     </div>
-                                    <div class="prompt-box-text bad">"um programador comendo um hamburguer enorme e digitando rapido no computador ao mesmo tempo"</div>
-                                    <img src="../Imagens/Imagem RUIM Lanche.jpeg" alt="Lanche Ruim" style="max-height:165px;">
+                                    <div class="prompt-box-text bad">"um programador comendo um hamburguer enorme e
+                                        digitando rapido no computador ao mesmo tempo"</div>
+                                    <img src="../Imagens/Imagem RUIM Lanche.jpeg" alt="Lanche Ruim"
+                                        style="max-height:165px;">
                                 </div>
                                 <div class="media-card" style="border-color: rgba(16,185,129,0.35);">
                                     <div style="display:flex; align-items:center; justify-content:space-between;">
                                         <span class="media-title-good">✨ PROMPT BOM</span>
                                         <button class="media-expand-btn">🔍 Expandir Mídia</button>
                                     </div>
-                                    <div class="prompt-box-text good">"Fotografia realista, plano médio. Um programador jovem usando óculos e moletom, sentado de frente para o monitor. Ele está com a mão direita no mouse, e a mão esquerda segurando um hambúrguer perto do rosto, prestes a morder. O teclado está sobre a mesa, sem ninguém tocando nele. Iluminação estilo cyberpunk com luzes neon azul e rosa refletindo no rosto. Foco na expressão do personagem, fundo desfocado, 8k, hiper-realista."</div>
-                                    <img src="../Imagens/Imagem BOA Lanche.jpeg" alt="Lanche Bom" style="max-height:165px;">
+                                    <div class="prompt-box-text good">"Fotografia realista, plano médio. Um programador
+                                        jovem usando óculos e moletom, sentado de frente para o monitor. Ele está com a
+                                        mão direita no mouse, e a mão esquerda segurando um hambúrguer perto do rosto,
+                                        prestes a morder. O teclado está sobre a mesa, sem ninguém tocando nele.
+                                        Iluminação estilo cyberpunk com luzes neon azul e rosa refletindo no rosto. Foco
+                                        na expressão do personagem, fundo desfocado, 8k, hiper-realista."</div>
+                                    <img src="../Imagens/Imagem BOA Lanche.jpeg" alt="Lanche Bom"
+                                        style="max-height:165px;">
                                 </div>
                             </div>
                         </div>
@@ -270,7 +375,8 @@
                         <!-- Item 3: Imagens Capivara -->
                         <div class="media-carousel-slide">
                             <div style="text-align:center; margin-bottom:4px;">
-                                <h4 style="color:var(--cefet-cyan); font-size:1.05rem;">🦛 Exemplo 3: Geração de Imagem (Capivara Gamer)</h4>
+                                <h4 style="color:var(--cefet-cyan); font-size:1.05rem;">🦛 Exemplo 3: Geração de Imagem
+                                    (Capivara Gamer)</h4>
                             </div>
                             <div class="media-compare-grid">
                                 <div class="media-card">
@@ -279,15 +385,23 @@
                                         <button class="media-expand-btn">🔍 Expandir Mídia</button>
                                     </div>
                                     <div class="prompt-box-text bad">"Uma capivara mexendo no computador"</div>
-                                    <img src="../Imagens/Imagem RUIM Capivara.jpeg" alt="Capivara Ruim" style="max-height:165px;">
+                                    <img src="../Imagens/Imagem RUIM Capivara.jpeg" alt="Capivara Ruim"
+                                        style="max-height:165px;">
                                 </div>
                                 <div class="media-card" style="border-color: rgba(16,185,129,0.35);">
                                     <div style="display:flex; align-items:center; justify-content:space-between;">
                                         <span class="media-title-good">✨ PROMPT BOM</span>
                                         <button class="media-expand-btn">🔍 Expandir Mídia</button>
                                     </div>
-                                    <div class="prompt-box-text good">"Ilustração 3D no estilo de animação da Pixar. Uma capivara fofa e expressiva vestindo um moletom amarelo, sentada em uma cadeira gamer, digitando em um notebook focado. A tela do notebook reflete uma luz verde no rosto dela (código de programação). O ambiente é um quarto escuro e aconchegante de um adolescente, iluminado apenas por fitas de LED neon nas cores roxo e azul. Profundidade de campo rasa (fundo desfocado), texturas detalhadas, iluminação cinematográfica, 8k."</div>
-                                    <img src="../Imagens/Imagem BOA Capivara.jpeg" alt="Capivara Boa" style="max-height:165px;">
+                                    <div class="prompt-box-text good">"Ilustração 3D no estilo de animação da Pixar. Uma
+                                        capivara fofa e expressiva vestindo um moletom amarelo, sentada em uma cadeira
+                                        gamer, digitando em um notebook focado. A tela do notebook reflete uma luz verde
+                                        no rosto dela (código de programação). O ambiente é um quarto escuro e
+                                        aconchegante de um adolescente, iluminado apenas por fitas de LED neon nas cores
+                                        roxo e azul. Profundidade de campo rasa (fundo desfocado), texturas detalhadas,
+                                        iluminação cinematográfica, 8k."</div>
+                                    <img src="../Imagens/Imagem BOA Capivara.jpeg" alt="Capivara Boa"
+                                        style="max-height:165px;">
                                 </div>
                             </div>
                         </div>
@@ -304,68 +418,75 @@
         </section>
 
         <!-- Slide 7: Dinâmica 1: Dois Grupos (Bom x Ruim) com Prompts Completos -->
-        <section class="slide" data-notes="<strong>Dinâmica 1:</strong> Apresentar os prompts completos para as 3 categorias da dinâmica dos grupos (Arte ASCII, Sorteador e Criptografia).">
+        <section class="slide"
+            data-notes="<strong>Dinâmica 1:</strong> Apresentar os prompts completos para as 3 categorias da dinâmica dos grupos (Arte ASCII, Sorteador e Criptografia).">
             <div class="slide-header">
                 <span class="slide-step">DINÂMICA EM SALA • GRUPOS BOM X RUIM</span>
                 <h2 class="slide-title">Dinâmica 1: O Poder dos Prompts em Grupo</h2>
-                <p class="slide-subtitle">Comparando lado a lado o que a IA gera com comandos simples vs. comandos refinados</p>
+                <p class="slide-subtitle">Comparando lado a lado o que a IA gera com comandos simples vs. comandos
+                    refinados</p>
             </div>
             <div class="slide-body">
                 <div class="grid-3">
-                    <div class="code-preview-card" 
-                         data-title="🎨 1. Desenho Visual (Arte ASCII)"
-                         data-explanation="<strong>Prompt Ruim:</strong> &quot;faça um cachorro em python&quot;<br><br><strong>Prompt Bom Completo:</strong> &quot;Atue como programador Python didático. Crie um script que desenhe a figura de um cachorro usando apenas caracteres ASCII no terminal com print(), sem abrir janelas externas ou usar bibliotecas de terceiros.&quot;"
-                         data-terminal="   /\\_/\\\n  ( o.o )\n   > ^ <">
+                    <div class="code-preview-card" data-title="🎨 1. Desenho Visual (Arte ASCII)"
+                        data-explanation="<strong>Prompt Ruim:</strong> &quot;faça um cachorro em python&quot;<br><br><strong>Prompt Bom Completo:</strong> &quot;Atue como programador Python didático. Crie um script que desenhe a figura de um cachorro usando apenas caracteres ASCII no terminal com print(), sem abrir janelas externas ou usar bibliotecas de terceiros.&quot;"
+                        data-terminal="   /\\_/\\\n  ( o.o )\n   > ^ <">
                         <div class="code-card-header">
                             <span class="code-card-title">🎨 Arte ASCII</span>
                             <button class="expand-demo-btn">🔍 Ver Prompts</button>
                         </div>
                         <div class="prompt-code"><span class="cm"># PROMPT RUIM:</span>
-<span class="str">"faça um cachorro em python"</span>
+                            <span class="str">"faça um cachorro em python"</span>
 
-<span class="cm"># PROMPT BOM:</span>
-<span class="str">"Desenhe um cachorro usando apenas caracteres ASCII no terminal com print(), sem janelas externas."</span></div>
+                            <span class="cm"># PROMPT BOM:</span>
+                            <span class="str">"Desenhe um cachorro usando apenas caracteres ASCII no terminal com
+                                print(), sem janelas externas."</span>
+                        </div>
                     </div>
 
-                    <div class="code-preview-card" 
-                         data-title="🎲 2. Sorteio de Alunos (com 3 nomes via input)"
-                         data-explanation="<strong>Prompt Ruim:</strong> &quot;faça um sorteio em python&quot;<br><br><strong>Prompt Bom Completo:</strong> &quot;Crie um script em Python que peça para o usuário digitar o nome de 3 alunos (usando input). Em seguida, faça uma contagem regressiva de suspense de 3 segundos no terminal e sorteie 1 desses 3 nomes digitados como o vencedor com print().&quot;"
-                         data-terminal="<span class='term-prompt'>Digite o nome do 1º aluno:</span> Ana&#10;<span class='term-prompt'>Digite o nome do 2º aluno:</span> Bruno&#10;<span class='term-prompt'>Digite o nome do 3º aluno:</span> Carla&#10;&#10;🎲 Sorteando 1 participante entre os 3 digitados...&#10;⏳ 3...&#10;⏳ 2...&#10;⏳ 1...&#10;🎉 O aluno sorteado foi: Bruno!">
+                    <div class="code-preview-card" data-title="🎲 2. Sorteio de Alunos (com 3 nomes via input)"
+                        data-explanation="<strong>Prompt Ruim:</strong> &quot;faça um sorteio em python&quot;<br><br><strong>Prompt Bom Completo:</strong> &quot;Crie um script em Python que peça para o usuário digitar o nome de 3 alunos (usando input). Em seguida, faça uma contagem regressiva de suspense de 3 segundos no terminal e sorteie 1 desses 3 nomes digitados como o vencedor com print().&quot;"
+                        data-terminal="<span class='term-prompt'>Digite o nome do 1º aluno:</span> Ana&#10;<span class='term-prompt'>Digite o nome do 2º aluno:</span> Bruno&#10;<span class='term-prompt'>Digite o nome do 3º aluno:</span> Carla&#10;&#10;🎲 Sorteando 1 participante entre os 3 digitados...&#10;⏳ 3...&#10;⏳ 2...&#10;⏳ 1...&#10;🎉 O aluno sorteado foi: Bruno!">
                         <div class="code-card-header">
                             <span class="code-card-title">🎲 Sorteador (via input)</span>
                             <button class="expand-demo-btn">🔍 Ver Prompts</button>
                         </div>
                         <div class="prompt-code"><span class="cm"># PROMPT RUIM:</span>
-<span class="str">"faça um sorteio em python"</span>
+                            <span class="str">"faça um sorteio em python"</span>
 
-<span class="cm"># PROMPT BOM:</span>
-<span class="str">"Peça 3 nomes de alunos com input(), faça um suspense de 3s no terminal e sorteie 1 dos 3 digitados."</span></div>
+                            <span class="cm"># PROMPT BOM:</span>
+                            <span class="str">"Peça 3 nomes de alunos com input(), faça um suspense de 3s no terminal e
+                                sorteie 1 dos 3 digitados."</span>
+                        </div>
                     </div>
 
-                    <div class="code-preview-card" 
-                         data-title="🔒 3. Criptografia Secreta"
-                         data-explanation="<strong>Prompt Ruim:</strong> &quot;criptografe mensagens&quot;<br><br><strong>Prompt Bom Completo:</strong> &quot;Crie um programa Python interativo que leia uma mensagem com input() e substitua as letras 'A' por '@' e 'E' por '3', imprimindo a mensagem encriptada com print() no console.&quot;"
-                         data-terminal="Digite o texto: AULA DE PYTHON\nMensagem Secreta: @UL@ D3 PYTHON">
+                    <div class="code-preview-card" data-title="🔒 3. Criptografia Secreta"
+                        data-explanation="<strong>Prompt Ruim:</strong> &quot;criptografe mensagens&quot;<br><br><strong>Prompt Bom Completo:</strong> &quot;Crie um programa Python interativo que leia uma mensagem com input() e substitua as letras 'A' por '@' e 'E' por '3', imprimindo a mensagem encriptada com print() no console.&quot;"
+                        data-terminal="Digite o texto: AULA DE PYTHON\nMensagem Secreta: @UL@ D3 PYTHON">
                         <div class="code-card-header">
                             <span class="code-card-title">🔒 Criptografia</span>
                             <button class="expand-demo-btn">🔍 Ver Prompts</button>
                         </div>
                         <div class="prompt-code"><span class="cm"># PROMPT RUIM:</span>
-<span class="str">"criptografe mensagens"</span>
+                            <span class="str">"criptografe mensagens"</span>
 
-<span class="cm"># PROMPT BOM:</span>
-<span class="str">"Troque letras 'A' por '@' e 'E' por '3' de uma mensagem lida com input() e exiba com print()."</span></div>
+                            <span class="cm"># PROMPT BOM:</span>
+                            <span class="str">"Troque letras 'A' por '@' e 'E' por '3' de uma mensagem lida com input()
+                                e exiba com print()."</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Slide 8: Engenharia Reversa -->
-        <section class="slide" data-notes="<strong>Engenharia Reversa:</strong> Explicar a metodologia ativa: Gerar com IA -> Desmontar o código -> Entender e Hackear.">
+        <section class="slide"
+            data-notes="<strong>Engenharia Reversa:</strong> Explicar a metodologia ativa: Gerar com IA -> Desmontar o código -> Entender e Hackear.">
             <div class="slide-header">
                 <span class="slide-step">METODOLOGIA ATIVA</span>
                 <h2 class="slide-title">Engenharia Reversa: De Copiador a Inspetor</h2>
-                <p class="slide-subtitle">O ciclo contínuo de aprendizado técnico: Gerar → Desmontar → Entender & Hackear</p>
+                <p class="slide-subtitle">O ciclo contínuo de aprendizado técnico: Gerar → Desmontar → Entender &
+                    Hackear</p>
             </div>
             <div class="slide-body">
                 <div class="grid-3">
@@ -389,45 +510,55 @@
         </section>
 
         <!-- Slide 9: O Comando PRINT -->
-        <section class="slide" data-notes="<strong>O Comando print():</strong> Explicar o comando print(), a voz do computador e a regra das aspas.">
+        <section class="slide"
+            data-notes="<strong>O Comando print():</strong> Explicar o comando print(), a voz do computador e a regra das aspas.">
             <div class="slide-header">
                 <span class="slide-step">DECIFRANDO O CÓDIGO • PARTE 1</span>
                 <h2 class="slide-title">Decifrando o Código: O Comando <code>print()</code></h2>
-                <p class="slide-subtitle">Como o computador fala com você e como personalizar mensagens alterando as aspas</p>
+                <p class="slide-subtitle">Como o computador fala com você e como personalizar mensagens alterando as
+                    aspas</p>
             </div>
             <div class="slide-body">
                 <div class="grid-2-1">
                     <div class="content-box accent-box">
                         <h4>📢 A Voz do Computador</h4>
                         <ul>
-                            <li>O <code>print()</code> é a função nativa em Python responsável por exibir mensagens na tela preta do terminal.</li>
-                            <li><strong>🔑 A Regra das Aspas:</strong> Tudo o que estiver entre <code>"aspas"</code> ou <code>'aspas'</code> é texto livre e pode ser modificado por você sem quebrar a lógica!</li>
-                            <li><strong>f-strings:</strong> Permite colocar dados formatados direto entre chaves <code>f"Olá {nome}"</code>.</li>
+                            <li>O <code>print()</code> é a função nativa em Python responsável por exibir mensagens na
+                                tela preta do terminal.</li>
+                            <li><strong>🔑 A Regra das Aspas:</strong> Tudo o que estiver entre <code>"aspas"</code> ou
+                                <code>'aspas'</code> é texto livre e pode ser modificado por você sem quebrar a lógica!
+                            </li>
+                            <li><strong>f-strings:</strong> Permite colocar dados formatados direto entre chaves
+                                <code>f"Olá {nome}"</code>.</li>
                         </ul>
                     </div>
 
-                    <div class="code-preview-card" 
-                         data-title="🐍 Exemplo Didático: Comando print()"
-                         data-explanation="O comando <code>print()</code> imprime exatamente o que está dentro das aspas. Com <code>f-strings</code> (prefixadas por <code>f&quot;...&quot;</code>), é possível misturar texto e variáveis perfeitamente."
-                         data-terminal="========================================&#10;🚀 BEM-VINDO AO CEFET-MG!&#10;========================================&#10;Estudante: Ana Clara | Módulo: Python 101">
+                    <div class="code-preview-card" data-title="🐍 Exemplo Didático: Comando print()"
+                        data-explanation="O comando <code>print()</code> imprime exatamente o que está dentro das aspas. Com <code>f-strings</code> (prefixadas por <code>f&quot;...&quot;</code>), é possível misturar texto e variáveis perfeitamente."
+                        data-terminal="========================================&#10;🚀 BEM-VINDO AO CEFET-MG!&#10;========================================&#10;Estudante: Ana Clara | Módulo: Python 101">
                         <div class="code-card-header">
                             <span class="code-card-title">🐍 comando_print.py</span>
                             <button class="expand-demo-btn">🔍 Expandir Exemplo</button>
                         </div>
                         <div class="prompt-code"><span class="cm"># Imprimindo linhas e mensagens</span>
-<span class="fn">print</span>(<span class="str">"========================================"</span>)
-<span class="fn">print</span>(<span class="str">"🚀 BEM-VINDO AO CEFET-MG!"</span>)
-<span class="fn">print</span>(<span class="str">"========================================"</span>)
+                            <span class="fn">print</span>(<span
+                                class="str">"========================================"</span>)
+                            <span class="fn">print</span>(<span class="str">"🚀 BEM-VINDO AO CEFET-MG!"</span>)
+                            <span class="fn">print</span>(<span
+                                class="str">"========================================"</span>)
 
-<span class="var">nome</span> <span class="op">=</span> <span class="str">"Ana Clara"</span>
-<span class="fn">print</span>(<span class="str">f"Estudante: <span class="op">{</span><span class="var">nome</span><span class="op">}</span> | Módulo: Python 101"</span>)</div>
+                            <span class="var">nome</span> <span class="op">=</span> <span class="str">"Ana Clara"</span>
+                            <span class="fn">print</span>(<span class="str">f"Estudante: <span class="op">{</span><span
+                                    class="var">nome</span><span class="op">}</span> | Módulo: Python 101"</span>)
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Slide 10: O Comando INPUT (Captura de Entrada de Dados) -->
-        <section class="slide" data-notes="<strong>O Comando input():</strong> Explicar a captura de dados do usuário via teclado, a regra da String e a conversão com int() ou float().">
+        <section class="slide"
+            data-notes="<strong>O Comando input():</strong> Explicar a captura de dados do usuário via teclado, a regra da String e a conversão com int() ou float().">
             <div class="slide-header">
                 <span class="slide-step">DECIFRANDO O CÓDIGO • PARTE 2</span>
                 <h2 class="slide-title">Decifrando o Código: O Comando <code>input()</code></h2>
@@ -438,41 +569,53 @@
                     <div class="content-box tip-box">
                         <h4>⌨️ Escutando o Teclado</h4>
                         <ul>
-                            <li>O <code>input("Pergunta: ")</code> pausa a execução e espera o usuário digitar a resposta.</li>
-                            <li><strong>Regra do Texto:</strong> O <code>input()</code> sempre devolve o valor como Texto (<code>str</code>).</li>
-                            <li>Para fazer contas numéricas, convertemos com <code>int(input(...))</code> ou <code>float(input(...))</code>.</li>
+                            <li>O <code>input("Pergunta: ")</code> pausa a execução e espera o usuário digitar a
+                                resposta.</li>
+                            <li><strong>Regra do Texto:</strong> O <code>input()</code> sempre devolve o valor como
+                                Texto (<code>str</code>).</li>
+                            <li>Para fazer contas numéricas, convertemos com <code>int(input(...))</code> ou
+                                <code>float(input(...))</code>.</li>
                         </ul>
                     </div>
 
-                    <div class="code-preview-card" 
-                         data-title="🐍 Exemplo Didático: Comando input() + print()"
-                         data-explanation="Neste exemplo, o programa faz perguntas com <code>input()</code>, armazena as respostas em variáveis e depois imprime o resultado formatado com o <code>print()</code>."
-                         data-terminal="<span class='term-prompt'>Qual o seu nome?</span> Gabriel&#10;<span class='term-prompt'>Qual seu ano de nascimento?</span> 2008&#10;&#10;Olá Gabriel! Em 2026 você completa 18 anos.">
+                    <div class="code-preview-card" data-title="🐍 Exemplo Didático: Comando input() + print()"
+                        data-explanation="Neste exemplo, o programa faz perguntas com <code>input()</code>, armazena as respostas em variáveis e depois imprime o resultado formatado com o <code>print()</code>."
+                        data-terminal="<span class='term-prompt'>Qual o seu nome?</span> Gabriel&#10;<span class='term-prompt'>Qual seu ano de nascimento?</span> 2008&#10;&#10;Olá Gabriel! Em 2026 você completa 18 anos.">
                         <div class="code-card-header">
                             <span class="code-card-title">🐍 comando_input.py</span>
                             <button class="expand-demo-btn">🔍 Expandir Exemplo</button>
                         </div>
                         <div class="prompt-code"><span class="cm"># Lendo o nome (texto)</span>
-<span class="var">nome</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Qual o seu nome? "</span>)
+                            <span class="var">nome</span> <span class="op">=</span> <span class="fn">input</span>(<span
+                                class="str">"Qual o seu nome? "</span>)
 
-<span class="cm"># Lendo ano de nascimento e convertendo para int</span>
-<span class="var">ano_nasc</span> <span class="op">=</span> <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Qual seu ano de nascimento? "</span>))
+                            <span class="cm"># Lendo ano de nascimento e convertendo para int</span>
+                            <span class="var">ano_nasc</span> <span class="op">=</span> <span
+                                class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Qual seu ano de
+                                nascimento? "</span>))
 
-<span class="cm"># Calculando idade</span>
-<span class="var">idade</span> <span class="op">=</span> <span class="num">2026</span> <span class="op">-</span> <span class="var">ano_nasc</span>
+                            <span class="cm"># Calculando idade</span>
+                            <span class="var">idade</span> <span class="op">=</span> <span class="num">2026</span> <span
+                                class="op">-</span> <span class="var">ano_nasc</span>
 
-<span class="fn">print</span>(<span class="str">f"\nOlá <span class="op">{</span><span class="var">nome</span><span class="op">}</span>! Em 2026 você completa <span class="op">{</span><span class="var">idade</span><span class="op">}</span> anos."</span>)</div>
+                            <span class="fn">print</span>(<span class="str">f"\nOlá <span class="op">{</span><span
+                                    class="var">nome</span><span class="op">}</span>! Em 2026 você completa <span
+                                    class="op">{</span><span class="var">idade</span><span class="op">}</span>
+                                anos."</span>)
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Slide 11: Dinâmica 2: Hackathon Competitivo -->
-        <section class="slide" data-notes="<strong>Dinâmica 2 (50 min):</strong> Apresentar o Hackathon Competitivo de Jogos e as 3 opções de desafio no terminal.">
+        <section class="slide"
+            data-notes="<strong>Dinâmica 2 (50 min):</strong> Apresentar o Hackathon Competitivo de Jogos e as 3 opções de desafio no terminal.">
             <div class="slide-header">
                 <span class="slide-step">DINÂMICA 2 • HACKATHON COMPETITIVO</span>
                 <h2 class="slide-title">Batalha de Prompts: Hackathon de Jogos</h2>
-                <p class="slide-subtitle">Escolha o desafio do seu grupo, solicite o código à IA e customize as regras!</p>
+                <p class="slide-subtitle">Escolha o desafio do seu grupo, solicite o código à IA e customize as regras!
+                </p>
             </div>
             <div class="slide-body">
                 <div class="grid-3">
@@ -484,77 +627,90 @@
                     <div class="content-box">
                         <div class="big-icon">🚢</div>
                         <h4>Opção 2: Batalha Naval</h4>
-                        <p>Matriz 5x5 interativa para caçar navios usando comandos `input()` e coordenadas numéricas.</p>
+                        <p>Matriz 5x5 interativa para caçar navios usando comandos `input()` e coordenadas numéricas.
+                        </p>
                     </div>
                     <div class="content-box">
                         <div class="big-icon">🏫</div>
                         <h4>Opção 3: Escape Room</h4>
-                        <p>Jogo de escolhas narrativas interativas e enigmas de texto para conseguir escapar da escola.</p>
+                        <p>Jogo de escolhas narrativas interativas e enigmas de texto para conseguir escapar da escola.
+                        </p>
                     </div>
                 </div>
                 <div class="content-box warn-box" style="margin-top:8px;">
                     <h4>🏆 Critérios de Vitória do Desafio</h4>
-                    <p>1. Rodar sem erros no terminal • 2. Qualidade e clareza do prompt utilizado • 3. Criatividade nos textos e mensagens hackeadas!</p>
+                    <p>1. Rodar sem erros no terminal • 2. Qualidade e clareza do prompt utilizado • 3. Criatividade nos
+                        textos e mensagens hackeadas!</p>
                 </div>
             </div>
         </section>
 
         <!-- Slide 12: Métodos P.R.R.E e P.R.O.M.P.T (Com Exemplos Completos) -->
-        <section class="slide" data-notes="<strong>Métodos P.R.R.E e P.R.O.M.P.T:</strong> Apresentar cada método com seus pilares e o exemplo didático completo pronto para cópia/uso no Gemini CLI.">
+        <section class="slide"
+            data-notes="<strong>Métodos P.R.R.E e P.R.O.M.P.T:</strong> Apresentar cada método com seus pilares e o exemplo didático completo pronto para cópia/uso no Gemini CLI.">
             <div class="slide-header">
                 <span class="slide-step">METODOLOGIAS DE PROMPTING</span>
                 <h2 class="slide-title">Frameworks P.R.R.E e P.R.O.M.P.T</h2>
-                <p class="slide-subtitle">Fórmulas prontas e estruturadas para fazer pedidos profissionais à IA Generativa</p>
+                <p class="slide-subtitle">Fórmulas prontas e estruturadas para fazer pedidos profissionais à IA
+                    Generativa</p>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
-                    <div class="code-preview-card" 
-                         data-title="📋 Método P.R.R.E (Personagem, Realizações, Requisição, Exemplo)"
-                         data-explanation="O método P.R.R.E é ideal para tarefas diretas. Definimos o **Personagem** (autoridade), **Realizações** (experiência), **Requisição** (o pedido) e um **Exemplo** do resultado esperado."
-                         data-terminal="Exemplo de Prompt P.R.R.E Gerado:\nAtue como programador Python sênior com 10 anos de experiência em automação didática. Crie um script que leia o nome do usuário com input() e imprima um crachá de boas-vindas com print().">
+                    <div class="code-preview-card"
+                        data-title="📋 Método P.R.R.E (Personagem, Realizações, Requisição, Exemplo)"
+                        data-explanation="O método P.R.R.E é ideal para tarefas diretas. Definimos o **Personagem** (autoridade), **Realizações** (experiência), **Requisição** (o pedido) e um **Exemplo** do resultado esperado."
+                        data-terminal="Exemplo de Prompt P.R.R.E Gerado:\nAtue como programador Python sênior com 10 anos de experiência em automação didática. Crie um script que leia o nome do usuário com input() e imprima um crachá de boas-vindas com print().">
                         <div class="code-card-header">
                             <span class="code-card-title">📌 MÉTODO P.R.R.E</span>
                             <button class="expand-demo-btn">🔍 Ver Exemplo Completo</button>
                         </div>
                         <div class="prompt-code"><strong>• P - Personagem:</strong> Dê um papel de autoridade.<br>
-<strong>• R - Realizações:</strong> Defina a experiência prévia.<br>
-<strong>• R - Requisição:</strong> O que você precisa exatamente.<br>
-<strong>• E - Exemplo:</strong> Mostre um modelo do resultado.<br><br>
-<span class="cm"># PROMPT DE EXEMPLO COMPLETO:</span>
-<span class="str">"Atue como programador Python sênior com 10 anos de experiência. Crie um script simples que peça a idade com input() e imprima com print() quantos dias de vida a pessoa viveu aproximadamente (idade * 365)."</span></div>
+                            <strong>• R - Realizações:</strong> Defina a experiência prévia.<br>
+                            <strong>• R - Requisição:</strong> O que você precisa exatamente.<br>
+                            <strong>• E - Exemplo:</strong> Mostre um modelo do resultado.<br><br>
+                            <span class="cm"># PROMPT DE EXEMPLO COMPLETO:</span>
+                            <span class="str">"Atue como programador Python sênior com 10 anos de experiência. Crie um
+                                script simples que peça a idade com input() e imprima com print() quantos dias de vida a
+                                pessoa viveu aproximadamente (idade * 365)."</span>
+                        </div>
                     </div>
 
-                    <div class="code-preview-card" 
-                         data-title="⚙️ Método P.R.O.M.P.T (Persona, Roteiro, Objetivo, Modelo, Panorama, Transformar)"
-                         data-explanation="O método P.R.O.M.P.T garante máxima precisão contextualizando o **Panorama** (situação) e a **Transformação** (estilo didático sem termos difíceis)."
-                         data-terminal="Exemplo de Prompt P.R.O.M.P.T Gerado:\nPersona: Professor didático de Python.\nObjetivo: Explicar input() e print().\nPanorama: Aluno iniciante do CEFET.\nTransformar: Retornar código enxuto com explicações simples.">
+                    <div class="code-preview-card"
+                        data-title="⚙️ Método P.R.O.M.P.T (Persona, Roteiro, Objetivo, Modelo, Panorama, Transformar)"
+                        data-explanation="O método P.R.O.M.P.T garante máxima precisão contextualizando o **Panorama** (situação) e a **Transformação** (estilo didático sem termos difíceis)."
+                        data-terminal="Exemplo de Prompt P.R.O.M.P.T Gerado:\nPersona: Professor didático de Python.\nObjetivo: Explicar input() e print().\nPanorama: Aluno iniciante do CEFET.\nTransformar: Retornar código enxuto com explicações simples.">
                         <div class="code-card-header">
                             <span class="code-card-title">⚙️ MÉTODO P.R.O.M.P.T</span>
                             <button class="expand-demo-btn">🔍 Ver Exemplo Completo</button>
                         </div>
                         <div class="prompt-code"><strong>• Persona / Roteiro:</strong> Quem ela é e qual a tarefa.<br>
-<strong>• Objetivo / Modelo:</strong> Qual o propósito e formato final.<br>
-<strong>• Panorama / Transformar:</strong> O contexto e os ajustes.<br><br>
-<span class="cm"># PROMPT DE EXEMPLO COMPLETO:</span>
-<span class="str">"Atue como mentor didático de Python. Meu objetivo é aprender a usar input() e print(). Panorama: sou estudante do CEFET iniciando hoje. Formato: me dê 1 exemplo prático comentado sem usar bibliotecas difíceis."</span></div>
+                            <strong>• Objetivo / Modelo:</strong> Qual o propósito e formato final.<br>
+                            <strong>• Panorama / Transformar:</strong> O contexto e os ajustes.<br><br>
+                            <span class="cm"># PROMPT DE EXEMPLO COMPLETO:</span>
+                            <span class="str">"Atue como mentor didático de Python. Meu objetivo é aprender a usar
+                                input() e print(). Panorama: sou estudante do CEFET iniciando hoje. Formato: me dê 1
+                                exemplo prático comentado sem usar bibliotecas difíceis."</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Slide 13: Encerramento: Missão Cumprida & Envio dos Chats -->
-        <section class="slide" data-notes="<strong>Encerramento (10 min):</strong> Orientar os estudantes no salvamento do link público da conversa com o Gemini e envio no formulário de pesquisa.">
+        <section class="slide"
+            data-notes="<strong>Encerramento (10 min):</strong> Orientar os estudantes no salvamento do link público da conversa com o Gemini e envio no formulário de pesquisa.">
             <div class="slide-header">
                 <span class="slide-step">ENCERRAMENTO • SALVANDO HISTÓRICO</span>
                 <h2 class="slide-title">Missão Cumprida! Registrando Seus Chats</h2>
-                <p class="slide-subtitle">Como compartilhar o link público do seu diálogo com a IA para validar sua participação</p>
+                <p class="slide-subtitle">Como compartilhar o link público do seu diálogo com a IA para validar sua
+                    participação</p>
             </div>
             <div class="slide-body">
                 <div class="grid-3">
                     <div class="content-box accent-box">
                         <div class="big-icon">⋯</div>
                         <h4>1. Três Pontinhos</h4>
-                        <p>No canto superior do chat com o Gemini, clique no ícone de três pontinhos (opções).</p>
+                        <p>No canto superior do chat no Gemini CLI/Web, clique no ícone de três pontinhos (opções).</p>
                     </div>
                     <div class="content-box accent-box">
                         <div class="big-icon">🔗</div>
@@ -563,13 +719,16 @@
                     </div>
                     <div class="content-box tip-box">
                         <div class="big-icon">📋</div>
-                        <h4>3. Formulário Final</h4>
-                        <p>Abra o formulário de coleta do projeto e cole seu link público para registrar suas interações!</p>
+                        <h4>3. Cole no Formulário</h4>
+                        <p>Abra o formulário de coleta do projeto e cole seu link público para registrar suas
+                            interações!</p>
                     </div>
                 </div>
                 <div class="prompt-code" style="margin-top:10px; text-align:center; border-color:rgba(0,229,255,0.4);">
-                    🔗 Link do Formulário para Envio dos Chats: 
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_wFBFI35Ombbv0kctuP5EAMBLqK2OpG78OmKXHBAT9x4lA/viewform?usp=header" target="_blank" style="color:var(--cefet-cyan); font-weight:700;">https://docs.google.com/forms/d/e/1FAIpQLSfP_wFBFI35Ombbv0kctuP5EAMBLqK2OpG78OmKXHBAT9x4lA/viewform</a>
+                    🔗 Link do Formulário para Envio dos Chats:
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_wFBFI35Ombbv0kctuP5EAMBLqK2OpG78OmKXHBAT9x4lA/viewform?usp=header"
+                        target="_blank"
+                        style="color:var(--cefet-cyan); font-weight:700;">https://docs.google.com/forms/d/e/1FAIpQLSfP_wFBFI35Ombbv0kctuP5EAMBLqK2OpG78OmKXHBAT9x4lA/viewform</a>
                 </div>
             </div>
         </section>
@@ -598,4 +757,5 @@
 
     <script src="slides-engine.js"></script>
 </body>
+
 </html>
