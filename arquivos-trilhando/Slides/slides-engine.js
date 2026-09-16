@@ -250,18 +250,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openMediaModal(title, isGood, mediaNode, promptText) {
         if (mediaModalTitle) mediaModalTitle.innerHTML = title || '🔍 Projeção em Alta Resolução';
-        if (mediaModalPromptHeader) {
-            mediaModalPromptHeader.innerHTML = isGood ? '✨ Prompt BOM Estruturado' : '💀 Prompt RUIM Vago';
-            mediaModalPromptHeader.style.color = isGood ? 'var(--cefet-green)' : 'var(--cefet-red)';
-        }
-        if (mediaModalPromptText) {
-            mediaModalPromptText.className = 'prompt-box-text ' + (isGood ? 'good' : 'bad');
-            mediaModalPromptText.textContent = promptText || '';
+        
+        const promptFooter = mediaModalPromptText ? mediaModalPromptText.parentElement : null;
+        if (promptFooter) {
+            if (promptText && promptText.trim()) {
+                promptFooter.style.display = 'block';
+                if (mediaModalPromptHeader) {
+                    mediaModalPromptHeader.innerHTML = isGood ? '✨ Prompt BOM Estruturado' : '💀 Prompt RUIM Vago';
+                    mediaModalPromptHeader.style.color = isGood ? 'var(--cefet-green)' : 'var(--cefet-red)';
+                }
+                if (mediaModalPromptText) {
+                    mediaModalPromptText.className = 'prompt-box-text ' + (isGood ? 'good' : 'bad');
+                    mediaModalPromptText.textContent = promptText || '';
+                }
+            } else {
+                promptFooter.style.display = 'none';
+            }
         }
 
         if (mediaModalViewStage) {
             mediaModalViewStage.innerHTML = '';
             const cloneNode = mediaNode.cloneNode(true);
+            cloneNode.style.maxHeight = '72vh';
+            cloneNode.style.maxWidth = '85vw';
+            cloneNode.style.objectFit = 'contain';
             if (cloneNode.tagName === 'VIDEO') {
                 cloneNode.controls = true;
                 cloneNode.autoplay = true;
@@ -280,8 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mediaModalOverlay) mediaModalOverlay.classList.remove('active');
     }
 
-    // Media Click Handler
+    // Media & QR Code Click Handler
     document.addEventListener('click', (e) => {
+        // 1. Media Cards (comparativos com prompt)
         const mediaCard = e.target.closest('.media-card');
         if (mediaCard && (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.closest('.media-expand-btn'))) {
             e.stopPropagation();
@@ -295,6 +308,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (mediaNode) {
                 openMediaModal(title, isGood, mediaNode, promptText);
+            }
+            return;
+        }
+
+        // 2. QR Codes e Imagens Interativas gerais
+        const qrcodeTarget = e.target.closest('.qrcode-container, .qrcode-img, img.qrcode-img');
+        if (qrcodeTarget) {
+            e.stopPropagation();
+            const imgNode = qrcodeTarget.tagName === 'IMG' ? qrcodeTarget : qrcodeTarget.querySelector('img');
+            if (imgNode) {
+                const title = imgNode.getAttribute('alt') || 'QR Code Expandido';
+                openMediaModal(`📱 ${title}`, true, imgNode, '');
             }
         }
     });
