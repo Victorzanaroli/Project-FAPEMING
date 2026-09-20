@@ -608,6 +608,167 @@ body {
     box-shadow: 0 0 20px rgba(255, 184, 0, 0.5);
 }
 
+/* ──────────────────────────────────────────────
+   Mobile & Tablet Responsiveness (@media max-width: 768px)
+────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Stage & Canvas Fit */
+    body {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .presentation-stage {
+        padding: 54px 8px 66px !important;
+        height: 100vh !important;
+        width: 100vw !important;
+    }
+    
+    .slide {
+        border-radius: 16px !important;
+        padding: 16px 12px !important;
+        max-height: calc(100vh - 120px) !important;
+        height: 100% !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Top Navigation Bar */
+    .top-bar {
+        top: 6px !important;
+        left: 8px !important;
+        right: 8px !important;
+    }
+    
+    .brand-badge {
+        padding: 4px 10px !important;
+        font-size: 0.66rem !important;
+        gap: 5px !important;
+        max-width: 60vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .top-controls {
+        gap: 4px !important;
+    }
+
+    .control-btn {
+        padding: 5px 8px !important;
+        font-size: 0.68rem !important;
+        border-radius: 8px !important;
+    }
+
+    /* Typography & Badges */
+    .slide-step, .step-badge, .live-label, .engage-label, .challenge-label {
+        font-size: 0.63rem !important;
+        padding: 3px 10px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .slide-title {
+        font-size: clamp(1.2rem, 5.5vw, 1.55rem) !important;
+        line-height: 1.2 !important;
+    }
+
+    .slide-subtitle {
+        font-size: 0.78rem !important;
+        margin-top: 3px !important;
+        line-height: 1.35 !important;
+    }
+
+    .slide-body {
+        gap: 10px !important;
+        margin-top: 8px !important;
+    }
+
+    /* Stack Grid Layouts Vertically on Mobile Screens */
+    .grid-2, .grid-3, .grid-4, .grid-2-1,
+    .pillar-grid, .mission-grid, .qr-dual-grid, .shortcut-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* Cards & Boxes */
+    .content-box {
+        padding: 11px 13px !important;
+        border-radius: 12px !important;
+    }
+
+    .pillar-card {
+        padding: 10px 12px !important;
+        border-radius: 12px !important;
+    }
+    
+    .pillar-icon {
+        font-size: 1.6rem !important;
+        margin-bottom: 4px !important;
+    }
+
+    .pillar-name {
+        font-size: 0.88rem !important;
+    }
+
+    .prompt-code {
+        font-size: 0.73rem !important;
+        padding: 10px 11px !important;
+    }
+
+    /* QR Code Cards on Mobile */
+    .qr-card {
+        padding: 12px !important;
+        border-radius: 14px !important;
+    }
+
+    .qr-img-wrap img, .qrcode-img {
+        max-width: 115px !important;
+        max-height: 115px !important;
+    }
+
+    /* Bottom Navigation Bar on Mobile */
+    .bottom-nav {
+        bottom: 6px !important;
+        left: 8px !important;
+        right: 8px !important;
+        padding: 5px 12px !important;
+        height: 48px !important;
+        border-radius: 14px !important;
+    }
+
+    .slide-counter {
+        font-size: 0.76rem !important;
+    }
+
+    .nav-btn {
+        padding: 7px 12px !important;
+        font-size: 0.76rem !important;
+        border-radius: 8px !important;
+    }
+    .key-hint {
+        display: none !important;
+    }
+
+    /* Modals Fit Mobile Screen */
+    .code-modal-content, #missionModalCard {
+        padding: 16px 16px !important;
+        border-radius: 16px !important;
+        max-width: 95vw !important;
+        max-height: 90vh !important;
+    }
+    
+    .media-modal-content {
+        width: 95vw !important;
+        padding: 12px !important;
+    }
+
+    .media-modal-view-stage img, .media-modal-view-stage video {
+        max-height: 52vh !important;
+    }
+}
+
 
 
 

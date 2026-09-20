@@ -3,24 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 02 - Variáveis, Tipos e Entrada de Dados</title>
+    <title>Aula 02 — Tomada de Decisão: if, elif e else | Trilhando o Caminho do Código</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="slides-style.css">
+    <style>
+        /* ──────────────────────────────────────────────
+           Aula 02 — Custom Styles
+        ────────────────────────────────────────────── */
+
+        /* Pillar cards (3 columns) */
+        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 10px; }
+        .pillar-card { background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 18px 14px; text-align: center; transition: transform .25s, box-shadow .25s; }
+        .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,229,255,.18); }
+        .pillar-icon { font-size: 2.4rem; margin-bottom: 10px; }
+        .pillar-name { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 700; color: #00e5ff; }
+        .pillar-label { font-size: .78rem; color: #94a3b8; margin-top: 4px; }
+
+        /* Label badges */
+        .step-badge   { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,229,255,.12); border: 1px solid rgba(0,229,255,.35); border-radius: 100px; padding: 4px 14px; font-size: .75rem; font-weight: 800; color: #00e5ff; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+        .live-label   { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,.15); border: 1px solid rgba(16,185,129,.4); border-radius: 100px; padding: 4px 14px; font-size: .73rem; font-weight: 800; color: #10b981; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+        .live-dot     { width: 7px; height: 7px; border-radius: 50%; background: #10b981; animation: pulse-dot 1.2s infinite; }
+        .engage-label { display: inline-flex; align-items: center; gap: 6px; background: rgba(245,158,11,.15); border: 1px solid rgba(245,158,11,.4); border-radius: 100px; padding: 4px 14px; font-size: .73rem; font-weight: 800; color: #f59e0b; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 12px; }
+        .challenge-label { display: inline-flex; align-items: center; gap: 6px; background: rgba(236,72,153,.15); border: 1px solid rgba(236,72,153,.4); border-radius: 100px; padding: 4px 14px; font-size: .73rem; font-weight: 800; color: #f472b6; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 12px; }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(1.4);} }
+
+        /* Code step highlighting */
+        .code-step-new { color: #a7f3d0 !important; font-weight: 700; }
+        .code-step-old { opacity: .55; }
+
+        /* Flow diagram */
+        .flow-node { background: rgba(0,0,0,.4); border: 1.5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: .85rem; font-weight: 700; text-align: center; }
+        .flow-yes { border-color: rgba(16,185,129,.5); color: #10b981; }
+        .flow-no  { border-color: rgba(239,68,68,.5); color: #ef4444; }
+
+        /* Mission cards */
+        .mission-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 8px; }
+        .mission-card { border-radius: 14px; padding: 16px; border: 1.5px solid rgba(255,255,255,.08); transition: transform .25s, box-shadow .25s; }
+        .mission-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.4); }
+        .mission-card h4 { font-size: .92rem; margin-bottom: 8px; }
+        .mission-card p  { font-size: .75rem; color: #94a3b8; line-height: 1.5; }
+        .mission-rpg  { background: rgba(139,92,246,.12); border-color: rgba(139,92,246,.35); }
+        .mission-quiz { background: rgba(59,130,246,.12); border-color: rgba(59,130,246,.35); }
+        .mission-asst { background: rgba(16,185,129,.10); border-color: rgba(16,185,129,.35); }
+
+        /* Stress test table */
+        .stress-table { width: 100%; border-collapse: collapse; font-size: .8rem; margin-top: 10px; }
+        .stress-table th { background: rgba(255,255,255,.06); text-align: left; padding: 8px 10px; font-size: .72rem; color: #94a3b8; letter-spacing: .05em; text-transform: uppercase; }
+        .stress-table td { padding: 8px 10px; border-top: 1px solid rgba(255,255,255,.05); vertical-align: top; line-height: 1.4; }
+        .stress-table tr:hover td { background: rgba(255,255,255,.03); }
+
+        /* Debug box */
+        .debug-box { background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.3); border-radius: 12px; padding: 14px 16px; font-size: .8rem; line-height: 1.7; }
+        .debug-step { display: flex; align-items: center; margin-bottom: 6px; }
+        .step-num { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: rgba(239,68,68,.3); color: #fca5a5; font-size: .68rem; font-weight: 800; margin-right: 6px; flex-shrink: 0; }
+
+        /* Summary items */
+        .summary-item { display: flex; align-items: flex-start; gap: 10px; background: rgba(0,0,0,.3); border-radius: 10px; padding: 12px 14px; border: 1px solid rgba(255,255,255,.06); }
+        .summary-check { font-size: 1.2rem; flex-shrink: 0; }
+        .summary-text { font-size: .8rem; color: #cbd5e1; line-height: 1.4; }
+        .summary-text strong { color: #fff; display: block; margin-bottom: 2px; }
+
+        /* VS Code tutorial image slides */
+        .vscode-slide-img { width: 100%; max-height: 310px; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 8px 32px rgba(0,0,0,.6); }
+        .shortcut-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 10px; }
+        .shortcut-card { background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; }
+        .shortcut-keys { font-family: 'JetBrains Mono', monospace; font-size: .85rem; font-weight: 700; color: #00e5ff; background: rgba(0,229,255,.1); border: 1px solid rgba(0,229,255,.3); border-radius: 8px; padding: 6px 12px; white-space: nowrap; flex-shrink: 0; }
+        .shortcut-desc { font-size: .78rem; color: #cbd5e1; line-height: 1.4; }
+        .shortcut-desc strong { color: #fff; display: block; }
+
+        /* QR Code (cadastro slide) */
+        .qr-dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: 100%; }
+        .qr-card { border-radius: 16px; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; }
+        .qr-card.gold-card  { background: rgba(255,184,0,.07); border: 1.5px solid rgba(255,184,0,.4); }
+        .qr-card.cyan-card  { background: rgba(0,229,255,.07); border: 1.5px solid rgba(0,229,255,.4); }
+        .qr-card h4 { font-size: .9rem; margin-bottom: 10px; }
+        .qr-card ul { text-align: left; font-size: .78rem; line-height: 1.8; color: #cbd5e1; padding-left: 16px; margin-bottom: 12px; }
+        .qr-img-wrap { background: #fff; padding: 10px; border-radius: 12px; margin: 10px 0; }
+        .qr-img-wrap img { width: 130px; height: 130px; display: block; }
+        .qr-link-btn { display: inline-block; margin-top: 6px; padding: 8px 18px; border-radius: 100px; font-size: .78rem; font-weight: 800; text-decoration: none; transition: all .2s; }
+        .qr-link-btn.gold { background: rgba(255,184,0,.15); color: #fbbf24; border: 1px solid rgba(255,184,0,.4); }
+        .qr-link-btn.gold:hover { background: rgba(255,184,0,.25); }
+        .qr-link-btn.cyan { background: rgba(0,229,255,.12); color: #00e5ff; border: 1px solid rgba(0,229,255,.35); }
+        .qr-link-btn.cyan:hover { background: rgba(0,229,255,.22); }
+
+        /* Mini challenge box */
+        .challenge-box { background: rgba(236,72,153,.07); border: 1.5px solid rgba(236,72,153,.35); border-radius: 14px; padding: 16px 18px; }
+        .challenge-box h4 { color: #f472b6; font-size: .9rem; margin-bottom: 8px; }
+        .challenge-box p, .challenge-box li { font-size: .82rem; color: #e2e8f0; line-height: 1.6; }
+        .challenge-box ul { padding-left: 16px; }
+        .timer-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(236,72,153,.2); border-radius: 100px; padding: 3px 12px; font-size: .72rem; font-weight: 700; color: #f472b6; margin-bottom: 8px; }
+    </style>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
     <div class="bg-glow">
         <div class="glow-orb glow-orb-1"></div>
         <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
     </div>
 
+    <!-- ── Top Bar ── -->
     <header class="top-bar">
         <div class="brand-badge">
-            <span>⚡ TRILHANDO O CAMINHO DO CÓDIGO</span>
-            <span style="opacity:0.4">|</span>
-            <span>AULA 02</span>
+            <div class="top-bar-logos">
+                <img src="../Imagens/logo-cefet.jpg"   alt="CEFET-MG" class="top-bar-logo-img">
+                <img src="../Imagens/logo-fapemig.jpg" alt="FAPEMIG"  class="top-bar-logo-img fapemig-circle">
+            </div>
+            <span class="cefet-tag">CEFET-MG &amp; FAPEMING</span>
+            <span style="opacity:.3">|</span>
+            <span>TRILHANDO O CAMINHO DO CÓDIGO</span>
+            <span style="opacity:.3">•</span>
+            <span style="color:#00e5ff">AULA 02</span>
         </div>
         <div class="top-controls">
             <a href="../../index.html" class="control-btn">🏠 Menu</a>
@@ -30,179 +125,837 @@
     </header>
 
     <main class="presentation-stage">
-        <!-- Slide 1: Capa -->
-        <section class="slide active" data-notes="<strong>Abertura Aula 02:</strong> Revisão rápida do Gemini CLI e introdução ao conceito de variáveis e memória.">
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTE 0 — ABERTURA E CADASTRO
+    ═══════════════════════════════════════════════════════ -->
+
+        <!-- SLIDE 1 — CADASTRO / QR CODE DOS FORMULÁRIOS -->
+        <section class="slide active"
+            data-notes="&lt;strong&gt;Cadastro — Alunos Novos (0–5 min):&lt;/strong&gt; Projete este slide logo na recepção para que todos os alunos (principalmente os novos) façam o cadastro oficial e o Formulário T0. Dados obrigatórios: Nome completo (sem abreviação), CPF e e-mail ativo. ➡️ Próximo slide: abertura da Aula 2.">
             <div class="slide-header">
-                <span class="slide-step">MÓDULO 02 • FUNDAMENTOS PYTHON</span>
-                <h1 class="slide-title">Variáveis, Tipos e Entrada de Dados</h1>
-                <p class="slide-subtitle">Como os computadores armazenam e manipulam informações na memória</p>
+                <span class="slide-step">⚠️ CADASTRO OBRIGATÓRIO &amp; PRESENÇA</span>
+                <h2 class="slide-title">Formulários Oficiais da Aula</h2>
+                <p class="slide-subtitle">Seu passaporte para a emissão do certificado FAPEMING / CEFET-MG</p>
             </div>
             <div class="slide-body">
-                <div class="grid-3">
-                    <div class="content-box accent-box">
-                        <div class="big-icon">📦</div>
-                        <h4>O que é uma Variável?</h4>
-                        <p>Uma caixa etiquetada na memória do computador onde guardamos valores para usar depois.</p>
+                <div class="qr-dual-grid">
+                    <!-- QR Cadastro -->
+                    <div class="qr-card gold-card">
+                        <div style="width:100%">
+                            <h4 style="color:#fbbf24">📝 Cadastro do Aluno</h4>
+                            <ul>
+                                <li><strong>Nome Completo</strong> — sem abreviações</li>
+                                <li><strong>CPF</strong> — para validação acadêmica</li>
+                                <li><strong>E-mail Ativo</strong> — receberá o certificado</li>
+                            </ul>
+                        </div>
+                        <div style="display:flex;flex-direction:column;align-items:center;width:100%">
+                            <div class="qrcode-container" title="Clique para expandir o QR Code"
+                                style="background:#fff;padding:10px;border-radius:14px;border:2px solid #fbbf24;box-shadow:0 0 20px rgba(251,191,36,.4);margin:6px 0;cursor:pointer">
+                                <img src="../Imagens/qrcode-cadastro.jpeg" alt="QR Code Cadastro de Alunos"
+                                    class="qrcode-img" style="width:140px;height:140px;display:block">
+                            </div>
+                            <p style="font-size:.72rem;color:#fbbf24;font-weight:700;margin-bottom:8px">📲 Aponte a câmera ou <strong>clique para expandir</strong></p>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCJOSWWcLluYev1PleqBY1V2N5altAIb2xQPTqDQ6PS6pp1g/viewform?usp=dialog" target="_blank" class="qr-link-btn gold">📝 Link direto do Cadastro</a>
+                        </div>
                     </div>
-                    <div class="content-box accent-box">
-                        <div class="big-icon">🏷️</div>
-                        <h4>Tipos Fundamentais</h4>
-                        <p>Textos (strings), números inteiros (int), decimais (float) e valores lógicos (bool).</p>
-                    </div>
-                    <div class="content-box accent-box">
-                        <div class="big-icon">💬</div>
-                        <h4>Interatividade</h4>
-                        <p>Recebendo dados do usuário com <code>input()</code> e exibindo com <code>print()</code> e f-strings.</p>
+                    <!-- QR T0 -->
+                    <div class="qr-card cyan-card">
+                        <div style="width:100%">
+                            <h4 style="color:#00e5ff">📋 Formulário T0 — Linha de Base</h4>
+                            <ul>
+                                <li><strong>Responda com honestidade</strong> — avaliação diagnóstica</li>
+                                <li><strong>Individual</strong> — sem consultas externas</li>
+                                <li><strong>Importante:</strong> ponto de partida para o certificado</li>
+                            </ul>
+                        </div>
+                        <div style="display:flex;flex-direction:column;align-items:center;width:100%">
+                            <div class="qrcode-container" title="Clique para expandir o QR Code"
+                                style="background:#fff;padding:10px;border-radius:14px;border:2px solid #00e5ff;box-shadow:0 0 20px rgba(0,229,255,.4);margin:6px 0;cursor:pointer">
+                                <img src="../Imagens/qrcode-t0.jpeg" alt="QR Code Formulário T0"
+                                    class="qrcode-img" style="width:140px;height:140px;display:block">
+                            </div>
+                            <p style="font-size:.72rem;color:#00e5ff;font-weight:700;margin-bottom:8px">📲 Aponte a câmera ou <strong>clique para expandir</strong></p>
+                            <a href="https://docs.google.com/forms/d/1cti5P6zpnqMxsRky83t9_mzwyhQPSM-l3XNMAq9LNyU/edit" target="_blank" class="qr-link-btn cyan">🔗 Link direto do Formulário T0</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 2: Variáveis e Analogia da Caixinha -->
-        <section class="slide" data-notes="<strong>Analogia da Caixinha:</strong> Nome da variável = Etiqueta da caixa. Conteúdo = Valor armazenado. O sinal de = significa 'recebe'.">
+
+        <!-- SLIDE 2 — CAPA DA AULA -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Abertura (5–8 min):&lt;/strong&gt; Diga: &lt;em&gt;'Gente, sejam bem-vindos à Aula 2! Quem quiser acompanhar os slides no próprio celular, basta apontar a câmera para o QR Code à direita!'&lt;/em&gt; ➡️ Próximo slide: orientação do VS Code.">
             <div class="slide-header">
-                <span class="slide-step">CONCEITO 1 • VARIÁVEIS</span>
-                <h2 class="slide-title">Variáveis e Atribuição</h2>
-                <p class="slide-subtitle">O operador de atribuição <code>=</code> armazena o valor da direita no nome da esquerda</p>
+                <span class="slide-step">MÓDULO 02 • TOMADA DE DECISÃO</span>
+                <h1 class="slide-title">O Computador Aprende a Pensar</h1>
+                <p class="slide-subtitle">Variáveis, Tipos e Estruturas Condicionais com <code>if</code>, <code>elif</code> e <code>else</code></p>
             </div>
             <div class="slide-body">
-                <div class="grid-2">
-                    <div class="content-box">
-                        <h4>📌 Regras de Nomenclatura</h4>
+                <div class="grid-2" style="gap:20px;align-items:center">
+                    <div style="display:flex;flex-direction:column;gap:12px">
+                        <div class="pillar-card" style="text-align:left;display:flex;align-items:center;gap:14px;padding:14px 18px">
+                            <div class="pillar-icon" style="margin-bottom:0">🔊</div>
+                            <div>
+                                <div class="pillar-name">print()</div>
+                                <div class="pillar-label">O computador <strong>FALA</strong></div>
+                            </div>
+                        </div>
+                        <div class="pillar-card" style="text-align:left;display:flex;align-items:center;gap:14px;padding:14px 18px">
+                            <div class="pillar-icon" style="margin-bottom:0">🎤</div>
+                            <div>
+                                <div class="pillar-name">input()</div>
+                                <div class="pillar-label">O computador <strong>ESCUTA</strong></div>
+                            </div>
+                        </div>
+                        <div class="pillar-card" style="text-align:left;display:flex;align-items:center;gap:14px;padding:14px 18px;border-color:rgba(0,229,255,.45);background:rgba(0,229,255,.07)">
+                            <div class="pillar-icon" style="margin-bottom:0">🧠</div>
+                            <div>
+                                <div class="pillar-name">if / elif / else</div>
+                                <div class="pillar-label">O computador <strong>DECIDE</strong> ← hoje!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-box" style="padding:18px;background:rgba(0,229,255,.05);border:1.5px solid rgba(0,229,255,.35);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+                        <div style="font-size:.78rem;font-weight:800;color:#00e5ff;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px">📱 Acompanhe no seu Celular</div>
+                        <p style="font-size:.75rem;color:#cbd5e1;margin-bottom:10px;max-width:280px;line-height:1.4">Aponte a câmera para abrir esta apresentação no seu dispositivo e acompanhar de perto!</p>
+                        <div class="qrcode-container" title="Clique para expandir o QR Code dos Slides" style="background:#fff;padding:10px;border-radius:14px;border:2px solid #00e5ff;box-shadow:0 0 20px rgba(0,229,255,.3);cursor:pointer;margin-bottom:8px">
+                            <img src="../Imagens/qrcode-slides-aula02.png" alt="QR Code — Slides da Aula 02" class="qrcode-img" style="width:130px;height:130px;display:block">
+                        </div>
+                        <p style="font-size:.7rem;color:#00e5ff;font-weight:700;margin-bottom:6px">📲 Clique na imagem para expandir</p>
+                        <a href="https://victorzanaroli.github.io/Project-FAPEMING/arquivos-trilhando/Slides/aula-02-slides.html" target="_blank" class="qr-link-btn cyan" style="font-size:.72rem;padding:6px 14px">🌐 Link direto dos Slides</a>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:14px;font-size:.78rem;color:#64748b">
+                    ⏱️ Duração total: 3 horas &nbsp;|&nbsp; VS Code + IA (Gemini/ChatGPT) como parceira
+                </div>
+            </div>
+        </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTE 1 — ORIENTAÇÃO VS CODE (para iniciantes)
+    ═══════════════════════════════════════════════════════ -->
+
+        <!-- SLIDE 3 — VSCODE: ABRINDO A PASTA -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;VS Code — Orientação Básica (8–15 min):&lt;/strong&gt; Demonstre ao vivo no projetor enquanto esse slide fica na tela. Passo a passo: 1) Clique em 'File' no menu superior esquerdo, 2) Clique em 'Open Folder...', 3) Navegue até a pasta do projeto (ex: Documentos &gt; TRILHANDO), 4) Clique em 'Selecionar Pasta'. Aguarde todos abrirem. Diga: 'Agora o VS Code está 'dentro' da pasta de vocês — tudo que criarem aqui ficará salvo nela!'">
+            <div class="slide-header">
+                <span class="step-badge">🖥️ VS Code — Passo 1 de 3</span>
+                <h2 class="slide-title">Abrindo sua Pasta no VS Code</h2>
+                <p class="slide-subtitle">Faça junto comigo — olhe o projetor e repita na sua máquina</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+                        <div class="expand-fullscreen" title="Clique para tela cheia" style="cursor:zoom-in;border-radius:12px;overflow:hidden;border:1.5px solid rgba(0,229,255,.25);box-shadow:0 4px 20px rgba(0,0,0,.5);transition:box-shadow .2s" onmouseenter="this.style.boxShadow='0 0 0 3px rgba(0,229,255,.5),0 4px 20px rgba(0,0,0,.5)'" onmouseleave="this.style.boxShadow='0 4px 20px rgba(0,0,0,.5)'">
+                            <img src="../Imagens/vscode-open-folder.jpg" alt="VS Code - File > Open Folder" class="vscode-slide-img" style="display:block">
+                        </div>
+                        <span style="font-size:.72rem;color:#64748b">🔍 Clique para tela cheia</span>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="content-box" style="padding:14px">
+                            <h4 style="font-size:.88rem;margin-bottom:10px">📋 Passo a Passo:</h4>
+                            <ol style="font-size:.83rem;line-height:2.2;color:#cbd5e1;padding-left:18px">
+                                <li>Clique em <strong style="color:#fff">File</strong> no menu superior</li>
+                                <li>Clique em <strong style="color:#fff">Open Folder...</strong></li>
+                                <li>Navegue até a pasta <strong style="color:#00e5ff">Documentos → TRILHANDO</strong></li>
+                                <li>Clique em <strong style="color:#fff">Selecionar Pasta</strong></li>
+                            </ol>
+                        </div>
+                        <div class="content-box tip-box" style="padding:12px">
+                            <p style="font-size:.82rem">💡 <strong>Por que abrir uma pasta?</strong><br>
+                            <span style="color:#94a3b8">O VS Code trabalha com pastas, não arquivos isolados. Isso organiza todos os seus scripts num só lugar!</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 4 — VSCODE: NOMEANDO O ARQUIVO .PY -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;VS Code — Nomear arquivo (continuação):&lt;/strong&gt; Demonstre: no Explorer lateral, clique no ícone de 'Novo Arquivo' (ou Ctrl+N) e SEMPRE salve com a extensão .py. Diga: 'Se você salvar como hello.txt o VS Code não vai reconhecer como Python — o ícone da cobrinha não vai aparecer e o código não vai rodar!' Mostre o ícone da cobrinha (🐍) no arquivo .py para que eles saibam o que procurar.">
+            <div class="slide-header">
+                <span class="step-badge">🖥️ VS Code — Passo 2 de 3</span>
+                <h2 class="slide-title">Criando e Nomeando Arquivos Python</h2>
+                <p class="slide-subtitle">O <code>.py</code> no final do nome é <strong>obrigatório</strong> — sem ele o código não roda!</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:center">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+                        <div class="expand-fullscreen" title="Clique para tela cheia" style="cursor:zoom-in;border-radius:12px;overflow:hidden;border:1.5px solid rgba(0,229,255,.25);box-shadow:0 4px 20px rgba(0,0,0,.5);transition:box-shadow .2s" onmouseenter="this.style.boxShadow='0 0 0 3px rgba(0,229,255,.5),0 4px 20px rgba(0,0,0,.5)'" onmouseleave="this.style.boxShadow='0 4px 20px rgba(0,0,0,.5)'">
+                            <img src="../Imagens/vscode-file-naming.jpg" alt="VS Code - Nomeando arquivo .py" class="vscode-slide-img" style="display:block">
+                        </div>
+                        <span style="font-size:.72rem;color:#64748b">🔍 Clique para tela cheia</span>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:12px">
+                        <div class="content-box good-box" style="padding:14px">
+                            <h4 style="font-size:.85rem;margin-bottom:8px">✅ Nomes Corretos:</h4>
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:2;color:#a7f3d0">
+                                nivelamento<strong>.py</strong><br>
+                                hello<strong>.py</strong><br>
+                                quiz_joao<strong>.py</strong>
+                            </div>
+                        </div>
+                        <div class="content-box bad-box" style="padding:14px">
+                            <h4 style="font-size:.85rem;margin-bottom:8px">❌ Nomes Errados:</h4>
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:2;color:#fca5a5">
+                                nivelamento<strike>.txt</strike><br>
+                                hello<strike> (sem extensão)</strike>
+                            </div>
+                        </div>
+                        <div class="content-box tip-box" style="padding:12px">
+                            <p style="font-size:.8rem">💡 Atalho para salvar: <strong style="color:#fff;font-family:'JetBrains Mono',monospace">Ctrl + S</strong><br>
+                            <span style="color:#94a3b8">Salve sempre antes de rodar!</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 5 — VSCODE: RODAR + ATALHOS -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;VS Code — Rodar código e atalhos (continuação):&lt;/strong&gt; Demonstre ao vivo: crie um arquivo hello.py, escreva print('Hello, mundo!'), salve (Ctrl+S) e clique no botão Play (▶) no canto superior direito. Mostre que o resultado aparece no painel TERMINAL na parte inferior. Explique os atalhos um por um. Para Ctrl+A + Delete: 'Isso seleciona TODO o texto do arquivo e deleta — use quando quiser apagar tudo e começar do zero!' Dica: faça eles testarem o Hello World AGORA antes de continuar.">
+            <div class="slide-header">
+                <span class="step-badge">🖥️ VS Code — Passo 3 de 3</span>
+                <h2 class="slide-title">Rodando o Código + Atalhos Essenciais</h2>
+                <p class="slide-subtitle">Teste agora: escreva <code>print("Hello, mundo!")</code> e pressione ▶</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+                        <div class="expand-fullscreen" title="Clique para tela cheia" style="cursor:zoom-in;border-radius:12px;overflow:hidden;border:1.5px solid rgba(0,229,255,.25);box-shadow:0 4px 20px rgba(0,0,0,.5);transition:box-shadow .2s" onmouseenter="this.style.boxShadow='0 0 0 3px rgba(0,229,255,.5),0 4px 20px rgba(0,0,0,.5)'" onmouseleave="this.style.boxShadow='0 4px 20px rgba(0,0,0,.5)'">
+                            <img src="../Imagens/vscode-run-button.jpg" alt="VS Code - Botão de rodar código" class="vscode-slide-img" style="display:block">
+                        </div>
+                        <span style="font-size:.72rem;color:#64748b">🔍 Clique para tela cheia</span>
+                    </div>
+                    <div>
+                        <h4 style="font-size:.85rem;margin-bottom:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em">⌨️ Atalhos que usaremos todo dia:</h4>
+                        <div class="shortcut-grid">
+                            <div class="shortcut-card">
+                                <div class="shortcut-keys">Ctrl + S</div>
+                                <div class="shortcut-desc"><strong>Salvar arquivo</strong>Sempre antes de rodar!</div>
+                            </div>
+                            <div class="shortcut-card">
+                                <div class="shortcut-keys">Ctrl + C</div>
+                                <div class="shortcut-desc"><strong>Copiar</strong>Texto selecionado</div>
+                            </div>
+                            <div class="shortcut-card">
+                                <div class="shortcut-keys">Ctrl + V</div>
+                                <div class="shortcut-desc"><strong>Colar</strong>O que foi copiado</div>
+                            </div>
+                            <div class="shortcut-card">
+                                <div class="shortcut-keys">Ctrl + A</div>
+                                <div class="shortcut-desc"><strong>Selecionar tudo</strong>+ Delete para apagar tudo</div>
+                            </div>
+                            <div class="shortcut-card">
+                                <div class="shortcut-keys">Ctrl + Z</div>
+                                <div class="shortcut-desc"><strong>Desfazer</strong>Voltou sem querer? Use!</div>
+                            </div>
+                            <div class="shortcut-card">
+                                <div class="shortcut-keys">▶ ou F5</div>
+                                <div class="shortcut-desc"><strong>Rodar o código</strong>Veja o resultado no terminal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTE 2 — NIVELAMENTO (print, input, variáveis)
+    ═══════════════════════════════════════════════════════ -->
+
+        <!-- SLIDE 6 — OS 3 PILARES (conceito) -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Bloco 1 — Nivelamento (15–25 min):&lt;/strong&gt; Quem não veio na Aula 1. Explique a analogia: &lt;em&gt;'O print() é a voz do computador. O input() são os ouvidos. A variável é a mochila — ela guarda as coisas para usar depois.'&lt;/em&gt; Pergunte: &lt;em&gt;'Quem lembra o que a gente fez no VS Code na semana passada?'&lt;/em&gt; Valorize toda resposta!">
+            <div class="slide-header">
+                <span class="step-badge">🧱 Revisão — Quem não veio na Aula 1</span>
+                <h2 class="slide-title">Os 3 Pilares que usaremos hoje</h2>
+                <p class="slide-subtitle">Revisão expressa para todo mundo ficar na mesma página</p>
+            </div>
+            <div class="slide-body">
+                <div class="pillar-grid" style="gap:16px">
+                    <div class="pillar-card" style="border-color:rgba(139,92,246,.4)">
+                        <div class="pillar-icon">🔊</div>
+                        <div class="pillar-name" style="color:#a78bfa">print()</div>
+                        <div class="pillar-label" style="font-size:.83rem;margin-top:8px;color:#e2e8f0">Alto-falante do computador.<br>Mostra texto na tela.</div>
+                        <div class="prompt-code" style="margin-top:10px;font-size:.78rem">print(<span class="str">"Olá, mundo!"</span>)</div>
+                    </div>
+                    <div class="pillar-card" style="border-color:rgba(59,130,246,.4)">
+                        <div class="pillar-icon">🎤</div>
+                        <div class="pillar-name" style="color:#60a5fa">input()</div>
+                        <div class="pillar-label" style="font-size:.83rem;margin-top:8px;color:#e2e8f0">Microfone do computador.<br>Lê o que o usuário digita.</div>
+                        <div class="prompt-code" style="margin-top:10px;font-size:.78rem">nome = input(<span class="str">"Seu nome: "</span>)</div>
+                    </div>
+                    <div class="pillar-card" style="border-color:rgba(16,185,129,.4)">
+                        <div class="pillar-icon">📦</div>
+                        <div class="pillar-name" style="color:#34d399">variável</div>
+                        <div class="pillar-label" style="font-size:.83rem;margin-top:8px;color:#e2e8f0">Caixa com etiqueta.<br>Guarda informação para usar depois.</div>
+                        <div class="prompt-code" style="margin-top:10px;font-size:.78rem"><span class="kw">idade</span> = <span class="num">16</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 7 — LIVE CODING: NIVELAMENTO 4 LINHAS -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Live Coding — Nivelamento (25–35 min):&lt;/strong&gt; Crie 'nivelamento.py' no VS Code e &lt;strong&gt;digite devagar&lt;/strong&gt; — os alunos copiam junto. Ao digitar 'nome = input(...)': &lt;em&gt;'Estou criando uma caixinha chamada nome e pedindo para o usuário preenchê-la.'&lt;/em&gt; Ao digitar o print com f-string: &lt;em&gt;'O f antes das aspas é mágica — ele coloca o conteúdo das variáveis dentro da frase usando {}!'&lt;/em&gt; Após rodar, &lt;strong&gt;DELETE o f&lt;/strong&gt; e rode de novo para o efeito uau! Pergunte: &lt;em&gt;'O que acontece se eu apagar o f?'&lt;/em&gt;">
+            <div class="slide-header">
+                <span class="live-label"><span class="live-dot"></span> Live Coding — Abra o VS Code agora</span>
+                <h2 class="slide-title">Nivelamento em 4 linhas</h2>
+                <p class="slide-subtitle">Arquivo: <code>nivelamento.py</code> — professor digita, alunos copiam junto</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div class="content-box accent-box">
+                        <div class="prompt-code" style="font-size:1rem;line-height:2.1">
+<span class="cm"># O computador me conhece!</span>
+<span class="kw">nome</span>  = <span class="fn">input</span>(<span class="str">"Qual é o seu nome? "</span>)
+<span class="kw">idade</span> = <span class="fn">input</span>(<span class="str">"Quantos anos você tem? "</span>)
+<span class="fn">print</span>(<span class="str">f"Olá, <span class="kw">{nome}</span>! Você tem <span class="kw">{idade}</span> anos!"</span>)
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:12px">
+                        <div class="content-box tip-box" style="padding:14px">
+                            <h4 style="font-size:.85rem;margin-bottom:8px">🔑 O que é o <code>f</code> antes das aspas?</h4>
+                            <p style="font-size:.8rem;color:#cbd5e1;line-height:1.5">O <code>f</code> ativa as f-strings — ele permite que você coloque variáveis <strong>dentro do texto</strong> usando <code>{nome_da_variavel}</code>.</p>
+                        </div>
+                        <div class="engage-label">❓ Demonstração ao vivo</div>
+                        <div class="content-box bad-box" style="margin-top:0;padding:12px 14px;font-size:.85rem">
+                            <strong>Delete o <code>f</code> e rode de novo!</strong><br>
+                            <span style="color:#94a3b8;font-size:.8rem">→ <code>{nome}</code> vai aparecer como texto literal — não substitui! Efeito uau garantido 😱</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTE 3 — TIPOS DE DADOS + CONDICIONAIS
+    ═══════════════════════════════════════════════════════ -->
+
+        <!-- SLIDE 8 — TIPOS DE DADOS + CONVERSÃO -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Bloco 2 — Tipos (35–42 min):&lt;/strong&gt; Explique a tabela. Depois faça a demo ao vivo: escreva no terminal do VS Code: print(input('N1: ') + input('N2: ')) e mostre que '5'+'3'='53'. A turma fica chocada! Pergunte: 'Por que acontece isso?' Resposta: porque texto e número são tipos diferentes — o Python não assume. Para somar números, DEVE converter com int().">
+            <div class="slide-header">
+                <span class="slide-step">CONCEITO 1 • TIPOS DE DADOS</span>
+                <h2 class="slide-title">Tipos de Dados e Conversão</h2>
+                <p class="slide-subtitle"><code>input()</code> <strong>sempre</strong> retorna texto — converta quando precisar de número</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:14px">
+                    <div>
+                        <table class="stress-table" style="font-size:.83rem">
+                            <thead><tr><th>Tipo</th><th>O que guarda</th><th>Como obter do input()</th></tr></thead>
+                            <tbody>
+                                <tr><td><code style="color:#a78bfa">str</code></td><td>Texto: <code>"Ana"</code>, <code>"sim"</code></td><td>Padrão (não converte)</td></tr>
+                                <tr><td><code style="color:#60a5fa">int</code></td><td>Inteiro: <code>16</code>, <code>100</code></td><td><code>int(input(...))</code></td></tr>
+                                <tr><td><code style="color:#34d399">float</code></td><td>Decimal: <code>1.75</code>, <code>9.5</code></td><td><code>float(input(...))</code></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="content-box bad-box" style="padding:12px">
+                            <h4 style="font-size:.85rem;margin-bottom:6px">💀 Sem conversão — resultado errado!</h4>
+                            <div class="prompt-code" style="font-size:.78rem">
+<span class="fn">print</span>(<span class="fn">input</span>(<span class="str">"N1: "</span>) + <span class="fn">input</span>(<span class="str">"N2: "</span>))
+<span class="cm"># "5" + "3" = "53"  ← juntou texto!</span>
+                            </div>
+                        </div>
+                        <div class="content-box good-box" style="padding:12px">
+                            <h4 style="font-size:.85rem;margin-bottom:6px">✅ Com int() — resultado correto!</h4>
+                            <div class="prompt-code" style="font-size:.78rem">
+<span class="fn">print</span>(<span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"N1: "</span>)) + <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"N2: "</span>)))
+<span class="cm"># 5 + 3 = 8  ← soma numérica!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 9 — PASSO 1: SÓ O if -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Passo 1 — só o if (42–50 min):&lt;/strong&gt; Crie 'decisao_passo1.py'. Digite devagar. Destaque a INDENTAÇÃO: 'Esse espaço de 4 posições (Tab) antes do print() é OBRIGATÓRIO. É assim que o Python sabe o que pertence ao if.' Rode com &gt;= 10000 e depois com número menor. A turma vai perguntar por que não aparece nada quando é menor — isso cria a ponte para o mini-desafio e depois para o else.">
+            <div class="slide-header">
+                <span class="live-label"><span class="live-dot"></span> Live Coding — Passo 1 de 3</span>
+                <h2 class="slide-title">Só o <code>if</code> — O começo de tudo</h2>
+                <p class="slide-subtitle">Arquivo: <code>decisao_passo1.py</code> — temática: seguidores nas redes sociais</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div class="content-box accent-box">
+                        <div class="prompt-code" style="font-size:.98rem;line-height:2.1">
+<span class="cm"># Você tem seguidores suficientes?</span>
+
+<span class="kw">seguidores</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Quantos seguidores você tem? "</span>))
+
+<span class="kw">if</span> seguidores &gt;= <span class="num">10000</span>:
+    <span class="fn">print</span>(<span class="str">"🌟 Você é INFLUENCER!"</span>)
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="content-box tip-box" style="padding:14px">
+                            <h4 style="font-size:.85rem;margin-bottom:8px">📐 A Regra da Indentação</h4>
+                            <p style="font-size:.8rem;color:#cbd5e1;line-height:1.5">O espaço de 4 posições (ou <kbd>Tab</kbd>) antes do <code>print()</code> é <strong>obrigatório</strong>. Ele diz ao Python: "essa linha pertence ao <code>if</code>".</p>
+                        </div>
+                        <div class="engage-label">❓ Pergunta de Engajamento</div>
+                        <div class="content-box" style="padding:14px;margin-top:0;font-size:.85rem">
+                            <strong>O que acontece se eu digitar 5000?</strong><br>
+                            <span style="color:#94a3b8;font-size:.8rem">Nada aparece! Por quê? Porque não existe um "plano B" ainda...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 10 — MINI-DESAFIO 1 -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Mini-Desafio 1 (50–53 min):&lt;/strong&gt; Dê 2–3 minutos para eles tentarem. Peça para quem terminar primeiro mostrar para o colega do lado (peer tutoring). Depois mostre uma solução possível no telão. Ex: nota = int(input('Sua nota: ')) / if nota &gt;= 7: / print('✅ Aprovado!'). Valorize quem tentou, mesmo errado — o erro faz parte!">
+            <div class="slide-header">
+                <span class="challenge-label">🎯 Mini-Desafio 1 — 3 minutos</span>
+                <h2 class="slide-title">Sua vez com o <code>if</code>!</h2>
+                <p class="slide-subtitle">Crie um <strong>novo arquivo</strong> e escreva o código do zero — sem copiar!</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div class="challenge-box">
+                        <div class="timer-badge">⏱️ 3 minutos</div>
+                        <h4>🎮 Desafio: O Verificador de Nota</h4>
+                        <p>Crie um programa que:</p>
                         <ul>
-                            <li>Use nomes descritivos em minúsculo com underline (<code>nome_usuario</code>).</li>
-                            <li>Não pode começar com números nem usar caracteres especiais/acentos.</li>
-                            <li>Sensível a maiúsculas (<code>idade</code> ≠ <code>Idade</code>).</li>
+                            <li>Pede a nota do aluno com <code>int(input(...))</code></li>
+                            <li>Usa <code>if</code> para verificar se a nota é <strong>&gt;= 7</strong></li>
+                            <li>Se sim, imprime: <code>🏆 Aprovado!</code></li>
+                        </ul>
+                        <p style="margin-top:10px;color:#94a3b8;font-size:.78rem">💡 Dica: o código tem só 3 linhas!</p>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="content-box" style="padding:14px;background:rgba(0,0,0,.4)">
+                            <h4 style="font-size:.82rem;color:#64748b;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Estrutura do if (referência):</h4>
+                            <div class="prompt-code" style="font-size:.88rem;line-height:1.9">
+<span class="kw">variavel</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pergunta: "</span>))
+
+<span class="kw">if</span> variavel >= <span class="num">valor</span>:
+    <span class="fn">print</span>(<span class="str">"Mensagem de sucesso"</span>)
+                            </div>
+                        </div>
+                        <div class="content-box tip-box" style="padding:12px;font-size:.8rem">
+                            <strong>Terminou antes?</strong><br>
+                            <span style="color:#94a3b8">Tente mudar o valor mínimo para 5 e veja o que acontece!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 11 — PASSO 2: if + else -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Passo 2 — if + else (53–63 min):&lt;/strong&gt; Crie 'decisao_passo2.py'. Mostre que é o mesmo código com o else adicionado (a nova linha fica em verde no slide). Diga: 'O else é o plano B. Se a condição do if for falsa, o Python executa o else. Agora o programa SEMPRE dá uma resposta!' Rode com vários valores. Depois pergunte: 'E se eu quiser 3 resultados diferentes com if/else?'">
+            <div class="slide-header">
+                <span class="live-label"><span class="live-dot"></span> Live Coding — Passo 2 de 3</span>
+                <h2 class="slide-title"><code>if</code> + <code>else</code> — O Plano B</h2>
+                <p class="slide-subtitle">Arquivo: <code>decisao_passo2.py</code> — agora o programa responde para <strong>qualquer entrada</strong></p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div class="content-box accent-box">
+                        <div class="prompt-code" style="font-size:.96rem;line-height:2.1">
+<span class="code-step-old"><span class="kw">seguidores</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Quantos seguidores você tem? "</span>))
+
+<span class="kw">if</span> seguidores &gt;= <span class="num">10000</span>:
+    <span class="fn">print</span>(<span class="str">"🌟 Você é INFLUENCER!"</span>)</span>
+<span class="code-step-new"><span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"📈 Ainda não... Continua postando!"</span>)</span>
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:12px">
+                        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:6px">
+                            <div class="flow-node" style="width:100%">Condição: <code>seguidores &gt;= 10000</code></div>
+                            <div style="display:flex;gap:12px;width:100%;margin-top:4px">
+                                <div class="flow-node flow-yes" style="flex:1;text-align:center">✅ VERDADEIRO<br><small>Bloco do if</small></div>
+                                <div class="flow-node flow-no" style="flex:1;text-align:center">❌ FALSO<br><small>Bloco do else</small></div>
+                            </div>
+                        </div>
+                        <div class="engage-label">❓ Pergunta de Engajamento</div>
+                        <div class="content-box" style="padding:14px;margin-top:0;font-size:.85rem">
+                            <strong>E se eu quiser 3 resultados diferentes?</strong><br>
+                            <span style="color:#94a3b8;font-size:.8rem">Com só um if/else não dá fácil... mas existe um terceiro comando!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 12 — MINI-DESAFIO 2 -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Mini-Desafio 2 (63–66 min):&lt;/strong&gt; 3 minutos. Solução esperada: nota = int(input('Nota: ')) / if nota &gt;= 7: / print('✅ Aprovado!') / else: / print('❌ Reprovado...'). Após o tempo, peça para um aluno mostrar o código dele — mostre no projetor. Valorize qualquer tentativa!">
+            <div class="slide-header">
+                <span class="challenge-label">🎯 Mini-Desafio 2 — 3 minutos</span>
+                <h2 class="slide-title">Sua vez com o <code>if + else</code>!</h2>
+                <p class="slide-subtitle">Adicione o <strong>plano B</strong> ao exercício anterior</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div class="challenge-box">
+                        <div class="timer-badge">⏱️ 3 minutos</div>
+                        <h4>🎮 Desafio: Aprovado ou Reprovado?</h4>
+                        <p>Evolua o programa anterior adicionando o <code>else</code>:</p>
+                        <ul>
+                            <li>Se nota &gt;= 7: <code>✅ Aprovado! Parabéns!</code></li>
+                            <li>Se não (<code>else</code>): <code>❌ Reprovado... Bora estudar!</code></li>
+                        </ul>
+                        <p style="margin-top:10px;color:#94a3b8;font-size:.78rem">💡 Agora o programa SEMPRE dá uma resposta!</p>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="content-box" style="padding:14px;background:rgba(0,0,0,.4)">
+                            <h4 style="font-size:.82rem;color:#64748b;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Estrutura do if + else:</h4>
+                            <div class="prompt-code" style="font-size:.88rem;line-height:1.9">
+<span class="kw">if</span> variavel >= <span class="num">valor</span>:
+    <span class="fn">print</span>(<span class="str">"Sucesso"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"Plano B"</span>)
+                            </div>
+                        </div>
+                        <div class="content-box tip-box" style="padding:12px;font-size:.8rem">
+                            <strong>Terminou antes?</strong><br>
+                            <span style="color:#94a3b8">Troque os textos por emojis e mensagens mais criativas!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 13 — PASSO 3: if + elif + else -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Passo 3 — if + elif + else (66–78 min):&lt;/strong&gt; Crie 'decisao_passo3.py'. Explique: 'O elif é else if — uma nova condição verificada SOMENTE se a anterior foi falsa. O Python testa de CIMA para BAIXO e para na primeira verdadeira.' Rode com 0, 500, 5000, 50000 e 500000 para mostrar cada caminho. Pergunte: 'Se eu digitar 10000, qual bloco roda?' Resposta: o if &gt;= 100000 é falso, vai para elif &gt;= 10000 que é verdadeiro.">
+            <div class="slide-header">
+                <span class="live-label"><span class="live-dot"></span> Live Coding — Passo 3 de 3 (Forma completa!)</span>
+                <h2 class="slide-title"><code>if</code> + <code>elif</code> + <code>else</code></h2>
+                <p class="slide-subtitle">Arquivo: <code>decisao_passo3.py</code> — classificador de perfil nas redes sociais</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div class="content-box accent-box">
+                        <div class="prompt-code" style="font-size:.9rem;line-height:1.9">
+<span class="kw">seguidores</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Quantos seguidores? "</span>))
+
+<span class="kw">if</span> seguidores &gt;= <span class="num">100000</span>:
+    <span class="fn">print</span>(<span class="str">"🏆 MEGA INFLUENCER!"</span>)
+<span class="code-step-new"><span class="kw">elif</span> seguidores &gt;= <span class="num">10000</span>:
+    <span class="fn">print</span>(<span class="str">"🌟 Influencer confirmado!"</span>)
+<span class="kw">elif</span> seguidores &gt;= <span class="num">1000</span>:
+    <span class="fn">print</span>(<span class="str">"📱 Microinfluencer!"</span>)</span>
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"🌱 Todo grande começou do zero."</span>)
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="content-box tip-box" style="padding:14px">
+                            <h4 style="font-size:.85rem;margin-bottom:6px">🧠 Como o Python pensa?</h4>
+                            <p style="font-size:.8rem;color:#cbd5e1;line-height:1.5">Testa condição a condição, <strong>de cima para baixo</strong>. Na primeira verdadeira, executa e <strong>pula as demais</strong>. Posso ter <strong>quantos elif quiser</strong>!</p>
+                        </div>
+                        <div class="engage-label">❓ Pergunta de Engajamento</div>
+                        <div class="content-box" style="padding:14px;margin-top:0;font-size:.85rem">
+                            <strong>Se eu digitar 10000, qual bloco roda?</strong><br>
+                            <span style="color:#94a3b8;font-size:.8rem">→ if &gt;= 100000 é FALSO → elif &gt;= 10000 é VERDADEIRO → executa e para!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SLIDE 14 — MINI-DESAFIO 3 (COMPLETO) -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Mini-Desafio 3 (78–83 min):&lt;/strong&gt; 5 minutos — o mais elaborado dos três! Solução esperada: nota = int(input('Nota: ')) / if nota &gt;= 70: print('✅ Aprovado!') / elif nota &gt;= 40: print('⚠️ Recuperação!') / else: print('❌ Reprovado.'). Após o tempo, peça para um aluno mostrar o código — celebre quem conseguiu! Diga: 'Parabéns! Vocês acabaram de escrever a lógica de um sistema de notas escolar real.'">
+            <div class="slide-header">
+                <span class="challenge-label">🎯 Mini-Desafio 3 — 5 minutos</span>
+                <h2 class="slide-title">Forma completa: <code>if + elif + else</code>!</h2>
+                <p class="slide-subtitle">Agora com múltiplas opções — o desafio mais completo até agora!</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div class="challenge-box">
+                        <div class="timer-badge">⏱️ 5 minutos</div>
+                        <h4>🏫 Desafio: Sistema de Notas Completo</h4>
+                        <p>Crie um programa que classifica a nota de 0 a 100:</p>
+                        <ul>
+                            <li>&gt;= 70: <code>✅ Aprovado! Parabéns!</code></li>
+                            <li>&gt;= 40: <code>⚠️ Recuperação! Estude mais.</code></li>
+                            <li>Abaixo de 40: <code>❌ Reprovado.</code></li>
+                        </ul>
+                        <p style="margin-top:10px;color:#94a3b8;font-size:.78rem">💡 Você vai precisar de 1 if, 1 elif e 1 else!</p>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="content-box" style="padding:14px;background:rgba(0,0,0,.4)">
+                            <h4 style="font-size:.82rem;color:#64748b;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Estrutura completa:</h4>
+                            <div class="prompt-code" style="font-size:.85rem;line-height:1.9">
+<span class="kw">if</span> variavel >= <span class="num">valor1</span>:
+    <span class="fn">print</span>(<span class="str">"Melhor resultado"</span>)
+<span class="kw">elif</span> variavel >= <span class="num">valor2</span>:
+    <span class="fn">print</span>(<span class="str">"Resultado médio"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"Plano final"</span>)
+                            </div>
+                        </div>
+                        <div class="content-box tip-box" style="padding:12px;font-size:.8rem">
+                            <strong>Terminou antes?</strong><br>
+                            <span style="color:#94a3b8">Adicione uma 4ª categoria: nota &gt;= 90 = "🏅 Excelente!" usando mais um elif no início!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTE 4 — ENGENHARIA REVERSA
+    ═══════════════════════════════════════════════════════ -->
+
+        <!-- SLIDE 15 — ENGENHARIA REVERSA -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Bloco 3 — Engenharia Reversa (83–103 min, 15h55–16h15):&lt;/strong&gt; Projete o código no VS Code sem os alunos digitarem. Eles são 'detetives'. Perguntas uma por vez: 1) Quantas condições existem no código? 2) O que acontece se digitar 'A'? 3) Se trocar == por != na primeira linha, o que muda na lógica?">
+            <div class="slide-header">
+                <span class="step-badge">🔍 Bloco 3 — Engenharia Reversa</span>
+                <h2 class="slide-title">Seja um Detetive de Código!</h2>
+                <p class="slide-subtitle">Leia o código — encontre onde cada decisão acontece</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:14px;align-items:start">
+                    <div class="content-box" style="background:rgba(0,0,0,.45)">
+                        <div class="prompt-code" style="font-size:.78rem;line-height:1.85">
+<span class="fn">print</span>(<span class="str">"=== LABIRINTO MÁGICO ==="</span>)
+<span class="kw">escolha</span> = <span class="fn">input</span>(<span class="str">"Qual porta? (1, 2 ou 3): "</span>)
+
+<span class="kw">if</span> escolha == <span class="str">"1"</span>:
+    <span class="fn">print</span>(<span class="str">"🗝️ Chave Dourada! +50 pontos!"</span>)
+<span class="kw">elif</span> escolha == <span class="str">"2"</span>:
+    <span class="kw">pontos</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Charada: 7 x 8 = ? "</span>))
+    <span class="kw">if</span> pontos == <span class="num">56</span>:
+        <span class="fn">print</span>(<span class="str">"✅ Correto! Mapa do tesouro!"</span>)
+    <span class="kw">else</span>:
+        <span class="fn">print</span>(<span class="str">"❌ Errado! Fantasma te assombra..."</span>)
+<span class="kw">elif</span> escolha == <span class="str">"3"</span>:
+    <span class="fn">print</span>(<span class="str">"🐉 DRAGÃO! Perdeu uma vida!"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"⚠️ Porta inválida!"</span>)
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:12px">
+                        <div class="engage-label">❓ Perguntas para a turma</div>
+                        <div class="content-box" style="padding:14px;margin-top:0;font-size:.85rem"><p><strong>1.</strong> Quantas condições <code>if/elif/else</code> existem neste código?</p></div>
+                        <div class="content-box" style="padding:14px;font-size:.85rem"><p><strong>2.</strong> O que acontece se o jogador digitar "A" no teclado?</p></div>
+                        <div class="content-box" style="padding:14px;font-size:.85rem"><p><strong>3.</strong> Se trocarmos <code>==</code> por <code>!=</code> na linha da porta 1, o que muda na lógica?</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         INTERVALO
+    ═══════════════════════════════════════════════════════ -->
+
+        <!-- SLIDE 16 — INTERVALO -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Intervalo (16h15–16h30):&lt;/strong&gt; 15 minutos de pausa. Mantenha esse slide na tela. Ao voltar, vá direto para o slide das missões com IA.">
+            <div class="slide-header">
+                <span class="slide-step">☕ PAUSA</span>
+                <h2 class="slide-title">Intervalo — 15 Minutos</h2>
+                <p class="slide-subtitle">Descanse, coma, tome água. Quando voltar: é hora de criar com IA!</p>
+            </div>
+            <div class="slide-body" style="display:flex;align-items:center;justify-content:center">
+                <div style="text-align:center;padding:30px">
+                    <div style="font-size:5rem;margin-bottom:16px">☕</div>
+                    <div style="font-size:1.3rem;font-weight:700;color:#f8fafc;margin-bottom:10px">Pausa para Lanche</div>
+                    <div style="font-size:.9rem;color:#94a3b8;max-width:420px;margin:0 auto;line-height:1.6">Quando voltar, você vai usar a <strong style="color:#00e5ff">IA</strong> para criar um programa completo com <code>if/elif/else</code> e rodar no VS Code.</div>
+                    <div style="margin-top:20px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.3);border-radius:12px;padding:14px 24px;display:inline-block">
+                        <div style="font-size:.78rem;color:#94a3b8;margin-bottom:4px">DEIXE O VS CODE ABERTO</div>
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:.9rem;color:#00e5ff">decisao_passo3.py</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTE 5 — PRÁTICA COM IA
+    ═══════════════════════════════════════════════════════ -->
+
+        <!-- SLIDE 17 — REGRAS DO JOGO COM IA -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Bloco 4 — Instrução (16h30–16h40):&lt;/strong&gt; Explique as regras antes de soltar nas missões. Diga: 'Vocês vão usar a IA para criar programas com if/else. Mas atenção: a missão não é só fazer funcionar — é entender o que o código faz ANTES de rodar!' Mantenha o slide de depuração visível enquanto eles trabalham.">
+            <div class="slide-header">
+                <span class="step-badge">🤖 Bloco 4 — Prática com IA</span>
+                <h2 class="slide-title">As Regras do Jogo com a IA</h2>
+                <p class="slide-subtitle">Você é o <strong>detetive</strong>, a IA é a assistente — não o contrário!</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px">
+                    <div class="content-box tip-box" style="padding:18px">
+                        <h4 style="margin-bottom:12px;font-size:.9rem">📋 Regras de Ouro</h4>
+                        <ul style="font-size:.83rem;line-height:2.2;color:#cbd5e1">
+                            <li>🤖 A IA <strong>gera</strong> o código — você <strong>entende</strong> e <strong>testa</strong>.</li>
+                            <li>🐛 Deu erro? → Copie → Cole na IA → Peça correção.</li>
+                            <li>🕵️ Não copie sem ler. Seja o detetive, não o copista!</li>
                         </ul>
                     </div>
-                    <div class="content-box accent-box">
-                        <h4>💻 Exemplo em Python</h4>
-                        <div class="prompt-code"><span class="cm"># Criando variáveis (atribuição)</span>
-<span class="kw">nome</span> = <span class="str">"Ana Clara"</span>
-<span class="kw">idade</span> = <span class="num">16</span>
-<span class="kw">altura</span> = <span class="num">1.65</span>
-<span class="kw">estudante</span> = <span class="num">True</span>
-
-<span class="fn">print</span>(nome, idade)</div>
+                    <div class="debug-box">
+                        <h4 style="color:#fca5a5;margin-bottom:10px;font-size:.85rem">🐛 Rotina de Depuração com IA</h4>
+                        <div class="debug-step"><span class="step-num">1</span><span style="font-size:.8rem">Leia a mensagem de erro</span></div>
+                        <div class="debug-step"><span class="step-num">2</span><span style="font-size:.8rem">Copie o erro completo</span></div>
+                        <div class="debug-step"><span class="step-num">3</span><span style="font-size:.8rem">Cole na IA com o prompt abaixo:</span></div>
+                        <div class="prompt-code" style="font-size:.74rem;margin-top:8px;background:rgba(0,0,0,.3);border-radius:8px;padding:10px">
+"Meu código Python deu este erro: [COLE O ERRO].
+ Explique em 2 frases e me dê o código corrigido."
+                        </div>
+                        <div class="debug-step" style="margin-top:8px"><span class="step-num">4</span><span style="font-size:.8rem">Substitua, salve (Ctrl+S) e rode de novo.</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 3: Tipos de Dados Primitivos -->
-        <section class="slide" data-notes="<strong>Tipos de Dados:</strong> Explicar str (texto em aspas), int (inteiro), float (ponto flutuante com ponto .) e bool (True/False).">
+
+        <!-- SLIDE 18 — 3 MISSÕES -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Bloco 4 — Missões (16h40–17h25):&lt;/strong&gt; Projete as 3 missões. Os alunos escolhem UMA. Ao clicar no card, abre o modal com o prompt exemplo e orientações! Enquanto trabalham, circule fazendo as perguntas pedagógicas: 'Me mostra onde está a parte que decide qual título o usuário ganha?', 'Se eu digitar um número negativo, o que acontece?', 'Você consegue apontar o elif? Me explica com suas palavras.'">
             <div class="slide-header">
-                <span class="slide-step">CONCEITO 2 • TIPOS DE DADOS</span>
-                <h2 class="slide-title">Os 4 Tipos Primitivos do Python</h2>
-                <p class="slide-subtitle">Como o Python categoriza os dados</p>
+                <span class="step-badge">🎯 Escolha sua Missão!</span>
+                <h2 class="slide-title">3 Missões com IA — você escolhe</h2>
+                <p class="slide-subtitle">Clique em uma missão para ver o <strong>Prompt Exemplo</strong> e como testar no VS Code!</p>
             </div>
             <div class="slide-body">
-                <div class="grid-4">
-                    <div class="content-box">
-                        <h4 style="color:var(--accent-purple)">str (String)</h4>
-                        <p>Texto delimitado por aspas simples ou duplas.</p>
-                        <div class="prompt-code"><span class="str">"Maria"</span></div>
+                <div class="mission-grid">
+                    <div class="mission-card mission-rpg" onclick="openMissionModal('rpg')" style="cursor:pointer" title="Clique para ver o Prompt da Missão A">
+                        <div style="font-size:2rem;margin-bottom:8px">🎲</div>
+                        <h4 style="color:#a78bfa">MISSÃO A — Mestre de RPG</h4>
+                        <p>Aventura de texto com 3 escolhas. O <code>if/elif/else</code> decide o destino do herói: vitória, derrota ou item secreto.</p>
+                        <div style="margin-top:10px;font-size:.72rem;color:#a78bfa;font-weight:700">PARA QUEM CURTE JOGOS</div>
+                        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(167,139,250,.18);border:1px solid rgba(167,139,250,.4);border-radius:100px;padding:4px 12px;font-size:.7rem;font-weight:700;color:#c4b5fd">✨ Ver Prompt &amp; Instruções 🔍</div>
                     </div>
-                    <div class="content-box">
-                        <h4 style="color:var(--accent-blue)">int (Integer)</h4>
-                        <p>Números inteiros, positivos ou negativos.</p>
-                        <div class="prompt-code"><span class="num">42</span></div>
+                    <div class="mission-card mission-quiz" onclick="openMissionModal('quiz')" style="cursor:pointer" title="Clique para ver o Prompt da Missão B">
+                        <div style="font-size:2rem;margin-bottom:8px">🧠</div>
+                        <h4 style="color:#60a5fa">MISSÃO B — Avaliador de Quiz</h4>
+                        <p>Quiz de cultura pop com 3 perguntas, variável de pontos e título final baseado nos acertos com <code>if/elif/else</code>.</p>
+                        <div style="margin-top:10px;font-size:.72rem;color:#60a5fa;font-weight:700">PARA QUEM CURTE DESAFIOS</div>
+                        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(96,165,250,.18);border:1px solid rgba(96,165,250,.4);border-radius:100px;padding:4px 12px;font-size:.7rem;font-weight:700;color:#93c5fd">✨ Ver Prompt &amp; Instruções 🔍</div>
                     </div>
-                    <div class="content-box">
-                        <h4 style="color:var(--accent-green)">float (Float)</h4>
-                        <p>Números reais com ponto decimal.</p>
-                        <div class="prompt-code"><span class="num">7.5</span></div>
+                    <div class="mission-card mission-asst" onclick="openMissionModal('asst')" style="cursor:pointer" title="Clique para ver o Prompt da Missão C">
+                        <div style="font-size:2rem;margin-bottom:8px">🌡️</div>
+                        <h4 style="color:#34d399">MISSÃO C — Assistente Inteligente</h4>
+                        <p>Assistente de moda: pergunta temperatura e chuva e usa <code>if/elif/else</code> com <code>and</code>/<code>or</code> para recomendar o look.</p>
+                        <div style="margin-top:10px;font-size:.72rem;color:#34d399;font-weight:700">PARA QUEM CURTE APPS</div>
+                        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(52,211,153,.18);border:1px solid rgba(52,211,153,.4);border-radius:100px;padding:4px 12px;font-size:.7rem;font-weight:700;color:#6ee7b7">✨ Ver Prompt &amp; Instruções 🔍</div>
                     </div>
-                    <div class="content-box">
-                        <h4 style="color:var(--accent-yellow)">bool (Boolean)</h4>
-                        <p>Valores lógicos: <code>True</code> ou <code>False</code>.</p>
-                        <div class="prompt-code"><span class="kw">True</span></div>
-                    </div>
+                </div>
+                <div style="text-align:center;margin-top:14px;font-size:.78rem;color:#94a3b8">
+                    💡 <strong>Clique em qualquer card acima</strong> para abrir o modelo de prompt interativo!
                 </div>
             </div>
         </section>
 
-        <!-- Slide 4: Entrada com input() e Conversão de Tipos -->
-        <section class="slide" data-notes="<strong>Cuidado com input():</strong> O input() SEMPRE retorna uma string! Para somar números, é necessário converter com int() ou float().">
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTE 6 — TESTES + ENCERRAMENTO
+    ═══════════════════════════════════════════════════════ -->
+
+        <!-- SLIDE 19 — TESTE DE ESTRESSE -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Bloco 5 — Testes de Estresse (17h25–17h45):&lt;/strong&gt; Os alunos testam os limites do próprio código. Diga: 'Tentem QUEBRAR o código de vocês!' Ao final pergunte: 'O que aconteceu quando você digitou texto onde esperava número?' Após as respostas: 'Nas próximas aulas aprenderemos try/except para tratar isso. Por enquanto, a IA já pode ajudar!'">
             <div class="slide-header">
-                <span class="slide-step">CONCEITO 3 • ENTRADA DE DADOS</span>
-                <h2 class="slide-title">Entrada de Dados com <code>input()</code></h2>
-                <p class="slide-subtitle">Capturando a digitação do usuário no terminal</p>
+                <span class="step-badge">🔨 Bloco 5 — Testes de Estresse</span>
+                <h2 class="slide-title">Tente Quebrar o Seu Próprio Código!</h2>
+                <p class="slide-subtitle">Computadores são literais — eles fazem <strong>exatamente</strong> o que você manda</p>
             </div>
             <div class="slide-body">
-                <div class="grid-2">
-                    <div class="content-box bad-box">
-                        <h4>⚠️ O Erro Comum de Concatenação</h4>
-                        <div class="prompt-code">n1 = <span class="fn">input</span>(<span class="str">"Digite um número: "</span>) <span class="cm"># ex: "5"</span>
-n2 = <span class="fn">input</span>(<span class="str">"Digite outro: "</span>)    <span class="cm"># ex: "3"</span>
-<span class="fn">print</span>(n1 + n2) <span class="cm"># Resultado: "53" (juntou textos!)</span></div>
-                    </div>
-                    <div class="content-box good-box">
-                        <h4>✅ A Solução: Conversão de Tipo (Casting)</h4>
-                        <div class="prompt-code">n1 = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Digite um número: "</span>)) <span class="cm"># 5</span>
-n2 = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Digite outro: "</span>))    <span class="cm"># 3</span>
-<span class="fn">print</span>(n1 + n2) <span class="cm"># Resultado: 8 (soma numérica!)</span></div>
-                    </div>
+                <table class="stress-table">
+                    <thead>
+                        <tr><th></th><th>O que digitar</th><th>O que observar</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>🔡</td><td>Texto onde espera número: <code>"abc"</code></td><td>Vai dar <code style="color:#fca5a5">ValueError</code>! O programa trava.</td></tr>
+                        <tr><td>📭</td><td>Apertar Enter sem digitar nada</td><td>O programa aceita ou explode?</td></tr>
+                        <tr><td>🔠</td><td><code>"Sim"</code> vs <code>"sim"</code> vs <code>"SIM"</code></td><td>O <code>if == "sim"</code> diferencia! Python é case-sensitive.</td></tr>
+                        <tr><td>🔢</td><td>Números extremos: <code>-1</code>, <code>0</code>, <code>999999</code></td><td>Alguma condição cobre todos esses casos?</td></tr>
+                    </tbody>
+                </table>
+                <div class="engage-label" style="margin-top:16px">❓ Pergunta de Engajamento</div>
+                <div class="content-box bad-box" style="margin-top:0;padding:12px 16px;font-size:.85rem">
+                    <strong>O que aconteceu quando você digitou texto onde esperava número?</strong><br>
+                    <span style="color:#94a3b8;font-size:.8rem">→ Nas próximas aulas: <code>try/except</code> para tratar esses erros. Por enquanto, peça ajuda à IA!</span>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 5: f-Strings e Format de Texto -->
-        <section class="slide" data-notes="<strong>f-strings:</strong> Mostrar o poder das f-strings colocando variáveis diretamente dentro de chaves {}.">
+
+        <!-- SLIDE 20 — ENCERRAMENTO -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Bloco 6 — Encerramento (17h45–18h00):&lt;/strong&gt; Salvar: Ctrl+S → nome 'quiz_[seunome].py' → pasta Documentos &gt; TRILHANDO &gt; Aula02. Para o chat da IA: 3 pontinhos → Compartilhar Conversa → Copiar Link → Cole no formulário. Frase de fechamento: 'Hoje vocês ensinaram o computador a pensar. Guardem o código — ele será o ponto de partida da próxima aula!' Rodada final: 'Me fala em UMA palavra o que você achou da aula de hoje!'">
             <div class="slide-header">
-                <span class="slide-step">CONCEITO 4 • SAÍDA FORMATADA</span>
-                <h2 class="slide-title">Interpolação com f-Strings</h2>
-                <p class="slide-subtitle">Formatando mensagens elegantes e dinâmicas com o prefixo <code>f""</code></p>
+                <span class="slide-step">BLOCO 6 • ENCERRAMENTO</span>
+                <h2 class="slide-title">O que vocês aprenderam hoje</h2>
+                <p class="slide-subtitle">Salve o código e guarde o chat com a IA antes de sair!</p>
             </div>
             <div class="slide-body">
-                <div class="content-box accent-box">
-                    <h4>💻 Sintaxe das f-strings em Python</h4>
-                    <div class="prompt-code">nome = <span class="str">"Lucas"</span>
-pontos = <span class="num">150</span>
-nivel = <span class="num">3</span>
-
-<span class="cm"># Usando f-string para mesclar texto e variáveis</span>
-mensagem = <span class="str">f"Olá <span class="kw">{nome}</span>! Você tem <span class="kw">{pontos}</span> pontos no nível <span class="kw">{nivel}</span>."</span>
-<span class="fn">print</span>(mensagem)
-<span class="cm"># Saída: Olá Lucas! Você tem 150 pontos no nível 3.</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 6: Mão na Massa - Desafio da Aula -->
-        <section class="slide" data-notes="<strong>Prática da Aula 02:</strong> Orientar a resolução do desafio prático em duplas usando o Gemini CLI para sanar dúvidas sintáticas.">
-            <div class="slide-header">
-                <span class="slide-step">PRÁTICA • DESAFIO 02</span>
-                <h2 class="slide-title">Desafio: Calculadora de Média Escolar</h2>
-                <p class="slide-subtitle">Construa seu primeiro programa interativo completo</p>
-            </div>
-            <div class="slide-body">
-                <div class="grid-2">
-                    <div class="content-box tip-box">
-                        <h4>🎯 Requisitos do Programa:</h4>
-                        <ul>
-                            <li>Pedir o nome do aluno via <code>input()</code>.</li>
-                            <li>Pedir a nota da Prova 1 e da Prova 2 (usar <code>float()</code>).</li>
-                            <li>Calcular a média: <code>(nota1 + nota2) / 2</code>.</li>
-                            <li>Exibir uma f-string com o nome e a média final.</li>
-                        </ul>
+                <div class="grid-2" style="gap:14px">
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                        <div class="summary-item"><span class="summary-check">✅</span><div class="summary-text"><strong>print() → O computador FALA</strong>Mostra mensagens e resultados na tela</div></div>
+                        <div class="summary-item"><span class="summary-check">✅</span><div class="summary-text"><strong>input() → O computador ESCUTA</strong>Captura o que o usuário digita</div></div>
+                        <div class="summary-item"><span class="summary-check">✅</span><div class="summary-text"><strong>if → O computador DECIDE</strong>Executa apenas se a condição for verdadeira</div></div>
+                        <div class="summary-item"><span class="summary-check">✅</span><div class="summary-text"><strong>elif → Mais opções de decisão</strong>Verificado só se o if anterior for falso</div></div>
+                        <div class="summary-item"><span class="summary-check">✅</span><div class="summary-text"><strong>else → O Plano B</strong>Executa quando nenhuma condição é verdadeira</div></div>
                     </div>
-                    <div class="content-box accent-box">
-                        <h4>🤖 Prompt para pedir ajuda no Gemini CLI:</h4>
-                        <div class="prompt-code"><span class="str">"Atue como mentor de Python. Estou tentando criar um script que recebe duas notas float e calcula a média. O meu código deu erro de TypeError. Explique o motivo sem me dar a resposta direta."</span></div>
+                    <div style="display:flex;flex-direction:column;gap:12px">
+                        <div class="content-box tip-box" style="padding:14px">
+                            <h4 style="font-size:.85rem;margin-bottom:8px">💾 Como salvar:</h4>
+                            <ol style="font-size:.8rem;color:#cbd5e1;line-height:2;padding-left:16px">
+                                <li><strong>Ctrl + S</strong> no VS Code</li>
+                                <li>Nome: <code>quiz_[seunome].py</code></li>
+                                <li>Pasta: Documentos → TRILHANDO → Aula02</li>
+                            </ol>
+                        </div>
+                        <div style="background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.25);border-radius:12px;padding:14px">
+                            <h4 style="font-size:.85rem;margin-bottom:8px;color:#00e5ff">🚀 Próxima Aula:</h4>
+                            <p style="font-size:.8rem;color:#cbd5e1;line-height:1.5">Laços de Repetição (<code>while</code> e <code>for</code>) — o computador vai aprender a <strong>REPETIR</strong> ações!</p>
+                        </div>
+                        <div class="engage-label">❓ Rodada de Fechamento</div>
+                        <div class="content-box" style="padding:12px;margin-top:0;font-size:.85rem">
+                            <strong>"Me fala em UMA palavra o que você achou da aula de hoje!"</strong>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+
     </main>
 
+    <!-- ── Speaker Notes Panel ── -->
     <div class="speaker-notes-panel" id="notesPanel">
-        <div class="notes-header"><span>📝 NOTAS DO INSTRUTOR</span><span style="opacity:0.6">Pressione N para fechar</span></div>
+        <div class="notes-header">
+            <span>📝 NOTAS DO INSTRUTOR</span>
+            <span style="opacity:.6">Pressione N para fechar</span>
+        </div>
         <div class="notes-content" id="notesContent">Use as setas do teclado para navegar entre os slides.</div>
     </div>
 
+    <!-- ── Bottom Navigation ── -->
     <footer class="bottom-nav">
-        <div class="slide-counter" id="slideCounter">1 / 6</div>
+        <div class="slide-counter" id="slideCounter">1 / 20</div>
         <div class="nav-buttons">
             <button class="nav-btn" id="prevBtn">← Anterior <span class="key-hint">←</span></button>
             <button class="nav-btn primary" id="nextBtn">Próximo → <span class="key-hint">→</span></button>
@@ -210,5 +963,261 @@ mensagem = <span class="str">f"Olá <span class="kw">{nome}</span>! Você tem <s
     </footer>
 
     <script src="slides-engine.js"></script>
+
+    <!-- ── Mission Prompt Modal ── -->
+    <div id="missionModal" style="
+        display:none;position:fixed;inset:0;z-index:99998;
+        background:rgba(5,10,25,.90);backdrop-filter:blur(10px);
+        align-items:center;justify-content:center;padding:20px;
+    ">
+        <div id="missionModalCard" style="
+            background:#0b1329;border:1.5px solid rgba(0,229,255,.3);border-radius:20px;
+            max-width:720px;width:100%;max-height:88vh;overflow-y:auto;padding:24px 28px;
+            box-shadow:0 25px 60px rgba(0,0,0,.8);position:relative;
+        ">
+            <button id="missionModalClose" title="Fechar (Esc)" style="
+                position:absolute;top:18px;right:20px;
+                background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+                color:#fff;font-size:1.2rem;line-height:1;width:34px;height:34px;
+                border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;
+                transition:background .2s;
+            ">✕</button>
+            <div id="missionModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ── Full-Screen Image Overlay (VS Code tutorial images) ── -->
+    <div id="fsImgOverlay" style="
+        display:none;position:fixed;inset:0;z-index:9999;
+        background:rgba(0,0,0,.96);
+        align-items:center;justify-content:center;
+        cursor:zoom-out;
+        animation:none;
+    ">
+        <img id="fsImgEl" src="" alt=""
+            style="max-width:100vw;max-height:100vh;width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;">
+        <button id="fsImgClose" title="Fechar (Esc)" style="
+            position:fixed;top:20px;right:24px;
+            background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+            color:#fff;font-size:1.4rem;line-height:1;padding:6px 12px;
+            border-radius:10px;cursor:pointer;z-index:10000;
+            font-family:inherit;transition:background .2s;
+        ">✕</button>
+        <div style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+            font-size:.75rem;color:rgba(255,255,255,.4);pointer-events:none">
+            Pressione <kbd style="background:rgba(255,255,255,.1);padding:1px 6px;border-radius:4px;color:#fff">Esc</kbd> ou clique para fechar
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // Fullscreen image overlay logic
+        var overlay = document.getElementById('fsImgOverlay');
+        var fsImg   = document.getElementById('fsImgEl');
+        var closeBtn = document.getElementById('fsImgClose');
+
+        function openFS(src, alt) {
+            fsImg.src = src;
+            fsImg.alt = alt || '';
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeFS() {
+            overlay.style.display = 'none';
+            fsImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('click', function(e) {
+            var trigger = e.target.closest('.expand-fullscreen');
+            if (trigger) {
+                e.stopPropagation();
+                var img = trigger.querySelector('img');
+                if (img) openFS(img.src, img.alt);
+            }
+        });
+
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeFS();
+        });
+        closeBtn.addEventListener('click', closeFS);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.style.display === 'flex') closeFS();
+        });
+
+        // Mission Modal Logic
+        var missionModal = document.getElementById('missionModal');
+        var missionBody  = document.getElementById('missionModalBody');
+        var missionClose = document.getElementById('missionModalClose');
+
+        var missionData = {
+            rpg: {
+                badge: '🎲 MISSÃO A — MESTRE DE RPG',
+                badgeBg: 'rgba(167,139,250,.15)',
+                badgeColor: '#a78bfa',
+                badgeBorder: 'rgba(167,139,250,.4)',
+                title: 'Jogo de Aventura Interativo (RPG)',
+                subtitle: 'Crie uma história interativa onde as escolhas do jogador afetam o resultado final!',
+                prompt: `Crie um jogo de aventura em texto em Python com tema de RPG medieval.
+O jogo deve usar input() para pedir uma escolha ao jogador (1, 2 ou 3) e usar a estrutura if, elif e else para decidir o final:
+- Se escolher 1: entra na caverna e ganha o tesouro (+100 moedas)!
+- Se escolher 2: enfrenta o monstro e perde 10 de vida.
+- Se escolher 3: encontra um baú secreto com um mapa antigo!
+- Se digitar qualquer outra coisa (else): aviso de opção inválida.
+
+Requisitos:
+1. Use mensagens divertidas com emojis usando print().
+2. Coloque comentários no código explicando a função de cada bloco if, elif e else.`,
+                steps: [
+                    'Copie o prompt acima clicando no botão "📋 Copiar Prompt".',
+                    'Cole o prompt no seu gerador de IA preferido (ChatGPT, Claude ou Gemini).',
+                    'No VS Code, crie o arquivo <code>missao_rpg.py</code>.',
+                    'Cole o código gerado, salve (<code>Ctrl + S</code>) e rode no terminal ▶️!'
+                ],
+                questions: [
+                    'Onde no código a IA utilizou <code>if</code>, <code>elif</code> e <code>else</code>?',
+                    'Como você mudaria o código para adicionar uma 4ª opção de escolha?'
+                ]
+            },
+            quiz: {
+                badge: '🧠 MISSÃO B — AVALIADOR DE QUIZ',
+                badgeBg: 'rgba(96,165,250,.15)',
+                badgeColor: '#60a5fa',
+                badgeBorder: 'rgba(96,165,250,.4)',
+                title: 'Quiz de Cultura Pop Interativo',
+                subtitle: 'Crie um jogo de perguntas com sistema de pontos e classificação no final!',
+                prompt: `Crie um quiz interativo em Python sobre filmes, animes e games com 3 perguntas.
+Crie uma variável 'pontos = 0'. Para cada resposta correta, adicione 1 ponto (pontos = pontos + 1).
+
+No final, use a estrutura if, elif e else para classificar a pontuação do jogador:
+- Se fez 3 acertos: '🏆 Mestre Pop! Conhecimento Lendário!'
+- Se fez 2 acertos: '🥈 Quase lá! Você mandou muito bem!'
+- Se fez 1 acerto:  '🥉 Bom começo! Precisa maratonar mais séries.'
+- Se fez 0 acertos (else): '😅 Precisa treinar mais! Tente novamente.'
+
+Requisitos:
+1. Use input() para capturar cada resposta do jogador.
+2. Adicione comentários no código explicando onde a pontuação é somada e onde o título final é decidido.`,
+                steps: [
+                    'Copie o prompt acima clicando no botão "📋 Copiar Prompt".',
+                    'Envie o prompt para a IA (ChatGPT, Claude ou Gemini).',
+                    'No VS Code, crie o arquivo <code>missao_quiz.py</code>.',
+                    'Cole o código, salve (<code>Ctrl + S</code>) e execute ▶️. Tente acertar todas!'
+                ],
+                questions: [
+                    'Como a variável <code>pontos</code> se altera ao acertar uma pergunta?',
+                    'Qual parte do <code>if/elif/else</code> é executada se o jogador fizer 2 pontos?'
+                ]
+            },
+            asst: {
+                badge: '🌡️ MISSÃO C — ASSISTENTE INTELIGENTE',
+                badgeBg: 'rgba(52,211,153,.15)',
+                badgeColor: '#34d399',
+                badgeBorder: 'rgba(52,211,153,.4)',
+                title: 'Assistente de Estilo & Clima',
+                subtitle: 'Recomende o look ideal combinando temperatura e chuva com operadores lógicos!',
+                prompt: `Crie um assistente inteligente em Python que recomenda o look ideal com base no clima.
+Peça ao usuário para digitar:
+1. A temperatura em °C (ex: int(input("Qual a temperatura atual em °C? "))).
+2. Se está chovendo (digite 'sim' ou 'não').
+
+Use if, elif e else combinando as condições (com 'and' ou 'or'):
+- Se frio (< 18°C) e chovendo: '🧥 Casaco pesado + ☂️ Guarda-chuva reforçado!'
+- Se frio (< 18°C) e não chovendo: '🧥 Jaqueta estilosa!'
+- Se calor (>= 18°C) e chovendo: '👕 Camiseta leve + ☔ Capa de chuva!'
+- Caso contrário (else): '🕶️ Camiseta, shorts e óculos de sol!'
+
+Adicione comentários no código explicando a lógica de cada decisão combinada.`,
+                steps: [
+                    'Copie o prompt clicando em "📋 Copiar Prompt" e envie para a IA.',
+                    'No VS Code, crie o arquivo <code>missao_assistente.py</code>.',
+                    'Cole o código, salve (<code>Ctrl + S</code>) e rode no terminal ▶️.',
+                    'Teste com diferentes combinações (frio+chuva, calor+sol) para ver a resposta mudar!'
+                ],
+                questions: [
+                    'Como o operador <code>and</code> ajuda a verificar duas coisas na mesma linha?',
+                    'O que acontece se o usuário digitar temperatura 20 e chuva "não"?'
+                ]
+            }
+        };
+
+        window.openMissionModal = function(key) {
+            var data = missionData[key];
+            if (!data) return;
+
+            var html = `
+                <div style="display:inline-block;background:${data.badgeBg};color:${data.badgeColor};border:1px solid ${data.badgeBorder};padding:4px 14px;border-radius:100px;font-size:.73rem;font-weight:800;letter-spacing:.05em;margin-bottom:10px">${data.badge}</div>
+                <h3 style="font-size:1.25rem;color:#f8fafc;margin-bottom:4px">${data.title}</h3>
+                <p style="font-size:.83rem;color:#94a3b8;margin-bottom:16px">${data.subtitle}</p>
+
+                <!-- PROMPT BOX -->
+                <div style="background:rgba(0,0,0,.5);border:1px solid rgba(0,229,255,.3);border-radius:12px;padding:14px 16px;margin-bottom:16px;position:relative">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <span style="font-size:.75rem;font-weight:800;color:#00e5ff;letter-spacing:.05em;text-transform:uppercase">🤖 Prompt para copiar e colar na IA:</span>
+                        <button id="copyPromptBtn" style="background:rgba(0,229,255,.15);border:1px solid rgba(0,229,255,.4);color:#00e5ff;padding:4px 12px;border-radius:6px;font-size:.73rem;font-weight:700;cursor:pointer;transition:all .2s">📋 Copiar Prompt</button>
+                    </div>
+                    <pre id="promptTextContent" style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#a7f3d0;white-space:pre-wrap;word-break:break-word;line-height:1.6;margin:0">${escapeHtml(data.prompt)}</pre>
+                </div>
+
+                <!-- STEPS BOX -->
+                <div class="content-box tip-box" style="padding:14px;margin-bottom:14px">
+                    <h4 style="font-size:.85rem;margin-bottom:8px">🚀 Como fazer no VS Code:</h4>
+                    <ol style="font-size:.8rem;color:#cbd5e1;line-height:1.8;padding-left:18px;margin:0">
+                        ${data.steps.map(function(s) { return '<li>' + s + '</li>'; }).join('')}
+                    </ol>
+                </div>
+
+                <!-- DETECTIVE QUESTIONS -->
+                <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);border-radius:12px;padding:12px 16px">
+                    <h4 style="font-size:.82rem;color:#f59e0b;margin-bottom:6px">🕵️ Desafio Detetive:</h4>
+                    <ul style="font-size:.78rem;color:#cbd5e1;line-height:1.6;padding-left:16px;margin:0">
+                        ${data.questions.map(function(q) { return '<li>' + q + '</li>'; }).join('')}
+                    </ul>
+                </div>
+            `;
+
+            missionBody.innerHTML = html;
+            missionModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+            var copyBtn = document.getElementById('copyPromptBtn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    navigator.clipboard.writeText(data.prompt).then(function() {
+                        copyBtn.textContent = '✅ Copiado!';
+                        copyBtn.style.background = 'rgba(16,185,129,.25)';
+                        copyBtn.style.color = '#10b981';
+                        setTimeout(function() {
+                            copyBtn.textContent = '📋 Copiar Prompt';
+                            copyBtn.style.background = 'rgba(0,229,255,.15)';
+                            copyBtn.style.color = '#00e5ff';
+                        }, 2000);
+                    });
+                });
+            }
+        };
+
+        function escapeHtml(str) {
+            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        function closeMissionModal() {
+            missionModal.style.display = 'none';
+            missionBody.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        if (missionClose) missionClose.addEventListener('click', closeMissionModal);
+        if (missionModal) {
+            missionModal.addEventListener('click', function(e) {
+                if (e.target === missionModal) closeMissionModal();
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && missionModal.style.display === 'flex') closeMissionModal();
+        });
+    })();
+    </script>
 </body>
 </html>

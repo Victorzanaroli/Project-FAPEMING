@@ -193,6 +193,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Touch Swipe Navigation for Mobile Devices
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    document.addEventListener('touchstart', e => {
+        if (e.touches && e.touches.length === 1) {
+            touchStartX = e.touches[0].screenX;
+            touchStartY = e.touches[0].screenY;
+        }
+    }, { passive: true });
+
+    document.addEventListener('touchend', e => {
+        if (e.changedTouches && e.changedTouches.length === 1) {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }
+    }, { passive: true });
+
+    function handleSwipe() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4) {
+            const activeModal = document.querySelector('#missionModal[style*="display: flex"], #fsImgOverlay[style*="display: flex"], .code-modal-overlay.active, .media-modal-overlay.active');
+            if (activeModal) return;
+
+            if (deltaX < 0) {
+                next();
+            } else {
+                prev();
+            }
+        }
+    }
+
     // Media Carousel Handling
     document.addEventListener('click', (e) => {
         const navBtn = e.target.closest('.carousel-nav-btn');
