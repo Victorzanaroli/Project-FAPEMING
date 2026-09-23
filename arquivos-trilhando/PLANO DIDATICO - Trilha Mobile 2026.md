@@ -62,7 +62,7 @@
 **Objetivos:** Formalizar a entrada dos alunos no projeto; coletar a linha de base científica (T0); engajar com demonstrações tecnológicas; ensinar fundamentos de Engenharia de Prompt.
 
 **Conteúdo abordado:**
-- Bloco 1 (10 min): Assinatura dos Termos de Assentimento e Consentimento. Lista de presença com nome, CPF e e-mail para certificação. Formulário de cadastro digital.
+- Bloco 1 (10 min): Lista de presença com nome, CPF e e-mail para certificação. Formulário de cadastro digital.
 - Bloco 2 (45 min): Instrumento de Pré-teste T0 com 4 módulos: Perfil Sociodemográfico, Pensamento Computacional (10 questões Bebras/CTt), Autoeficácia em Programação (CPSES — Escala Likert 1–5) e Letramento em IA. Identificação anônima via código de estudante para pareamento futuro com T1.
 - Bloco 3 (20 min): Showcase Tecnológico — demonstrações ao vivo de Tetris, Flappy Bird e Cobrinha em Python. Objetivo: causar o "efeito wow" e mostrar o teto técnico do que os alunos poderão criar.
 - Bloco 4 (15 min): Engenharia de Prompt — o que é IA, o que é um Prompt, frameworks P.R.R.E e P.R.O.M.P.T, demonstração Prompt Bom vs. Ruim com imagens, vídeos e código.

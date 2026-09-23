@@ -15,8 +15,6 @@
 ### Ações do Tutor:
 - Apresentar brevemente o projeto, destacando a união entre a extensão universitária e a pesquisa acadêmica sobre Inteligência Artificial.
   > *"Olá a todos! Sejam muito bem-vindos à nossa Aula 01 do projeto Trilhando o Caminho do Código! Hoje nós vamos dar o primeiro passo para vocês deixarem de ser apenas usuários ou consumidores de tecnologia e passarem a ser CRIADORES. Nós vamos unir a linguagem Python com Inteligência Artificial e construir jogos reais juntos!"*
-- Distribuir os Termos de Assentimento (para os alunos) e Consentimento (para os pais/responsáveis).
-- Condicionar o início do uso dos computadores à entrega e assinatura dos termos.
 - Passar a lista de presença anotando **Nome completo**, **CPF** e **E-mail** (dados para validação e emissão de certificado).
 - Link do questionário de cadastro:
   ```
