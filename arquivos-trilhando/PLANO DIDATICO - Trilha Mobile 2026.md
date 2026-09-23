@@ -28,8 +28,8 @@
 
 | Nº | Data | Tema da Aula |
 |----|------|-------------|
-| 01 | 10/09/2026 | Abertura, Pré-teste (T0), Showcase Tecnológico e Engenharia de Prompt |
-| 02 | 17/09/2026 | Variáveis, Tipos de Dados e Tomada de Decisão (if, elif, else) |
+| 01 | 16/09/2026 | Abertura, Pré-teste (T0), Showcase Tecnológico e Engenharia de Prompt |
+| 02 | 23/09/2026 | Variáveis, Tipos de Dados e Tomada de Decisão (if, elif, else) |
 | 03 | 30/09/2026 | Tratamento de Erros (try/except) + Laços (while, for) + Lançamento dos Projetos |
 | — | Outubro/2026 | HIATO DE 1 MÊS — Alunos desenvolvem os projetos do intervalo no Pydroid 3 |
 | 04 | 04/11/2026 | Retorno: Feira dos Projetos do Intervalo + Listas (list, append, for) |
@@ -46,7 +46,7 @@
 
 ---
 
-### AULA 01 — 10 de setembro de 2026 (quarta-feira)
+### AULA 01 — 16 de setembro de 2026 (quarta-feira)
 
 **Tema:** Abertura, Diagnóstico, Demonstração Tecnológica e Engenharia de Prompt
 **Duração:** 3h00 (15h00 às 18h00)
@@ -66,7 +66,7 @@
 
 ---
 
-### AULA 02 — 17 de setembro de 2026 (quarta-feira)
+### AULA 02 — 23 de setembro de 2026 (quarta-feira)
 
 **Tema:** Variáveis, Tipos de Dados e Tomada de Decisão (if, elif, else)
 **Duração:** 3h00 (15h00 às 18h00)
