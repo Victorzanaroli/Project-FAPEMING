@@ -483,6 +483,61 @@
         </section>
 
 
+        <!-- SLIDE 8B — MINI-DESAFIO: TIPOS (int e float) -->
+        <section class="slide"
+            data-notes="&lt;strong&gt;Mini-Desafio de Nivelamento (3 min):&lt;/strong&gt; Dê 3 minutos para a turma praticar print, input, int() e float() no VS Code antes de entrar em condicionais. Peça para criarem o arquivo 'pratica_tipos.py'. Mostre a estrutura de referência no painel da direita.">
+            <div class="slide-header">
+                <span class="challenge-label">🎯 Mini-Desafio Nivelamento — 3 minutos</span>
+                <h2 class="slide-title">Sua vez com <code>int()</code> e <code>float()</code>!</h2>
+                <p class="slide-subtitle">Crie um <strong>novo arquivo</strong> e escreva o código do zero — sem copiar!</p>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="gap:16px;align-items:start">
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="challenge-box">
+                            <div class="timer-badge">⏱️ 3 minutos</div>
+                            <h4>🎮 Desafio: Praticando int() e float()</h4>
+                            <p>Escolha uma das opções abaixo para fazer no VS Code:</p>
+                            <ul>
+                                <li><strong>Opção A (int):</strong> Peça a idade com <code>int(input(...))</code>, calcule os meses (<code>idade * 12</code>) e exiba o resultado.</li>
+                                <li><strong>Opção B (float):</strong> Peça preços de lanche e bebida com <code>float(input(...))</code>, calcule a soma e exiba o total.</li>
+                            </ul>
+                            <p style="margin-top:10px;color:#94a3b8;font-size:.78rem">💡 Crie seus próprios nomes de variáveis e perguntas!</p>
+                        </div>
+                        <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);border-radius:12px;padding:12px 14px">
+                            <h4 style="font-size:.82rem;color:#f59e0b;margin-bottom:6px">🕵️ Desafio Detetive:</h4>
+                            <ul style="font-size:.78rem;color:#cbd5e1;line-height:1.6;padding-left:16px;margin:0">
+                                <li>O que acontece se você digitar <code>12.50</code> no <code>int()</code>?</li>
+                                <li>O que acontece se usar vírgula <code>12,50</code> em vez de ponto <code>12.50</code> no <code>float()</code>?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div class="content-box" style="padding:14px;background:rgba(0,0,0,.4)">
+                            <h4 style="font-size:.82rem;color:#64748b;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">ESTRUTURA DO INT E FLOAT:</h4>
+                            <div class="prompt-code" style="font-size:.8rem;line-height:1.8">
+<span class="cm"># 1. Com INT (número inteiro):</span>
+<span class="kw">variavel</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pergunta: "</span>))
+<span class="kw">resultado</span> = variavel * <span class="num">12</span>
+<span class="fn">print</span>(<span class="str">f"Mensagem: <span class="kw">{resultado}</span>"</span>)
+
+<span class="cm"># 2. Com FLOAT (número decimal):</span>
+<span class="kw">valor1</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">"Pergunta 1: "</span>))
+<span class="kw">valor2</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">"Pergunta 2: "</span>))
+<span class="kw">total</span> = valor1 + valor2
+<span class="fn">print</span>(<span class="str">f"Total: R$ <span class="kw">{total}</span>"</span>)
+                            </div>
+                        </div>
+                        <div class="content-box tip-box" style="padding:12px;font-size:.8rem">
+                            <strong>Terminou antes?</strong><br>
+                            <span style="color:#94a3b8">Tente fazer a Opção A e a Opção B no mesmo arquivo!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- SLIDE 9 — PASSO 1: SÓ O if -->
         <section class="slide"
             data-notes="&lt;strong&gt;Passo 1 — só o if (42–50 min):&lt;/strong&gt; Crie 'decisao_passo1.py'. Digite devagar. Destaque a INDENTAÇÃO: 'Esse espaço de 4 posições (Tab) antes do print() é OBRIGATÓRIO. É assim que o Python sabe o que pertence ao if.' Rode com &gt;= 10000 e depois com número menor. A turma vai perguntar por que não aparece nada quando é menor — isso cria a ponte para o mini-desafio e depois para o else.">
@@ -1137,6 +1192,88 @@ Adicione comentários no código explicando a lógica de cada decisão combinada
                 questions: [
                     'Como o operador <code>and</code> ajuda a verificar duas coisas na mesma linha?',
                     'O que acontece se o usuário digitar temperatura 20 e chuva "não"?'
+                ]
+            },
+            desafio_int: {
+                badge: '🎲 DESAFIO 1 — NÚMEROS INTEIROS (INT)',
+                badgeBg: 'rgba(59,130,246,.15)',
+                badgeColor: '#60a5fa',
+                badgeBorder: 'rgba(59,130,246,.4)',
+                title: 'Calculadora de Meses de Vida',
+                subtitle: 'Peça a idade do usuário e converta para número inteiro com int()!',
+                prompt: `Crie um programa em Python que calcula quantos meses de vida uma pessoa já viveu.
+Peça a idade do usuário usando idade = int(input("Qual a sua idade em anos? ")).
+Calcule os meses (meses = idade * 12).
+Imprima na tela com print(f"Você tem {idade} anos, o que equivale a aproximadamente {meses} meses de vida! 🎉").
+
+Requisitos:
+1. Use int(input()) para converter a entrada do usuário em número inteiro.
+2. Use f-string no print.`,
+                steps: [
+                    'Copie o prompt clicando em "📋 Copiar Prompt" e envie para a IA (ou crie direto no VS Code).',
+                    'No VS Code, crie o arquivo <code>desafio_int.py</code>.',
+                    'Cole o código, salve (<code>Ctrl + S</code>) e rode no terminal ▶️.'
+                ],
+                questions: [
+                    'O que acontece se você remover o <code>int()</code> e deixar apenas <code>input()</code>?',
+                    'Como você alteraria o código para calcular a idade em dias (multiplicando por 365)?'
+                ]
+            },
+            desafio_float: {
+                badge: '🛍️ DESAFIO 2 — NÚMEROS DECIMAIS (FLOAT)',
+                badgeBg: 'rgba(16,185,129,.15)',
+                badgeColor: '#34d399',
+                badgeBorder: 'rgba(16,185,129,.4)',
+                title: 'Conta da Lanchonete',
+                subtitle: 'Calcule o total de uma compra com números decimais usando float()!',
+                prompt: `Crie um programa em Python para calcular a conta de uma lanchonete.
+Peça ao usuário:
+1. O preço do lanche usando lanche = float(input("Digite o preço do lanche R$: "))
+2. O preço da bebida usando bebida = float(input("Digite o preço da bebida R$: "))
+
+Calcule o total = lanche + bebida.
+Imprima na tela com print(f"O valor total do seu pedido é R$ {total:.2f}! Bom apetite! 🍔🥤").
+
+Requisitos:
+1. Use float(input()) para aceitar números com casas decimais.
+2. Exiba o valor total somado.`,
+                steps: [
+                    'Copie o prompt clicando em "📋 Copiar Prompt" e envie para a IA.',
+                    'No VS Code, crie o arquivo <code>desafio_float.py</code>.',
+                    'Cole o código, salve (<code>Ctrl + S</code>) e execute no terminal ▶️.'
+                ],
+                questions: [
+                    'Por que usamos ponto <code>.</code> e não vírgula <code>,</code> para números decimais em Python?',
+                    'O que aconteceria se o preço fosse R$ 12.50 e usássemos <code>int()</code> em vez de <code>float()</code>?'
+                ]
+            },
+            exemplo_tipos: {
+                badge: '💻 ESTRUTURA DE REFERÊNCIA (INT E FLOAT)',
+                badgeBg: 'rgba(0,229,255,.15)',
+                badgeColor: '#00e5ff',
+                badgeBorder: 'rgba(0,229,255,.4)',
+                title: 'Estrutura Genérica de Código',
+                subtitle: 'Use este modelo de referência para criar suas próprias variáveis e perguntas!',
+                prompt: `# 1. Modelo Genérico com INT (número inteiro)
+variavel_int = int(input("Sua pergunta para número inteiro: "))
+resultado_int = variavel_int * multiplicador
+print(f"Sua mensagem final: {resultado_int}")
+
+# 2. Modelo Genérico com FLOAT (número decimal / dinheiro)
+valor1 = float(input("Sua pergunta para valor decimal: "))
+valor2 = float(input("Outra pergunta para valor decimal: "))
+total = valor1 + valor2
+print(f"Sua mensagem com o resultado: R$ {total}")`,
+                steps: [
+                    'No VS Code, crie o arquivo <code>pratica_tipos.py</code>.',
+                    'Crie seus próprios nomes de variáveis (ex: <code>idade</code>, <code>preco</code>, <code>pontos</code>).',
+                    'Escreva suas próprias perguntas dentro das aspas do <code>input("...")</code>.',
+                    'Lembre-se do <code>f</code> antes das aspas no <code>print(f"...")</code> para colocar as variáveis dentro de <code>{}</code>.',
+                    'Salve (<code>Ctrl + S</code>) e rode no terminal ▶️!'
+                ],
+                questions: [
+                    'Quais nomes você escolheu para as suas variáveis?',
+                    'O que acontece se você somar dois números digitados com float() em vez de int()?'
                 ]
             }
         };
