@@ -36,7 +36,7 @@
 | 05 | 11/11/2026 | Modularização e Funções (def, parâmetros e return) |
 | 06 | 18/11/2026 | Consolidação: Dicionários (dict) + Integração Completa da Lógica |
 | 07 | 25/11/2026 | Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais |
-| 08 | 02/12/2026 | Sprint de Desenvolvimento: App Mobile com IA + GEMINI.md + Ensaio do Pitch |
+| 08 | 02/12/2026 | Sprint de Desenvolvimento + Flet Avançado (Navegação entre Telas, Temas e Ícones) |
 | 09 | 09/12/2026 | Sprint Final: Polimento do App + Testes de Qualidade + Ensaio Geral da Apresentação |
 | 10 | 16/12/2026 | Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação |
 
@@ -204,21 +204,21 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 
 ### AULA 08 — 02 de dezembro de 2026 (quarta-feira)
 
-**Tema:** Sprint de Desenvolvimento: App Mobile com IA + GEMINI.md + Ensaio do Pitch
+**Tema:** Sprint de Desenvolvimento + Flet Avançado: Navegação entre Telas, Temas de Cor e Ícones
 **Duração:** 3h00 (15h00 às 18h00)
 
-**Objetivos:** Desenvolver o App final em modo sprint acelerado com IA; ensinar GEMINI.md para orientar a IA; ensaiar o pitch de apresentação.
+**Objetivos:** Elevar a qualidade visual dos apps com navegação entre telas, paletas de cores e ícones; dar 80 minutos de sprint puro de desenvolvimento com IA para implementar as funcionalidades planejadas.
 
 **Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre Flet: page.update(), ft.TextField() e evento on_click.
-- Bloco 2 (30 min): GEMINI.md — o que é, como a IA o utiliza como contexto do projeto. Como escrever regras claras (tema escuro, Flet, Python, estrutura modular com def). Demonstração do impacto na qualidade do código.
-- Bloco 3 (25 min): Sprint Parte 1 — implementação das funções lógicas (def). Conexão ao Flet: funções nos botões e campos.
-- Bloco 4 (55 min): Sprint Parte 2 + Testes — execução no Pydroid 3 e no VS Code. Depuração de bugs com IA. Validação do fluxo completo.
-- Bloco 5 (25 min): Estrutura do Pitch (5 min): O Problema (30s) + Demo ao vivo (2min) + O Código (1min30s) + Como a IA ajudou (1min). Ensaio com cronômetro.
-- Bloco 6 (15 min): Verificação dos arquivos salvos. Orientações finais para a Feira de Soluções.
+- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre Flet básico: page.update(), ft.TextField() e evento on_click.
+- Bloco 2 (30 min): FLET AVANÇADO — Tema de cor global (page.bgcolor, page.theme_mode, color_scheme_seed); ícones nos botões com ft.Icons.*; navegação entre telas com ft.NavigationBar e lógica visible=True/False para alternar conteúdo.
+- Bloco 3 (15 min): Revisão rápida dos protótipos — cada equipe mostra o estado atual do app e define 3 metas para o sprint da aula.
+- Bloco 4 (80 min): SPRINT DE DESENVOLVIMENTO COM IA — sessão intensa de construção do app. Prompts de apoio por desafio (visual, navegação, robustez com try/except). Checkpoints do monitor a cada 25 min.
+- Bloco 5 (10 min): Estrutura do Pitch (5 min) + ensaio rápido com divisão de papeis por equipe.
+- Bloco 6 (15 min): Checklist final — app salvo no celular e drive, papeis do pitch definidos. Orientações para o Sprint Final (Aula 9).
 
-**Conceitos introduzidos:** GEMINI.md, desenvolvimento guiado por IA, integração Lógica + Flet + IA, comunicação técnica (pitch)
-**Tarefa de Casa:** Ensaio de Pitch (30s escritos e ensaiados) ou Checklist Anti-Bugs (3 testes de estresse no app)
+**Conceitos introduzidos:** Tema de cor global (page.bgcolor, ThemeMode.DARK, color_scheme_seed), ícones (ft.Icons.*), navegação com ft.NavigationBar, visible=True/False, estilização avançada de componentes
+**Tarefa de Casa:** Teste de estresse no app (2+ testes com entradas inesperadas) + Ensaio do Pitch completo com cronômetro (2 vezes)
 
 ---
 
