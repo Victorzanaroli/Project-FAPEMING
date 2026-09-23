@@ -32,12 +32,12 @@
 | 02 | 17/09/2026 | Variáveis, Tipos de Dados e Tomada de Decisão (if, elif, else) |
 | 03 | 30/09/2026 | Tratamento de Erros (try/except) + Laços (while, for) + Lançamento dos Projetos |
 | — | Outubro/2026 | HIATO DE 1 MÊS — Alunos desenvolvem os projetos do intervalo no Pydroid 3 |
-| 04 | 05/11/2026 | Retorno: Feira dos Projetos do Intervalo + Listas (list, append, for) |
-| 05 | 12/11/2026 | Modularização e Funções (def, parâmetros e return) |
-| 06 | 19/11/2026 | Consolidação: Dicionários (dict) + Integração Completa da Lógica |
-| 07 | 26/11/2026 | Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais |
-| 08 | 03/12/2026 | Sprint de Desenvolvimento: App Mobile com IA + Ensaio do Pitch |
-| 09 | 10/12/2026 | Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação |
+| 04 | 04/11/2026 | Retorno: Feira dos Projetos do Intervalo + Listas (list, append, for) |
+| 05 | 11/11/2026 | Modularização e Funções (def, parâmetros e return) |
+| 06 | 18/11/2026 | Consolidação: Dicionários (dict) + Integração Completa da Lógica |
+| 07 | 25/11/2026 | Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais |
+| 08 | 02/12/2026 | Sprint de Desenvolvimento: App Mobile com IA + Ensaio do Pitch |
+| 09 | 09/12/2026 | Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação |
 
 ---
 
@@ -121,7 +121,7 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 
 ---
 
-### AULA 04 — 05 de novembro de 2026 (quarta-feira)
+### AULA 04 — 04 de novembro de 2026 (quarta-feira)
 
 **Tema:** Retorno do Hiato: Feira dos Projetos do Intervalo + Estruturas de Dados: Listas
 **Duração:** 3h00 (15h00 às 18h00)
@@ -141,7 +141,7 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 
 ---
 
-### AULA 05 — 12 de novembro de 2026 (quarta-feira)
+### AULA 05 — 11 de novembro de 2026 (quarta-feira)
 
 **Tema:** Modularização e Funções: def, Parâmetros e return
 **Duração:** 3h00 (15h00 às 18h00)
@@ -161,7 +161,7 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 
 ---
 
-### AULA 06 — 19 de novembro de 2026 (quarta-feira)
+### AULA 06 — 18 de novembro de 2026 (quarta-feira)
 
 **Tema:** Consolidação de Lógica + Estruturas Avançadas: Dicionários (dict)
 **Duração:** 3h00 (15h00 às 18h00)
@@ -181,7 +181,7 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 
 ---
 
-### AULA 07 — 26 de novembro de 2026 (quarta-feira)
+### AULA 07 — 25 de novembro de 2026 (quarta-feira)
 
 **Tema:** Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais
 **Duração:** 3h00 (15h00 às 18h00)
@@ -201,7 +201,7 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 
 ---
 
-### AULA 08 — 03 de dezembro de 2026 (quarta-feira)
+### AULA 08 — 02 de dezembro de 2026 (quarta-feira)
 
 **Tema:** Sprint de Desenvolvimento: App Mobile com IA + GEMINI.md + Ensaio do Pitch
 **Duração:** 3h00 (15h00 às 18h00)
@@ -221,7 +221,7 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 
 ---
 
-### AULA 09 — 10 de dezembro de 2026 (quarta-feira)
+### AULA 09 — 09 de dezembro de 2026 (quarta-feira)
 
 **Tema:** Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação
 **Duração:** 3h00 (15h00 às 18h00)
