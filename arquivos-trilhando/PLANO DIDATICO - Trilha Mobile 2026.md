@@ -1,14 +1,14 @@
 # 📚 Plano Didático — Trilha Mobile: Python com Inteligência Artificial
-## Projeto FAPEMING | Extensão Universitária + Pesquisa Acadêmica
+## Projeto FAPEMING | Extensão Universitária + Pesquisa Académica
 
-**Instituição:** Projeto FAPEMING — Trilhando o Caminho do Código
-**Modalidade:** Presencial — Laboratório de Informática
-**Público-alvo:** Estudantes do Ensino Médio (sem conhecimento prévio em programação)
-**Carga Horária Total:** 30 horas (10 aulas × 3h cada)
-**Periodicidade:** Quartas-feiras, das 15h00 às 18h00
-**Período de Realização:** Setembro a Dezembro de 2026
-**Observação:** Sem aulas no mês de outubro (hiato para desenvolvimento dos projetos do intervalo)
-**Responsável:** Tutor(a) do Projeto Trilhando o Caminho do Código
+**Instituição:** Projeto FAPEMING — Trilhando o Caminho do Código  
+**Modalidade:** Presencial — Laboratório de Informática  
+**Público-alvo:** Estudantes do Ensino Médio (sem conhecimento prévio em programação)  
+**Carga Horária Total:** 30 horas (10 aulas × 3h cada)  
+**Periodicidade:** Quartas-feiras, das 15h00 às 18h00  
+**Período de Realização:** Setembro a Dezembro de 2026  
+**Observação:** Sem aulas no mês de outubro (hiato para desenvolvimento dos projetos do intervalo)  
+**Responsável:** Tutor(a) do Projeto Trilhando o Caminho do Código  
 
 ---
 
@@ -24,7 +24,14 @@
 
 ## 🗓️ Calendário de Aulas
 
-> Estrutura padrão a partir da Aula 3: cada aula inclui Quiz de Aquecimento (início) e Tarefa de Casa (final).
+> **Estrutura Pedagógica Padronizada (Aulas 02 a 06):**  
+> 1. Quiz da Aula Anterior  
+> 2. Digitando Enquanto Acompanha na Lousa (Live Coding) + Mini Exercícios Pós-Teoria  
+> 3. Analisar um Código Pronto (Engenharia Reversa Guiada)  
+> 4. Intervalo de 15 minutos  
+> 5. 3 Exercícios Práticos Solo / Engenharia Reversa com IA (Desafio do Dia - Missões A, B e C)  
+> 6. Quebrando o Código para Investigar Erros (Teste de Estresse & Debugging)  
+> 7. Resumão e Conclusão das Sintaxes Aprendidas no Dia + Tarefa de Casa  
 
 | Nº | Data | Tema da Aula |
 |----|------|-------------|
@@ -32,7 +39,7 @@
 | 02 | 23/09/2026 | Variáveis, Tipos de Dados e Tomada de Decisão (if, elif, else) |
 | 03 | 30/09/2026 | Tratamento de Erros (try/except) + Laços (while, for) + Lançamento dos Projetos |
 | — | Outubro/2026 | HIATO DE 1 MÊS — Alunos desenvolvem os projetos do intervalo no Pydroid 3 |
-| 04 | 04/11/2026 | Retorno: Feira dos Projetos do Intervalo + Listas (list, append, for) |
+| 04 | 04/11/2026 | Retorno: Feira dos Projetos do Intervalo + Listas (list, append, len, for) |
 | 05 | 11/11/2026 | Modularização e Funções (def, parâmetros e return) |
 | 06 | 18/11/2026 | Consolidação: Dicionários (dict) + Integração Completa da Lógica |
 | 07 | 25/11/2026 | Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais |
@@ -48,8 +55,8 @@
 
 ### AULA 01 — 16 de setembro de 2026 (quarta-feira)
 
-**Tema:** Abertura, Diagnóstico, Demonstração Tecnológica e Engenharia de Prompt
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Abertura, Diagnóstico, Demonstração Tecnológica e Engenharia de Prompt  
+**Duração:** 3h00 (15h00 às 18h00)  
 
 **Objetivos:** Formalizar a entrada dos alunos no projeto; coletar a linha de base científica (T0); engajar com demonstrações tecnológicas; ensinar fundamentos de Engenharia de Prompt.
 
@@ -61,208 +68,205 @@
 - Bloco 5 (50 min): Dinâmica dos Dois Grupos (Bom vs. Ruim) em 3 tarefas. Hackathon de jogos: geração e personalização de Pac-Man, Batalha Naval ou Escape Room via IA. Primeiros contatos com print(), input() e variáveis.
 - Bloco 6 (10 min): Salvamento dos scripts e coleta dos links de chat com a IA.
 
-**Conceitos introduzidos:** Engenharia de Prompt, print(), input(), variáveis
-**Avaliação/Coleta:** Pré-teste T0 (dados de pesquisa)
+**Conceitos introduzidos:** Engenharia de Prompt, print(), input(), variáveis  
+**Avaliação/Coleta:** Pré-teste T0 (dados de pesquisa)  
 
 ---
 
 ### AULA 02 — 23 de setembro de 2026 (quarta-feira)
 
-**Tema:** Variáveis, Tipos de Dados e Tomada de Decisão (if, elif, else)
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Variáveis, Tipos de Dados e Tomada de Decisão (if, elif, else)  
+**Duração:** 3h00 (15h00 às 18h00)  
 
 **Objetivos:** Consolidar variáveis e tipos de dados; ensinar tomada de decisão com if/elif/else; desenvolver leitura de código via Engenharia Reversa.
 
-**Conteúdo abordado:**
-- Bloco 1 (20 min): Revisão dos 3 pilares — print(), input() e variáveis. Live coding de nivelamento em 4 linhas para incluir alunos que não vieram na Aula 1.
-- Bloco 2 (35 min): Tipos de dados str, int, float e conversão com int() e float(). Ensino progressivo em 3 passos: Passo 1 — só o if; Passo 2 — if + else; Passo 3 — if + elif + else completo. Operadores relacionais (==, !=, >, <, >=, <=) e lógicos (and, or).
-- Bloco 3 (20 min): Engenharia Reversa Guiada — análise do código "Porta Secreta", identificando condicionais, if aninhado e fluxo de decisão.
-- Bloco 4 (55 min): Prática com IA — Missão A (Mestre de RPG), Missão B (Avaliador de Quiz estilo Show do Milhão), Missão C (Assistente Inteligente com and/or).
-- Bloco 5 (20 min): Testes de estresse: texto onde espera número, campo vazio, maiúscula vs. minúscula. Introdução ao conceito de try/except, a ser aprofundado na Aula 3.
-- Bloco 6 (15 min): Salvamento dos scripts e chats com a IA.
+**Conteúdo abordado (Formato Padrão):**
+- Bloco 1 (20 min): Abertura e Nivelamento Expresso dos 3 pilares — print(), input() e variáveis em 4 linhas de código.
+- Bloco 2 (35 min): **Digitando Enquanto Acompanha na Lousa** — Tipos de dados (str, int, float) e conversão. Ensino em 3 passos: Passo 1 (só if), Passo 2 (if+else), Passo 3 (if+elif+else). Operadores relacionais e lógicos + **Mini Exercícios Pós-Teoria**.
+- Bloco 3 (20 min): **Analisar um Código Pronto (Engenharia Reversa)** — análise do código "Porta Secreta" e percurso condicional.
+- **Intervalo (15 min):** Pausa para lanche (16h15 às 16h30).
+- Bloco 4 (55 min): **3 Exercícios Práticos Solo com IA (Desafio do Dia)** — Missão A (RPG), Missão B (Quiz Pop), Missão C (Assistente de Vestuário).
+- Bloco 5 (20 min): **Quebrando o Código para Investigar Erros** — Testes de estresse com entradas inesperadas e introdução mental ao try/except.
+- Bloco 6 (15 min): **Resumão e Conclusão das Sintaxes** — Salvamento dos arquivos e orientações para a tarefa de casa.
 
-**Conceitos introduzidos:** Tipos de dados (str, int, float), if/elif/else, operadores relacionais e lógicos, f-string
-**Tarefa de Casa:** Classificador de Gamer ou Assistente de Vestuário Inteligente (entregar na Aula 3)
+**Conceitos introduzidos:** Tipos de dados (str, int, float), if/elif/else, operadores relacionais e lógicos, f-string  
+**Tarefa de Casa:** Classificador de Gamer ou Assistente de Vestuário Inteligente  
 
 ---
 
 ### AULA 03 — 30 de setembro de 2026 (quarta-feira)
 
-**Tema:** Tratamento de Erros (try/except) + Laços de Repetição (while, for) + Lançamento dos Projetos do Intervalo
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Tratamento de Erros (try/except) + Laços de Repetição (while, for) + Lançamento dos Projetos do Intervalo  
+**Duração:** 3h00 (15h00 às 18h00)  
 
-> ÚLTIMA AULA ANTES DO HIATO. Inclui Quiz de Aquecimento e Tarefa de Casa especial — Projeto Integrado cobrindo os conteúdos das Aulas 1, 2 e 3.
+> ÚLTIMA AULA ANTES DO HIATO. Estrutura pedagógica padronizada com Quiz, Live Coding, Engenharia Reversa, Desafio com IA, Teste de Estresse e Lançamento do Projeto Integrado do Mês.
 
-**Objetivos:** Revisar Aulas 1 e 2 via quiz dinâmico; ensinar tratamento de erros com try/except; ensinar while e for; lançar os projetos do intervalo; entregar a tarefa-projeto integradora.
+**Objetivos:** Ensinar resiliência de código com try/except; dominar laços while e for; lançar o Projeto Integrado do Intervalo (Aulas 1, 2 e 3).
 
-**Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões: (1) V/F sobre o retorno do input(); (2) múltipla escolha com if/elif/else; (3) encontre o erro de tipo de dado. Gabarito comentado ao vivo.
-- Bloco 2 (30 min): try/except — demonstração do problema: ValueError ao digitar texto onde espera número. Estrutura básica try/except. Captura específica: ValueError e ZeroDivisionError. Blocos else (executa se não houve erro) e finally (executa sempre). Padrão profissional: try/except dentro de while True para validação contínua.
-- Bloco 3 (25 min): while — estrutura, contador, acumulador e prevenção de loop infinito. while True com break — padrão de menu interativo. for com range() — repetição contada (início, fim, passo). for em listas com enumerate(). Tabela comparativa: quando usar while vs. for.
-- Bloco 4 (50 min): Prática com IA — Missão A (Caixa Eletrônico Blindado: menu while + try/except + saldo), Missão B (Quiz Implacável: for + try/except + pontuação), Missão C (Assistente de Saúde: for + validação + diagnóstico).
-- Bloco 5 (30 min): Lançamento dos 3 Projetos do Intervalo — Tamagotchi Escolar, A Jornada do Herói (RPG), Quiz de Personalidade Buzzfeed. Cada aluno escolhe seu projeto e esboça a estrutura no caderno.
-- Bloco 6 (15 min): Revisão visual dos conceitos das Aulas 1+2+3. Entrega formal da Tarefa-Projeto. Orientações para uso do Pydroid 3 durante outubro.
+**Conteúdo abordado (Formato Padrão):**
+- Bloco 1 (15 min): **Quiz da Aula Anterior** — 3 questões de revisão sobre condicionais e conversão de tipos com gabarito ao vivo.
+- Bloco 2 (35 min): **Digitando Enquanto Acompanha na Lousa** — try/except (ValueError, ZeroDivisionError), while com contador/break, for com range()/enumerate() + **Mini Exercícios Pós-Teoria**.
+- Bloco 3 (25 min): **Analisar um Código Pronto (Engenharia Reversa)** — inspeção do script "Arcade Passatempo", analisando tratamento de erros e loops.
+- **Intervalo (15 min):** Pausa para lanche (16h15 às 16h30).
+- Bloco 4 (50 min): **3 Exercícios Práticos Solo com IA (Desafio do Dia)** — Missão A (Caixa Eletrônico Blindado), Missão B (Quiz Implacável), Missão C (Monitor de Saúde).
+- Bloco 5 (25 min): **Quebrando o Código para Investigar Erros** — Provocar exceções propositais (texto em número, divisão por zero) e debugar com IA.
+- Bloco 6 (15 min): **Resumão e Conclusão das Sintaxes** + **Lançamento do Projeto do Intervalo** (Tamagotchi, RPG ou Quiz Buzzfeed) para o mês de outubro.
 
-**Conceitos introduzidos:** try/except, ValueError, ZeroDivisionError, else/finally, while, for, range(), enumerate(), break
+**Conceitos introduzidos:** try/except, ValueError, ZeroDivisionError, else/finally, while, for, range(), enumerate(), break  
 
-**TAREFA DE CASA — PROJETO INTEGRADO (Aulas 1+2+3):**
-Desenvolver no Pydroid 3 durante outubro. Apresentar na Aula 04. Cada aluno escolhe UMA opção:
-
-Opção 1 — Tamagotchi Escolar: bichinho virtual com variáveis energia/conhecimento/estresse, menu while True com try/except, condicionais if/elif/else para vitória e derrota, f-string nas mensagens.
-
-Opção 2 — A Jornada do Herói (RPG): navegação por 3+ salas com while e if/elif/else, inventário como lista com append() exibido com for, try/except para entradas inválidas, variável de vida.
-
-Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, validação de resposta com while + try/except, pontuação acumulada por perfil, resultado revelado com if/elif/else.
+**TAREFA DE CASA — PROJETO INTEGRADO DO INTERVALO (Aulas 1+2+3):**  
+Desenvolver no Pydroid 3 durante outubro. Apresentar na Aula 04. O aluno escolhe 1 opção:  
+- Opção 1 — Tamagotchi Escolar: bichinho virtual com status, menu while True + try/except e condicionais if/elif/else.  
+- Opção 2 — A Jornada do Herói (RPG): navegação por 3+ salas, inventário como lista com append() e for, try/except e vida.  
+- Opção 3 — Quiz Buzzfeed: 5+ perguntas em for, validação em while + try/except e cálculo do perfil final.  
 
 ---
 
 ### OUTUBRO/2026 — HIATO DE 1 MÊS (Sem Aulas)
 
-> Período de desenvolvimento autônomo. Os alunos desenvolvem seus projetos (Tamagotchi, RPG ou Buzzfeed) no Pydroid 3 do celular. O tutor disponível via WhatsApp para dúvidas pontuais.
+> Período de desenvolvimento autônomo no smartphone com Pydroid 3. Suporte remoto do tutor via WhatsApp.
 
 ---
 
 ### AULA 04 — 04 de novembro de 2026 (quarta-feira)
 
-**Tema:** Retorno do Hiato: Feira dos Projetos do Intervalo + Estruturas de Dados: Listas
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Retorno do Hiato: Feira dos Projetos do Intervalo + Estruturas de Dados: Listas  
+**Duração:** 3h00 (15h00 às 18h00)  
 
-**Objetivos:** Celebrar o retorno; apresentar e auditar os projetos desenvolvidos em outubro; ensinar listas como estrutura de dados.
+**Objetivos:** Celebrar o retorno pós-intervalo; auditar os projetos do mês; ensinar coleções de dados com Listas (list), append(), len() e percurso com for.
 
-**Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre try/except, while e for. Acolhida no retorno.
-- Bloco 2 (30 min): Mini-Feira dos Projetos — cada aluno executa e apresenta brevemente seu projeto. Auditoria viva: tutor faz 1 pergunta técnica por grupo.
-- Bloco 3 (30 min): Listas — criação e acesso por índice (base 0), len(), append() para adicionar elementos, percurso com for. Conexão com os projetos: inventário no RPG, histórico no Tamagotchi.
-- Bloco 4 (50 min): Prática com IA — gerenciador de Lista de Tarefas/Inventário com menu while True, append() e exibição com for.
-- Bloco 5 (25 min): Caça ao Tesouro — inspeção e personalização do código gerado.
-- Bloco 6 (15 min): Salvar scripts no armazenamento local do smartphone.
+**Conteúdo abordado (Formato Padrão):**
+- Bloco 1 (15 min): **Quiz da Aula Anterior** — Resgate sobre try/except, while e for + acolhida do retorno das 4 semanas.
+- Bloco 2 (35 min): **Digitando Enquanto Acompanha na Lousa** — Criando listas `[]`, índices de base 0, append(), len(), percurso com for e remoção com pop() + **Mini Exercícios Pós-Teoria**.
+- Bloco 3 (25 min): **Analisar um Código Pronto (Engenharia Reversa)** — Análise do "Gerenciador de Playlist Musical", identificando manipulação da lista.
+- **Intervalo (15 min):** Pausa para lanche (16h15 às 16h30).
+- Bloco 4 (50 min): **3 Exercícios Práticos Solo com IA (Desafio do Dia)** — Missão A (Carrinho de Compras), Missão B (Hall da Fama Gamer), Missão C (Diário de Chamada).
+- Bloco 5 (25 min): **Quebrando o Código para Investigar Erros** — Testes de estresse com `IndexError` (acesso fora dos limites da lista) e debug com IA.
+- Bloco 6 (15 min): **Resumão e Conclusão das Sintaxes** — Síntese das coleções de dados e indicação da micro-tarefa.
 
-**Conceitos introduzidos:** list, índices (base 0), append(), len(), percurso com for
-**Tarefa de Casa:** Lista de Compras do Futuro ou Playlist dos Meus Sonhos
+**Conceitos introduzidos:** list, índices (base 0), append(), len(), pop(), percurso com for, IndexError  
+**Tarefa de Casa:** Lista de Compras do Futuro ou Playlist dos Meus Sonhos  
 
 ---
 
 ### AULA 05 — 11 de novembro de 2026 (quarta-feira)
 
-**Tema:** Modularização e Funções: def, Parâmetros e return
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Modularização e Funções: def, Parâmetros e return  
+**Duração:** 3h00 (15h00 às 18h00)  
 
-**Objetivos:** Ensinar funções como blocos de código reutilizáveis; dominar def, parâmetros e return.
+**Objetivos:** Ensinar funções como ferramentas reutilizáveis de código; dominar def, parâmetros, instrução return e escopo de variáveis.
 
-**Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre listas: índices, append() e percurso com for.
-- Bloco 2 (15 min): Analogia da Receita de Bolo — função como receita reutilizável. Live coding: def fazer_bolo(sabor).
-- Bloco 3 (30 min): def — criação de funções. Parâmetros e argumentos. return (devolver valor) vs. print() (apenas exibir). Escopo de variáveis: local vs. global. Engenharia Reversa: identificar funções no código de jogos.
-- Bloco 4 (55 min): Prática com IA — Multi-Calculadora Modular com calcular_imc(), converter_temperatura() e calcular_media() como funções separadas, chamadas por menu while True.
-- Bloco 5 (25 min): Prompt Arquitetural — refatorar código monolítico em código modular com funções limpas.
-- Bloco 6 (15 min): Encerramento e backup.
+**Conteúdo abordado (Formato Padrão):**
+- Bloco 1 (15 min): **Quiz da Aula Anterior** — 3 questões de fixação sobre listas (append, len, índices e IndexError).
+- Bloco 2 (35 min): **Digitando Enquanto Acompanha na Lousa** — Analogia da receita de bolo, criação com def, parâmetros, diferença entre return vs. print() e escopo local/global + **Mini Exercícios Pós-Teoria**.
+- Bloco 3 (25 min): **Analisar um Código Pronto (Engenharia Reversa)** — Análise da "Multi-Calculadora Modular", identificando chamada e retorno de funções.
+- **Intervalo (15 min):** Pausa para lanche (16h15 às 16h30).
+- Bloco 4 (50 min): **3 Exercícios Práticos Solo com IA (Desafio do Dia)** — Missão A (Fast Food Modular), Missão B (Gerador de Status RPG), Missão C (Validador Pix).
+- Bloco 5 (25 min): **Quebrando o Código para Investigar Erros** — Investigação de NameError por erro de escopo local e falta de argumento.
+- Bloco 6 (15 min): **Resumão e Conclusão das Sintaxes** — Fechamento sobre modularização e tarefas.
 
-**Conceitos introduzidos:** def, parâmetros, return, escopo local/global, modularização, refatoração
-**Tarefa de Casa:** Receita do Lanche Modular ou Calculadora de Desconto de Loja
+**Conceitos introduzidos:** def, parâmetros, return, escopo local/global, NameError, modularização  
+**Tarefa de Casa:** Receita do Lanche Modular ou Calculadora de Desconto de Loja  
 
 ---
 
 ### AULA 06 — 18 de novembro de 2026 (quarta-feira)
 
-**Tema:** Consolidação de Lógica + Estruturas Avançadas: Dicionários (dict)
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Consolidação de Lógica + Estruturas Avançadas: Dicionários (dict)  
+**Duração:** 3h00 (15h00 às 18h00)  
 
-**Objetivos:** Integrar todos os fundamentos aprendidos; ensinar dicionários como estrutura chave-valor.
+**Objetivos:** Unir os 5 pilares da lógica de programação; ensinar Dicionários (`{"chave": "valor"}`) e listas de dicionários como modelos do mundo real.
 
-**Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre funções: def, parâmetros e diferença entre return e print().
-- Bloco 2 (15 min): Mapa completo da lógica Python — ENTRADA → MEMÓRIA → DECISÃO → REPETIÇÃO → MODULARIZAÇÃO → SAÍDA.
-- Bloco 3 (30 min): Dicionários — criação com {"chave": "valor"}, acesso por chave, atualização e adição de campos, listas de dicionários (banco de dados simples), percurso com for e items().
-- Bloco 4 (55 min): Prática com IA — Sistema Integrado de Gestão com menu while, cadastro em dicionário e funções de consulta. Integração completa de todas as estruturas.
-- Bloco 5 (25 min): Prompt Arquitetural — separar lógica de apresentação. Preparação para transição terminal → Flet.
-- Bloco 6 (15 min): Marco pedagógico: ao final desta aula o aluno domina toda a lógica Python essencial. Aulas 7–9 = apps visuais.
+**Conteúdo abordado (Formato Padrão):**
+- Bloco 1 (15 min): **Quiz da Aula Anterior** — 3 questões sobre funções (def, parâmetros, return e escopo).
+- Bloco 2 (35 min): **Digitando Enquanto Acompanha na Lousa** — Dicionários `{"chave": "valor"}`, alteração de chaves, método .get(), listas de dicionários (banco de dados) + **Mini Exercícios Pós-Teoria**.
+- Bloco 3 (25 min): **Analisar um Código Pronto (Engenharia Reversa)** — Análise do "Sistema de Gestão de Estoque", integrando dict, list, def, while e try/except.
+- **Intervalo (15 min):** Pausa para lanche (16h15 às 16h30).
+- Bloco 4 (50 min): **3 Exercícios Práticos Solo com IA (Desafio do Dia)** — Missão A (Ficha RPG com Dict), Missão B (Agenda de Contatos), Missão C (Estacionamento Inteligente).
+- Bloco 5 (25 min): **Quebrando o Código para Investigar Erros** — Teste de estresse com `KeyError` e formatação de aspas em f-strings.
+- Bloco 6 (15 min): **Resumão e Conclusão das Sintaxes** — Celebração do marco pedagógico: conclusão dos 5 pilares da lógica pura em terminal.
 
-**Conceitos introduzidos:** dict, acesso por chave, listas de dicionários, integração completa de fundamentos
-**Tarefa de Casa:** Perfil de Usuário do App ou Inventário de RPG com Dicionário
+**Conceitos introduzidos:** dict, pares chave-valor, método .get(), listas de dicionários, KeyError, integração dos 5 pilares  
+**Tarefa de Casa:** Perfil de Usuário do App ou Inventário de RPG com Dicionário  
 
 ---
 
 ### AULA 07 — 25 de novembro de 2026 (quarta-feira)
 
-**Tema:** Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais  
+**Duração:** 3h00 (15h00 às 18h00)  
 
-**Objetivos:** Demonstrar transição terminal → app visual; ensinar componentes básicos do Flet; definir equipes e temas dos Projetos Finais vinculados aos ODS.
+**Objetivos:** Transição terminal → app visual; ensinar componentes do Flet; formar equipes e selecionar os Projetos Finais alinhados aos ODS.
 
 **Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre dicionários e integração dos fundamentos.
-- Bloco 2 (15 min): Demonstração ao vivo — mesmo script do terminal convertido para app visual mobile com botões, campos e layout de celular.
-- Bloco 3 (30 min): Componentes Flet — ft.Text() (rótulos), ft.TextField() (campo de digitação), ft.ElevatedButton() (botão clicável), ft.Column() (layout vertical). Eventos on_click e atualização com page.update(). Engenharia Reversa em app Flet pronto.
-- Bloco 4 (25 min): Prática Guiada — conectar calcular_imc(peso, altura) a uma tela Flet com TextField e botão.
-- Bloco 5 (55 min): Brainstorming dos Projetos Finais — formação de duplas/trios, definição do problema da escola/comunidade, vinculação ao ODS escolhido, esboço da tela no caderno.
-- Bloco 6 (15 min): Registro dos temas e papéis por equipe. Orientações para o Sprint da Aula 8.
+- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões de revisão sobre dicionários e integração de lógica.
+- Bloco 2 (15 min): Demonstração ao vivo — conversão de um script terminal para app visual Flet no celular.
+- Bloco 3 (30 min): Componentes Flet — ft.Text(), ft.TextField(), ft.ElevatedButton(), ft.Column(), eventos on_click e page.update().
+- Bloco 4 (25 min): Prática Guiada — conectar calcular_imc(peso, altura) a uma tela Flet.
+- Bloco 5 (55 min): Brainstorming dos Projetos Finais — formação das equipes, escolha do problema/ODS e rascunho de tela no caderno.
+- Bloco 6 (15 min): Registro dos temas e papéis por equipe.
 
-**Conceitos introduzidos:** Flet, GUI, ft.Text, ft.TextField, ft.ElevatedButton, ft.Column, page.update(), on_click, ODS
-**Tarefa de Casa:** Esboço da tela do App no caderno ou Pesquisa de Usuário no WhatsApp (entrevistar 2 pessoas)
+**Conceitos introduzidos:** Flet, GUI, ft.Text, ft.TextField, ft.ElevatedButton, ft.Column, page.update(), on_click, ODS  
+**Tarefa de Casa:** Esboço da tela do App no caderno ou Pesquisa com Usuários  
 
 ---
 
 ### AULA 08 — 02 de dezembro de 2026 (quarta-feira)
 
-**Tema:** Sprint de Desenvolvimento + Flet Avançado: Navegação entre Telas, Temas de Cor e Ícones
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Sprint de Desenvolvimento + Flet Avançado: Navegação entre Telas, Temas de Cor e Ícones  
+**Duração:** 3h00 (15h00 às 18h00)  
 
-**Objetivos:** Elevar a qualidade visual dos apps com navegação entre telas, paletas de cores e ícones; dar 80 minutos de sprint puro de desenvolvimento com IA para implementar as funcionalidades planejadas.
+**Objetivos:** Ensinar Flet avançado (navegação entre telas, cores e ícones); realizar 80 minutos de sprint de desenvolvimento assistido por IA.
 
 **Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre Flet básico: page.update(), ft.TextField() e evento on_click.
-- Bloco 2 (30 min): FLET AVANÇADO — Tema de cor global (page.bgcolor, page.theme_mode, color_scheme_seed); ícones nos botões com ft.Icons.*; navegação entre telas com ft.NavigationBar e lógica visible=True/False para alternar conteúdo.
-- Bloco 3 (15 min): Revisão rápida dos protótipos — cada equipe mostra o estado atual do app e define 3 metas para o sprint da aula.
-- Bloco 4 (80 min): SPRINT DE DESENVOLVIMENTO COM IA — sessão intensa de construção do app. Prompts de apoio por desafio (visual, navegação, robustez com try/except). Checkpoints do monitor a cada 25 min.
-- Bloco 5 (10 min): Estrutura do Pitch (5 min) + ensaio rápido com divisão de papeis por equipe.
-- Bloco 6 (15 min): Checklist final — app salvo no celular e drive, papeis do pitch definidos. Orientações para o Sprint Final (Aula 9).
+- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre componentes básicos do Flet.
+- Bloco 2 (30 min): Flet Avançado — Tema de cor global (page.bgcolor, ThemeMode.DARK), ícones (ft.Icons.*) e navegação com ft.NavigationBar.
+- Bloco 3 (15 min): Revisão dos protótipos e definição de metas do sprint.
+- Bloco 4 (80 min): SPRINT DE DESENVOLVIMENTO COM IA — construção intensa do aplicativo com apoio técnico a bugs.
+- Bloco 5 (10 min): Estruturação do Pitch (5 min) e divisão de papéis.
+- Bloco 6 (15 min): Checklist de salvamento do código e organização para o sprint final.
 
-**Conceitos introduzidos:** Tema de cor global (page.bgcolor, ThemeMode.DARK, color_scheme_seed), ícones (ft.Icons.*), navegação com ft.NavigationBar, visible=True/False, estilização avançada de componentes
-**Tarefa de Casa:** Teste de estresse no app (2+ testes com entradas inesperadas) + Ensaio do Pitch completo com cronômetro (2 vezes)
+**Conceitos introduzidos:** ThemeMode.DARK, ft.Icons.*, ft.NavigationBar, visible=True/False, navegação entre telas  
+**Tarefa de Casa:** Teste de estresse no app e ensaio do pitch em casa  
 
 ---
 
 ### AULA 09 — 09 de dezembro de 2026 (quarta-feira)
 
-**Tema:** Sprint Final: Polimento do App + Testes de Qualidade + Ensaio Geral da Apresentação
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Sprint Final: Polimento do App + Testes de Qualidade + Ensaio Geral da Apresentação  
+**Duração:** 3h00 (15h00 às 18h00)  
 
-> Penúltima aula. Sessão dedicada exclusivamente ao refinamento dos apps e ao ensaio completo da apresentação antes da Feira Final com convidados em 16/12.
-
-**Objetivos:** Dar às equipes tempo dedicado para polir a interface e a lógica do app; realizar testes de qualidade (UX + bugs); executar o ensaio geral do pitch com feedback do tutor.
+**Objetivos:** Polimento de interface e lógica; realização de testes cruzados de usabilidade; ensaio geral dos pitches com cronômetro.
 
 **Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO RELÂMPAGO — 3 questões rápidas de revisão geral (Flet, def, try/except). Aquecimento e foco: "Hoje a gente deixa o app IMPECÁVEL para a apresentação de quarta que vem!"
-- Bloco 2 (30 min): Revisão Técnica Guiada — tutor circula por cada equipe fazendo uma revisão técnica de 5 min: checar fluxo do app, mensagens de erro amigáveis (try/except), layout mobile no Pydroid 3 e coerência do GEMINI.md.
-- Bloco 3 (40 min): Sprint de Polimento — cada equipe corrige os pontos levantados na revisão. Uso da IA para refinar mensagens, melhorar layout e adicionar validações com try/except nos campos de entrada.
-- Bloco 4 (55 min): Sessão de Testes Cruzados — as equipes trocam os celulares/computadores e testam o app umas das outras como "usuários reais". Cada equipe anota 3 pontos positivos e 1 sugestão de melhoria. Última rodada de ajustes com base no feedback.
-- Bloco 5 (25 min): Ensaio Geral do Pitch — cada equipe apresenta o pitch completo (5 min) para a turma com cronômetro. O tutor e os colegas dão feedback rápido sobre clareza, confiança e demonstração.
-- Bloco 6 (15 min): Checklist Final da Apresentação — verificar: app salvo no celular e no drive, pitch ensaiado, materiais organizados. Orientações para a Feira Final da semana seguinte (convidados, horário, traje).
+- Bloco 1 (15 min): QUIZ DE AQUECIMENTO RELÂMPAGO — 3 questões rápidas de revisão geral.
+- Bloco 2 (30 min): Revisão Técnica Guiada — tutor faz checklist individual com cada equipe.
+- Bloco 3 (40 min): Sprint de Polimento — correção de bugs e melhoria visual.
+- Bloco 4 (55 min): Testes Cruzados entre Equipes — troca de dispositivos e feedback UX.
+- Bloco 5 (25 min): Ensaio Geral do Pitch (5 min por grupo) com feedback sobre postura e clareza.
+- Bloco 6 (15 min): Checklist final de preparação para a Feira de Soluções.
 
-**Conceitos revisados:** Integração de todos os fundamentos (Flet, def, try/except, listas, dicionários), UX (experiência do usuário), comunicação técnica
-**Tarefa de Casa:** Fazer 2 testes de estresse no app com entradas inesperadas e ensaiar o pitch mais 2 vezes com o cronômetro em casa.
+**Conceitos revisados:** UX, validação de campos com try/except, apresentação técnica  
+**Tarefa de Casa:** Testes de estresse finais e ensaio do pitch  
 
 ---
 
 ### AULA 10 — 16 de dezembro de 2026 (quarta-feira)
 
-**Tema:** Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação
-**Duração:** 3h00 (15h00 às 18h00)
+**Tema:** Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação  
+**Duração:** 3h00 (15h00 às 18h00)  
 
-> ÚLTIMA AULA DO PROJETO. Presença de convidados (coordenadores, professores, familiares). Inclui Pós-teste T1 para coleta de dados da pesquisa acadêmica.
-
-**Objetivos:** Celebrar as conquistas dos alunos com a Feira de Soluções Mobile; coletar o pós-teste T1 para medir o delta de aprendizagem; encerrar com premiação, certificação e orientações de continuidade.
+**Objetivos:** Apresentação dos aplicativos na Feira Final para convidados; aplicação do Pós-teste T1 para pesquisa; entrega de certificados e encerramento.
 
 **Conteúdo abordado:**
-- Bloco 1 (15 min): Abertura formal e ajustes finais. Recepção dos convidados (coordenadores, professores, familiares). Verificação dos apps e preparação das equipes.
-- Bloco 2 (70 min): FEIRA DE SOLUÇÕES MOBILE — cada equipe apresenta em 5 min + 2 min de perguntas/auditoria: O Problema (30s), A Demonstração ao vivo (2min), O Código — função principal e interface Flet (1min30s), Auditoria Viva: tutor/monitor faz 1 pergunta técnica para validar autonomia e compreensão real. Votação do público: App Mais Criativo, App Mais Útil e App Mais Técnico.
-- Bloco 3 (15 min): Votação e Premiação — apuração dos votos, entrega de menções honrosas e premiação simbólica por categoria.
-- Bloco 4 (30 min): PÓS-TESTE T1 — mesmo formato do T0 aplicado na Aula 1 (Pensamento Computacional, Autoeficácia em Programação, Letramento em IA). Identificação pelo mesmo código anônimo do estudante para pareamento com T0 e cálculo do delta de aprendizagem.
-- Bloco 5 (20 min): Encerramento e Certificação — fala de encerramento do projeto, distribuição dos certificados de participação, orientações de continuidade (cursos, portfólio no GitHub, próximos passos em programação), foto coletiva da turma.
-- Bloco 6 (10 min): Avaliação qualitativa final — "Em UMA palavra, o que o projeto Trilhando te ensinou!". Coleta dos últimos links de chat com a IA (dados de pesquisa).
+- Bloco 1 (15 min): Abertura formal e recepção dos convidados.
+- Bloco 2 (70 min): FEIRA DE SOLUÇÕES MOBILE — apresentações de 5 min por equipe + 2 min de arguição técnica do tutor. Votação popular.
+- Bloco 3 (15 min): Apuração e entrega das Premiações e Menções Honrosas.
+- Bloco 4 (30 min): PÓS-TESTE T1 — instrumento de pesquisa pareado com o T0 da Aula 1 (Pensamento Computacional, CPSES e IA).
+- Bloco 5 (20 min): Entrega dos Certificados de Conclusão (30h) e foto oficial da turma.
+- Bloco 6 (10 min): Avaliação qualitativa final e encerramento.
 
-**Conceitos revisados:** Todos os conteúdos das Aulas 1–9 (integrados e demonstrados nos projetos finais)
-**Avaliação/Coleta:** Pós-teste T1 (parear com T0 da Aula 1 para calcular delta de aprendizagem — ΔPC e ΔCPSES)
+**Avaliação/Coleta:** Pós-teste T1 (medida do delta de aprendizagem)  
 
 ---
 
@@ -280,7 +284,7 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 | Funções (def, return) | — | — | — | — | X | X | X | X | X | — |
 | Dicionários (dict) | — | — | — | — | — | X | X | X | X | — |
 | Interface Gráfica (Flet) | — | — | — | — | — | — | X | X | X | X |
-| Quiz de Aquecimento | — | — | X | X | X | X | X | X | X | — |
+| Quiz da Aula Anterior | — | — | X | X | X | X | X | X | X | — |
 | Tarefa de Casa | — | X | X | X | X | X | X | X | X | — |
 
 > Legenda: X = Ensinado e praticado | * = Introduzido superficialmente | — = Não abordado
@@ -292,9 +296,9 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 | Instrumento | Momento | Finalidade |
 |-------------|---------|------------|
 | Pré-teste T0 | Aula 01 | Linha de base — dados de pesquisa |
-| Tarefas de Casa (Aulas 2–9) | Final de cada aula | Prática autônoma e fixação do conteúdo |
-| Projeto do Intervalo (Tamagotchi / RPG / Buzzfeed) | Apresentado na Aula 4 | Avaliação integradora — conteúdos das Aulas 1, 2 e 3 |
-| Projeto Final (App Mobile com Flet) | Feira de Soluções — Aula 10 | Avaliação somativa — todos os conteúdos do curso |
+| Tarefas de Casa (Aulas 2–9) | Final de cada aula | Prática autônoma e fixação |
+| Projeto Integrado do Intervalo | Apresentado na Aula 4 | Avaliação integradora (Aulas 1, 2 e 3) |
+| Projeto Final (App Mobile Flet) | Feira de Soluções — Aula 10 | Avaliação somativa de todos os conteúdos |
 | Auditoria Viva nas Apresentações | Aulas 4 e 10 | Verificação de autoria e compreensão real do código |
 | Pós-teste T1 | Aula 10 | Medição do delta de aprendizagem — dados de pesquisa |
 
@@ -319,9 +323,7 @@ Este plano didático integra três dimensões formativas simultaneamente:
 
 **3. Dimensão Cidadã:** Desenvolvimento de soluções vinculadas aos ODS (Objetivos de Desenvolvimento Sustentável), promovendo o protagonismo juvenil e a tecnologia como ferramenta de transformação social.
 
-O projeto segue os princípios da Design-Based Research (DBR) e Learning Analytics. Os dados coletados serão utilizados para publicação científica sobre aprendizagem de programação mediada por IA generativa em contexto de extensão universitária.
-
 ---
 
-*Documento elaborado pelo Projeto Trilhando o Caminho do Código — FAPEMING 2026*
-*Versão 1.1 — Setembro/2026 (10 aulas, encerramento em 16/12/2026)*
+*Documento elaborado pelo Projeto Trilhando o Caminho do Código — FAPEMING 2026*  
+*Versão 1.2 — Setembro/2026 (10 aulas, encerramento em 16/12/2026)*  

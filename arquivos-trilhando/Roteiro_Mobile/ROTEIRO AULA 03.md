@@ -1,11 +1,11 @@
 # 🔁 Roteiro de Aula — Aula 03 (Trilha Mobile)
-
 ## Tratamento de Erros (`try/except`) + Repetição (`while`, `for`) + Lançamento dos Projetos do Intervalo
 
-**Data:** 30 de setembro de 2026 (quarta-feira) — **Horário:** 15h00 às 18h00
-**Duração total:** 180 minutos (3h00)
-**Público-alvo:** Estudantes do Ensino Médio
-**Pré-requisitos da aula anterior:** Variáveis, tipos de dados (`str`, `int`, `float`), `print()`, `input()`, `if/elif/else`, VS Code
+**Data:** 30 de setembro de 2026 (quarta-feira) — **Horário:** 15h00 às 18h00  
+**Duração total:** 180 minutos (3h00)  
+**Público-alvo:** Estudantes do Ensino Médio  
+**Ferramenta de execução:** VS Code (desktop) + IA (Gemini/ChatGPT) como auxiliar de código  
+**Pré-requisitos da aula anterior:** Variáveis, tipos de dados (`str`, `int`, `float`), `print()`, `input()`, `if/elif/else`
 
 > **🔑 Legenda do Roteiro:**
 > - `[SLIDE]` → Projetar no telão (conceito visual/teórico)
@@ -19,26 +19,38 @@
 
 | Bloco | Atividade | Duração | Horário |
 |-------|-----------|---------|---------|
-| 1 | **⚡ Quiz de Aquecimento** — Revisão da Aula 02 | 15 min | 15h00 – 15h15 |
-| 2 | Aula Expositiva: `try/except` — Blindando o Código | 30 min | 15h15 – 15h45 |
-| 3 | Aula Expositiva: Laços `while` e `for` | 25 min | 15h45 – 16h10 |
-| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h10 – 16h25** |
-| 4 | Prática com IA: Missões de Loop + try/except no VS Code | 50 min | 16h25 – 17h15 |
-| 5 | Lançamento Oficial dos Projetos do Intervalo (1 Mês) | 30 min | 17h15 – 17h45 |
-| 6 | Encerramento, Tarefa e Preparação para o Hiato | 15 min | 17h45 – 18h00 |
+| 1 | **⚡ Quiz da Aula Anterior** — Resgate da Aula 02 | 15 min | 15h00 – 15h15 |
+| 2 | **⌨️ Digitando Enquanto Acompanha na Lousa**: `try/except`, `while` e `for` + **Mini Exercícios Pós-Teoria** | 35 min | 15h15 – 15h50 |
+| 3 | **🔍 Analisar um Código Pronto** (Engenharia Reversa Guiada no VS Code) | 25 min | 15h50 – 16h15 |
+| **☕** | **Intervalo / Pausa para Lanche** | **15 min** | **16h15 – 16h30** |
+| 4 | **🤖 3 Exercícios Práticos Solo / Engenharia Reversa com IA** (Desafio do Dia - Missões A, B e C) | 50 min | 16h30 – 17h20 |
+| 5 | **🔨 Quebrando o Código para Investigar Erros** (Teste de Estresse & Debugging) | 25 min | 17h20 – 17h45 |
+| 6 | **🎯 Resumão e Conclusão das Sintaxes Aprendidas no Dia** + Lançamento do Projeto do Intervalo | 15 min | 17h45 – 18h00 |
 | **Total** | | **180 min (3h00)** | **15h00 – 18h00** |
 
 ---
 
-## ⚡ Bloco 1: Quiz de Aquecimento — Revisão da Aula 02 (15 min)
+## 🟢 Bloco 1: Quiz da Aula Anterior e Abertura (15 min)
 
-> **Objetivo:** Ativar o conhecimento da aula anterior de forma dinâmica e identificar dúvidas antes de avançar para o novo conteúdo.
+> **Objetivo:** Ativar os conceitos de condicionais (`if/elif/else`) e conversão de tipos aprendidos na Aula 02 de forma interativa.
 
-`[SLIDE]` — Projete as perguntas no telão uma a uma. Deixe a turma responder em voz alta antes de revelar o gabarito.
+### ⏱️ [0–3 min] Boas-vindas
+
+Projete no telão:
+```
+"Hoje nosso código vai aprender a REPETIR sem cansar e a SE DEFENDER de erros!"
+```
+
+Diga:
+> *"Sejam bem-vindos à Aula 3! Nas aulas anteriores ensinamos o computador a falar, ouvir e tomar decisões. Hoje vamos dar a ele superpoderes de resiliência com o `try/except` e a capacidade de fazer tarefas repetitivas em milissegundos com `while` e `for`!"*
 
 ---
 
-### ❓ Pergunta 1: Verdadeiro ou Falso?
+### ⏱️ [3–15 min] ⚡ Quiz da Aula 02
+
+`[SLIDE]` — Projete as perguntas no telão uma a uma. Deixe a turma responder em voz alta antes de revelar o gabarito.
+
+#### ❓ Pergunta 1: Verdadeiro ou Falso?
 > *"O `input()` sempre retorna um número quando o usuário digita um dígito, então posso somar dois `input()` direto sem converter."*
 - [ ] Verdadeiro
 - [ ] Falso
@@ -47,7 +59,7 @@
 
 ---
 
-### ❓ Pergunta 2: Múltipla Escolha
+#### ❓ Pergunta 2: Múltipla Escolha
 O código abaixo vai gerar qual resultado na tela?
 ```python
 nota = int(input("Sua nota: "))
@@ -64,11 +76,11 @@ Se o aluno digitar `5`, o programa imprime:
 - C) `❌ Reprovado`
 - D) Não imprime nada
 
-**🔑 Gabarito:** **Alternativa B!** 🎯 `5 >= 7` é falso, então vai para `elif nota >= 5` que é **verdadeiro**.
+**🔑 Gabarito:** **Alternativa B!** 🎯 `5 >= 7` é falso, então cai no `elif nota >= 5` que é **verdadeiro**.
 
 ---
 
-### ❓ Pergunta 3: Encontre o Erro! 🔍
+#### ❓ Pergunta 3: Encontre o Erro! 🔍
 ```python
 idade = input("Quantos anos você tem? ")
 if idade >= 18:
@@ -76,358 +88,317 @@ if idade >= 18:
 ```
 **Qual é o problema e como corrigir?**
 
-**🔑 Gabarito:** O `input()` retorna texto (`str`) e não dá para comparar texto com número. Corrigir com `idade = int(input("Quantos anos você tem? "))`.
-
----
-
-`[❓ ENGAJAMENTO]` — Rodada rápida:
-> **"Me fala em UMA palavra o que vocês mais gostaram da Aula 2!"**
-
----
-
-## 🛡️ Bloco 2: Aula Expositiva — `try/except`: Blindando o Código Contra Erros (30 min)
-
-> **Objetivo:** Ensinar o tratamento de exceções com `try/except` para criar programas robustos que não "quebram" quando o usuário digita algo inesperado.
-
-### ⏱️ [0–5 min] A Dor do Código Sem Proteção
-
-`[IDE]` — Mostre o erro na prática:
-```python
-# Código SEM proteção: quebrará se o usuário digitar "abc"
-numero = int(input("Digite um número: "))
-print(f"O dobro é: {numero * 2}")
-```
-
-Rode o código e digite `"abc"` propositalmente. Mostre o erro `ValueError` na tela.
+**🔑 Gabarito:** O `input()` retorna texto (`str`) e não dá para comparar texto com número (`>=`). Corrigir com `idade = int(input("Quantos anos você tem? "))`.
 
 `[❓ ENGAJAMENTO]`
-> **"O que aconteceu? Esse erro feio apareceria para os usuários do nosso app. Como evitar?"**
+> **"E o que acontece se o usuário digitar 'dezoito' por extenso? O programa roda ou quebra? Vamos ver hoje como impedir essa quebra!"**
 
 ---
 
-### ⏱️ [5–20 min] A Blindagem: `try/except`
+## 🔵 Bloco 2: Digitando Enquanto Acompanha na Lousa + Mini Exercícios (35 min)
 
-`[SLIDE]` — Projete a estrutura:
+> **Objetivo:** Os alunos acompanham o professor no VS Code digitando os conceitos de `try/except`, `while` e `for` em blocos curtos, seguido de mini exercícios de fixação imediata.
 
+### ⏱️ [0–12 min] Teoria na Lousa + Live Coding 1: `try/except`
+
+`[SLIDE]` — Projete a estrutura visual:
 ```
-try:            → "Tente fazer isso..."
-    [código]
-except:         → "Se der erro, faça isso em vez de travar!"
-    [tratamento]
-```
-
-`[IDE]` — Evoluindo em 3 passos:
-
-#### Passo 1: `try/except` básico
-```python
-# bloco_try_basico.py
 try:
-    numero = int(input("Digite um número: "))
-    print(f"O dobro é: {numero * 2}")
+    # Código que PODE dar erro ao converter ou dividir
 except:
-    print("⚠️ Isso não é um número válido! Tente de novo.")
+    # Código que RODA se der erro (Plano B)
 ```
 
-#### Passo 2: `try/except` com erro específico
+`[IDE]` — Crie o arquivo `aula03_try.py`. **Alunos digitam juntos**:
+
 ```python
-# bloco_try_especifico.py
+# 🛡️ Testando a blindagem contra erros de entrada
 try:
-    numero = int(input("Digite um número inteiro: "))
-    resultado = 100 / numero
-    print(f"100 dividido por {numero} = {resultado}")
+    idade = int(input("Digite sua idade em números: "))
+    print(f"Ano que vem você terá {idade + 1} anos!")
 except ValueError:
-    print("❌ Erro: você digitou texto onde esperava um número!")
-except ZeroDivisionError:
-    print("❌ Erro: não é possível dividir por zero!")
+    print("⚠️ Ei! Você precisa digitar um número inteiro válido (ex: 16).")
 ```
 
-**Roteiro de fala:**
-- *"O `try` é a 'zona de risco' — o código que pode falhar fica aqui."*
-- *"O `except` é o 'plano B' — o que fazer quando o erro acontecer."*
-- *"Podemos ter vários `except` para tratar tipos diferentes de erro, igualzinho ao `elif`!"*
-
-#### Passo 3: `try/except` com `else` e `finally`
-```python
-# bloco_try_completo.py
-try:
-    idade = int(input("Qual é a sua idade? "))
-except ValueError:
-    print("❌ Digite apenas números!")
-else:
-    # Roda SÓ se não houve erro
-    print(f"✅ Idade registrada: {idade} anos.")
-finally:
-    # Roda SEMPRE, com ou sem erro
-    print("--- Verificação concluída. ---")
-```
+**Roteiro de fala enquanto digita:**
+- *"Observem a palavra `try:` — ela avisa o Python: 'tente rodar isso aqui'. Se o usuário digitar 'quinze' em texto, o `int()` falha. Mas em vez de fechar o programa com uma tela vermelha de erro, o Python pula direto para o `except ValueError:`!"*
 
 `[❓ ENGAJAMENTO]`
-> **"Por que o bloco `finally` roda sempre? Onde isso seria útil em um app real?"**
-> *(Ex: fechar uma conexão com banco de dados, independentemente de erro)*
+> **"Se eu digitar 20, o bloco `except` vai ser executado?"** *(Não, o except é pulado!)*
 
 ---
 
-### ⏱️ [20–30 min] `try/except` dentro de `while` — A Combinação Poderosa
+### ⏱️ [12–25 min] Teoria na Lousa + Live Coding 2: Laços `while` e `for`
 
-`[IDE]` — O padrão mais usado no mercado:
-```python
-# validacao_robusta.py
-while True:
-    try:
-        nota = float(input("Digite sua nota (0 a 10): "))
-        if 0 <= nota <= 10:
-            break  # Sai do loop se a nota for válida
-        else:
-            print("⚠️ A nota deve ser entre 0 e 10!")
-    except ValueError:
-        print("❌ Isso não é um número! Tente novamente.")
+`[SLIDE]` — Projete a diferença na lousa:
+- `while` → **Enquanto** uma condição for verdadeira (útil para menus e tentativas ilimitadas).
+- `for` → **Para cada** elemento em uma sequência/contagem determinada.
 
-print(f"✅ Nota registrada com sucesso: {nota}")
-```
-
-**Roteiro de fala:**
-- *"Esse é o padrão 'repita até o usuário acertar'. O `while True` mantém o loop rodando, o `break` só deixa sair se tudo estiver certo."*
-- *"Todo app profissional usa esse padrão — Instagram, iFood, qualquer sistema de login."*
-
----
-
-## 🔁 Bloco 3: Aula Expositiva — Laços `while` e `for` (25 min)
-
-> **Objetivo:** Formalizar os laços de repetição `while` e `for`, contadores, acumuladores e a função `range()`.
-
-### ⏱️ [0–10 min] O Laço `while` — Enquanto a Condição For Verdadeira
-
-`[IDE]` — Criar `loops_while.py`:
+`[IDE]` — Crie o arquivo `aula03_loops.py`. **Alunos digitam juntos**:
 
 ```python
-# 1. while básico com contador
-energia = 100
-while energia > 0:
-    print(f"⚡ Jogando no celular... Energia atual: {energia}")
-    energia -= 20  # Reduz energia a cada rodada
+# 1. Loop WHILE: Repetir até acertar a senha
+senha_correta = "python123"
+tentativa = ""
 
-print("🪫 Sua energia acabou! Game Over.")
+while tentativa != senha_correta:
+    tentativa = input("🔑 Digite a senha secreta: ")
+    if tentativa != senha_correta:
+        print("❌ Senha incorreta! Tente novamente.")
 
-# 2. Menu de opções infinito com while True e break
-print("\n--- MENU DO APP ---")
-while True:
-    opcao = input("1-Jogar | 2-Instruções | 3-Sair: ")
-    if opcao == "1":
-        print("🎮 Iniciando o jogo...")
-    elif opcao == "2":
-        print("📖 Instruções: sobreviva o máximo possível!")
-    elif opcao == "3":
-        print("👋 Saindo do app... Até mais!")
-        break  # Interrompe o laço
-    else:
-        print("⚠️ Opção inválida! Escolha 1, 2 ou 3.")
-```
+print("🔓 Acesso liberado com sucesso!\n")
 
-`[❓ ENGAJAMENTO]`
-> **"O que aconteceria se a gente esquecesse o `energia -= 20`? E o `break`?"**
-> *(Loop infinito — travar o programa!)*
-
----
-
-### ⏱️ [10–20 min] O Laço `for` — Para Cada Item em uma Sequência
-
-`[IDE]` — Criar `loops_for.py`:
-
-```python
-# 1. for com range() — repetição contada
-print("🚀 Contagem regressiva:")
-for i in range(5, 0, -1):
-    print(i)
+# 2. Loop FOR: Contagem regressiva de lançamento
+print("🚀 Lançamento em:")
+for segundo in range(5, 0, -1):
+    print(f"{segundo}...")
 print("💥 DECOLAR!")
-
-# 2. for percorrendo uma lista
-jogadores = ["Ana", "Bruno", "Carla", "Diego"]
-print("\n🏆 Ranking:")
-for posicao, nome in enumerate(jogadores, start=1):
-    print(f"{posicao}º lugar: {nome}")
-
-# 3. for acumulador — somando pontuações
-pontuacoes = [150, 230, 80, 310, 195]
-total = 0
-for ponto in pontuacoes:
-    total += ponto
-print(f"\nTotal de pontos do time: {total}")
-```
-
-**Roteiro de fala:**
-- *"`range(5, 0, -1)` significa: começa no 5, vai até 0 (exclusive), de -1 em -1."*
-- *"`enumerate()` dá o índice e o valor ao mesmo tempo — não precisa mais de contador manual!"*
-
----
-
-### ⏱️ [20–25 min] `while` vs `for` — Quando Usar Cada Um?
-
-`[SLIDE]` — Projete a tabela:
-
-| Laço | Quando usar | Exemplo no dia a dia |
-|------|-------------|---------------------|
-| `while` | Quando não sei quantas vezes vai repetir | Menu de app, validação de login, jogo rodando "infinito" |
-| `for` | Quando sei exatamente quantas vezes ou tenho uma lista | Processar todos os itens de uma lista, contar de 1 a 10 |
-
----
-
-## ☕ Intervalo — 15 minutos (16h10 – 16h25)
-
-Antes de liberar, projete no telão:
-```
-☕ INTERVALO!
-Quando voltar: você vai colocar tudo junto — try/except + while + for — numa missão prática com IA.
-Deixe o VS Code aberto. 🎮
 ```
 
 ---
 
-## 🟠 Bloco 4: Prática com IA — Missões de Loop + try/except (50 min)
+### ⏱️ [25–35 min] 🧩 Mini Exercícios Práticos Pós-Teoria (Alunos fazem agora na IDE)
 
-> **Objetivo:** Os alunos usam a IA para gerar e personalizar scripts que combinam `try/except`, `while` e `for` no VS Code.
+Projete os 3 desafios rápidos na lousa (5 min para os alunos tentarem, 5 min para correção ao vivo):
 
-### ⏱️ [0–5 min] Instrução do Bloco
+1. **Mini Desafio 1:** Crie um `try/except` que peça a altura (ex: `1.75`) com `float(input())`. Se o usuário digitar texto, mostre "Digite usando ponto!".
+2. **Mini Desafio 2:** Crie um `while` que imprima os números de 1 até 5 no terminal.
+3. **Mini Desafio 3:** Crie um `for` usando `range(1, 4)` que imprima "Minha mensagem nº X".
 
-`[SLIDE]` — Projete:
-```
-🤖 REGRA DE OURO:
-1. Copie o prompt → cole na IA → rode no VS Code.
-2. DEU ERRO? Copie o erro → cole na IA → peça correção.
-3. Seja o DETETIVE: identifique onde está o try/except, o while e o for no código.
+`[IDE]` — **Gabarito rápido projetado pelo tutor:**
+```python
+# Solução rápida 1
+try:
+    altura = float(input("Sua altura: "))
+    print(f"Altura: {altura}m")
+except ValueError:
+    print("Digite usando ponto!")
+
+# Solução rápida 2
+cont = 1
+while cont <= 5:
+    print(cont)
+    cont += 1
+
+# Solução rápida 3
+for i in range(1, 4):
+    print(f"Minha mensagem nº {i}")
 ```
 
 ---
 
-### ⏱️ [5–50 min] Escolha sua Missão!
+## 🟡 Bloco 3: Analisar um Código Pronto — Engenharia Reversa (25 min)
 
-#### 🎰 MISSÃO A — "O Caixa Eletrônico Blindado" *(para quem curte apps financeiros)*
+> **Objetivo:** Inspecionar e compreender a arquitetura de um código pronto que junta `try/except`, `while` e `if/else`, desenvolvendo a habilidade de leitura de código.
 
-**Prompt para copiar na IA:**
+`[SLIDE]` — Projete a missão no telão:
+```
+🔍 MISSÃO DETETIVE: Analise o código abaixo sem executar primeiro.
+Descubra onde o loop se repete, onde o erro é tratado e como o usuário sai!
+```
+
+`[IDE]` — Projete o código `arcade_passatempo.py` e peça aos alunos que abram ou leiam na tela:
+
+```python
+# === ARCADE PASSATEMPO DE PYTHON ===
+vidas = 3
+pontos = 0
+
+print("🎮 BEM-VINDO AO DESAFIO DA SORTE!")
+
+while vidas > 0:
+    print(f"\n❤️ Vidas: {vidas} | ⭐ Pontos: {pontos}")
+    try:
+        chute = int(input("Adivinhe o número secreto (1 a 5): "))
+        
+        if chute < 1 or chute > 5:
+            print("⚠️ Número fora do intervalo (1 a 5)!")
+            continue  # Volta para o início do loop sem perder vida
+            
+        if chute == 3:
+            print("🎉 ACERTOU! Você ganhou 100 pontos!")
+            pontos += 100
+        else:
+            print("❌ Errou! Perdeu uma vida.")
+            vidas -= 1
+            
+    except ValueError:
+        print("🚨 Entrada inválida! Digite apenas números inteiros.")
+
+print(f"\n💥 GAME OVER! Sua pontuação final foi: {pontos} pontos.")
+```
+
+### ❓ Perguntas Pedagógicas de Engenharia Reversa (Interação com a Turma):
+1. `[❓ ENGAJAMENTO]` → **"O que acontece se o usuário digitar 'três' por extenso?"**  
+   *(Cai no `except ValueError`, imprime a mensagem de alerta e NÃO perde vida!)*
+2. `[❓ ENGAJAMENTO]` → **"Qual instrução impede que o jogador perca vida quando digita o número 9?"**  
+   *(O `if chute < 1 or chute > 5:` acompanhado da instrução `continue`!)*
+3. `[❓ ENGAJAMENTO]` → **"O que faz o loop `while` parar de rodar?"**  
+   *(Quando a variável `vidas` chega a 0 após 3 erros de chute)*
+
+---
+
+## ☕ Intervalo — 15 minutos (16h15 – 16h30)
+
+Projete no telão:
+```
+☕ PAUSA PARA O LANCHE (15 min)
+Ao voltar: Missões Práticas com IA e criação do seu próprio jogo!
+Mantenha o VS Code aberto. 🎮
+```
+
+---
+
+## 🟠 Bloco 4: 3 Exercícios Práticos Solo / Engenharia Reversa com IA (50 min)
+
+> **Objetivo:** Alunos escolhem uma missão prática de complexidade real e usam a IA para construir, testar e entender o código no VS Code.
+
+`[SLIDE]` — Projete as 3 Missões no telão:
+
+---
+
+### 🎲 MISSÃO A — "O Caixa Eletrônico Blindado" *(Foco em Validação Finanças)*
+
+**Prompt para copiar na IA (Gemini/ChatGPT):**
 ```
 Atue como professor de Python para iniciantes.
 Crie um programa de Caixa Eletrônico simples no terminal do VS Code.
 Regras:
 1. O programa deve ter um saldo inicial de R$ 500,00.
-2. Use um laço while True com menu: 1-Ver Saldo | 2-Sacar | 3-Depositar | 4-Sair.
+2. Use um laço while True com o menu: 1-Ver Saldo | 2-Sacar | 3-Depositar | 4-Sair.
 3. Use try/except ValueError para tratar entradas não numéricas no saque e depósito.
 4. Não permita sacar mais do que o saldo disponível (use if para isso).
-5. Máximo 30 linhas, sem bibliotecas externas, comentários em português.
+5. Máximo 30 linhas, sem bibliotecas externas, com comentários explicativos em português.
 ```
 
-**Desafio extra:** Peça à IA para adicionar um histórico de transações usando uma lista com `append()`.
+**Desafio Extra:** Peça à IA para limitar o valor máximo de saque a R$ 1.000,00 por operação.
 
 ---
 
-#### 🎮 MISSÃO B — "O Quiz Implacável" *(para quem curte jogos de perguntas)*
+### 🎮 MISSÃO B — "O Quiz Implacável" *(Foco em Jogos e Repetição)*
 
-**Prompt para copiar na IA:**
+**Prompt para copiar na IA (Gemini/ChatGPT):**
 ```
-Atue como um apresentador animado de quiz.
+Atue como um apresentador animado de game show.
 Crie um programa Python para rodar no terminal do VS Code com as regras:
-1. Crie uma lista com 5 perguntas de cultura geral, cada uma com 4 alternativas (A, B, C, D).
-2. Use um laço for para percorrer as perguntas.
-3. Use try/except para tratar respostas inválidas (não A, B, C ou D): repita a pergunta até resposta válida com while.
-4. Ao final, exiba a pontuação e uma classificação com if/elif/else.
-5. Máximo 35 linhas, sem bibliotecas externas, comentários em português.
+1. Faça 3 perguntas de múltipla escolha (A, B, C, D) para o usuário.
+2. Para cada pergunta, use um laço while que só aceita as letras A, B, C ou D.
+3. Se o usuário digitar algo diferente ou inválido, use try/except ou if para avisar e repetir a pergunta.
+4. Ao final, use if/elif/else para dar um troféu de acordo com a nota (3 acertos, 2 acertos, etc.).
+5. Máximo 35 linhas, sem bibliotecas externas.
 ```
 
-**Desafio extra:** Peça à IA para embaralhar a ordem das perguntas usando `random.shuffle()`.
+**Desafio Extra:** Peça à IA para exibir uma dica temática caso o usuário erre na primeira tentativa.
 
 ---
 
-#### 🌡️ MISSÃO C — "O Assistente de Saúde" *(para quem curte apps úteis)*
+### 🌡️ MISSÃO C — "O Monitor de Saúde Pessoal" *(Foco em Estatística e Laços)*
 
-**Prompt para copiar na IA:**
+**Prompt para copiar na IA (Gemini/ChatGPT):**
 ```
-Atue como desenvolvedor sênior de apps Python para saúde.
-Crie um assistente de saúde pessoal no terminal do VS Code com as regras:
-1. Use um laço for para pedir ao usuário que registre 5 medições de frequência cardíaca (bpm).
-2. Use try/except ValueError para rejeitar entradas não numéricas e repetir a pergunta.
-3. Calcule e exiba: média, valor máximo e valor mínimo dos batimentos.
-4. Use if/elif/else para dar um diagnóstico: "Bradicardia" (<60), "Normal" (60-100), "Taquicardia" (>100).
-5. Máximo 30 linhas, sem bibliotecas externas, comentários em português.
+Atue como desenvolvedor de apps de saúde.
+Crie um assistente de monitoramento cardíaco no VS Code:
+1. Use um laço for para pedir ao usuário 4 medições de frequência cardíaca (bpm).
+2. Use try/except ValueError para rejeitar entradas não numéricas e exigir que digite novamente.
+3. Calcule e exiba: a média das 4 medições e o maior valor lido.
+4. Use if/elif/else para classificar a média: <60 ("Repouso/Atleta"), 60-100 ("Normal"), >100 ("Elevado").
+5. Máximo 30 linhas, comentários em português.
 ```
 
-**Desafio extra:** Peça à IA para plotar um gráfico simples em ASCII com os valores registrados.
+**Desafio Extra:** Peça à IA para emitir um alerta `⚠️ ALERTA VERMELHO` se qualquer uma das medições for maior que 140 bpm.
 
 ---
 
-### 🎯 Perguntas Pedagógicas do Monitor (circular pela sala)
-
-Quando o código estiver rodando, o monitor se aproxima:
-
-`[❓ ENGAJAMENTO]` → *"Me aponta onde está o `try/except` no seu código. O que acontece se o usuário digitar 'abc' aí?"*
-
-`[❓ ENGAJAMENTO]` → *"Me mostra o `while` ou `for`. Qual é a condição de saída do laço?"*
-
-`[❓ ENGAJAMENTO]` → *"Se eu tirar o `break`, o que acontece?"*
+### 🎯 Atuação do Monitor/Tutor durante a Prática:
+Circular pela sala e fazer perguntas individuais:
+- `[❓ ENGAJAMENTO]` → *"Onde no seu código está a parte que impede o programa de fechar se eu digitar letras?"*
+- `[❓ ENGAJAMENTO]` → *"Como o `while` sabe a hora exata de parar?"*
 
 ---
 
-## 🚀 Bloco 5: Lançamento Oficial dos Projetos do Intervalo de 1 Mês (30 min)
+## 🟣 Bloco 5: Quebrando o Código para Investigar Erros (25 min)
 
-> **Objetivo:** Apresentar os 3 projetos que os alunos irão desenvolver no smartphone (Pydroid 3) durante o hiato de outubro. Com `try/except`, `while`, `for`, variáveis, `input` e `if/else`, eles têm toda a base necessária!
+> **Objetivo:** Desenvolver mentalidade de Teste de Estresse (QA) e aprender a debugar mensagens de exceção reais com auxílio da IA.
 
-> **Orientação ao Tutor:** Apresente **exclusivamente as 3 opções abaixo** para que cada aluno escolha a sua favorita:
+`[SLIDE]` — Projete a tabela de Testes de Estresse:
 
-### 👾 Opção 1 — "Tamagotchi Escolar" (Foco em `while` + máquina de estados)
-- **A Ideia:** Um "Bichinho Virtual" equilibrando Estudo, Sono e Diversão.
-- **A Lógica:**
-  - Variáveis: `energia = 100`, `conhecimento = 0`, `estresse = 0`.
-  - Laço `while` que roda enquanto `energia > 0` e `estresse < 100`.
-  - Menu: `1-Estudar`, `2-Dormir`, `3-Jogar Celular`.
-  - `try/except` para tratar opções inválidas.
-  - Vitória se `conhecimento >= 100`. Derrota se `energia <= 0` ou `estresse >= 100`.
+```
+🔨 OPERAÇÃO DESTRUIÇÃO: Tente QUEBRAR o seu código!
+Descubra como o Python reage quando submetido a dados incomuns.
+```
 
-### ⚔️ Opção 2 — "A Jornada do Herói" (Mini RPG Textual)
-- **A Ideia:** Aventura em texto por salas de uma masmorra ou escola misteriosa.
-- **A Lógica:**
-  - Variável `vida = 100` e `inventario = []`.
-  - Navegação com `while` e `if/elif/else` para caminhos.
-  - `try/except` para capturar entradas inválidas no menu.
-  - Laço `for` para exibir o inventário.
+| Teste | O que fazer no terminal | Qual erro o Python dispara? | Como o `try/except` tratou? |
+|-------|-------------------------|-----------------------------|-----------------------------|
+| 1. Texto em Número | Digitar `"dez"` no campo numérico | `ValueError` | O `except` evitou o crash? |
+| 2. Divisão por Zero | Digitar `0` quando for dividir algo | `ZeroDivisionError` | Tem `except` específico? |
+| 3. Enter Vazio | Apertar Enter sem digitar nada | `ValueError` | O programa repetiu o pedido? |
 
-### 📊 Opção 3 — "O Teste de Personalidade Buzzfeed" (Quiz de Perfil)
-- **A Ideia:** Quiz que descobre "Qual personagem de filme você é?".
-- **A Lógica:**
-  - Variáveis acumuladoras para cada perfil.
-  - Laço `for` para percorrer as perguntas.
-  - `try/except` + `while` para validar respostas (A, B ou C).
-  - `if/elif/else` para revelar o personagem vencedor.
+### 🧪 Exercício de Debugging com IA:
+
+Peça aos alunos para forçarem um erro proposital (ex: remover a linha do `except`) e copiarem a mensagem vermelha do terminal.
+
+**Prompt de investigação para a IA:**
+```
+Meu código Python no VS Code gerou o seguinte erro no terminal:
+[COLE O ERRO AQUI]
+
+Explique em apenas 2 frases:
+1. O que provocou essa falha.
+2. Como posso adicionar um try/except para resolver definitivamente.
+```
 
 ---
 
-## 🔴 Bloco 6: Encerramento, Tarefa e Preparação para o Hiato (15 min)
+## 🔴 Bloco 6: Resumão, Conclusão e Lançamento do Projeto do Mês (15 min)
 
-### Resumo do Que Foi Aprendido
+### ⏱️ [0–7 min] Resumão e Conclusão das Sintaxes
 
-`[SLIDE]` — Projete no telão:
+`[SLIDE]` — Projete o resumo de sintaxes aprendidas:
+
 ```
-🎯 O QUE VOCÊS DOMINARAM HOJE:
+🎯 SINTAXES DOMINADAS NA AULA 03:
 
-✅ try/except    → O código NUNCA mais vai "quebrar feio"
-✅ while         → O computador REPETE enquanto precisar
-✅ for           → O computador PERCORRE listas e sequências
-✅ break         → Sair do loop quando a condição for atingida
-✅ range()       → Gerar sequências numéricas
-
-🚀 PRÓXIMA AULA (novembro): Vocês voltam com o projeto pronto!
+✅ try / except    → Trata exceções e impede o encerramento abrupto do app
+✅ ValueError      → Exceção disparada ao tentar converter dados incompatíveis
+✅ while condicao: → Repete o bloco enquanto a condição permanecer verdadeira
+✅ while True:     → Loop contínuo (requer break para encerrar)
+✅ break           → Força a saída imediata do laço de repetição
+✅ for i in range: → Executa repetições com contagem definida
 ```
 
-**Frase de fechamento:**
-> *"Hoje vocês aprenderam o que separa um código amador de um código profissional: robustez. Um app que quebra quando o usuário erra não serve. Com try/except, o código aguenta! Guardem o projeto no celular — nos vemos em novembro com o projeto pronto!"*
+---
+
+### ⏱️ [7–15 min] 🚀 Lançamento Oficial dos Projetos do Intervalo de Outubro (1 Mês)
+
+> **Contexto:** Durante o mês de outubro não haverá aulas presenciais. Os alunos levarão o desafio para desenvolver no smartphone (usando o app **Pydroid 3**) ou no computador.
+
+`[SLIDE]` — Projete os 3 Projetos Integrados (Conteúdo Aulas 1, 2 e 3):
+
+---
+
+#### 👾 Opção 1 — "Tamagotchi Escolar" (Bichinho Virtual)
+- **O que faz:** Cuida de um pet virtual controlando `energia`, `conhecimento` e `estresse`.
+- **Requisitos:** Menu `while True`, `try/except` para opções, `if/elif/else` para testar se o pet sobreviveu ou venceu.
+
+#### ⚔️ Opção 2 — "A Jornada do Herói" (RPG Textual)
+- **O que faz:** Jogo de aventura em texto por salas de um castelo/escola.
+- **Requisitos:** Loop `while` de navegação, `vida = 100`, `try/except` para comandos inválidos, `for` para exibir itens.
+
+#### 📊 Opção 3 — "Quiz de Perfil Buzzfeed"
+- **O que faz:** Teste interativo que descobre qual perfil de estudante você é.
+- **Requisitos:** Loop `for` para as perguntas, `while` + `try/except` para validar respostas (A, B ou C), `if/elif/else` para revelar o resultado final.
 
 ---
 
 ## ✅ Conceitos de Programação Absorvidos
 
 - [x] Tratamento de exceções com `try/except` no VS Code
-- [x] Captura de erros específicos (`ValueError`, `ZeroDivisionError`)
-- [x] Blocos `else` e `finally` no tratamento de erros
-- [x] Estrutura de repetição `while` e prevenção de laço infinito
-- [x] Estrutura `for` com `range()`, `enumerate()` e listas
-- [x] Menu interativo com `while True` e `break`
-- [x] Combinação `try/except` + `while` para validação de entradas
+- [x] Captura de exceções específicas (`ValueError`, `ZeroDivisionError`)
+- [x] Laço `while` com condição de parada e laço infinito com `break`
+- [x] Laço `for` com a função `range()`
+- [x] Integração de validação de dados em menus interativos
+- [x] Prática de Engenharia Reversa e Testes de Estresse
+- [x] Utilização da IA para auxílio na depuração de stack traces
 
 ---
 
@@ -435,42 +406,13 @@ Quando o código estiver rodando, o monitor se aproxima:
 
 | Pergunta de Engajamento | Resposta Esperada |
 |------------------------|-------------------|
-| Por que o `input()` não devolve número direto? | Porque `input()` sempre retorna `str`. Precisamos converter com `int()` ou `float()` |
-| O que é `ValueError`? | Erro que ocorre quando tentamos converter texto que não é número (ex: `int("abc")`) |
-| Quando usar `while` vs `for`? | `while` quando não se sabe quantas repetições; `for` quando se sabe ou tem uma lista |
-| O que o `break` faz? | Interrompe imediatamente o laço em que está |
-| O que o `finally` faz? | Executa sempre, independentemente de ter ocorrido erro ou não |
+| Por que o `input()` causa `ValueError` no `int()`? | Porque `int()` não consegue converter caracteres alfabéticos (ex: `"abc"`) em número |
+| O que acontece se o `except` for omitido em um `try`? | Erro de sintaxe (`SyntaxError`), pois todo `try` exige pelo menos um `except` ou `finally` |
+| Qual a principal diferença entre `while` e `for`? | `while` roda com base em uma condição (indeterminado); `for` roda em uma sequência definida |
+| Para que serve a instrução `break`? | Interrompe imediatamente o laço de repetição atual e passa para a linha pós-loop |
 
 ---
 
-### 🏠 Tarefa de Casa — Projeto Integrado (Conteúdo das Aulas 1, 2 e 3)
+## 🏠 Tarefa de Casa — Instruções do Projeto do Intervalo
 
-> **Entrega na Aula 04 (novembro). Cada aluno deve escolher UMA das três opções e desenvolver no Pydroid 3 do celular durante o mês de outubro.**
-
----
-
-#### 👾 Opção 1 — Tamagotchi Escolar
-Requisitos obrigatórios:
-- [ ] Usa variáveis para `energia`, `conhecimento` e `estresse`
-- [ ] Possui menu com `while True` + `try/except` para entradas inválidas
-- [ ] Laço que roda enquanto as condições de jogo são atendidas
-- [ ] Ao menos uma condicional `if/elif/else` para verificar vitória/derrota
-- [ ] Mensagens amigáveis com `f-string`
-
-#### ⚔️ Opção 2 — A Jornada do Herói (Mini RPG)
-Requisitos obrigatórios:
-- [ ] Navegação por pelo menos 3 "salas" com `while` e `if/elif/else`
-- [ ] Inventário como lista com `append()` e exibido com `for`
-- [ ] `try/except` tratando entradas inválidas do menu
-- [ ] Variável de vida que decresce em combates (usando `while`)
-- [ ] Mensagens dramáticas e imersivas com `f-string`
-
-#### 📊 Opção 3 — Teste de Personalidade Buzzfeed
-Requisitos obrigatórios:
-- [ ] Mínimo de 5 perguntas percorridas com laço `for`
-- [ ] Validação de resposta (A, B ou C) com `while` + `try/except`
-- [ ] Pontuação acumulada para cada perfil com variáveis
-- [ ] Resultado final revelado com `if/elif/else`
-- [ ] Pelo menos uma mensagem especial por perfil com `f-string`
-
-> **💡 Dica do Tutor:** Oriente os alunos a usarem a IA no celular para ajudar a criar e corrigir o código, mas que entendam cada linha. Na Aula 04, o tutor fará uma "auditoria viva" perguntando sobre partes específicas do código!
+> **Entrega na Aula 04 (Novembro).** Os alunos devem escolher UMA das 3 opções (Tamagotchi, RPG ou Quiz) e guardar o arquivo `.py` salvo no celular (Pydroid 3) ou no computador para apresentar na feira de projetos no retorno!
