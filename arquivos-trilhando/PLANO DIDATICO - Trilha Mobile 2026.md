@@ -4,7 +4,7 @@
 **Instituição:** Projeto FAPEMING — Trilhando o Caminho do Código
 **Modalidade:** Presencial — Laboratório de Informática
 **Público-alvo:** Estudantes do Ensino Médio (sem conhecimento prévio em programação)
-**Carga Horária Total:** 27 horas (9 aulas × 3h cada)
+**Carga Horária Total:** 30 horas (10 aulas × 3h cada)
 **Periodicidade:** Quartas-feiras, das 15h00 às 18h00
 **Período de Realização:** Setembro a Dezembro de 2026
 **Observação:** Sem aulas no mês de outubro (hiato para desenvolvimento dos projetos do intervalo)
@@ -36,8 +36,9 @@
 | 05 | 11/11/2026 | Modularização e Funções (def, parâmetros e return) |
 | 06 | 18/11/2026 | Consolidação: Dicionários (dict) + Integração Completa da Lógica |
 | 07 | 25/11/2026 | Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais |
-| 08 | 02/12/2026 | Sprint de Desenvolvimento: App Mobile com IA + Ensaio do Pitch |
-| 09 | 09/12/2026 | Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação |
+| 08 | 02/12/2026 | Sprint de Desenvolvimento: App Mobile com IA + GEMINI.md + Ensaio do Pitch |
+| 09 | 09/12/2026 | Sprint Final: Polimento do App + Testes de Qualidade + Ensaio Geral da Apresentação |
+| 10 | 16/12/2026 | Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação |
 
 ---
 
@@ -223,42 +224,64 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 
 ### AULA 09 — 09 de dezembro de 2026 (quarta-feira)
 
+**Tema:** Sprint Final: Polimento do App + Testes de Qualidade + Ensaio Geral da Apresentação
+**Duração:** 3h00 (15h00 às 18h00)
+
+> Penúltima aula. Sessão dedicada exclusivamente ao refinamento dos apps e ao ensaio completo da apresentação antes da Feira Final com convidados em 16/12.
+
+**Objetivos:** Dar às equipes tempo dedicado para polir a interface e a lógica do app; realizar testes de qualidade (UX + bugs); executar o ensaio geral do pitch com feedback do tutor.
+
+**Conteúdo abordado:**
+- Bloco 1 (15 min): QUIZ DE AQUECIMENTO RELÂMPAGO — 3 questões rápidas de revisão geral (Flet, def, try/except). Aquecimento e foco: "Hoje a gente deixa o app IMPECÁVEL para a apresentação de quarta que vem!"
+- Bloco 2 (30 min): Revisão Técnica Guiada — tutor circula por cada equipe fazendo uma revisão técnica de 5 min: checar fluxo do app, mensagens de erro amigáveis (try/except), layout mobile no Pydroid 3 e coerência do GEMINI.md.
+- Bloco 3 (40 min): Sprint de Polimento — cada equipe corrige os pontos levantados na revisão. Uso da IA para refinar mensagens, melhorar layout e adicionar validações com try/except nos campos de entrada.
+- Bloco 4 (55 min): Sessão de Testes Cruzados — as equipes trocam os celulares/computadores e testam o app umas das outras como "usuários reais". Cada equipe anota 3 pontos positivos e 1 sugestão de melhoria. Última rodada de ajustes com base no feedback.
+- Bloco 5 (25 min): Ensaio Geral do Pitch — cada equipe apresenta o pitch completo (5 min) para a turma com cronômetro. O tutor e os colegas dão feedback rápido sobre clareza, confiança e demonstração.
+- Bloco 6 (15 min): Checklist Final da Apresentação — verificar: app salvo no celular e no drive, pitch ensaiado, materiais organizados. Orientações para a Feira Final da semana seguinte (convidados, horário, traje).
+
+**Conceitos revisados:** Integração de todos os fundamentos (Flet, def, try/except, listas, dicionários), UX (experiência do usuário), comunicação técnica
+**Tarefa de Casa:** Fazer 2 testes de estresse no app com entradas inesperadas e ensaiar o pitch mais 2 vezes com o cronômetro em casa.
+
+---
+
+### AULA 10 — 16 de dezembro de 2026 (quarta-feira)
+
 **Tema:** Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação
 **Duração:** 3h00 (15h00 às 18h00)
 
-> ÚLTIMA AULA DO PROJETO. Presença de convidados (coordenadores, professores, familiares). Inclui Pós-teste T1 para coleta de dados da pesquisa.
+> ÚLTIMA AULA DO PROJETO. Presença de convidados (coordenadores, professores, familiares). Inclui Pós-teste T1 para coleta de dados da pesquisa acadêmica.
 
-**Objetivos:** Celebrar conquistas com Feira de Soluções Mobile; coletar o pós-teste T1; encerrar com premiação, certificação e orientações de continuidade.
+**Objetivos:** Celebrar as conquistas dos alunos com a Feira de Soluções Mobile; coletar o pós-teste T1 para medir o delta de aprendizagem; encerrar com premiação, certificação e orientações de continuidade.
 
 **Conteúdo abordado:**
-- Bloco 1 (15 min): Abertura formal e ajustes finais. Recepção dos convidados. Verificação dos apps.
-- Bloco 2 (70 min): FEIRA DE SOLUÇÕES MOBILE — cada equipe apresenta em 5 min + 2 min de perguntas: O Problema (30s), A Demonstração ao vivo (2min), O Código — função principal e interface Flet (1min30s), Auditoria Viva do tutor (1 pergunta técnica). Votação do público: App Mais Criativo, Mais Útil e Mais Técnico.
-- Bloco 3 (15 min): Votação e Premiação — apuração dos votos, entrega de menções honrosas e premiação simbólica.
-- Bloco 4 (30 min): PÓS-TESTE T1 — mesmo formato do T0 da Aula 1 (Pensamento Computacional, Autoeficácia, Letramento em IA). Identificação pelo código anônimo do estudante para pareamento com T0.
-- Bloco 5 (25 min): Encerramento e Certificação — fala de encerramento, distribuição dos certificados, orientações de continuidade (cursos, portfólio, próximos passos), foto coletiva.
-- Bloco 6 (10 min): Avaliação qualitativa ("Em UMA palavra, o que o projeto te ensinou?"). Coleta dos últimos links de chat com a IA.
+- Bloco 1 (15 min): Abertura formal e ajustes finais. Recepção dos convidados (coordenadores, professores, familiares). Verificação dos apps e preparação das equipes.
+- Bloco 2 (70 min): FEIRA DE SOLUÇÕES MOBILE — cada equipe apresenta em 5 min + 2 min de perguntas/auditoria: O Problema (30s), A Demonstração ao vivo (2min), O Código — função principal e interface Flet (1min30s), Auditoria Viva: tutor/monitor faz 1 pergunta técnica para validar autonomia e compreensão real. Votação do público: App Mais Criativo, App Mais Útil e App Mais Técnico.
+- Bloco 3 (15 min): Votação e Premiação — apuração dos votos, entrega de menções honrosas e premiação simbólica por categoria.
+- Bloco 4 (30 min): PÓS-TESTE T1 — mesmo formato do T0 aplicado na Aula 1 (Pensamento Computacional, Autoeficácia em Programação, Letramento em IA). Identificação pelo mesmo código anônimo do estudante para pareamento com T0 e cálculo do delta de aprendizagem.
+- Bloco 5 (20 min): Encerramento e Certificação — fala de encerramento do projeto, distribuição dos certificados de participação, orientações de continuidade (cursos, portfólio no GitHub, próximos passos em programação), foto coletiva da turma.
+- Bloco 6 (10 min): Avaliação qualitativa final — "Em UMA palavra, o que o projeto Trilhando te ensinou!". Coleta dos últimos links de chat com a IA (dados de pesquisa).
 
-**Conceitos revisados:** Todos os conteúdos das Aulas 1–8 (integrados e demonstrados nos projetos finais)
-**Avaliação/Coleta:** Pós-teste T1 (parear com T0 da Aula 1 para calcular delta de aprendizagem)
+**Conceitos revisados:** Todos os conteúdos das Aulas 1–9 (integrados e demonstrados nos projetos finais)
+**Avaliação/Coleta:** Pós-teste T1 (parear com T0 da Aula 1 para calcular delta de aprendizagem — ΔPC e ΔCPSES)
 
 ---
 
 ## 📊 Mapa de Progressão de Conteúdos
 
-| Competência | A1 | A2 | A3 | A4 | A5 | A6 | A7 | A8 | A9 |
-|-------------|----|----|----|----|----|----|----|----|-----|
-| Engenharia de Prompt | X | X | X | X | X | X | X | X | — |
-| print() / input() / Variáveis | * | X | X | X | X | X | X | X | — |
-| Tipos de dados (str, int, float) | — | X | X | X | X | X | X | X | — |
-| if / elif / else | — | X | X | X | X | X | X | X | — |
-| try / except | — | * | X | X | X | X | X | X | — |
-| while e for | — | — | X | X | X | X | X | X | — |
-| Listas (list) | — | — | — | X | X | X | X | X | — |
-| Funções (def, return) | — | — | — | — | X | X | X | X | — |
-| Dicionários (dict) | — | — | — | — | — | X | X | X | — |
-| Interface Gráfica (Flet) | — | — | — | — | — | — | X | X | X |
-| Quiz de Aquecimento | — | — | X | X | X | X | X | X | — |
-| Tarefa de Casa | — | X | X | X | X | X | X | X | — |
+| Competência | A1 | A2 | A3 | A4 | A5 | A6 | A7 | A8 | A9 | A10 |
+|-------------|----|----|----|----|----|----|----|----|-----|-----|
+| Engenharia de Prompt | X | X | X | X | X | X | X | X | X | — |
+| print() / input() / Variáveis | * | X | X | X | X | X | X | X | X | — |
+| Tipos de dados (str, int, float) | — | X | X | X | X | X | X | X | X | — |
+| if / elif / else | — | X | X | X | X | X | X | X | X | — |
+| try / except | — | * | X | X | X | X | X | X | X | — |
+| while e for | — | — | X | X | X | X | X | X | X | — |
+| Listas (list) | — | — | — | X | X | X | X | X | X | — |
+| Funções (def, return) | — | — | — | — | X | X | X | X | X | — |
+| Dicionários (dict) | — | — | — | — | — | X | X | X | X | — |
+| Interface Gráfica (Flet) | — | — | — | — | — | — | X | X | X | X |
+| Quiz de Aquecimento | — | — | X | X | X | X | X | X | X | — |
+| Tarefa de Casa | — | X | X | X | X | X | X | X | X | — |
 
 > Legenda: X = Ensinado e praticado | * = Introduzido superficialmente | — = Não abordado
 
@@ -269,11 +292,11 @@ Opção 3 — Teste de Personalidade Buzzfeed: mínimo 5 perguntas com for, vali
 | Instrumento | Momento | Finalidade |
 |-------------|---------|------------|
 | Pré-teste T0 | Aula 01 | Linha de base — dados de pesquisa |
-| Tarefas de Casa (Aulas 2–8) | Final de cada aula | Prática autônoma e fixação do conteúdo |
+| Tarefas de Casa (Aulas 2–9) | Final de cada aula | Prática autônoma e fixação do conteúdo |
 | Projeto do Intervalo (Tamagotchi / RPG / Buzzfeed) | Apresentado na Aula 4 | Avaliação integradora — conteúdos das Aulas 1, 2 e 3 |
-| Projeto Final (App Mobile com Flet) | Feira de Soluções — Aula 9 | Avaliação somativa — todos os conteúdos do curso |
-| Auditoria Viva nas Apresentações | Aulas 4 e 9 | Verificação de autoria e compreensão real do código |
-| Pós-teste T1 | Aula 09 | Medição do delta de aprendizagem — dados de pesquisa |
+| Projeto Final (App Mobile com Flet) | Feira de Soluções — Aula 10 | Avaliação somativa — todos os conteúdos do curso |
+| Auditoria Viva nas Apresentações | Aulas 4 e 10 | Verificação de autoria e compreensão real do código |
+| Pós-teste T1 | Aula 10 | Medição do delta de aprendizagem — dados de pesquisa |
 
 ---
 
@@ -292,7 +315,7 @@ Este plano didático integra três dimensões formativas simultaneamente:
 
 **1. Dimensão Técnica:** Aprendizagem progressiva de Python — do print() inicial ao App Mobile completo com interface gráfica (Flet) e IA generativa, seguindo uma trilha scaffolded de conceitos.
 
-**2. Dimensão Científica:** Coleta de dados para pesquisa sobre o impacto da IA no desenvolvimento do pensamento computacional. Instrumentos validados: Bebras/CTt (raciocínio algorítmico), CPSES (Autoeficácia — Escala Likert) e Letramento em IA. O pré-teste T0 (Aula 1) e o pós-teste T1 (Aula 9) permitem calcular o delta de aprendizagem de cada participante.
+**2. Dimensão Científica:** Coleta de dados para pesquisa sobre o impacto da IA no desenvolvimento do pensamento computacional. Instrumentos validados: Bebras/CTt (raciocínio algorítmico), CPSES (Autoeficácia — Escala Likert) e Letramento em IA. O pré-teste T0 (Aula 1) e o pós-teste T1 (Aula 10) permitem calcular o delta de aprendizagem de cada participante.
 
 **3. Dimensão Cidadã:** Desenvolvimento de soluções vinculadas aos ODS (Objetivos de Desenvolvimento Sustentável), promovendo o protagonismo juvenil e a tecnologia como ferramenta de transformação social.
 
@@ -301,4 +324,4 @@ O projeto segue os princípios da Design-Based Research (DBR) e Learning Analyti
 ---
 
 *Documento elaborado pelo Projeto Trilhando o Caminho do Código — FAPEMING 2026*
-*Versão 1.0 — Setembro/2026*
+*Versão 1.1 — Setembro/2026 (10 aulas, encerramento em 16/12/2026)*
