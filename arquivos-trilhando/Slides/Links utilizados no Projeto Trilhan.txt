@@ -1,8 +1,8 @@
 Links utilizados no Projeto Trilhando o Caminho Pro Código
 
-Portfólio: https://papaya-mooncake-4d6a67.netlify.app/
+Portfólio: https://github.com/Victorzanaroli/Project-FAPEMING
 
-Slides Aula 01: https://darling-hummingbird-a4efde.netlify.app/
+Slides: https://victorzanaroli.github.io/Project-FAPEMING/
 
 Questionário Alunos: https://docs.google.com/forms/d/1cti5P6zpnqMxsRky83t9_mzwyhQPSM-l3XNMAq9LNyU/edit
 

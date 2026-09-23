@@ -8,7 +8,8 @@
 **Periodicidade:** Quartas-feiras, das 15h00 às 18h00  
 **Período de Realização:** Setembro a Dezembro de 2026  
 **Observação:** Sem aulas no mês de outubro (hiato para desenvolvimento dos projetos do intervalo)  
-**Responsável:** Tutor(a) do Projeto Trilhando o Caminho do Código  
+**Responsável Geral:** Prof. Lázaro Eduardo da Silva  
+**Ministrantes / Tutores:** Victor Couto Zanaroli, Rafael Oliveira Zanelato e Kaique Araújo Xavier  
 
 ---
 
@@ -42,8 +43,8 @@
 | 04 | 04/11/2026 | Retorno: Feira dos Projetos do Intervalo + Listas (list, append, len, for) |
 | 05 | 11/11/2026 | Modularização e Funções (def, parâmetros e return) |
 | 06 | 18/11/2026 | Consolidação: Dicionários (dict) + Integração Completa da Lógica |
-| 07 | 25/11/2026 | Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais |
-| 08 | 02/12/2026 | Sprint de Desenvolvimento + Flet Avançado (Navegação entre Telas, Temas e Ícones) |
+| 07 | 25/11/2026 | Prototipagem de Apps Mobile: Interface Gráfica com Flet (Layout & Componentes) + Projetos Finais |
+| 08 | 02/12/2026 | Sprint de Desenvolvimento + Flet Avançado (Navegação, Cards, Mídia e Feedback) |
 | 09 | 09/12/2026 | Sprint Final: Polimento do App + Testes de Qualidade + Ensaio Geral da Apresentação |
 | 10 | 16/12/2026 | Feira Final de Soluções Mobile + Pós-teste (T1) + Encerramento e Certificação |
 
@@ -117,7 +118,7 @@
 **TAREFA DE CASA — PROJETO INTEGRADO DO INTERVALO (Aulas 1+2+3):**  
 Desenvolver no Pydroid 3 durante outubro. Apresentar na Aula 04. O aluno escolhe 1 opção:  
 - Opção 1 — Tamagotchi Escolar: bichinho virtual com status, menu while True + try/except e condicionais if/elif/else.  
-- Opção 2 — A Jornada do Herói (RPG): navegação por 3+ salas, inventário como lista com append() e for, try/except e vida.  
+- Opção 2 — A Jornada do Herói (RPG): navegação por 3+ salas com escolhas (if/elif/else), acúmulo de vida/pontos, laço while com try/except e for com range().  
 - Opção 3 — Quiz Buzzfeed: 5+ perguntas em for, validação em while + try/except e cálculo do perfil final.  
 
 ---
@@ -193,40 +194,40 @@ Desenvolver no Pydroid 3 durante outubro. Apresentar na Aula 04. O aluno escolhe
 
 ### AULA 07 — 25 de novembro de 2026 (quarta-feira)
 
-**Tema:** Prototipagem de Apps Mobile: Interface Gráfica com Flet + Definição dos Projetos Finais  
+**Tema:** Prototipagem de Apps Mobile: Interface Gráfica com Flet (Layout & Componentes) + Definição dos Projetos Finais  
 **Duração:** 3h00 (15h00 às 18h00)  
 
-**Objetivos:** Transição terminal → app visual; ensinar componentes do Flet; formar equipes e selecionar os Projetos Finais alinhados aos ODS.
+**Objetivos:** Transição terminal → app visual; ensinar componentes básicos e de layout do Flet (Text, TextField, ElevatedButton, Column, Row, Container e scroll); formar equipes e selecionar os Projetos Finais alinhados aos ODS.
 
 **Conteúdo abordado:**
 - Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões de revisão sobre dicionários e integração de lógica.
 - Bloco 2 (15 min): Demonstração ao vivo — conversão de um script terminal para app visual Flet no celular.
-- Bloco 3 (30 min): Componentes Flet — ft.Text(), ft.TextField(), ft.ElevatedButton(), ft.Column(), eventos on_click e page.update().
-- Bloco 4 (25 min): Prática Guiada — conectar calcular_imc(peso, altura) a uma tela Flet.
+- Bloco 3 (30 min): Componentes e Layouts Flet — `ft.Text()`, `ft.TextField()`, `ft.ElevatedButton()`, estruturação vertical e horizontal (`ft.Column()`, `ft.Row()`), agrupamento visual com cartões (`ft.Container()`), suporte a rolagem no celular (`scroll=True`), eventos `on_click` e `page.update()`.
+- Bloco 4 (25 min): Prática Guiada — conectar `calcular_imc(peso, altura)` a uma tela Flet interativa com layout em cards.
 - Bloco 5 (55 min): Brainstorming dos Projetos Finais — formação das equipes, escolha do problema/ODS e rascunho de tela no caderno.
 - Bloco 6 (15 min): Registro dos temas e papéis por equipe.
 
-**Conceitos introduzidos:** Flet, GUI, ft.Text, ft.TextField, ft.ElevatedButton, ft.Column, page.update(), on_click, ODS  
+**Conceitos introduzidos:** Flet, GUI, ft.Text, ft.TextField, ft.ElevatedButton, ft.Column, ft.Row, ft.Container, scroll=True, page.update(), on_click, ODS  
 **Tarefa de Casa:** Esboço da tela do App no caderno ou Pesquisa com Usuários  
 
 ---
 
 ### AULA 08 — 02 de dezembro de 2026 (quarta-feira)
 
-**Tema:** Sprint de Desenvolvimento + Flet Avançado: Navegação entre Telas, Temas de Cor e Ícones  
+**Tema:** Sprint de Desenvolvimento + Flet Avançado: Navegação, Cards, Mídia e Feedback  
 **Duração:** 3h00 (15h00 às 18h00)  
 
-**Objetivos:** Ensinar Flet avançado (navegação entre telas, cores e ícones); realizar 80 minutos de sprint de desenvolvimento assistido por IA.
+**Objetivos:** Ensinar Flet avançado (navegação entre telas, mídia com `ft.Image`, notificações com `ft.SnackBar`, formulários com `ft.Dropdown`, cores e ícones); realizar 80 minutos de sprint de desenvolvimento assistido por IA.
 
 **Conteúdo abordado:**
-- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre componentes básicos do Flet.
-- Bloco 2 (30 min): Flet Avançado — Tema de cor global (page.bgcolor, ThemeMode.DARK), ícones (ft.Icons.*) e navegação com ft.NavigationBar.
+- Bloco 1 (15 min): QUIZ DE AQUECIMENTO — 3 questões sobre componentes e layouts do Flet.
+- Bloco 2 (30 min): Flet Avançado — Tema de cor global (`page.bgcolor`, `ft.ThemeMode.DARK`), ícones (`ft.Icons.*`), inserção de imagens (`ft.Image`), mensagens de alerta/feedback (`ft.SnackBar`), menu de seleção de opções (`ft.Dropdown`) e navegação com `ft.NavigationBar`.
 - Bloco 3 (15 min): Revisão dos protótipos e definição de metas do sprint.
 - Bloco 4 (80 min): SPRINT DE DESENVOLVIMENTO COM IA — construção intensa do aplicativo com apoio técnico a bugs.
 - Bloco 5 (10 min): Estruturação do Pitch (5 min) e divisão de papéis.
 - Bloco 6 (15 min): Checklist de salvamento do código e organização para o sprint final.
 
-**Conceitos introduzidos:** ThemeMode.DARK, ft.Icons.*, ft.NavigationBar, visible=True/False, navegação entre telas  
+**Conceitos introduzidos:** ThemeMode.DARK, ft.Icons.*, ft.Image, ft.SnackBar, ft.Dropdown, ft.NavigationBar, visible=True/False, navegação entre telas  
 **Tarefa de Casa:** Teste de estresse no app e ensaio do pitch em casa  
 
 ---
@@ -306,8 +307,8 @@ Desenvolver no Pydroid 3 durante outubro. Apresentar na Aula 04. O aluno escolhe
 
 ## 🔗 Links e Recursos do Projeto
 
-- Portfólio do Projeto: https://papaya-mooncake-4d6a67.netlify.app/
-- Slides da Aula 01: https://darling-hummingbird-a4efde.netlify.app/
+- Portfólio do Projeto: https://github.com/Victorzanaroli/Project-FAPEMING
+- Slides do Projeto: https://victorzanaroli.github.io/Project-FAPEMING/
 - Questionário Alunos (Cadastro + T0): https://docs.google.com/forms/d/1cti5P6zpnqMxsRky83t9_mzwyhQPSM-l3XNMAq9LNyU/edit
 - Formulário de Coleta dos Chats com IA: https://docs.google.com/forms/d/e/1FAIpQLSfP_wFBFI35Ombbv0kctuP5EAMBLqK2OpG78OmKXHBAT9x4lA/viewform
 
