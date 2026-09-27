@@ -313,8 +313,19 @@ GENERATION_CONFIG = {
 
 @st.cache_resource
 def get_generative_model():
+    # Tenta instanciar os modelos mais recentes e ativos do Gemini
+    candidatos = ["gemini-3.8-flash", "gemini-flash-latest", "gemini-1.5-flash", "gemini-2.5-flash"]
+    for m_name in candidatos:
+        try:
+            return genai.GenerativeModel(
+                model_name=m_name,
+                generation_config=GENERATION_CONFIG,
+                system_instruction=SYSTEM_INSTRUCTION
+            )
+        except Exception:
+            continue
     return genai.GenerativeModel(
-        model_name="gemini-1.5-flash",
+        model_name="gemini-3.8-flash",
         generation_config=GENERATION_CONFIG,
         system_instruction=SYSTEM_INSTRUCTION
     )
@@ -348,11 +359,27 @@ if prompt:
         st.markdown(prompt)
 
     with st.chat_message("assistant", avatar="🤖"):
-        with st.spinner("🤖 GEMINI-1.5-FLASH gerando a resposta..."):
+        with st.spinner("🤖 GEMINI IA gerando a resposta..."):
             try:
                 response = st.session_state.chat_session.send_message(prompt)
                 response_text = response.text
-                st.markdown(f"**🤖 GEMINI-1.5-FLASH**")
+            except Exception as first_err:
+                # Se o modelo inicial falhou (ex: 404 modelo descontinuado), reconecta no gemini-3.8-flash
+                try:
+                    fallback_model = genai.GenerativeModel(
+                        model_name="gemini-3.8-flash",
+                        generation_config=GENERATION_CONFIG,
+                        system_instruction=SYSTEM_INSTRUCTION
+                    )
+                    st.session_state.chat_session = fallback_model.start_chat(history=[])
+                    response = st.session_state.chat_session.send_message(prompt)
+                    response_text = response.text
+                except Exception as final_err:
+                    st.error(f"Erro ao processar resposta da IA: {final_err}")
+                    response_text = None
+
+            if response_text:
+                st.markdown(f"**🤖 GEMINI IA**")
                 st.markdown(response_text)
                 
                 # MINERAÇÃO DE DADOS (WEBHOOK INVISÍVEL EM BACKGROUND)
@@ -361,5 +388,4 @@ if prompt:
                     prompt=prompt,
                     response=response_text
                 )
-            except Exception as e:
-                st.error(f"Erro ao processar resposta da IA: {e}")
+
