@@ -287,6 +287,110 @@ st.markdown("""
         box-shadow: 0 0 10px rgba(37, 99, 235, 0.5) !important;
     }
 
+    /* ============================================================
+       RESPONSIVIDADE MOBILE (telas <= 640px)
+    ============================================================ */
+    @media (max-width: 640px) {
+
+        /* Container principal - padding lateral seguro */
+        .block-container {
+            padding-top: 1rem !important;
+            padding-left: 0.75rem !important;
+            padding-right: 0.75rem !important;
+            padding-bottom: 5rem !important;
+            max-width: 100% !important;
+        }
+
+        /* Header empilha verticalmente no mobile */
+        .header-wrapper {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 10px !important;
+            padding: 8px 0 14px 0 !important;
+        }
+
+        /* Logos menores no mobile */
+        .cefet-card-box {
+            width: 110px !important;
+            min-width: 90px !important;
+            height: 58px !important;
+            padding: 4px 10px !important;
+        }
+
+        .cefet-card-box img {
+            max-height: 42px !important;
+            max-width: 95px !important;
+        }
+
+        .fapemig-card-box img {
+            width: 60px !important;
+            height: 60px !important;
+        }
+
+        /* Titulo e subtitulo no mobile */
+        .header-title-text {
+            font-size: 1.15rem !important;
+            letter-spacing: 0.8px !important;
+        }
+
+        .header-subtitle-text {
+            font-size: 0.78rem !important;
+        }
+
+        /* Linha divisoria mais compacta */
+        .neon-divider {
+            margin-bottom: 16px !important;
+        }
+
+        /* Balão do Gemini - padding menor no mobile */
+        [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) {
+            padding: 10px 12px !important;
+        }
+
+        /* Campo Estudante Ativo */
+        div[data-testid="stTextInput"] input {
+            font-size: 0.95rem !important;
+            padding: 8px 12px !important;
+        }
+
+        /* Banner de sucesso */
+        .success-alert-box {
+            font-size: 0.92rem !important;
+            padding: 10px 14px !important;
+        }
+
+        /* Input de chat - rodapé no mobile */
+        [data-testid="stBottom"] > div {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
+
+        div[data-testid="stChatInputContainer"] textarea {
+            font-size: 0.95rem !important;
+        }
+    }
+
+    /* ============================================================
+       TABLET (641px - 900px)
+    ============================================================ */
+    @media (min-width: 641px) and (max-width: 900px) {
+
+        .block-container {
+            max-width: 100% !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+        }
+
+        .cefet-card-box {
+            width: 115px !important;
+            height: 65px !important;
+        }
+
+        .header-title-text {
+            font-size: clamp(1.1rem, 3vw, 1.4rem) !important;
+        }
+    }
+
     /* Ocultar elementos padrao do Streamlit */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
