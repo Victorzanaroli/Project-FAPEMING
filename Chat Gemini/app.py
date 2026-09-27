@@ -294,7 +294,7 @@ st.markdown("""
 
         /* Container principal - padding lateral seguro */
         .block-container {
-            padding-top: 1rem !important;
+            padding-top: 3.5rem !important;
             padding-left: 0.75rem !important;
             padding-right: 0.75rem !important;
             padding-bottom: 5rem !important;
