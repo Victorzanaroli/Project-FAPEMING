@@ -19,173 +19,174 @@ st.set_page_config(
     layout="wide"
 )
 
-# Helper para converter imagens locais para base64 (garante exibição perfeita)
-def get_base64_image(image_path: str) -> str:
-    if os.path.exists(image_path):
-        with open(image_path, "rb") as img_file:
-            return base64.b64encode(img_file.read()).decode()
+# Resolução dinâmica e à prova de falhas para caminhos de imagem (Local e Streamlit Cloud)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
+
+def get_base64_image(file_name: str) -> str:
+    possible_paths = [
+        os.path.join(BASE_DIR, "assets", file_name),
+        os.path.join(ROOT_DIR, "assets", file_name),
+        os.path.join(ROOT_DIR, "arquivos-trilhando", "Imagens", file_name),
+        os.path.join(os.getcwd(), "assets", file_name),
+        os.path.join(os.getcwd(), "Chat Gemini", "assets", file_name),
+        file_name
+    ]
+    for path in possible_paths:
+        if os.path.exists(path):
+            try:
+                with open(path, "rb") as img_file:
+                    return base64.b64encode(img_file.read()).decode()
+            except Exception:
+                pass
     return ""
 
-cefet_b64 = get_base64_image("assets/logo-cefet.jpg") or get_base64_image("../arquivos-trilhando/Imagens/logo-cefet.jpg")
-fapemig_b64 = get_base64_image("assets/logo-fapemig.jpg") or get_base64_image("../arquivos-trilhando/Imagens/logo-fapemig.jpg")
+cefet_b64 = get_base64_image("logo-cefet.jpg")
+fapemig_b64 = get_base64_image("logo-fapemig.jpg")
 
-# Inject CSS para réplica 100% idêntica da imagem de exemplo + notranslate para evitar erro de tradução automática do Chrome
+# CSS para réplica 100% fiel ao design da imagem de exemplo
 st.markdown("""
 <meta name="google" content="notranslate">
 <style>
     /* Prevenção contra travamento do Google Tradutor no React DOM */
     .stApp {
         translate: no !important;
-    }
-    
-    /* Estilização Geral do Fundo */
-    .stApp {
         background-color: #0B0E14 !important;
         color: #F3F4F6 !important;
     }
     
-    /* Remove padding excessivo do topo do Streamlit */
-    .block-container {{
+    /* Remove espaçamentos extras do topo */
+    .block-container {
         padding-top: 1rem !important;
         padding-bottom: 2rem !important;
-        max-width: 1000px !important;
-    }}
+        max-width: 950px !important;
+    }
     
-    /* Header Institucional Superior */
-    .header-wrapper {{
+    /* Cabeçalho Institucional */
+    .header-wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 12px 10px 20px 10px;
+        padding: 10px 0px 20px 0px;
         background-color: #0B0E14;
-        margin-bottom: 5px;
-    }}
+    }
     
-    .cefet-card {{
+    .cefet-card-box {
         background: #09203F;
         border: 1.5px solid #2563EB;
-        box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+        box-shadow: 0 0 16px rgba(37, 99, 235, 0.45);
         border-radius: 14px;
-        padding: 8px 18px;
+        padding: 6px 14px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 130px;
+        width: 140px;
         height: 75px;
-    }}
+    }
     
-    .cefet-card img {{
+    .cefet-card-box img {
         max-height: 55px;
-        max-width: 110px;
+        max-width: 120px;
         object-fit: contain;
-    }}
+    }
     
-    .title-center {{
+    .title-center-box {
         text-align: center;
         flex-grow: 1;
-        padding: 0 15px;
-    }}
+        padding: 0 20px;
+    }
     
-    .header-title-text {{
+    .header-title-text {
         color: #38BDF8 !important;
         font-family: 'Segoe UI', system-ui, sans-serif;
         font-size: 2.1rem !important;
         font-weight: 800 !important;
-        letter-spacing: 1.2px;
+        letter-spacing: 1.5px;
         margin: 0;
         text-transform: uppercase;
         text-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
-    }}
+    }
     
-    .header-subtitle-text {{
+    .header-subtitle-text {
         color: #94A3B8 !important;
         font-family: 'Segoe UI', system-ui, sans-serif;
         font-size: 1.05rem !important;
         margin-top: 4px;
         font-weight: 400;
-    }}
+    }
     
-    .fapemig-card img {{
-        width: 78px;
-        height: 78px;
+    .fapemig-card-box img {
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-        border: 1px solid #38BDF8;
-    }}
+        box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+        border: 1.5px solid #38BDF8;
+    }
     
     /* Linha Divisória Neon */
-    .neon-divider {{
+    .neon-divider {
         height: 2px;
         background: linear-gradient(90deg, #1E3A8A 0%, #EC4899 50%, #38BDF8 100%);
         box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
-        margin-bottom: 30px;
-    }}
+        margin-bottom: 25px;
+    }
     
-    /* Card de Identificação "Estudante Ativo" */
-    .student-container {{
-        background-color: #161B26;
-        border: 1px solid #242D3D;
-        border-radius: 12px;
-        padding: 14px 20px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 16px;
-    }}
+    /* Estilização do Campo Estudante Ativo */
+    div[data-testid="stTextInput"] > label {
+        color: #94A3B8 !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 6px !important;
+    }
     
-    .student-icon-box {{
-        background-color: #2E2344;
-        color: #A855F7;
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        flex-shrink: 0;
-    }}
+    div[data-testid="stTextInput"] input {
+        background-color: #1E2638 !important;
+        color: #FFFFFF !important;
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
+        padding: 10px 14px !important;
+        font-size: 1rem !important;
+    }
     
-    .student-text-label {{
-        color: #E2E8F0;
-        font-size: 1.1rem;
-        font-weight: 500;
-        white-space: nowrap;
-    }}
+    div[data-testid="stTextInput"] input:focus {
+        border-color: #38BDF8 !important;
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) !important;
+    }
     
     /* Banner Verde de Sucesso */
-    .success-alert-box {{
+    .success-alert-box {
         background-color: rgba(16, 185, 129, 0.08);
-        border: 1px solid #10B981;
+        border: 1.5px solid #10B981;
         border-radius: 10px;
-        padding: 12px 18px;
+        padding: 12px 20px;
         color: #34D399;
         font-size: 1.05rem;
         font-weight: 500;
+        margin-top: 10px;
         margin-bottom: 25px;
-    }}
+        box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+    }
     
-    .success-alert-box strong {{
+    .success-alert-box strong {
         color: #34D399;
-    }}
+    }
 
-    /* Estilização dos Balões de Chat e Borda Neon */
-    [data-testid="stChatMessage"] {{
+    /* Balões de Chat e Input inferior */
+    [data-testid="stChatMessage"] {
         background-color: transparent !important;
         padding: 8px 0px !important;
-    }}
+    }
 
-    /* Input do Chat na parte inferior */
-    .stChatInputContainer {{
+    .stChatInputContainer {
         background-color: #161B26 !important;
         border: 1px solid #242D3D !important;
         border-radius: 10px !important;
-    }}
+    }
     
-    /* Esconde elementos padrões do Streamlit */
-    #MainMenu {{visibility: hidden;}}
-    footer {{visibility: hidden;}}
+    /* Ocultar elementos padrão do Streamlit */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
@@ -198,14 +199,14 @@ fapemig_img_html = f'<img src="data:image/jpeg;base64,{fapemig_b64}">' if fapemi
 
 st.markdown(f"""
 <div class="header-wrapper">
-    <div class="cefet-card">
+    <div class="cefet-card-box">
         {cefet_img_html}
     </div>
-    <div class="title-center">
+    <div class="title-center-box">
         <h1 class="header-title-text">TRILHANDO O CAMINHO DO CÓDIGO</h1>
         <p class="header-subtitle-text">Projeto de Pesquisa e Extensão CEFET-MG & FAPEMIG</p>
     </div>
-    <div class="fapemig-card">
+    <div class="fapemig-card-box">
         {fapemig_img_html}
     </div>
 </div>
@@ -277,13 +278,11 @@ genai.configure(api_key=api_key)
 # ==============================================================================
 # CONTROLE DE INTERFACE (UI) - "ESTUDANTE ATIVO"
 # ==============================================================================
-col_input, col_space = st.columns([1, 0.01])
-with col_input:
-    student_name = st.text_input(
-        label="Estudante Ativo:",
-        placeholder="Digite seu nome completo aqui para liberar o chat...",
-        key="student_name_input"
-    ).strip()
+student_name = st.text_input(
+    label="Estudante Ativo:",
+    placeholder="Digite seu nome completo aqui para liberar o chat...",
+    key="student_name_input"
+).strip()
 
 is_student_identified = bool(student_name)
 
@@ -298,7 +297,7 @@ else:
 
 
 # ==============================================================================
-# CÉREBRO E PERSONALIDADE DO MODELO (GEMINI 1.5 FLASH)
+# CÉREBRO E PERSONALIDADE DO MODELO (GEMINI 3.8 / FLASH)
 # ==============================================================================
 SYSTEM_INSTRUCTION = """
 Você é o GEMINI-1.5-FLASH, assistente virtual do projeto "TRILHANDO O CAMINHO DO CÓDIGO".
@@ -319,7 +318,6 @@ GENERATION_CONFIG = {
 
 @st.cache_resource
 def get_generative_model():
-    # Tenta instanciar os modelos mais recentes e ativos do Gemini
     candidatos = ["gemini-3.8-flash", "gemini-flash-latest", "gemini-1.5-flash", "gemini-2.5-flash"]
     for m_name in candidatos:
         try:
@@ -344,7 +342,6 @@ model = get_generative_model()
 if "chat_session" not in st.session_state:
     st.session_state.chat_session = model.start_chat(history=[])
 
-# Renderiza as mensagens trocadas
 for message in st.session_state.chat_session.history:
     if message.role == "user":
         with st.chat_message("user"):
@@ -370,7 +367,6 @@ if prompt:
                 response = st.session_state.chat_session.send_message(prompt)
                 response_text = response.text
             except Exception as first_err:
-                # Se o modelo inicial falhou (ex: 404 modelo descontinuado), reconecta no gemini-3.8-flash
                 try:
                     fallback_model = genai.GenerativeModel(
                         model_name="gemini-3.8-flash",
@@ -385,7 +381,7 @@ if prompt:
                     response_text = None
 
             if response_text:
-                st.markdown(f"**🤖 GEMINI IA**")
+                st.markdown(f"**🤖 GEMINI-1.5-FLASH**")
                 st.markdown(response_text)
                 
                 # MINERAÇÃO DE DADOS (WEBHOOK INVISÍVEL EM BACKGROUND)
@@ -394,4 +390,3 @@ if prompt:
                     prompt=prompt,
                     response=response_text
                 )
-
