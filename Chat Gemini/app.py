@@ -58,7 +58,7 @@ st.markdown("""
     }
 
     .block-container {
-        padding-top: 1rem !important;
+        padding-top: 2.5rem !important;
         padding-bottom: 6rem !important;
         max-width: 950px !important;
         margin-left: auto !important;
@@ -113,9 +113,7 @@ st.markdown("""
         text-transform: uppercase;
         text-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
         line-height: 1.2;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        word-break: break-word;
     }
 
     .header-subtitle-text {
