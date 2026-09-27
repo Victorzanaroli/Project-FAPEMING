@@ -97,6 +97,10 @@ st.markdown("""
     }
 
     .title-center-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
         flex-grow: 1;
         padding: 0 10px;
@@ -109,19 +113,23 @@ st.markdown("""
         font-size: clamp(1.0rem, 2.2vw, 1.55rem) !important;
         font-weight: 800 !important;
         letter-spacing: 1.5px;
-        margin: 0;
+        margin: 0 auto !important;
+        text-align: center !important;
         text-transform: uppercase;
         text-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
         line-height: 1.2;
         word-break: break-word;
+        width: 100%;
     }
 
     .header-subtitle-text {
         color: #94A3B8 !important;
         font-family: 'Segoe UI', system-ui, sans-serif;
         font-size: clamp(0.75rem, 1.4vw, 1.05rem) !important;
-        margin-top: 4px;
+        margin: 4px auto 0 auto !important;
+        text-align: center !important;
         font-weight: 400;
+        width: 100%;
     }
 
     .fapemig-card-box {
