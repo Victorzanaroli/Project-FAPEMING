@@ -7,19 +7,19 @@ import streamlit as st
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# Carrega variáveis de ambiente de um arquivo .env local, se existir
+# Carrega variaveis de ambiente de um arquivo .env local, se existir
 load_dotenv()
 
 # ==============================================================================
-# CONFIGURAÇÃO DE PÁGINA DO STREAMLIT & MODO ESCURO INSTITUCIONAL
+# CONFIGURACAO DE PAGINA DO STREAMLIT & MODO ESCURO INSTITUCIONAL
 # ==============================================================================
 st.set_page_config(
-    page_title="TRILHANDO O CAMINHO DO CÓDIGO",
-    page_icon="🤖",
+    page_title="TRILHANDO O CAMINHO DO CODIGO",
+    page_icon="\U0001f916",
     layout="wide"
 )
 
-# Resolução dinâmica e à prova de falhas para caminhos de imagem (Local e Streamlit Cloud)
+# Resolucao dinamica e a prova de falhas para caminhos de imagem
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
 
@@ -44,33 +44,37 @@ def get_base64_image(file_name: str) -> str:
 cefet_b64 = get_base64_image("logo-cefet.jpg")
 fapemig_b64 = get_base64_image("logo-fapemig.jpg")
 
-# CSS para réplica 100% fiel ao design da imagem de exemplo
+# ==============================================================================
+# CSS - Replica fiel ao design de referencia (corrigido para deploy)
+# ==============================================================================
 st.markdown("""
 <meta name="google" content="notranslate">
 <style>
-    /* Prevenção contra travamento do Google Tradutor no React DOM */
+    /* Base */
     .stApp {
         translate: no !important;
         background-color: #0B0E14 !important;
         color: #F3F4F6 !important;
     }
-    
-    /* Remove espaçamentos extras do topo */
+
     .block-container {
         padding-top: 1rem !important;
-        padding-bottom: 2rem !important;
+        padding-bottom: 6rem !important;
         max-width: 950px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
-    
-    /* Cabeçalho Institucional */
+
+    /* Cabecalho Institucional */
     .header-wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 0px 20px 0px;
+        padding: 10px 0 20px 0;
         background-color: #0B0E14;
+        gap: 12px;
     }
-    
+
     .cefet-card-box {
         background: #09203F;
         border: 1.5px solid #2563EB;
@@ -81,40 +85,49 @@ st.markdown("""
         align-items: center;
         justify-content: center;
         width: 140px;
+        min-width: 110px;
         height: 75px;
+        flex-shrink: 0;
     }
-    
+
     .cefet-card-box img {
         max-height: 55px;
         max-width: 120px;
         object-fit: contain;
     }
-    
+
     .title-center-box {
         text-align: center;
         flex-grow: 1;
-        padding: 0 20px;
+        padding: 0 10px;
+        min-width: 0;
     }
-    
+
     .header-title-text {
         color: #38BDF8 !important;
         font-family: 'Segoe UI', system-ui, sans-serif;
-        font-size: 2.1rem !important;
+        font-size: clamp(1.2rem, 2.8vw, 2.1rem) !important;
         font-weight: 800 !important;
         letter-spacing: 1.5px;
         margin: 0;
         text-transform: uppercase;
         text-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+        line-height: 1.2;
+        word-break: break-word;
     }
-    
+
     .header-subtitle-text {
         color: #94A3B8 !important;
         font-family: 'Segoe UI', system-ui, sans-serif;
-        font-size: 1.05rem !important;
+        font-size: clamp(0.75rem, 1.4vw, 1.05rem) !important;
         margin-top: 4px;
         font-weight: 400;
     }
-    
+
+    .fapemig-card-box {
+        flex-shrink: 0;
+    }
+
     .fapemig-card-box img {
         width: 80px;
         height: 80px;
@@ -123,23 +136,23 @@ st.markdown("""
         box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
         border: 1.5px solid #38BDF8;
     }
-    
-    /* Linha Divisória Neon */
+
+    /* Linha Divisoria Neon */
     .neon-divider {
         height: 2px;
         background: linear-gradient(90deg, #1E3A8A 0%, #EC4899 50%, #38BDF8 100%);
         box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
         margin-bottom: 25px;
     }
-    
-    /* Estilização do Campo Estudante Ativo */
+
+    /* Campo Estudante Ativo */
     div[data-testid="stTextInput"] > label {
         color: #94A3B8 !important;
         font-size: 1rem !important;
         font-weight: 600 !important;
         margin-bottom: 6px !important;
     }
-    
+
     div[data-testid="stTextInput"] input {
         background-color: #1E2638 !important;
         color: #FFFFFF !important;
@@ -148,12 +161,13 @@ st.markdown("""
         padding: 10px 14px !important;
         font-size: 1rem !important;
     }
-    
+
     div[data-testid="stTextInput"] input:focus {
         border-color: #38BDF8 !important;
         box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) !important;
+        outline: none !important;
     }
-    
+
     /* Banner Verde de Sucesso */
     .success-alert-box {
         background-color: rgba(16, 185, 129, 0.08);
@@ -167,24 +181,83 @@ st.markdown("""
         margin-bottom: 25px;
         box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
     }
-    
+
     .success-alert-box strong {
         color: #34D399;
     }
 
-    /* Balões de Chat e Input inferior */
+    /* Baloes de Chat */
     [data-testid="stChatMessage"] {
         background-color: transparent !important;
-        padding: 8px 0px !important;
+        border: none !important;
+        padding: 4px 0 !important;
     }
 
-    .stChatInputContainer {
-        background-color: #161B26 !important;
-        border: 1px solid #242D3D !important;
-        border-radius: 10px !important;
+    /* Resposta do Gemini - borda roxa/azul escura igual a imagem de referencia */
+    [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) {
+        background-color: #111827 !important;
+        border: 1.5px solid #312E81 !important;
+        border-radius: 12px !important;
+        padding: 14px 18px !important;
+        margin: 8px 0 !important;
     }
-    
-    /* Ocultar elementos padrão do Streamlit */
+
+    /* Bloco de codigo dentro da resposta */
+    [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) pre,
+    [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) .stCodeBlock {
+        background-color: #0D1117 !important;
+        border: 1px solid #30363D !important;
+        border-radius: 8px !important;
+    }
+
+    /* Input de Chat (rodape) - corrige largura no deploy */
+    [data-testid="stBottom"] {
+        background: linear-gradient(to top, #0B0E14 80%, transparent) !important;
+        padding-bottom: 14px !important;
+    }
+
+    [data-testid="stBottom"] > div {
+        max-width: 950px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    div[data-testid="stChatInputContainer"] {
+        background-color: #161B26 !important;
+        border: 1px solid #2D3748 !important;
+        border-radius: 28px !important;
+        padding: 4px 8px !important;
+    }
+
+    div[data-testid="stChatInputContainer"] textarea {
+        background-color: transparent !important;
+        color: #E2E8F0 !important;
+        font-size: 1rem !important;
+        caret-color: #38BDF8 !important;
+        border: none !important;
+        box-shadow: none !important;
+        resize: none !important;
+    }
+
+    div[data-testid="stChatInputContainer"] textarea::placeholder {
+        color: #64748B !important;
+    }
+
+    div[data-testid="stChatInputContainer"] button {
+        background-color: #2563EB !important;
+        border-radius: 50% !important;
+        color: white !important;
+        border: none !important;
+    }
+
+    div[data-testid="stChatInputContainer"] button:hover {
+        background-color: #1D4ED8 !important;
+        box-shadow: 0 0 10px rgba(37, 99, 235, 0.5) !important;
+    }
+
+    /* Ocultar elementos padrao do Streamlit */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
 </style>
@@ -192,7 +265,7 @@ st.markdown("""
 
 
 # ==============================================================================
-# RENDERIZAÇÃO DO CABEÇALHO (LOGO CEFET, TÍTULO E LOGO FAPEMIG)
+# RENDERIZACAO DO CABECALHO (LOGO CEFET, TITULO E LOGO FAPEMIG)
 # ==============================================================================
 cefet_img_html = f'<img src="data:image/jpeg;base64,{cefet_b64}">' if cefet_b64 else '<b style="color:white;">CEFET-MG</b>'
 fapemig_img_html = f'<img src="data:image/jpeg;base64,{fapemig_b64}">' if fapemig_b64 else '<b style="color:white;">FAPEMIG</b>'
@@ -203,8 +276,8 @@ st.markdown(f"""
         {cefet_img_html}
     </div>
     <div class="title-center-box">
-        <h1 class="header-title-text">TRILHANDO O CAMINHO DO CÓDIGO</h1>
-        <p class="header-subtitle-text">Projeto de Pesquisa e Extensão CEFET-MG & FAPEMIG</p>
+        <h1 class="header-title-text">TRILHANDO O CAMINHO DO CODIGO</h1>
+        <p class="header-subtitle-text">Projeto de Pesquisa e Extensao CEFET-MG &amp; FAPEMIG</p>
     </div>
     <div class="fapemig-card-box">
         {fapemig_img_html}
@@ -215,7 +288,7 @@ st.markdown(f"""
 
 
 # ==============================================================================
-# FUNÇÕES DE CONFIGURAÇÃO E WEBHOOK
+# FUNCOES DE CONFIGURACAO E WEBHOOK
 # ==============================================================================
 def get_config(key: str, default: str = "") -> str:
     try:
@@ -254,22 +327,22 @@ def send_to_google_forms(student_name: str, prompt: str, response: str):
         try:
             requests.post(form_url, data=payload, headers=headers, timeout=5)
         except Exception as e:
-            print(f"[Webhook Forms Log] Erro ao enviar mineração de dados: {e}")
+            print(f"[Webhook Forms Log] Erro ao enviar mineracao de dados: {e}")
 
     threading.Thread(target=_post_request, daemon=True).start()
 
 
-# Configuração da API Gemini
+# Configuracao da API Gemini
 api_key = get_config("GEMINI_API_KEY")
 
 if not api_key:
     with st.sidebar:
-        st.header("🔑 Configuração da API")
+        st.header("\U0001f511 Configuracao da API")
         api_key = st.text_input("Gemini API Key", type="password", help="Insira sua chave da API do Google AI Studio.")
         st.info("Para salvar permanentemente, configure em `.env` ou em `.streamlit/secrets.toml`.")
 
 if not api_key:
-    st.error("⚠️ Chave de API do Gemini não encontrada! Por favor, insira a chave na barra lateral ou configure o ambiente.")
+    st.error("\u26a0\ufe0f Chave de API do Gemini nao encontrada! Por favor, insira a chave na barra lateral ou configure o ambiente.")
     st.stop()
 
 genai.configure(api_key=api_key)
@@ -287,32 +360,32 @@ student_name = st.text_input(
 is_student_identified = bool(student_name)
 
 if not is_student_identified:
-    st.warning("🔒 Por favor, informe seu nome no campo 'Estudante Ativo' acima para liberar o chat.")
+    st.warning("\U0001f512 Por favor, informe seu nome no campo 'Estudante Ativo' acima para liberar o chat.")
 else:
     st.markdown(f"""
     <div class="success-alert-box">
-        ✅ Bem-vindo(a), <strong>{student_name}</strong>! Seu chat está liberado.
+        \u2705 Bem-vindo(a), <strong>{student_name}</strong>! Seu chat esta liberado.
     </div>
     """, unsafe_allow_html=True)
 
 
 # ==============================================================================
-# CÉREBRO E PERSONALIDADE DO MODELO (GEMINI 3.8 / FLASH)
+# CEREBRO E PERSONALIDADE DO MODELO (GEMINI 3.8 / FLASH)
 # ==============================================================================
 SYSTEM_INSTRUCTION = """
-Você é o GEMINI-1.5-FLASH, assistente virtual e tutor especialista do projeto "TRILHANDO O CAMINHO DO CÓDIGO".
+Voce e o GEMINI-1.5-FLASH, assistente virtual e tutor especialista do projeto "TRILHANDO O CAMINHO DO CODIGO".
 
-SUA MISSÃO E DIRETRIA DE RESPOSTA INTELIGENTE:
+SUA MISSAO E DIRETRIA DE RESPOSTA INTELIGENTE:
 
-1. DISTINÇÃO INTELIGENTE DO CONTEXTO:
-   - Se a pergunta do aluno for CONCEITUAL, TEÓRICA ou UMA DÚVIDA GERAL (ex: "o que é uma variável?", "como funciona o Flet?", "o que é um loop?"):
-     -> Responda de forma clara, didática, concisa e explicativa, SEM incluir blocos de código desnecessários no final.
+1. DISTINCAO INTELIGENTE DO CONTEXTO:
+   - Se a pergunta do aluno for CONCEITUAL, TEORICA ou UMA DUVIDA GERAL (ex: "o que e uma variavel?", "como funciona o Flet?", "o que e um loop?"):
+     -> Responda de forma clara, didatica, concisa e explicativa, SEM incluir blocos de codigo desnecessarios no final.
    
-   - Se a pergunta do aluno pedir CÓDIGO, EXEMPLO PRÁTICO, IMPLEMENTAÇÃO ou COMO PROGRAMAR ALGO (ex: "como criar um botão no Flet?", "faça o jogo da cobrinha", "me dê um exemplo de código"):
-     -> Forneça a explicação e inclua o CÓDIGO COMPLETO, limpo e pronto para ser executado (em blocos ```python), incluindo todos os imports e funções necessárias.
+   - Se a pergunta do aluno pedir CODIGO, EXEMPLO PRATICO, IMPLEMENTACAO ou COMO PROGRAMAR ALGO (ex: "como criar um botao no Flet?", "faca o jogo da cobrinha", "me de um exemplo de codigo"):
+     -> Forneca a explicacao e inclua o CODIGO COMPLETO, limpo e pronto para ser executado (em blocos ```python), incluindo todos os imports e funcoes necessarias.
 
 2. TOM DE VOZ:
-   - Responda sempre com tom didático, profissional, encorajador, claro e direto.
+   - Responda sempre com tom didatico, profissional, encorajador, claro e direto.
 """
 
 GENERATION_CONFIG = {
@@ -343,7 +416,7 @@ def get_generative_model():
 model = get_generative_model()
 
 # ==============================================================================
-# MEMÓRIA DE SESSÃO & EXIBIÇÃO DO CHAT
+# MEMORIA DE SESSAO & EXIBICAO DO CHAT
 # ==============================================================================
 if "chat_session" not in st.session_state:
     st.session_state.chat_session = model.start_chat(history=[])
@@ -353,13 +426,13 @@ for message in st.session_state.chat_session.history:
         with st.chat_message("user"):
             st.markdown(message.parts[0].text)
     else:
-        with st.chat_message("assistant", avatar="🤖"):
-            st.markdown(f"**🤖 GEMINI-1.5-FLASH**")
+        with st.chat_message("assistant", avatar="\U0001f916"):
+            st.markdown(f"**\U0001f916 GEMINI-1.5-FLASH**")
             st.markdown(message.parts[0].text)
 
-# Input de mensagens do usuário
+# Input de mensagens do usuario
 prompt = st.chat_input(
-    placeholder="Digite sua dúvida de Python ou peça um código em Flet...",
+    placeholder="Digite sua duvida de Python ou peca um codigo em Flet...",
     disabled=not is_student_identified
 )
 
@@ -367,8 +440,8 @@ if prompt:
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    with st.chat_message("assistant", avatar="🤖"):
-        with st.spinner("🤖 GEMINI IA gerando a resposta..."):
+    with st.chat_message("assistant", avatar="\U0001f916"):
+        with st.spinner("\U0001f916 GEMINI IA gerando a resposta..."):
             try:
                 response = st.session_state.chat_session.send_message(prompt)
                 response_text = response.text
@@ -387,10 +460,10 @@ if prompt:
                     response_text = None
 
             if response_text:
-                st.markdown(f"**🤖 GEMINI-1.5-FLASH**")
+                st.markdown(f"**\U0001f916 GEMINI-1.5-FLASH**")
                 st.markdown(response_text)
                 
-                # MINERAÇÃO DE DADOS (WEBHOOK INVISÍVEL EM BACKGROUND)
+                # MINERACAO DE DADOS (WEBHOOK INVISIVEL EM BACKGROUND)
                 send_to_google_forms(
                     student_name=student_name,
                     prompt=prompt,
