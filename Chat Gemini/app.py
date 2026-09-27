@@ -29,14 +29,20 @@ def get_base64_image(image_path: str) -> str:
 cefet_b64 = get_base64_image("assets/logo-cefet.jpg") or get_base64_image("../arquivos-trilhando/Imagens/logo-cefet.jpg")
 fapemig_b64 = get_base64_image("assets/logo-fapemig.jpg") or get_base64_image("../arquivos-trilhando/Imagens/logo-fapemig.jpg")
 
-# Inject CSS para réplica 100% idêntica da imagem de exemplo
-st.markdown(f"""
+# Inject CSS para réplica 100% idêntica da imagem de exemplo + notranslate para evitar erro de tradução automática do Chrome
+st.markdown("""
+<meta name="google" content="notranslate">
 <style>
+    /* Prevenção contra travamento do Google Tradutor no React DOM */
+    .stApp {
+        translate: no !important;
+    }
+    
     /* Estilização Geral do Fundo */
-    .stApp {{
+    .stApp {
         background-color: #0B0E14 !important;
         color: #F3F4F6 !important;
-    }}
+    }
     
     /* Remove padding excessivo do topo do Streamlit */
     .block-container {{
