@@ -106,14 +106,16 @@ st.markdown("""
     .header-title-text {
         color: #38BDF8 !important;
         font-family: 'Segoe UI', system-ui, sans-serif;
-        font-size: clamp(1.2rem, 2.8vw, 2.1rem) !important;
+        font-size: clamp(1.0rem, 2.2vw, 1.55rem) !important;
         font-weight: 800 !important;
         letter-spacing: 1.5px;
         margin: 0;
         text-transform: uppercase;
         text-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
         line-height: 1.2;
-        word-break: break-word;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .header-subtitle-text {
@@ -224,11 +226,24 @@ st.markdown("""
         padding-right: 1rem !important;
     }
 
-    div[data-testid="stChatInputContainer"] {
+    /* Chat input container - override todas as variantes de borda do Streamlit */
+    div[data-testid="stChatInputContainer"],
+    div[data-testid="stChatInputContainer"]:focus-within,
+    div[data-testid="stChatInputContainer"]:focus,
+    div[data-testid="stChatInputContainer"]:hover,
+    div[data-testid="stChatInputContainer"]:active {
         background-color: #161B26 !important;
         border: 1px solid #2D3748 !important;
         border-radius: 28px !important;
         padding: 4px 8px !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    /* Override agressivo do box-shadow vermelho/laranja do Streamlit no focus */
+    div[data-testid="stChatInputContainer"] * {
+        box-shadow: none !important;
+        outline: none !important;
     }
 
     div[data-testid="stChatInputContainer"] textarea {
@@ -238,18 +253,27 @@ st.markdown("""
         caret-color: #38BDF8 !important;
         border: none !important;
         box-shadow: none !important;
+        outline: none !important;
         resize: none !important;
+    }
+
+    div[data-testid="stChatInputContainer"] textarea:focus {
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
     }
 
     div[data-testid="stChatInputContainer"] textarea::placeholder {
         color: #64748B !important;
     }
 
+    /* Botao de enviar (seta azul) */
     div[data-testid="stChatInputContainer"] button {
         background-color: #2563EB !important;
         border-radius: 50% !important;
         color: white !important;
         border: none !important;
+        box-shadow: none !important;
     }
 
     div[data-testid="stChatInputContainer"] button:hover {
