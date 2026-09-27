@@ -1,0 +1,3 @@
+requirements.txt text eol=lf
+Chat Gemini/requirements.txt text eol=lf
+*.py text eol=lf
