@@ -531,7 +531,7 @@ GENERATION_CONFIG = {
 
 @st.cache_resource
 def get_generative_model():
-    candidatos = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-flash-latest"]
+    candidatos = ["gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3.8-flash"]
     for m_name in candidatos:
         try:
             return genai.GenerativeModel(
@@ -542,7 +542,7 @@ def get_generative_model():
         except Exception:
             continue
     return genai.GenerativeModel(
-        model_name="gemini-1.5-flash",
+        model_name="gemini-3.1-flash-lite",
         generation_config=GENERATION_CONFIG,
         system_instruction=SYSTEM_INSTRUCTION
     )
@@ -561,7 +561,7 @@ for message in st.session_state.chat_session.history:
             st.markdown(message.parts[0].text)
     else:
         with st.chat_message("assistant", avatar="\U0001f916"):
-            st.markdown(f"**\U0001f916 GEMINI-1.5-FLASH**")
+            st.markdown(f"**\U0001f916 GEMINI IA**")
             st.markdown(message.parts[0].text)
 
 # Input de mensagens do usuario
@@ -582,7 +582,7 @@ if prompt:
             except Exception as first_err:
                 try:
                     fallback_model = genai.GenerativeModel(
-                        model_name="gemini-1.5-flash",
+                        model_name="gemini-3.1-flash-lite",
                         generation_config=GENERATION_CONFIG,
                         system_instruction=SYSTEM_INSTRUCTION
                     )
