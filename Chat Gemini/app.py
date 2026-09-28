@@ -531,7 +531,7 @@ GENERATION_CONFIG = {
 
 @st.cache_resource
 def get_generative_model():
-    candidatos = ["gemini-3.8-flash", "gemini-flash-latest", "gemini-1.5-flash", "gemini-2.5-flash"]
+    candidatos = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-flash-latest"]
     for m_name in candidatos:
         try:
             return genai.GenerativeModel(
@@ -542,7 +542,7 @@ def get_generative_model():
         except Exception:
             continue
     return genai.GenerativeModel(
-        model_name="gemini-3.8-flash",
+        model_name="gemini-1.5-flash",
         generation_config=GENERATION_CONFIG,
         system_instruction=SYSTEM_INSTRUCTION
     )
@@ -582,7 +582,7 @@ if prompt:
             except Exception as first_err:
                 try:
                     fallback_model = genai.GenerativeModel(
-                        model_name="gemini-3.8-flash",
+                        model_name="gemini-1.5-flash",
                         generation_config=GENERATION_CONFIG,
                         system_instruction=SYSTEM_INSTRUCTION
                     )
@@ -590,7 +590,10 @@ if prompt:
                     response = st.session_state.chat_session.send_message(prompt)
                     response_text = response.text
                 except Exception as final_err:
-                    st.error(f"Erro ao processar resposta da IA: {final_err}")
+                    if "429" in str(final_err) or "Quota exceeded" in str(final_err):
+                        st.warning("\u26a0\ufe0f Limite de requisições temporariamente atingido. Por favor, aguarde cerca de 1 minuto e tente novamente.")
+                    else:
+                        st.error(f"Erro ao processar resposta da IA: {final_err}")
                     response_text = None
 
             if response_text:
